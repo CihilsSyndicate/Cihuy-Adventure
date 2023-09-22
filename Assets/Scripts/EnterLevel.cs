@@ -22,7 +22,17 @@ public class EnterLevel : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(nextLevel);
+            int unlockedLevel = PlayerPrefs.GetInt("UnlockedLevel");
+            string levelName = "Level " + unlockedLevel.ToString();
+
+            if (SceneManager.GetActiveScene().name == "Rest Area")
+            {
+                SceneManager.LoadScene(levelName);
+            }
+            else
+            {
+                SceneManager.LoadScene("Level " + PlayerPrefs.GetInt("UnlockedLevel"));         
+            }
         }
     }
 }
