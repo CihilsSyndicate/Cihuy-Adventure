@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c33e2108146fb24fa940490ca53ffc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: {fileID: 11400000, guid: 25a211f8a62daa44e9fbfab6bdf94c52, type: 2}
+  health: 0
   slimeBulletPrefab: {fileID: 5445938635951188370, guid: 8d620474dedc5734b853880c91dfc483,
     type: 3}
-  firePoint: {fileID: 6353128745903201262}
-  fireRate: 2

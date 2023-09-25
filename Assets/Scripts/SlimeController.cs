@@ -15,8 +15,18 @@ public class SlimeController : MonoBehaviour
     private float moveDurationCounter;
     private Vector3 moveDirection;
 
+    [Header("Health")]
+    public FloatValue maxHealth;
+    public float health;
+
     [Header("Attacking")]
     public GameObject slimeBulletPrefab;
+
+
+    private void Awake()
+    {
+        health = maxHealth.initialValue;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -73,12 +83,14 @@ public class SlimeController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void TakeDamage(float damage)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        health -= damage;
+        if(health <= 0)
         {
-            Debug.Log("Test");
             Destroy(gameObject);
         }
     }
+
+
 }

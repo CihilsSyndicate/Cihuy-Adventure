@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
+    [Header("Damage")]
+    public float damage;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -16,11 +20,11 @@ public class Damage : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.collider.CompareTag("Enemy"))
         {
-            Destroy(other);
+            other.collider.GetComponent<SlimeController>().TakeDamage(damage);
         }
     }
 }
