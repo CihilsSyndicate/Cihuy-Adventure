@@ -9,13 +9,16 @@ public class EnterLevel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (PlayerPrefs.GetInt("UnlockedLevel") == 0)
+        {
+            PlayerPrefs.SetInt("UnlockedLevel", 1);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(PlayerPrefs.GetInt("UnlockedLevel"));
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -23,16 +26,21 @@ public class EnterLevel : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             int unlockedLevel = PlayerPrefs.GetInt("UnlockedLevel");
-            string levelName = "Level " + unlockedLevel.ToString();
-
+            string levelName;
             if (SceneManager.GetActiveScene().name == "Rest Area")
             {
-                SceneManager.LoadScene(levelName);
+                levelName = "Level " + unlockedLevel.ToString();
             }
             else
             {
-                SceneManager.LoadScene("Level " + PlayerPrefs.GetInt("UnlockedLevel"));         
+                int nextLevel = unlockedLevel + 1;
+                levelName = "Level " + nextLevel.ToString();
+                if(SceneManager.GetActiveScene().buildIndex == PlayerPrefs.GetInt("UnlockedLevel") - 1)
+                {
+                    PlayerPrefs.SetInt("UnlockedLevel", nextLevel);
+                }
             }
+            SceneManager.LoadScene(levelName);
         }
     }
 }
