@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private Rigidbody2D myRb;
     private Vector3 change;
-
+    public FixedJoystick fixedJoystick;
 
     // Start is called before the first frame update
     void Start()
@@ -28,11 +28,16 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        change = Vector3.zero;
-        change.x = Input.GetAxisRaw("Horizontal");
-        change.y = Input.GetAxisRaw("Vertical");
+        // change = Vector3.zero;
+        change = new Vector3(fixedJoystick.Horizontal, 0f, fixedJoystick.Vertical);
+        myRb.velocity = Vector2.zero;
+        change.x = fixedJoystick.Horizontal;
+        change.y = fixedJoystick.Vertical;
+        change.Normalize();
+
+        //myRb.AddForce(change * speed * Time.deltaTime);
 
         if(change == Vector3.zero)
         {
@@ -47,7 +52,6 @@ public class PlayerMovement : MonoBehaviour
         {
             UpdateAnimationAndMove();
         }
-
     }
 
     void UpdateAnimationAndMove()

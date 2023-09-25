@@ -62,17 +62,21 @@ public class SlimeController : MonoBehaviour
 
     void Shoot()
     {
-        GameObject player = GameObject.Find("Player");
-
-        if (player != null)
+        if(gameObject.tag == "Enemy")
         {
-            GameObject bullet = Instantiate(slimeBulletPrefab);
-            bullet.transform.position = transform.position;
-            Vector2 direction = player.transform.position - bullet.transform.position;
-            bullet.GetComponent<BulletController>().SetDirection(direction);
+            GameObject player = GameObject.Find("Player");
+
+            if (player != null)
+            {
+                GameObject bullet = Instantiate(slimeBulletPrefab);
+                bullet.transform.position = transform.position;
+                Vector2 direction = player.transform.position - bullet.transform.position;
+                bullet.GetComponent<BulletController>().SetDirection(direction);
+            }
         }
     }
 
+    /*
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -80,5 +84,5 @@ public class SlimeController : MonoBehaviour
             Debug.Log("Test");
             Destroy(gameObject);
         }
-    }
+    } */
 }
