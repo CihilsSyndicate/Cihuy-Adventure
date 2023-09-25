@@ -15,18 +15,8 @@ public class SlimeController : MonoBehaviour
     private float moveDurationCounter;
     private Vector3 moveDirection;
 
-    [Header("Health")]
-    public FloatValue maxHealth;
-    public float health;
-
     [Header("Attacking")]
     public GameObject slimeBulletPrefab;
-
-
-    private void Awake()
-    {
-        health = maxHealth.initialValue;
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -72,25 +62,27 @@ public class SlimeController : MonoBehaviour
 
     void Shoot()
     {
-        GameObject player = GameObject.Find("Player");
-
-        if (player != null)
+        if(gameObject.tag == "Enemy")
         {
-            GameObject bullet = Instantiate(slimeBulletPrefab);
-            bullet.transform.position = transform.position;
-            Vector2 direction = player.transform.position - bullet.transform.position;
-            bullet.GetComponent<BulletController>().SetDirection(direction);
+            GameObject player = GameObject.Find("Player");
+
+            if (player != null)
+            {
+                GameObject bullet = Instantiate(slimeBulletPrefab);
+                bullet.transform.position = transform.position;
+                Vector2 direction = player.transform.position - bullet.transform.position;
+                bullet.GetComponent<BulletController>().SetDirection(direction);
+            }
         }
     }
 
-    public void TakeDamage(float damage)
+    /*
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        health -= damage;
-        if(health <= 0)
+        if (collision.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Test");
             Destroy(gameObject);
         }
-    }
-
-
+    } */
 }
