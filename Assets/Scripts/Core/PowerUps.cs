@@ -20,13 +20,24 @@ public class PowerUps : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Periksa apakah tidak ada musuh yang tersisa
+        // Periksa apakah tidak ada musuh yang tersisa dengan tag "Enemy"
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if (enemies.Length == 0 && enemiesDefeated == false)
+
+        // Periksa apakah tidak ada bos yang tersisa dengan tag "Boss"
+        GameObject[] bossEnemies = GameObject.FindGameObjectsWithTag("Boss");
+
+        // Gabungkan kedua array musuh dan bos menjadi satu array
+        GameObject[] allEnemies = new GameObject[enemies.Length + bossEnemies.Length];
+        enemies.CopyTo(allEnemies, 0);
+        bossEnemies.CopyTo(allEnemies, enemies.Length);
+
+        // Sekarang Anda memiliki semua musuh (termasuk bos) dalam array allEnemies
+        if (allEnemies.Length == 0 && enemiesDefeated == false)
         {
             enemiesDefeated = true;
             ShowPowerUpPopUp();
         }
+
     }
 
     public void ShowPowerUpPopUp()

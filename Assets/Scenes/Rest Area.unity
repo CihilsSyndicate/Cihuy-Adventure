@@ -842,7 +842,7 @@ MonoBehaviour:
   bulletSpeed: 10
   fireRate: 0.5
   attackSpeed: 1
-  maxShot: 0
+  maxShot: 3
   bulletContainer: {fileID: 241438329}
 --- !u!114 &759517326
 MonoBehaviour:
@@ -967,6 +967,7 @@ MonoBehaviour:
   fixedJoystick: {fileID: 1979066829}
   currentHealth: {fileID: 11400000, guid: cba51a348d0e4c241a6aae14fa1e4c8f, type: 2}
   playerHealthSignal: {fileID: 11400000, guid: bea8081990fcb3d49999132a77b4765e, type: 2}
+  damageEffectDuration: 0.2
 --- !u!50 &759517331
 Rigidbody2D:
   serializedVersion: 4

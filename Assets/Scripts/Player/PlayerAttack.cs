@@ -55,5 +55,4 @@ public class PlayerAttack : MonoBehaviour
             rb.velocity = direction * bulletSpeed;
         }
     }
-
 }
