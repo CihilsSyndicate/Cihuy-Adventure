@@ -14,6 +14,9 @@ public class BossController : MonoBehaviour
     private float moveDuration;
     private float moveDurationCounter;
     private Vector3 moveDirection;
+    public Animator bossAnim;
+    public float damageEffectDuration = 0.2f;
+    private SpriteRenderer spriteRenderer;
 
     [Header("Attacking")]
     public GameObject slimeBulletPrefab;
@@ -31,15 +34,18 @@ public class BossController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
         bulletContainer = GameObject.Find("BulletContainer");
         InvokeRepeating("Shoot", Random.Range(4f, 10f), Random.Range(9f, 11f));
         rb = GetComponent<Rigidbody2D>();
 
-        interval = Random.Range(1f, 3f);
-        moveDuration = Random.Range(0.5f, 2f);
+        interval = Random.Range(1f, 1.5f);
+        moveDuration = Random.Range(0.5f, 1f);
 
         intervalCounter = interval;
         moveDurationCounter = moveDuration;
+        bossAnim.SetBool("IsAlive", true);
     }
 
     // Update is called once per frame
@@ -82,6 +88,16 @@ public class BossController : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            rb.velocity = Vector2.zero;
+            moveDurationCounter = 0;
+            collision.gameObject.GetComponent<Health>().TakeDamage(1f);
+        }
+    }
+
     void Shoot()
     {
         if (gameObject.tag == "Enemy")
@@ -101,10 +117,26 @@ public class BossController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        StartCoroutine(DamageEffect());
         if (health <= 0)
         {
-            Destroy(gameObject);
+            rb.velocity = Vector2.zero;
+            moveDurationCounter = 0;
+            bossAnim.SetBool("IsAlive", false);
         }
     }
 
+    public void VanishBoss()
+    {
+        Destroy(gameObject);
+    }
+
+    private IEnumerator DamageEffect()
+    {
+        spriteRenderer.color = Color.red; // Mengubah warna menjadi merah
+
+        yield return new WaitForSeconds(damageEffectDuration);
+
+        spriteRenderer.color = Color.white; // Mengembalikan warna aslinya
+    }
 }
