@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - BouncingSlime
+  - Sword
+  - Boss
   layers:
   - Default
   - TransparentFX

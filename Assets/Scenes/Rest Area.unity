@@ -194,13 +194,14 @@ GameObject:
   - component: {fileID: 113594207}
   - component: {fileID: 113594209}
   - component: {fileID: 113594208}
+  - component: {fileID: 113594210}
   m_Layer: 0
   m_Name: Sword
-  m_TagString: Untagged
+  m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &113594207
 Transform:
   m_ObjectHideFlags: 0
@@ -208,13 +209,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113594206}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.35803604, y: 1.9027662, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
+  m_LocalPosition: {x: -2.505, y: 0, z: 0}
   m_LocalScale: {x: 1.5966704, y: 1.5966704, z: 1.5966703}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 759517332}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
 --- !u!114 &113594208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,6 +231,7 @@ MonoBehaviour:
   player: {fileID: 759517323}
   orbitSpeed: 200
   direction: {x: 0, y: 0, z: 1}
+  knockbackForce: 100
 --- !u!212 &113594209
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -264,8 +266,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 744897573
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300056, guid: ffafbca4731165a479de5770cc665870, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -278,6 +280,54 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &113594210
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113594206}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.40706533, y: 0.4695653}
+      - {x: -0.5027669, y: 0.39599836}
+      - {x: -0.50060135, y: 0.17437229}
+      - {x: -0.4446642, y: 0.10318648}
+      - {x: -0.32154122, y: 0.060417537}
+      - {x: 0.08875452, y: -0.33329812}
+      - {x: 0.16934644, y: -0.2606155}
+      - {x: 0.34113038, y: -0.41536582}
+      - {x: 0.3404887, y: -0.5}
+      - {x: 0.5, y: -0.5}
+      - {x: 0.5027667, y: -0.34389716}
+      - {x: 0.4288838, y: -0.34193447}
+      - {x: 0.1189845, y: -0.03644251}
+      - {x: 0.1857898, y: -0.034501985}
+      - {x: 0.19132116, y: 0.035109635}
+      - {x: 0.14322835, y: 0.09538062}
+      - {x: 0.05726904, y: 0.08468995}
+      - {x: 0.004966066, y: 0.0014324969}
+      - {x: -0.18478593, y: 0.25227523}
+      - {x: -0.28922907, y: 0.25994697}
+      - {x: -0.29514757, y: 0.37952605}
+      - {x: -0.21324596, y: 0.44491914}
+      - {x: -0.22166398, y: 0.50553364}
 --- !u!1 &209177002
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +400,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &356445583
 PrefabInstance:
@@ -793,7 +843,7 @@ MonoBehaviour:
   bulletSpeed: 10
   fireRate: 0.5
   attackSpeed: 1
-  maxShot: 5
+  maxShot: 0
   bulletContainer: {fileID: 241438329}
 --- !u!114 &759517325
 MonoBehaviour:
@@ -967,8 +1017,9 @@ Transform:
   - {fileID: 1366861330}
   - {fileID: 48289946}
   - {fileID: 1382405018}
+  - {fileID: 113594207}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &858354976
 GameObject:
@@ -1379,7 +1430,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1043935536
 PrefabInstance:
@@ -1486,6 +1537,7 @@ MonoBehaviour:
   - {fileID: 920397080}
   - {fileID: 572140553}
   orbitingSword: {fileID: 113594206}
+  swordDuration: 20
 --- !u!4 &1061449331
 Transform:
   m_ObjectHideFlags: 0
@@ -1498,7 +1550,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1179962357
 GameObject:
@@ -1643,6 +1695,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6353128745903201251, guid: 6aa9454c9379f7f4d86fe86548891034,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6353128745903201261, guid: 6aa9454c9379f7f4d86fe86548891034,
         type: 3}
       propertyPath: m_Name

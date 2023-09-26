@@ -9,6 +9,7 @@ public class PowerUps : MonoBehaviour
     private bool enemiesDefeated = false;
     public GameObject[] powerUpGO;
     public GameObject orbitingSword;
+    public int swordDuration;
 
     // Start is called before the first frame update
     void Start()
@@ -73,6 +74,13 @@ public class PowerUps : MonoBehaviour
 
     public void AddSword()
     {
+        StartCoroutine(ActivateSwordForDuration());
+    }
+
+    private IEnumerator ActivateSwordForDuration()
+    {
         orbitingSword.SetActive(true);
+        yield return new WaitForSeconds(swordDuration);
+        orbitingSword.SetActive(false);
     }
 }
