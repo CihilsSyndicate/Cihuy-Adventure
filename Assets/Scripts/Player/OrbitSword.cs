@@ -21,6 +21,7 @@ public class OrbitSword : MonoBehaviour
 
         if (other.CompareTag("Boss"))
         {
+            Debug.Log("You hit the boss!");
             other.GetComponent<BossController>().TakeDamage(1f);
         }
     }

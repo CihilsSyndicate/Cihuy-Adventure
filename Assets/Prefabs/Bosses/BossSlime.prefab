@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6353128745903201262}
   - component: {fileID: 6353128745903201263}
-  - component: {fileID: 6353128745903201260}
   - component: {fileID: 6353128745903201251}
   - component: {fileID: 6353128745903201248}
   - component: {fileID: 114504141347012364}
+  - component: {fileID: 24408770963843109}
   m_Layer: 0
   m_Name: BossSlime
   m_TagString: Boss
@@ -83,25 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &6353128745903201260
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6353128745903201261}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: dc9ad1b5a8c2935419ad6484fa8ddf05, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!61 &6353128745903201251
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -136,11 +117,11 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6353128745903201261}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.5
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -162,7 +143,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 9
+  bossAnim: {fileID: 24408770963843109}
   slimeBulletPrefab: {fileID: 5445938635951188370, guid: 8d620474dedc5734b853880c91dfc483,
     type: 3}
-  maxHealth: {fileID: 11400000, guid: 25a211f8a62daa44e9fbfab6bdf94c52, type: 2}
+  maxHealth: {fileID: 11400000, guid: b2ed86eebdbf76c41bf3fa23f674751e, type: 2}
   health: 0
+--- !u!95 &24408770963843109
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6353128745903201261}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8be138644979b2c42b21cc9bff80e4f4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
