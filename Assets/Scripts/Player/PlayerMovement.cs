@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D myRb;
     private Vector3 change;
     public FixedJoystick fixedJoystick;
+    public FloatValue currentHealth;
+    public Signal playerHealthSignal;
 
     private static PlayerMovement instance;
 
@@ -102,5 +104,18 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("Attack", false);
         yield return new WaitForSeconds(.3f);
         currentState = playerState.walk;
+    }
+
+
+    public void TakeDamage(float damage)
+    {
+        currentHealth.RuntimeValue -= damage;
+        playerHealthSignal.Raise();
+        if (currentHealth.RuntimeValue > 0)
+        {
+
+        }
+        else
+            gameObject.SetActive(false);
     }
 }

@@ -449,7 +449,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!212 &868017765
@@ -526,8 +526,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f957b248e88a0dc45bfcd2743f01d90a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyState: 0
   health: 0
   maxHealth: {fileID: 11400000, guid: 25a211f8a62daa44e9fbfab6bdf94c52, type: 2}
+  patrolDistance: 5
+  speed: 2
+  patrolDelay: 2
 --- !u!1001 &1014411683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13504,7 +13508,6 @@ GameObject:
   - component: {fileID: 2108313461}
   - component: {fileID: 2108313466}
   - component: {fileID: 2108313467}
-  - component: {fileID: 2108313468}
   - component: {fileID: 2108313469}
   m_Layer: 0
   m_Name: Player
@@ -13602,6 +13605,8 @@ MonoBehaviour:
   currentState: 0
   speed: 5
   fixedJoystick: {fileID: 1014411685}
+  currentHealth: {fileID: 11400000, guid: cba51a348d0e4c241a6aae14fa1e4c8f, type: 2}
+  playerHealthSignal: {fileID: 11400000, guid: bea8081990fcb3d49999132a77b4765e, type: 2}
 --- !u!50 &2108313464
 Rigidbody2D:
   serializedVersion: 4
@@ -13673,20 +13678,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectID: 
---- !u!114 &2108313468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2108313460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3647b11c603e4ef4d89d1f034a115d48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentHealth: {fileID: 11400000, guid: cba51a348d0e4c241a6aae14fa1e4c8f, type: 2}
-  playerHealthSignal: {fileID: 11400000, guid: bea8081990fcb3d49999132a77b4765e, type: 2}
 --- !u!114 &2108313469
 MonoBehaviour:
   m_ObjectHideFlags: 0
