@@ -11,6 +11,27 @@ public class PlayerAttack : MonoBehaviour
     public float attackSpeed;
     private float nextFireTime = 0f; // Waktu berikutnya pemain bisa menembak.
     public int maxShot;
+    public GameObject bulletContainer;
+
+    private static PlayerAttack instance;
+
+    public static PlayerAttack Instance
+    {
+        get { return instance; }
+    }
+
+    void Awake()
+    {
+        // Inisialisasi instance singleton
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject); // Hancurkan objek jika instance sudah ada
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -28,6 +49,7 @@ public class PlayerAttack : MonoBehaviour
         for (int i = 0; i < Mathf.Min(maxShot, enemies.Length); i++) // Menggunakan Mathf.Min untuk memastikan tidak melebihi panjang array musuh
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            bullet.transform.SetParent(bulletContainer.transform);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             Vector2 direction = (enemies[i].transform.position - firePoint.position).normalized;
             rb.velocity = direction * bulletSpeed;

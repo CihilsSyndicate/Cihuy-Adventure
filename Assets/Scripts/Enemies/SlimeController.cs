@@ -17,6 +17,7 @@ public class SlimeController : MonoBehaviour
 
     [Header("Attacking")]
     public GameObject slimeBulletPrefab;
+    private GameObject bulletContainer;
 
     [Header("Health")]
     public FloatValue maxHealth;
@@ -30,6 +31,7 @@ public class SlimeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        bulletContainer = GameObject.Find("BulletContainer");
         InvokeRepeating("Shoot", Random.Range(4f, 10f), Random.Range(9f, 11f));
         rb = GetComponent<Rigidbody2D>();
 
@@ -78,6 +80,7 @@ public class SlimeController : MonoBehaviour
             if (player != null)
             {
                 GameObject bullet = Instantiate(slimeBulletPrefab);
+                bullet.transform.SetParent(bulletContainer.transform);
                 bullet.transform.position = transform.position;
                 Vector2 direction = player.transform.position - bullet.transform.position;
                 bullet.GetComponent<BulletController>().SetDirection(direction);
