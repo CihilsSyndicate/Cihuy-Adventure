@@ -14,6 +14,8 @@ public class SlimeController : MonoBehaviour
     private float moveDuration;
     private float moveDurationCounter;
     private Vector3 moveDirection;
+    public float damageEffectDuration = 0.2f;
+    private SpriteRenderer spriteRenderer;
 
     [Header("Attacking")]
     public GameObject slimeBulletPrefab;
@@ -31,6 +33,7 @@ public class SlimeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         bulletContainer = GameObject.Find("BulletContainer");
         InvokeRepeating("Shoot", Random.Range(4f, 10f), Random.Range(9f, 11f));
         rb = GetComponent<Rigidbody2D>();
@@ -87,13 +90,23 @@ public class SlimeController : MonoBehaviour
             }
         }
     }
+
     public void TakeDamage(float damage)
     {
         health -= damage;
+        StartCoroutine(DamageEffect());
         if (health <= 0)
         {       
             Destroy(gameObject);
         }
     }
-   
+
+    private IEnumerator DamageEffect()
+    {
+        spriteRenderer.color = Color.red; // Mengubah warna menjadi merah
+
+        yield return new WaitForSeconds(damageEffectDuration);
+
+        spriteRenderer.color = Color.white; // Mengembalikan warna aslinya
+    }
 }

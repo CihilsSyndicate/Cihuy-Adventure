@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     public FixedJoystick fixedJoystick;
     public FloatValue currentHealth;
     public Signal playerHealthSignal;
+    private SpriteRenderer spriteRenderer;
+    public float damageEffectDuration = 0.2f;
 
     private static PlayerMovement instance;
 
@@ -42,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         myRb = GetComponent<Rigidbody2D>();
         anim.SetFloat("x", 0);
@@ -110,6 +113,7 @@ public class PlayerMovement : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth.RuntimeValue -= damage;
+        StartCoroutine(DamageEffect());
         playerHealthSignal.Raise();
         if (currentHealth.RuntimeValue > 0)
         {
@@ -117,5 +121,14 @@ public class PlayerMovement : MonoBehaviour
         }
         else
             gameObject.SetActive(false);
+    }
+
+    private IEnumerator DamageEffect()
+    {
+        spriteRenderer.color = Color.red; // Mengubah warna menjadi merah
+
+        yield return new WaitForSeconds(damageEffectDuration);
+
+        spriteRenderer.color = Color.white; // Mengembalikan warna aslinya
     }
 }

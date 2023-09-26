@@ -22,13 +22,17 @@ public class HappySlime : MonoBehaviour
     public float patrolDelay = 2f; // Delay time before patrolling to the next position
     private float patrolStartTime;
     private bool inPatrolDelay = false;
-    private bool alive = true;  
+    private bool alive = true;
+
+    private SpriteRenderer spriteRenderer;
+    public float damageEffectDuration = 0.2f;
 
     private Vector2 initialPatrolPosition;
     private Vector2 targetPatrolPosition;
 
     private void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         initialPatrolPosition = transform.position;
         ChooseNewPatrolPosition();
         health = maxHealth.initialValue;
@@ -74,6 +78,7 @@ public class HappySlime : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        StartCoroutine(DamageEffect());
         anim.SetTrigger("hit");
         if(health <= 0)
         {
@@ -97,5 +102,14 @@ public class HappySlime : MonoBehaviour
             enemyState = EnemyState.Idle;
             myRb.velocity = Vector2.zero;
         }
+    }
+
+    private IEnumerator DamageEffect()
+    {
+        spriteRenderer.color = Color.red; // Mengubah warna menjadi merah
+
+        yield return new WaitForSeconds(damageEffectDuration);
+
+        spriteRenderer.color = Color.white; // Mengembalikan warna aslinya
     }
 }
