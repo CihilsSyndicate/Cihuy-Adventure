@@ -8,6 +8,7 @@ public class Damage : MonoBehaviour
     public float damage;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,18 @@ public class Damage : MonoBehaviour
         if (other.collider.CompareTag("Enemy"))
         {
             other.collider.GetComponent<SlimeController>().TakeDamage(damage);
+        }
+        if(other.gameObject.name == "HappySlime")
+        {
+            other.collider.GetComponent<HappySlime>().TakeDamage(damage);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.name == "HappySlime")
+        {
+            other.GetComponent<HappySlime>().TakeDamage(damage);
         }
     }
 }

@@ -4,34 +4,32 @@ using UnityEngine;
 
 public class PlayerBounce : MonoBehaviour
 {
-    float knockbackDuration;
-    float knockbackPower;
-    public Transform player;
-    private Rigidbody2D rb;
-    public GameObject enemy;
+    public float knockbackForce = 10f; // Kekuatan knockback
+
+    private Rigidbody playerRigidbody;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        playerRigidbody = GetComponent<Rigidbody>();
     }
 
-    private IEnumerator KnockbackCo()
+    private void OnCollisionEnter(Collision collision)
     {
-        float timer = 0;
-        while(knockbackDuration > timer)
+        // Cek apakah yang ditabrak adalah musuh
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            timer += Time.deltaTime;
-            Vector2 direction = (player.transform.position - enemy.transform.position).normalized;
-            rb.AddForce(-direction * knockbackPower);
+            // Hitung vektor arah dari pemain ke musuh
+            Vector3 knockbackDirection = (transform.position - collision.transform.position).normalized;
+
+            // Terapkan knockback
+            Knockback(knockbackDirection);
         }
-        yield return 0;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Knockback(Vector3 knockbackDirection)
     {
-        if(collision.gameObject.tag == "BouncingSlime")
-        {
-            StartCoroutine(KnockbackCo());
-        }
+        // Terapkan gaya knockback pada pemain
+        playerRigidbody.velocity = Vector3.zero; // Reset kecepatan pemain
+        playerRigidbody.AddForce(knockbackDirection * knockbackForce, ForceMode.Impulse);
     }
 }
