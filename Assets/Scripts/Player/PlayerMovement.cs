@@ -18,6 +18,25 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 change;
     public FixedJoystick fixedJoystick;
 
+    private static PlayerMovement instance;
+
+    public static PlayerMovement Instance
+    {
+        get { return instance; }
+    }
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
