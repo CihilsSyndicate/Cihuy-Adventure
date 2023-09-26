@@ -25,7 +25,7 @@ public class PlayerAttack : MonoBehaviour
     void ShootAllEnemies()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        for (int i = 0; i < maxShot; i++)
+        for (int i = 0; i < Mathf.Min(maxShot, enemies.Length); i++) // Menggunakan Mathf.Min untuk memastikan tidak melebihi panjang array musuh
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
@@ -33,4 +33,5 @@ public class PlayerAttack : MonoBehaviour
             rb.velocity = direction * bulletSpeed;
         }
     }
+
 }
