@@ -18,7 +18,7 @@ public class EnterLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Debug.Log(PlayerPrefs.GetInt("UnlockedLevel"));
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)

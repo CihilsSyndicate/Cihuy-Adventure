@@ -7,7 +7,8 @@ public enum playerState
     walk,
     attack,
     idle,
-    stagger
+    stagger,
+    interact
 }
 
 public class PlayerMovement : MonoBehaviour
@@ -72,9 +73,14 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(AttackCo());
         }
-        else if (currentState == playerState.walk || currentState == playerState.idle)
+        else if (currentState == playerState.walk || currentState == playerState.idle && currentState != playerState.interact)
         {
             UpdateAnimationAndMove();
+        }
+        else if(currentState == playerState.interact)
+        {
+            change = Vector3.zero;
+            myRb.velocity = Vector3.zero;
         }
     }
 
