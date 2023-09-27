@@ -17,6 +17,7 @@ public class BossController : MonoBehaviour
     public Animator bossAnim;
     public float damageEffectDuration = 0.2f;
     private SpriteRenderer spriteRenderer;
+    private bool isWaiting;
 
     [Header("Attacking")]
     public GameObject slimeBulletPrefab;
@@ -37,7 +38,7 @@ public class BossController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         bulletContainer = GameObject.Find("BulletContainer");
-        InvokeRepeating("Shoot", Random.Range(4f, 10f), Random.Range(9f, 11f));
+        InvokeRepeating("Shoot", 5f, 1f);
         rb = GetComponent<Rigidbody2D>();
 
         interval = Random.Range(1f, 1.5f);
@@ -46,43 +47,57 @@ public class BossController : MonoBehaviour
         intervalCounter = interval;
         moveDurationCounter = moveDuration;
         bossAnim.SetBool("IsAlive", true);
+
+        StartCoroutine(InitialDelay(3f));
+    }
+
+    IEnumerator InitialDelay(float delayTime)
+    {
+        isWaiting = true;
+
+        yield return new WaitForSeconds(delayTime);
+
+        isWaiting = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isMoving)
+        if (!isWaiting)
         {
-            moveDurationCounter -= Time.deltaTime;
-            rb.velocity = moveDirection;
-
-            if (moveDurationCounter < 0)
+            if (isMoving)
             {
-                isMoving = false;
-                intervalCounter = interval;
-            }
-        }
-        else
-        {
-            intervalCounter -= Time.deltaTime;
-            rb.velocity = Vector2.zero;
+                moveDurationCounter -= Time.deltaTime;
+                rb.velocity = moveDirection;
 
-            if (intervalCounter < 0)
-            {
-                isMoving = true;
-                moveDurationCounter = moveDuration;
-
-                // Cari GameObject dengan tag "Player"
-                GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-                if (player != null)
+                if (moveDurationCounter < 0)
                 {
-                    // Hitung vektor dari posisi bos ke posisi pemain
-                    moveDirection = (player.transform.position - transform.position).normalized * moveSpeed;
+                    isMoving = false;
+                    intervalCounter = interval;
                 }
-                else
+            }
+            else
+            {
+                intervalCounter -= Time.deltaTime;
+                rb.velocity = Vector2.zero;
+
+                if (intervalCounter < 0)
                 {
-                    moveDirection = new Vector3(Random.Range(-1f, 1f) * moveSpeed, Random.Range(-1f, 1f) * moveSpeed, 0f);
+                    isMoving = true;
+                    moveDurationCounter = moveDuration;
+
+                    // Cari GameObject dengan tag "Player"
+                    GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+                    if (player != null)
+                    {
+                        // Hitung vektor dari posisi bos ke posisi pemain
+                        moveDirection = (player.transform.position - transform.position).normalized * moveSpeed;
+                    }
+                    else
+                    {
+                        moveDirection = new Vector3(Random.Range(-1f, 1f) * moveSpeed, Random.Range(-1f, 1f) * moveSpeed, 0f);
+                    }
                 }
             }
         }
@@ -100,20 +115,18 @@ public class BossController : MonoBehaviour
 
     void Shoot()
     {
-        if (gameObject.tag == "Enemy")
-        {
-            GameObject player = GameObject.Find("Player");
+        GameObject target = GameObject.FindGameObjectWithTag("Player");
 
-            if (player != null)
-            {
-                GameObject bullet = Instantiate(slimeBulletPrefab);
-                bullet.transform.SetParent(bulletContainer.transform);
-                bullet.transform.position = transform.position;
-                Vector2 direction = player.transform.position - bullet.transform.position;
-                bullet.GetComponent<BulletController>().SetDirection(direction);
-            }
+        if (target != null)
+        {
+            GameObject bullet = Instantiate(slimeBulletPrefab);
+            bullet.transform.SetParent(bulletContainer.transform);
+            bullet.transform.position = transform.position;
+            Vector2 direction = target.transform.position - bullet.transform.position;
+            bullet.GetComponent<BulletController>().SetDirection(direction);
         }
     }
+
     public void TakeDamage(float damage)
     {
         health -= damage;

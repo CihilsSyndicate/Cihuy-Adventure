@@ -844,6 +844,7 @@ MonoBehaviour:
   attackSpeed: 1
   maxShot: 1
   bulletContainer: {fileID: 241438329}
+  shootRange: 9
 --- !u!114 &759517326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1020,6 +1021,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BossSlime
+      objectReference: {fileID: 0}
+    - target: {fileID: 6353128745903201261, guid: 44052d3e3e31b374bbcc4c2a158fa81a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Boss
       objectReference: {fileID: 0}
     - target: {fileID: 6353128745903201262, guid: 44052d3e3e31b374bbcc4c2a158fa81a,
         type: 3}

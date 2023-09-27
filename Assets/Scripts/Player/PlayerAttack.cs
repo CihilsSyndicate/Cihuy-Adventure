@@ -12,6 +12,7 @@ public class PlayerAttack : MonoBehaviour
     private float nextFireTime = 0f; // Waktu berikutnya pemain bisa menembak.
     public int maxShot;
     public GameObject bulletContainer;
+    public float shootRange = 5f;
 
     private static PlayerAttack instance;
 
@@ -36,22 +37,24 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time >= nextFireTime)
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, shootRange, LayerMask.GetMask("Enemy", "Boss"));
+
+        if (colliders.Length > 0 && Time.time >= nextFireTime)
         {
-            ShootAllEnemies();
+            ShootAllEnemies(colliders);
             nextFireTime = Time.time + attackSpeed / fireRate;
         }
     }
 
-    void ShootAllEnemies()
+    void ShootAllEnemies(Collider2D[] colliders)
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        for (int i = 0; i < Mathf.Min(maxShot, enemies.Length); i++) // Menggunakan Mathf.Min untuk memastikan tidak melebihi panjang array musuh
+        // Loop melalui semua musuh dan bos yang terdeteksi
+        for (int i = 0; i < Mathf.Min(maxShot, colliders.Length); i++)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             bullet.transform.SetParent(bulletContainer.transform);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            Vector2 direction = (enemies[i].transform.position - firePoint.position).normalized;
+            Vector2 direction = (colliders[i].transform.position - firePoint.position).normalized;
             rb.velocity = direction * bulletSpeed;
         }
     }
