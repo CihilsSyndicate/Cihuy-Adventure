@@ -8,13 +8,28 @@ public class MusicManager : MonoBehaviour
 
     [SerializeField] Image MusicOn;
     [SerializeField] Image MusicOff;
-    private bool muted = false;
+    [SerializeField] private AudioSource BacksoundMusic;
+    private bool musicMuted = false;
+    private static MusicManager musicManager;
 
+    void awake()
+    {
+        if (musicManager == null)
+        {
+            musicManager = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
-        if(!PlayerPrefs.HasKey("muted"))
+        if(!PlayerPrefs.HasKey("musicMuted"))
         {
-            PlayerPrefs.SetInt("muted", 0); 
+            PlayerPrefs.SetInt("musicMuted", 0); 
             Load();
         }
 
@@ -24,20 +39,20 @@ public class MusicManager : MonoBehaviour
         }
 
         UpdateButtonIcon();
-        AudioListener.pause = muted;
+        AudioListener.pause = musicMuted;
     }
 
     public void OnButtonPress()
     {
-        if (muted == false)
+        if (musicMuted == false)
         {
-            muted = true;
+            musicMuted = true;
             AudioListener.pause = true;
         }
 
         else
         {
-            muted = false;
+            musicMuted = false;
             AudioListener.pause = false;
         }
 
@@ -47,26 +62,27 @@ public class MusicManager : MonoBehaviour
 
     private void UpdateButtonIcon()
     {
-        if(muted == false)
+        if(musicMuted == false)
         {
             MusicOn.enabled = true;
             MusicOff.enabled = false;
         }
 
         else
-        {
+        { 
             MusicOn.enabled = false;
             MusicOff.enabled = true;
         }
     }
 
+    // Change this line in MusicManager
     private void Load()
     {
-        muted = PlayerPrefs.GetInt("muted") == 1;
+        musicMuted = PlayerPrefs.GetInt("musicMuted") == 1;
     }
 
     private void Save()
     {
-        PlayerPrefs.SetInt("muted", muted ? 1 : 0);
+        PlayerPrefs.SetInt("musicMuted", musicMuted ? 1 : 0);
     }
 }
