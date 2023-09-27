@@ -6,7 +6,8 @@ public enum playerState
 {
     walk,
     attack,
-    idle
+    idle,
+    stagger
 }
 
 public class PlayerMovement : MonoBehaviour
@@ -56,7 +57,6 @@ public class PlayerMovement : MonoBehaviour
     {
         // change = Vector3.zero;
         change = new Vector3(fixedJoystick.Horizontal, 0f, fixedJoystick.Vertical);
-        myRb.velocity = Vector2.zero;
         change.x = fixedJoystick.Horizontal;
         change.y = fixedJoystick.Vertical;
         change.Normalize();
@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
             currentState = playerState.idle;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && currentState != playerState.attack)
+        if (Input.GetKeyDown(KeyCode.Space) && currentState != playerState.attack && currentState != playerState.stagger)
         {
             StartCoroutine(AttackCo());
         }
@@ -131,15 +131,16 @@ public class PlayerMovement : MonoBehaviour
 
         spriteRenderer.color = Color.white; // Mengembalikan warna aslinya
     }
+
     public void Knock(float knockTime, float damage)
     {
         currentHealth.RuntimeValue -= damage;
         playerHealthSignal.Raise();
         if (currentHealth.RuntimeValue > 0)
         {
-
             StartCoroutine(knockCo(knockTime));
-        }
+        }else
+            gameObject.SetActive(false);
 
     }
 
