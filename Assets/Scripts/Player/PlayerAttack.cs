@@ -11,7 +11,7 @@ public class PlayerAttack : MonoBehaviour
     public float attackSpeed;
     private float nextFireTime = 0f; // Waktu berikutnya pemain bisa menembak.
     public int maxShot;
-    public GameObject bulletContainer;
+    private GameObject bulletContainer;
     public float shootRange = 5f;
 
     private static PlayerAttack instance;
@@ -23,6 +23,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Awake()
     {
+        bulletContainer = GameObject.Find("BulletContainer");
         // Inisialisasi instance singleton
         if (instance == null)
         {
