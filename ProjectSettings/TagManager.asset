@@ -17,8 +17,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Enemy
+  - Boss
   - 
   - 
   - 
@@ -50,4 +50,7 @@ TagManager:
     locked: 0
   - name: Player & Enemies
     uniqueID: 744897573
+    locked: 0
+  - name: Objects
+    uniqueID: 1158075361
     locked: 0

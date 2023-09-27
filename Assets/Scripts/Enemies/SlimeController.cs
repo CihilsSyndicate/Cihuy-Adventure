@@ -25,6 +25,9 @@ public class SlimeController : MonoBehaviour
     public FloatValue maxHealth;
     public float health;
 
+    [Header("Item Drop")]
+    public GameObject coinPrefab;
+
     private void Awake()
     {
         health = maxHealth.initialValue;
@@ -76,18 +79,15 @@ public class SlimeController : MonoBehaviour
 
     void Shoot()
     {
-        if(gameObject.tag == "Enemy")
-        {
-            GameObject player = GameObject.Find("Player");
+        GameObject target = GameObject.FindGameObjectWithTag("Player");
 
-            if (player != null)
-            {
-                GameObject bullet = Instantiate(slimeBulletPrefab);
-                bullet.transform.SetParent(bulletContainer.transform);
-                bullet.transform.position = transform.position;
-                Vector2 direction = player.transform.position - bullet.transform.position;
-                bullet.GetComponent<BulletController>().SetDirection(direction);
-            }
+        if (target != null)
+        {
+            GameObject bullet = Instantiate(slimeBulletPrefab);
+            bullet.transform.SetParent(bulletContainer.transform);
+            bullet.transform.position = transform.position;
+            Vector2 direction = target.transform.position - bullet.transform.position;
+            bullet.GetComponent<BulletController>().SetDirection(direction);
         }
     }
 
@@ -96,7 +96,12 @@ public class SlimeController : MonoBehaviour
         health -= damage;
         StartCoroutine(DamageEffect());
         if (health <= 0)
-        {       
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                GameObject coin = Instantiate(coinPrefab);
+                coin.transform.position = transform.position;
+            }
             Destroy(gameObject);
         }
     }
