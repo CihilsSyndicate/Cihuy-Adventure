@@ -2552,7 +2552,7 @@ MonoBehaviour:
   - {fileID: 2047195606}
   - {fileID: 920397080}
   - {fileID: 572140553}
-  orbitingSword: {fileID: 0}
+  orbitingSword: {fileID: 741282452}
   swordDuration: 20
 --- !u!4 &1061449331
 Transform:
@@ -4014,7 +4014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c4c3791d5ce9b841a31a2e8b54a4a44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shop: {fileID: 0}
+  shop: {fileID: 904684657}
 --- !u!4 &1667616693
 Transform:
   m_ObjectHideFlags: 0
