@@ -12938,7 +12938,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!60 &1552573281
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -13721,7 +13721,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.35526752}
+  m_Offset: {x: -0.0025668144, y: -0.37580252}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -13732,7 +13732,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.66096216, y: 0.40438366}
+  m_Size: {x: 0.5018158, y: 0.31197596}
   m_EdgeRadius: 0
 --- !u!212 &2108313462
 SpriteRenderer:
@@ -13818,7 +13818,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!4 &2108313465
@@ -13879,7 +13879,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108313460}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7bf19c39e1238948809603ca96617a8, type: 3}
   m_Name: 
@@ -13891,7 +13891,6 @@ MonoBehaviour:
   fireRate: 0.5
   attackSpeed: 0.3
   maxShot: 3
-  bulletContainer: {fileID: 1538552432}
   shootRange: 5
 --- !u!61 &2108313470
 BoxCollider2D:

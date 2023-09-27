@@ -35,15 +35,19 @@ public class Damage : MonoBehaviour
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
             if(hit != null)
             {
-                if (other.CompareTag("Enemy"))
+                if (other.CompareTag("Enemy") && other.isTrigger)
                 {
                     hit.GetComponent<HappySlime>().enemyState = EnemyState.Stagger;
                     other.GetComponent<HappySlime>().Knock(hit, knockTime, damage);
                 }
                 if (other.CompareTag("Player"))
                 {
-                    hit.GetComponent<PlayerMovement>().currentState = playerState.stagger;
-                    other.GetComponent<PlayerMovement>().Knock(knockTime, damage);
+                    if(other.GetComponent<PlayerMovement>().currentState != playerState.stagger)
+                    {
+                        hit.GetComponent<PlayerMovement>().currentState = playerState.stagger;
+                        other.GetComponent<PlayerMovement>().Knock(knockTime, damage);
+                    }
+                    
                 }
                 Vector2 difference = hit.transform.position - transform.position;
                 difference = difference.normalized * force;
@@ -52,5 +56,24 @@ public class Damage : MonoBehaviour
             
         }
     
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        
+        if (other.CompareTag("Player"))
+        {
+            Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
+            Vector2 difference = hit.transform.position - transform.position;
+            difference = difference.normalized * force;
+            hit.AddForce(difference, ForceMode2D.Impulse);
+            if (other.GetComponent<PlayerMovement>().currentState != playerState.stagger)
+            {
+                hit.GetComponent<PlayerMovement>().currentState = playerState.stagger;
+                other.GetComponent<PlayerMovement>().Knock(knockTime, damage);
+            }
+
+        }
+        
     }
 }

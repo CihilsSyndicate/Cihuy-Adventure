@@ -14,7 +14,7 @@ public class OrbitSword : Damage
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") && other.gameObject.name != "HappySlime")
         {
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
             if(hit != null)
