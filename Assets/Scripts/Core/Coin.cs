@@ -6,9 +6,10 @@ public class Coin : MonoBehaviour
 {
     [Header("Magnetting")]
     private Transform playerTransform; // Referensi ke Transform pemain
-    public float moveSpeed = 5f; // Kecepatan pergerakan koin
-    public float delayBeforeMove = 2f; // Penundaan sebelum koin mulai bergerak
+    public float moveSpeed = 10f; // Kecepatan pergerakan koin
+    public float delayBeforeMove = 1f; // Penundaan sebelum koin mulai bergerak
     private bool isMoving = false;
+    private Collider2D coinCollider;
 
     [Header("Random Splash")]
     public Transform objectTransform;
@@ -26,9 +27,10 @@ public class Coin : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        coinCollider = GetComponent<Collider2D>();
+        coinCollider.enabled = false;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         playerTransform = player.transform;
-        StartCoroutine(StartMoving());
     }
 
     // Update is called once per frame
@@ -41,20 +43,24 @@ public class Coin : MonoBehaviour
             delay += pastTime;
         }
 
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] bossEnemies = GameObject.FindGameObjectsWithTag("Boss");
+
+        GameObject[] allEnemies = new GameObject[enemies.Length + bossEnemies.Length];
+        enemies.CopyTo(allEnemies, 0);
+        bossEnemies.CopyTo(allEnemies, enemies.Length);
+
+        if (allEnemies.Length == 0 && isMoving == false)
+        {
+            isMoving = true;
+        }
+
         if (isMoving)
         {
+            coinCollider.enabled = true;
             Vector3 direction = (playerTransform.position - transform.position).normalized;
             transform.Translate(direction * moveSpeed * Time.deltaTime);
         }
-    }
-
-    private IEnumerator StartMoving()
-    {
-        // Tunggu selama delayBeforeMove
-        yield return new WaitForSeconds(delayBeforeMove);
-
-        // Setelah penundaan, aktifkan pergerakan koin
-        isMoving = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

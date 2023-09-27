@@ -26,7 +26,7 @@ public class PlayerBulletController : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<SlimeController>().TakeDamage(1f);
+            other.GetComponent<SlimeController>().TakeDamage(25f);
             Destroy(gameObject);
         }
 

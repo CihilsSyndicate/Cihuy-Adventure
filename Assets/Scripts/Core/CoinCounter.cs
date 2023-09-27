@@ -7,7 +7,7 @@ public class CoinCounter : MonoBehaviour
 {
     public static CoinCounter instance;
 
-    public Text textCoin;
+    public Text[] textCoin;
     public int currentCoin;
 
     public static CoinCounter Instance
@@ -37,7 +37,10 @@ public class CoinCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textCoin.text = currentCoin.ToString();
+        for (int i = 0; i < textCoin.Length; i++)
+        {
+            textCoin[i].text = currentCoin.ToString();
+        }
     }
 
     public void IncreaseCoin(int value)

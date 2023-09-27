@@ -16,7 +16,7 @@ public class OrbitSword : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {          
-            other.GetComponent<SlimeController>().TakeDamage(0.1f);
+            other.GetComponent<SlimeController>().TakeDamage(25f);
         }
 
         if (other.CompareTag("Boss"))
