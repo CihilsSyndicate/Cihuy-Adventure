@@ -19,7 +19,7 @@ public class OrbitSword : Damage
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
             if(hit != null)
             {
-                other.GetComponent<SlimeController>().TakeDamage(damage);
+                other.GetComponent<SlimeController>().Knock(hit, knockTime, damage);
             }
             Vector2 difference = hit.transform.position - transform.position;
             difference = difference.normalized * force;

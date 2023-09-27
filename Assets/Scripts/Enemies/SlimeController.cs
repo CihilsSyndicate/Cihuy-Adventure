@@ -66,7 +66,7 @@ public class SlimeController : MonoBehaviour
         else
         {
             intervalCounter -= Time.deltaTime;
-            rb.velocity = Vector2.zero;
+            // rb.velocity = Vector2.zero;
 
             if (intervalCounter < 0)
             {
@@ -113,5 +113,21 @@ public class SlimeController : MonoBehaviour
         yield return new WaitForSeconds(damageEffectDuration);
 
         spriteRenderer.color = Color.white; // Mengembalikan warna aslinya
+    }
+    
+    public void Knock(Rigidbody2D myRb, float knockTime, float damage)
+    {
+        StartCoroutine(knockCo(myRb, knockTime));
+        TakeDamage(damage);
+    }
+
+    private IEnumerator knockCo(Rigidbody2D myRb, float knockTime)
+    {
+        if (myRb != null)
+        {
+            yield return new WaitForSeconds(knockTime);
+            myRb.velocity = Vector2.zero;            
+            //myRb.velocity = Vector2.zero;
+        }
     }
 }

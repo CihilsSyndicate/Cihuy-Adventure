@@ -164,7 +164,7 @@ MonoBehaviour:
   damageEffectDuration: 0.2
   slimeBulletPrefab: {fileID: 5445938635951188370, guid: 8d620474dedc5734b853880c91dfc483,
     type: 3}
-  maxHealth: {fileID: 11400000, guid: 25a211f8a62daa44e9fbfab6bdf94c52, type: 2}
+  maxHealth: {fileID: 11400000, guid: 3aae762f781a93c4298454312e890686, type: 2}
   health: 0
   coinPrefab: {fileID: 2119940945105608927, guid: 3c86b65b39efed94181eb4c84b73fad0,
     type: 3}
