@@ -30,40 +30,27 @@ public class Damage : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.name == "HappySlime" && other.CompareTag("Enemy"))
+        if(other.CompareTag("Enemy") || other.CompareTag("Player"))
         {
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
             if(hit != null)
             {
-                hit.GetComponent<HappySlime>().enemyState = EnemyState.Stagger;
+                if (other.CompareTag("Enemy"))
+                {
+                    hit.GetComponent<HappySlime>().enemyState = EnemyState.Stagger;
+                    other.GetComponent<HappySlime>().Knock(hit, knockTime, damage);
+                }
+                if (other.CompareTag("Player"))
+                {
+                    hit.GetComponent<PlayerMovement>().currentState = playerState.stagger;
+                    other.GetComponent<PlayerMovement>().Knock(knockTime, damage);
+                }
                 Vector2 difference = hit.transform.position - transform.position;
                 difference = difference.normalized * force;
                 hit.AddForce(difference, ForceMode2D.Impulse);
-                StartCoroutine(KnockCo(hit));
             }
-            other.GetComponent<HappySlime>().TakeDamage(damage);
+            
         }
-        if (other.gameObject.name != "HappySlime" && other.CompareTag("Enemy"))
-        {
-            Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
-            if(hit != null)
-            {
-                Vector2 difference = hit.transform.position - transform.position;
-                difference = difference.normalized * force;
-                hit.AddForce(difference, ForceMode2D.Impulse);
-                StartCoroutine(KnockCo(hit));
-            }
-            other.GetComponent<SlimeController>().TakeDamage(damage);
-        }
-    }
-
-    private IEnumerator KnockCo(Rigidbody2D hit)
-    {
-        if(hit != null)
-        {
-            yield return new WaitForSeconds(knockTime);
-            hit.velocity = Vector2.zero;
-            hit.GetComponent<HappySlime>().enemyState = EnemyState.Idle;
-        }
+    
     }
 }

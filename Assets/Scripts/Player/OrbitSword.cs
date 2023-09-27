@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class OrbitSword : MonoBehaviour
+public class OrbitSword : Damage
 {
     public GameObject player;
     public float orbitSpeed = 10f;
@@ -15,14 +15,21 @@ public class OrbitSword : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy"))
-        {          
-            other.GetComponent<SlimeController>().TakeDamage(0.1f);
+        {
+            Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
+            if(hit != null)
+            {
+                other.GetComponent<SlimeController>().TakeDamage(damage);
+            }
+            Vector2 difference = hit.transform.position - transform.position;
+            difference = difference.normalized * force;
+            hit.AddForce(difference, ForceMode2D.Impulse);
         }
 
         if (other.CompareTag("Boss"))
         {
             Debug.Log("You hit the boss!");
-            other.GetComponent<BossController>().TakeDamage(1f);
+            other.GetComponent<BossController>().TakeDamage(damage);
         }
     }
 }
