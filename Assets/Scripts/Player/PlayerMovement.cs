@@ -131,4 +131,26 @@ public class PlayerMovement : MonoBehaviour
 
         spriteRenderer.color = Color.white; // Mengembalikan warna aslinya
     }
+    public void Knock(float knockTime, float damage)
+    {
+        currentHealth.RuntimeValue -= damage;
+        playerHealthSignal.Raise();
+        if (currentHealth.RuntimeValue > 0)
+        {
+
+            StartCoroutine(knockCo(knockTime));
+        }
+
+    }
+
+    private IEnumerator knockCo(float knockTime)
+    {
+        if (myRb != null)
+        {
+            yield return new WaitForSeconds(knockTime);
+            myRb.velocity = Vector2.zero;
+            currentState = playerState.idle;
+            myRb.velocity = Vector2.zero;
+        }
+    }
 }

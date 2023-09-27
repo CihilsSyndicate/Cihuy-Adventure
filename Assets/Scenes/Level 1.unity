@@ -389,9 +389,10 @@ GameObject:
   - component: {fileID: 868017763}
   - component: {fileID: 868017762}
   - component: {fileID: 868017767}
+  - component: {fileID: 868017768}
   m_Layer: 0
   m_Name: HappySlime
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -444,7 +445,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 50
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -530,8 +531,25 @@ MonoBehaviour:
   health: 0
   maxHealth: {fileID: 11400000, guid: 25a211f8a62daa44e9fbfab6bdf94c52, type: 2}
   patrolDistance: 5
+  detectionDistance: 3
   speed: 2
   patrolDelay: 2
+  damageEffectDuration: 0.2
+--- !u!114 &868017768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868017761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a0ffc1020fff24c89a04ea38285d9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 5
+  damage: 1
+  knockTime: 0.4
 --- !u!1001 &1014411683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -960,7 +978,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a0ffc1020fff24c89a04ea38285d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  force: 2
   damage: 1
+  knockTime: 0.4
 --- !u!1 &1268368032
 GameObject:
   m_ObjectHideFlags: 0
@@ -12502,7 +12522,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a0ffc1020fff24c89a04ea38285d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  force: 2
   damage: 1
+  knockTime: 0.4
 --- !u!1 &1464839855
 GameObject:
   m_ObjectHideFlags: 0
@@ -12573,7 +12595,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a0ffc1020fff24c89a04ea38285d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  force: 2
   damage: 1
+  knockTime: 0.4
 --- !u!1 &1490207933
 GameObject:
   m_ObjectHideFlags: 0
@@ -13122,7 +13146,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a0ffc1020fff24c89a04ea38285d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  force: 2
   damage: 1
+  knockTime: 0.4
 --- !u!1 &1722290175
 GameObject:
   m_ObjectHideFlags: 0
@@ -13509,6 +13535,7 @@ GameObject:
   - component: {fileID: 2108313466}
   - component: {fileID: 2108313467}
   - component: {fileID: 2108313469}
+  - component: {fileID: 2108313468}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -13607,6 +13634,7 @@ MonoBehaviour:
   fixedJoystick: {fileID: 1014411685}
   currentHealth: {fileID: 11400000, guid: cba51a348d0e4c241a6aae14fa1e4c8f, type: 2}
   playerHealthSignal: {fileID: 11400000, guid: bea8081990fcb3d49999132a77b4765e, type: 2}
+  damageEffectDuration: 0.2
 --- !u!50 &2108313464
 Rigidbody2D:
   serializedVersion: 4
@@ -13678,6 +13706,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectID: 
+--- !u!114 &2108313468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108313460}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a0ffc1020fff24c89a04ea38285d9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 5
+  damage: 1
+  knockTime: 0.4
 --- !u!114 &2108313469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13685,7 +13728,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108313460}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7bf19c39e1238948809603ca96617a8, type: 3}
   m_Name: 

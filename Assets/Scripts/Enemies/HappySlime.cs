@@ -11,27 +11,33 @@ public enum EnemyState
 
 public class HappySlime : MonoBehaviour
 {
-
     public EnemyState enemyState;
     public float health;
     public FloatValue maxHealth;
 
     private Animator anim;
-    public float patrolDistance = 5f; // Maximum distance the enemy will patrol
-    public float speed = 2f; // Enemy movement speed
-    public float patrolDelay = 2f; // Delay time before patrolling to the next position
+    public float patrolDistance = 5f;
+    public float detectionDistance = 3f; // Jarak untuk mendeteksi pemain
+    public float speed = 2f;
+    public float patrolDelay = 2f;
     private float patrolStartTime;
     private bool inPatrolDelay = false;
     private bool alive = true;
 
+    private Rigidbody2D myRb;
+    private Transform target;
+
     private SpriteRenderer spriteRenderer;
     public float damageEffectDuration = 0.2f;
 
-    private Vector2 initialPatrolPosition;
-    private Vector2 targetPatrolPosition;
+    private Vector3 initialPatrolPosition;
+    private Vector3 targetPatrolPosition;
+    private float distanceToPlayer;
 
     private void Start()
     {
+        target = GameObject.FindWithTag("Player").transform;
+        myRb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         initialPatrolPosition = transform.position;
         ChooseNewPatrolPosition();
@@ -39,40 +45,49 @@ public class HappySlime : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (inPatrolDelay)
+        distanceToPlayer = Vector3.Distance(transform.position, target.position);
+        if (inPatrolDelay && distanceToPlayer > detectionDistance )
         {
             anim.SetBool("isMoving", false);
-            // Check if the patrol delay time has elapsed
             if (Time.time - patrolStartTime >= patrolDelay)
             {
                 inPatrolDelay = false;
                 ChooseNewPatrolPosition();
             }
         }
-        else if(alive && enemyState != EnemyState.Stagger)
+        else if (alive && enemyState != EnemyState.Stagger)
         {
-            anim.SetBool("isMoving", true);
-            // Move towards the target position
-            transform.position = Vector2.MoveTowards(transform.position, targetPatrolPosition, speed * Time.deltaTime);
-
-            // Check if we've reached the target position
-            if (Vector2.Distance(transform.position, targetPatrolPosition) < 0.1f)
+           
+            if (distanceToPlayer <= detectionDistance)
             {
-                inPatrolDelay = true;
-                patrolStartTime = Time.time;
+                // Pemain dalam jangkauan, dekati pemain
+                anim.SetBool("isMoving", true);
+                transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            }
+            else
+            {
+                // Pemain di luar jangkauan, lanjutkan patroli
+                anim.SetBool("isMoving", true);
+                transform.position = Vector3.MoveTowards(transform.position, targetPatrolPosition, speed * Time.deltaTime);
+
+                if (Vector3.Distance(transform.position, targetPatrolPosition) < 0.1f)
+                {
+                    inPatrolDelay = true;
+                    patrolStartTime = Time.time;
+                }
             }
         }
-
     }
 
     private void ChooseNewPatrolPosition()
     {
-        // Choose a new patrol position randomly within the specified distance
         float randomX = Random.Range(-patrolDistance, patrolDistance);
         float randomY = Random.Range(-patrolDistance, patrolDistance);
-        targetPatrolPosition = initialPatrolPosition + new Vector2(randomX, randomY);
+
+        // Menggunakan Vector3 dengan nilai Z tetap 0
+        targetPatrolPosition = initialPatrolPosition + new Vector3(randomX, randomY, 0f);
     }
 
     public void TakeDamage(float damage)
@@ -80,7 +95,7 @@ public class HappySlime : MonoBehaviour
         health -= damage;
         StartCoroutine(DamageEffect());
         anim.SetTrigger("hit");
-        if(health <= 0)
+        if (health <= 0)
         {
             alive = false;
             anim.SetBool("isAlive", false);
@@ -106,10 +121,10 @@ public class HappySlime : MonoBehaviour
 
     private IEnumerator DamageEffect()
     {
-        spriteRenderer.color = Color.red; // Mengubah warna menjadi merah
+        spriteRenderer.color = Color.red;
 
         yield return new WaitForSeconds(damageEffectDuration);
 
-        spriteRenderer.color = Color.white; // Mengembalikan warna aslinya
+        spriteRenderer.color = Color.white;
     }
 }
