@@ -532,6 +532,7 @@ MonoBehaviour:
   patrolDistance: 5
   speed: 2
   patrolDelay: 2
+  damageEffectDuration: 0.2
 --- !u!1001 &1014411683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13607,6 +13608,7 @@ MonoBehaviour:
   fixedJoystick: {fileID: 1014411685}
   currentHealth: {fileID: 11400000, guid: cba51a348d0e4c241a6aae14fa1e4c8f, type: 2}
   playerHealthSignal: {fileID: 11400000, guid: bea8081990fcb3d49999132a77b4765e, type: 2}
+  damageEffectDuration: 0.2
 --- !u!50 &2108313464
 Rigidbody2D:
   serializedVersion: 4
