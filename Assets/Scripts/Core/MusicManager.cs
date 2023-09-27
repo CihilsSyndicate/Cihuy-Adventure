@@ -5,56 +5,45 @@ using UnityEngine.UI;
 
 public class MusicManager : MonoBehaviour
 {
-
-    [SerializeField] Image MusicOn;
-    [SerializeField] Image MusicOff;
-    [SerializeField] private AudioSource BacksoundMusic;
-    private bool musicMuted = false;
+    [SerializeField] Image musicOn;
+    [SerializeField] Image musicOff;
+    [SerializeField] private AudioSource musicAudioSource; // Gunakan AudioSource terpisah untuk musik
+    private bool muted = false;
     private static MusicManager musicManager;
 
-    void awake()
+    private void Awake()
     {
         if (musicManager == null)
         {
             musicManager = this;
             DontDestroyOnLoad(gameObject);
         }
-
         else
         {
             Destroy(gameObject);
         }
     }
-    void Start()
+
+    private void Start()
     {
-        if(!PlayerPrefs.HasKey("musicMuted"))
+        if (!PlayerPrefs.HasKey("musicMuted"))
         {
-            PlayerPrefs.SetInt("musicMuted", 0); 
+            PlayerPrefs.SetInt("musicMuted", 0);
             Load();
         }
-
         else
         {
             Load();
         }
 
         UpdateButtonIcon();
-        AudioListener.pause = musicMuted;
+        musicAudioSource.mute = muted; // Gunakan mute pada AudioSource untuk mengontrol musik
     }
 
     public void OnButtonPress()
     {
-        if (musicMuted == false)
-        {
-            musicMuted = true;
-            AudioListener.pause = true;
-        }
-
-        else
-        {
-            musicMuted = false;
-            AudioListener.pause = false;
-        }
+        muted = !muted; // Toggle status muted
+        musicAudioSource.mute = muted; // Mengubah mute pada AudioSource
 
         Save();
         UpdateButtonIcon();
@@ -62,27 +51,17 @@ public class MusicManager : MonoBehaviour
 
     private void UpdateButtonIcon()
     {
-        if(musicMuted == false)
-        {
-            MusicOn.enabled = true;
-            MusicOff.enabled = false;
-        }
-
-        else
-        { 
-            MusicOn.enabled = false;
-            MusicOff.enabled = true;
-        }
+        musicOn.enabled = !muted;
+        musicOff.enabled = muted;
     }
 
-    // Change this line in MusicManager
     private void Load()
     {
-        musicMuted = PlayerPrefs.GetInt("musicMuted") == 1;
+        muted = PlayerPrefs.GetInt("musicMuted") == 1;
     }
 
     private void Save()
     {
-        PlayerPrefs.SetInt("musicMuted", musicMuted ? 1 : 0);
+        PlayerPrefs.SetInt("musicMuted", muted ? 1 : 0);
     }
 }

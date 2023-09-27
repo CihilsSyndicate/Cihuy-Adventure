@@ -5,56 +5,45 @@ using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
-
-    [SerializeField] Image SoundOn; 
-    [SerializeField] Image SoundOff;
-    [SerializeField] private AudioSource SoundButton;
-    private bool soundMuted = false;
+    [SerializeField] Image soundOn;
+    [SerializeField] Image soundOff;
+    [SerializeField] private AudioSource soundAudioSource; // Gunakan AudioSource terpisah untuk SFX
+    private bool muted = false;
     private static AudioManager audioManager;
 
-    void awake()
+    private void Awake()
     {
         if (audioManager == null)
         {
             audioManager = this;
             DontDestroyOnLoad(gameObject);
         }
-
         else
         {
             Destroy(gameObject);
         }
     }
-    void Start()
+
+    private void Start()
     {
-        if(!PlayerPrefs.HasKey("soundMuted"))
+        if (!PlayerPrefs.HasKey("soundMuted"))
         {
-            PlayerPrefs.SetInt("soundMuted", 0); 
+            PlayerPrefs.SetInt("soundMuted", 0);
             Load();
         }
-
         else
         {
             Load();
         }
 
         UpdateButtonIcon();
-        AudioListener.pause = soundMuted;
+        soundAudioSource.mute = muted; // Gunakan mute pada AudioSource untuk mengontrol SFX
     }
 
     public void OnButtonPress()
     {
-        if (soundMuted == false)
-        {
-            soundMuted = true;
-            AudioListener.pause = true;
-        }
-
-        else
-        {
-            soundMuted = false;
-            AudioListener.pause = false;
-        }
+        muted = !muted; // Toggle status muted
+        soundAudioSource.mute = muted; // Mengubah mute pada AudioSource
 
         Save();
         UpdateButtonIcon();
@@ -62,28 +51,18 @@ public class AudioManager : MonoBehaviour
 
     private void UpdateButtonIcon()
     {
-        if(soundMuted == false)
-        {
-            SoundOn.enabled = true;
-            SoundOff.enabled = false;
-        }
-
-        else
-        {
-            SoundOn.enabled = false;
-            SoundOff.enabled = true;
-        }
+        soundOn.enabled = !muted;
+        soundOff.enabled = muted;
     }
 
-    // Change this line in AudioManager
     private void Load()
     {
-        soundMuted = PlayerPrefs.GetInt("soundMuted") == 1;
+        muted = PlayerPrefs.GetInt("soundMuted") == 1;
     }
 
     private void Save()
     {
-        PlayerPrefs.SetInt("soundMuted", soundMuted ? 1 : 0);
+        PlayerPrefs.SetInt("soundMuted", muted ? 1 : 0);
     }
-
 }
+

@@ -161,9 +161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e3333b07474ceb409bb4597add44a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoundOn: {fileID: 1489632721}
-  SoundOff: {fileID: 919691683}
-  SoundButton: {fileID: 0}
+  soundOn: {fileID: 1489632721}
+  soundOff: {fileID: 919691683}
+  soundAudioSource: {fileID: 835053541}
 --- !u!114 &85015321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2237,9 +2237,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 058cd54b394d26b4d83a0632e51a691f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicOn: {fileID: 1951681251}
-  MusicOff: {fileID: 852240748}
-  BacksoundMusic: {fileID: 0}
+  musicOn: {fileID: 1951681251}
+  musicOff: {fileID: 852240748}
+  musicAudioSource: {fileID: 1963538441}
 --- !u!114 &1459412833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3037,9 +3037,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 058cd54b394d26b4d83a0632e51a691f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicOn: {fileID: 1951681251}
-  MusicOff: {fileID: 852240748}
-  BacksoundMusic: {fileID: 0}
+  musicOn: {fileID: 0}
+  musicOff: {fileID: 0}
+  musicAudioSource: {fileID: 0}
 --- !u!82 &1963538441
 AudioSource:
   m_ObjectHideFlags: 0
