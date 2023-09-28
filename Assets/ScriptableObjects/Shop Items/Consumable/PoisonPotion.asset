@@ -17,8 +17,8 @@ MonoBehaviour:
   hp: 0
   atk: 0
   itemDesc: 
-  itemSprite: {fileID: 21300000, guid: b798b68dfc1c60644af1883729b258dd, type: 3}
+  itemSprite: {fileID: 21300000, guid: a2025a30730d1d8439b060ced55dda0f, type: 3}
   isOwned: 0
   consumableStack: 0
-  quantity: 6
+  quantity: 0
   itemType: 1
