@@ -10,6 +10,16 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    public void FollowUP()
+    {
+        Application.OpenURL("https://wa.me/6281973536858?text=Halo%20Farid%20Admin%20Cihuy%20Goes%20to%20school");
+    }
+
+    public void RateUS()
+    {
+        Application.OpenURL("https://wa.me/6282116375827?text=Waw%20Game%20Cihuy%20Ini%20Sangat%20Bagus%20Sekali");
+    }
+
     public void QuitGame()
     {
         Application.Quit();
