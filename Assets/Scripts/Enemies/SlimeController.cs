@@ -16,6 +16,7 @@ public class SlimeController : MonoBehaviour
     private Vector3 moveDirection;
     public float damageEffectDuration = 0.2f;
     private SpriteRenderer spriteRenderer;
+    [System.NonSerialized] public bool isKnockback;
 
     [Header("Attacking")]
     public GameObject slimeBulletPrefab;
@@ -69,7 +70,10 @@ public class SlimeController : MonoBehaviour
         else
         {
             intervalCounter -= Time.deltaTime;
-            // rb.velocity = Vector2.zero;
+            if (!isKnockback)
+            {
+                rb.velocity = Vector2.zero;
+            }
 
             if (intervalCounter < 0)
             {
@@ -98,6 +102,7 @@ public class SlimeController : MonoBehaviour
     {
         health -= damage;
         healthBar.SetHealth(health);
+        isKnockback = true;
         healthHolder.SetActive(true);
         StartCoroutine(DamageEffect());
         if (health <= 0)
@@ -131,7 +136,8 @@ public class SlimeController : MonoBehaviour
         if (myRb != null)
         {
             yield return new WaitForSeconds(knockTime);
-            myRb.velocity = Vector2.zero;            
+            myRb.velocity = Vector2.zero;
+            isKnockback = false;
             //myRb.velocity = Vector2.zero;
         }
     }
