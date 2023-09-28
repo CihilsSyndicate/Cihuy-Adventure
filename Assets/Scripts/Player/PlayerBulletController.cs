@@ -25,7 +25,7 @@ public class PlayerBulletController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") && !other.isTrigger)
         {
             other.GetComponent<SlimeController>().TakeDamage(damage);
             Destroy(gameObject);

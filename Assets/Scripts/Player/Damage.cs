@@ -35,7 +35,7 @@ public class Damage : MonoBehaviour
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
             if(hit != null)
             {
-                if (other.CompareTag("Enemy"))
+                if (other.CompareTag("Enemy") && other.gameObject.name != "HappySlime")
                 {
                     other.GetComponent<SlimeController>().Knock(hit, knockTime, damage);
                 }
@@ -71,11 +71,14 @@ public class Damage : MonoBehaviour
             Vector2 difference = hit.transform.position - transform.position;
             difference = difference.normalized * force;
             hit.AddForce(difference, ForceMode2D.Impulse);
-            if (other.GetComponent<PlayerMovement>().currentState != playerState.stagger)
+            if(hit != null)
             {
-                hit.GetComponent<PlayerMovement>().currentState = playerState.stagger;
-                other.GetComponent<PlayerMovement>().Knock(knockTime, damage);
+                if (other.GetComponent<PlayerMovement>().currentState != playerState.stagger)
+                {                
+                    other.GetComponent<PlayerMovement>().Knock(knockTime, damage);
+                }
             }
+           
 
         }
         
