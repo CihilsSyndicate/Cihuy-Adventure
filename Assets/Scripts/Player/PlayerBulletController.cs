@@ -4,6 +4,7 @@ public class PlayerBulletController : MonoBehaviour
 {
     private float speed;
     private Vector2 _direction;
+    public float damage = 5f;
 
     private void Awake()
     {
@@ -26,13 +27,13 @@ public class PlayerBulletController : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<SlimeController>().TakeDamage(25f);
+            other.GetComponent<SlimeController>().TakeDamage(damage);
             Destroy(gameObject);
         }
 
         if(other.CompareTag("Boss"))
         {
-            other.GetComponent<BossController>().TakeDamage(1f);
+            other.GetComponent<BossController>().TakeDamage(damage);
             Destroy(gameObject);
         }
     }

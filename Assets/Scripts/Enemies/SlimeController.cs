@@ -24,6 +24,8 @@ public class SlimeController : MonoBehaviour
     [Header("Health")]
     public FloatValue maxHealth;
     public float health;
+    public HealthBar healthBar;
+    public GameObject healthHolder;
 
     [Header("Item Drop")]
     public GameObject coinPrefab;
@@ -47,6 +49,7 @@ public class SlimeController : MonoBehaviour
 
         intervalCounter = interval;
         moveDurationCounter = moveDuration;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -94,6 +97,8 @@ public class SlimeController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        healthBar.SetHealth(health);
+        healthHolder.SetActive(true);
         StartCoroutine(DamageEffect());
         if (health <= 0)
         {

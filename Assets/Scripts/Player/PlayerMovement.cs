@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     public Signal playerHealthSignal;
     private SpriteRenderer spriteRenderer;
     public float damageEffectDuration = 0.2f;
+    public HealthBar healthBar;
 
     private static PlayerMovement instance;
 
@@ -51,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
         myRb = GetComponent<Rigidbody2D>();
         anim.SetFloat("x", 0);
         anim.SetFloat("y", -1);
+        healthBar.SetMaxHealth(currentHealth);
     }
 
     // Update is called once per frame
@@ -119,6 +121,7 @@ public class PlayerMovement : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth.RuntimeValue -= damage;
+        healthBar.SetHealth(currentHealth.RuntimeValue);
         StartCoroutine(DamageEffect());
         playerHealthSignal.Raise();
         if (currentHealth.RuntimeValue > 0)
@@ -141,6 +144,7 @@ public class PlayerMovement : MonoBehaviour
     public void Knock(float knockTime, float damage)
     {
         currentHealth.RuntimeValue -= damage;
+        healthBar.SetHealth(currentHealth.RuntimeValue);
         playerHealthSignal.Raise();
         if (currentHealth.RuntimeValue > 0)
         {

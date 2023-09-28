@@ -14,6 +14,8 @@ public class HappySlime : MonoBehaviour
     public EnemyState enemyState;
     public float health;
     public FloatValue maxHealth;
+    public HealthBar healthBar;
+    public GameObject healthHolder;
 
     private Animator anim;
     public float patrolDistance = 5f;
@@ -36,6 +38,7 @@ public class HappySlime : MonoBehaviour
 
     private void Start()
     {
+        healthBar.SetMaxHealth(maxHealth);
         target = GameObject.FindWithTag("Player").transform;
         myRb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -93,13 +96,16 @@ public class HappySlime : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        healthBar.SetHealth(health);
         StartCoroutine(DamageEffect());
         anim.SetTrigger("hit");
         if (health <= 0)
         {
             alive = false;
             anim.SetBool("isAlive", false);
+            Destroy(gameObject);
         }
+        healthHolder.SetActive(true);
     }
 
     public void Knock(Rigidbody2D myRb, float knockTime, float damage)
