@@ -58,17 +58,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(currentState != playerState.stagger)
-        {
-            myRb.velocity = Vector3.zero;
-        }
         // change = Vector3.zero;
         change = new Vector3(fixedJoystick.Horizontal, 0f, fixedJoystick.Vertical);
         change.x = fixedJoystick.Horizontal;
         change.y = fixedJoystick.Vertical;
         change.Normalize();
 
-        //myRb.AddForce(change * speed * Time.deltaTime);
 
         if(change == Vector3.zero)
         {
@@ -163,9 +158,9 @@ public class PlayerMovement : MonoBehaviour
         if (myRb != null)
         {
             yield return new WaitForSeconds(knockTime);
-            myRb.velocity = Vector2.zero;
+            myRb.velocity = Vector3.zero;
             currentState = playerState.idle;
-            myRb.velocity = Vector2.zero;
+            myRb.velocity = Vector3.zero;
         }
     }
 }
