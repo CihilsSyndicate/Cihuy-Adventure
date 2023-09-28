@@ -10,7 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcef2591f8217b94fa54f042cc85f1ab, type: 3}
-  m_Name: FireSword
+  m_Name: IceSword
   m_EditorClassIdentifier: 
-  itemName: Red Sword
+  itemName: Ice Sword
   cost: 10
+  itemSprite: {fileID: 21300002, guid: ffafbca4731165a479de5770cc665870, type: 3}
+  isOwned: 0
+  itemType: 0

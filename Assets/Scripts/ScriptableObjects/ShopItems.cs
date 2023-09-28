@@ -7,4 +7,14 @@ public class ShopItems : ScriptableObject
 {
     public string itemName;
     public int cost;
+    public Sprite itemSprite;
+    public bool isOwned;
+    public int consumableStack;
+    public int quantity;
+    [SerializeField]
+    public ItemType itemType;
+    public enum ItemType {
+        Equipment,
+        Consumable
+    }
 }
