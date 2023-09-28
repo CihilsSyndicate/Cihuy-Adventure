@@ -11,7 +11,14 @@ public class ItemButton : MonoBehaviour
     private void Start()
     {
         consumableStackTxt = GetComponentInChildren<Text>();
-        item.consumableStack = Random.Range(3, 5);
+        if(item.itemType == ShopItems.ItemType.Consumable)
+        {
+            item.consumableStack = Random.Range(3, 5);
+        }
+        else
+        {
+            consumableStackTxt.gameObject.SetActive(false);
+        }
         image = GetComponent<Image>();
         image.sprite = item.itemSprite;
         shopManager = FindObjectOfType<ShopManager>();
@@ -20,7 +27,7 @@ public class ItemButton : MonoBehaviour
     private void Update()
     {
         if(item.itemType == ShopItems.ItemType.Consumable)
-        consumableStackTxt.text = item.consumableStack.ToString();
+            consumableStackTxt.text = item.consumableStack.ToString();
     }
 
     public void OnItemClick()

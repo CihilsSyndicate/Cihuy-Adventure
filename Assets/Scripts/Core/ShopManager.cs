@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class ShopManager : MonoBehaviour
 {
     public GameObject shop;
-    public Text itemNameTxt;
+    public Text[] itemNameTxt;
     public Text costTxt;
-    public Image itemImage;
+    public Text hpTxt, atkTxt;
+    public Text itemDescTxt;
+    public Image[] itemImage;
     private ShopItems currentItem;
     public Button buyBtn;
     public Text buyBtnText;
@@ -18,10 +20,16 @@ public class ShopManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        itemNameTxt.gameObject.SetActive(false);
-        costTxt.gameObject.SetActive(false);
-        itemImage.gameObject.SetActive(false);
         TurnOffBuyBtn();
+        for (int i = 0; i < itemNameTxt.Length; i++)
+        {
+            itemNameTxt[i].gameObject.SetActive(false);
+        }
+        for (int i = 0; i < itemImage.Length; i++)
+        {
+            itemImage[i].gameObject.SetActive(false);
+        }
+        costTxt.gameObject.SetActive(false);
         coinGO.SetActive(false);
 
         foreach (var item in items)
@@ -60,6 +68,18 @@ public class ShopManager : MonoBehaviour
         }
     }
 
+    public void PopupItemDetail(GameObject popup)
+    {
+        if(popup.activeInHierarchy == true)
+        {
+            popup.SetActive(false);
+        }
+        else
+        {
+            popup.SetActive(true);
+        }
+    }
+
     public void GenerateCoin()
     {
         CoinCounter.Instance.IncreaseCoin(100);
@@ -67,18 +87,32 @@ public class ShopManager : MonoBehaviour
 
     public void DisplayItem(ShopItems item)
     {
-        itemNameTxt.gameObject.SetActive(true);
+        for (int i = 0; i < itemNameTxt.Length; i++)
+        {
+            itemNameTxt[i].gameObject.SetActive(true);
+        }
         costTxt.gameObject.SetActive(true);
-        itemImage.gameObject.SetActive(true);
+        for (int i = 0; i < itemImage.Length; i++)
+        {
+            itemImage[i].gameObject.SetActive(true);
+        }
         coinGO.SetActive(true);
-        TurnOnBuyBtn();
 
         currentItem = item;
 
         // Mengisi teks dan gambar berdasarkan item yang dipilih
-        itemNameTxt.text = currentItem.itemName;
+        for (int i = 0; i < itemNameTxt.Length; i++)
+        {
+            itemNameTxt[i].text = currentItem.itemName;
+        }
+        for (int i = 0; i < itemImage.Length; i++)
+        {
+            itemImage[i].sprite = currentItem.itemSprite;
+        }
         costTxt.text = currentItem.cost.ToString();
-        itemImage.sprite = currentItem.itemSprite;
+        hpTxt.text = "HP: " + currentItem.hp.ToString();
+        atkTxt.text = "ATK " + currentItem.atk.ToString();
+        itemDescTxt.text = currentItem.itemDesc;
         CheckPurchasable();
     }
 

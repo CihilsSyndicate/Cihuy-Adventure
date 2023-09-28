@@ -14,6 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Silver Sword
   cost: 50
+  hp: 0
+  atk: 0
+  itemDesc: 
   itemSprite: {fileID: 21300006, guid: ffafbca4731165a479de5770cc665870, type: 3}
-  isOwned: 1
+  isOwned: 0
+  consumableStack: 1
+  quantity: 0
   itemType: 0

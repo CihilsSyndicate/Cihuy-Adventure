@@ -7,6 +7,9 @@ public class ShopItems : ScriptableObject
 {
     public string itemName;
     public int cost;
+    public float hp;
+    public float atk;
+    public string itemDesc;
     public Sprite itemSprite;
     public bool isOwned;
     public int consumableStack;
