@@ -233,7 +233,7 @@ MonoBehaviour:
     type: 3}
   attackRange: 10.55
   speed: 5
-  attackCooldown: 2
+  attackCooldown: 0.5
   maxShot: 1
 --- !u!95 &58038321
 Animator:
@@ -8225,6 +8225,7 @@ MonoBehaviour:
   playerHealthSignal: {fileID: 11400000, guid: bea8081990fcb3d49999132a77b4765e, type: 2}
   damageEffectDuration: 0.2
   healthBar: {fileID: 540788587535692909}
+  floatingTextDamage: {fileID: 0}
 --- !u!50 &2058594921
 Rigidbody2D:
   serializedVersion: 4
