@@ -8,9 +8,10 @@ public class SwordAttack : MonoBehaviour
     public GameObject slashPrefab; // Prefab Slash
     public float attackRange = 6f;
     public float speed = 5f;
-    public float attackCooldown = 1f;
+    public float attackCooldown = 0.2f;
     private bool isAttacking = false;
     public int maxShot = 1;
+    private float lastAttackTime = 0f;
 
     void Start()
     {
@@ -21,53 +22,58 @@ public class SwordAttack : MonoBehaviour
     {
         swordAnim.SetFloat("idleX", PlayerMovement.Instance.change.x);
         swordAnim.SetFloat("idleY", PlayerMovement.Instance.change.y);
+
+        // Cek apakah serangan dapat dilakukan
         if (!isAttacking && PlayerMovement.Instance.currentState != playerState.walk)
         {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, attackRange, LayerMask.GetMask("Enemy", "Boss"));
+            // Cek waktu sekarang
+            float currentTime = Time.time;
 
-            if (colliders.Length > 0)
+            // Cek apakah sudah cukup waktu untuk melakukan serangan lagi
+            if (currentTime - lastAttackTime >= attackCooldown)
             {
-                // Temukan musuh terdekat
-                Transform nearestEnemy = PlayerAttack.Instance.FindNearestEnemy(colliders);
+                Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, attackRange, LayerMask.GetMask("Enemy", "Boss"));
 
-                if (nearestEnemy != null)
+                if (colliders.Length > 0)
                 {
-                    // Menghitung perbedaan posisi antara pemain dan musuh
-                    Vector3 direction = nearestEnemy.position - transform.position;
+                    Transform nearestEnemy = FindNearestEnemy(colliders);
 
-                    float posX = 0f;
-                    float posY = 0f;
-
-                    if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+                    if (nearestEnemy != null)
                     {
-                        posX = Mathf.Sign(direction.x);
-                        Debug.Log(posX);
-                    }
-                    else
-                    {
-                        posY = Mathf.Sign(direction.y);
-                        Debug.Log(posY);
-                    }
+                        Vector3 direction = nearestEnemy.position - transform.position;
 
-                    // Mengatur parameter animasi "x" dan "y"
-                    PlayerAttack.Instance.playerAnim.SetFloat("x", posX);
-                    PlayerAttack.Instance.playerAnim.SetFloat("y", posY);
-                    swordAnim.SetFloat("x", posX);
-                    swordAnim.SetFloat("y", posY);
+                        float posX = 0f;
+                        float posY = 0f;
 
-                    // Menyerang
-                    Invoke("PerformAttack", attackCooldown);
+                        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+                        {
+                            posX = Mathf.Sign(direction.x);
+                        }
+                        else
+                        {
+                            posY = Mathf.Sign(direction.y);
+                        }
+
+                        PlayerAttack.Instance.playerAnim.SetFloat("x", posX);
+                        PlayerAttack.Instance.playerAnim.SetFloat("y", posY);
+                        swordAnim.SetFloat("x", posX);
+                        swordAnim.SetFloat("y", posY);
+
+                        // Menandai waktu serangan terakhir
+                        lastAttackTime = currentTime;
+
+                        // Menyerang
+                        PerformAttack(colliders);
+                    }
                 }
             }
         }
     }
 
-    private void PerformAttack()
+    private void PerformAttack(Collider2D[] colliders)
     {
         isAttacking = true;
         swordAnim.SetBool("IsAttacking", true);
-
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, attackRange, LayerMask.GetMask("Enemy", "Boss"));
 
         for (int i = 0; i < Mathf.Min(maxShot, colliders.Length); i++)
         {
@@ -79,15 +85,36 @@ public class SwordAttack : MonoBehaviour
             Slash slashScript = slashInstance.GetComponent<Slash>();
             slashScript.SetDirection(direction);
         }
-
-        // Setelah delay attackCooldown, set isAttacking menjadi false dan matikan animasi serangan
-        Invoke("FinishAttack", attackCooldown);
     }
 
     // Metode untuk mengakhiri serangan
-    private void FinishAttack()
+    private void ResetIsAttacking()
     {
         isAttacking = false;
         swordAnim.SetBool("IsAttacking", false);
+    }
+
+    public Transform FindNearestEnemy(Collider2D[] colliders)
+    {
+        Transform nearestEnemy = null;
+        float nearestDistance = Mathf.Infinity;
+        Vector2 playerPosition = transform.position;
+
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.CompareTag("Enemy") || collider.CompareTag("Boss"))
+            {
+                Vector2 enemyPosition = collider.transform.position;
+                float distanceToEnemy = Vector2.Distance(playerPosition, enemyPosition);
+
+                if (distanceToEnemy < nearestDistance)
+                {
+                    nearestDistance = distanceToEnemy;
+                    nearestEnemy = collider.transform;
+                }
+            }
+        }
+
+        return nearestEnemy;
     }
 }
