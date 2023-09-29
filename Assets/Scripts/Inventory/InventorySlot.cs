@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class InventorySlot : MonoBehaviour
 {
     [Header("UI Stuff to change")]
-    [SerializeField] private Text itemNumberText;
+    //[SerializeField] private Text itemNumberText;
     [SerializeField] private Image itemImage;
 
     [Header("Variables from the item")]
     public Sprite itemSprite;
-    public int numberHeld;
+   // public int numberHeld;
     public string itemDescription;
     public float Atk;
     public float Hp;
@@ -25,7 +25,7 @@ public class InventorySlot : MonoBehaviour
         if (thisItem != null)
         {
             itemImage.sprite = thisItem.itemImage;
-            itemNumberText.text = thisItem.numberHeld.ToString();
+            //itemNumberText.text = thisItem.numberHeld.ToString();
         }
     }
 

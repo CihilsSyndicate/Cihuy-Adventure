@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public float damageEffectDuration = 0.2f;
     public HealthBar healthBar;
+    public GameObject floatingTextDamage;
 
     private static PlayerMovement instance;
 
@@ -121,6 +122,7 @@ public class PlayerMovement : MonoBehaviour
     {
         currentHealth.RuntimeValue -= damage;
         healthBar.SetHealth(currentHealth.RuntimeValue);
+        ShowFloatingText(damage);
         StartCoroutine(DamageEffect());
         playerHealthSignal.Raise();
         if (currentHealth.RuntimeValue > 0)
@@ -129,6 +131,12 @@ public class PlayerMovement : MonoBehaviour
         }
         else
             gameObject.SetActive(false);
+    }
+
+    void ShowFloatingText(float damage)
+    {
+        var go = Instantiate(floatingTextDamage, transform.position, Quaternion.identity, transform);
+        go.GetComponent<TextMesh>().text = "-" + damage.ToString();
     }
 
     private IEnumerator DamageEffect()

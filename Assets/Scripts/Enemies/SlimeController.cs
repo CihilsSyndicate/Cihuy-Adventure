@@ -32,9 +32,10 @@ public class SlimeController : MonoBehaviour
     [Header("Item Drop")]
     public GameObject coinPrefab;
 
+
     private void Awake()
     {
-        health = maxHealth.initialValue;
+       health = maxHealth.initialValue;
     }
 
     // Start is called before the first frame update
@@ -122,7 +123,7 @@ public class SlimeController : MonoBehaviour
 
     }
 
-    void ShowFloatingText(float damage)
+    public void ShowFloatingText(float damage)
     {
         var go = Instantiate(floatingTextDamage, transform.position, Quaternion.identity, transform);
         go.GetComponent<TextMesh>().text = "-" + damage.ToString();

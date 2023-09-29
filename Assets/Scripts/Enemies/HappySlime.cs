@@ -16,6 +16,7 @@ public class HappySlime : MonoBehaviour
     public FloatValue maxHealth;
     public HealthBar healthBar;
     public GameObject healthHolder;
+    public GameObject floatingTextDamage;
 
     private Animator anim;
     public float patrolDistance = 5f;
@@ -97,6 +98,7 @@ public class HappySlime : MonoBehaviour
     {
         health -= damage;
         healthBar.SetHealth(health);
+        ShowFloatingText(damage);
         StartCoroutine(DamageEffect());
         anim.SetTrigger("hit");
         if (health <= 0)
@@ -106,6 +108,12 @@ public class HappySlime : MonoBehaviour
             Destroy(gameObject);
         }
         healthHolder.SetActive(true);
+    }
+
+    public void ShowFloatingText(float damage)
+    {
+        var go = Instantiate(floatingTextDamage, transform.position, Quaternion.identity, transform);
+        go.GetComponent<TextMesh>().text = "-" + damage.ToString();
     }
 
     public void Knock(Rigidbody2D myRb, float knockTime, float damage)
