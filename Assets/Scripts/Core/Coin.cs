@@ -12,6 +12,7 @@ public class Coin : MonoBehaviour
     private Collider2D coinCollider;
 
     [Header("Random Splash")]
+    public TrailRenderer coinTrailRenderer;
     public Transform objectTransform;
     private float delay = 0;
     private float pastTime = 0;
@@ -27,6 +28,8 @@ public class Coin : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        coinTrailRenderer = GetComponent<TrailRenderer>();
+        coinTrailRenderer.enabled = false;
         coinCollider = GetComponent<Collider2D>();
         coinCollider.enabled = false;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -52,6 +55,7 @@ public class Coin : MonoBehaviour
 
         if (allEnemies.Length == 0 && isMoving == false)
         {
+            coinTrailRenderer.enabled = true;
             isMoving = true;
         }
 

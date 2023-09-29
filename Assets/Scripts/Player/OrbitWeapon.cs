@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 
-public class OrbitSword : Damage
+public class OrbitWeapon : Damage
 {
     public GameObject player;
     public float orbitSpeed = 10f;
     public Vector3 direction = Vector3.up;
-    public float knockbackForce = 400f;
 
     private void Update()
     {
@@ -28,7 +27,6 @@ public class OrbitSword : Damage
 
         if (other.CompareTag("Boss"))
         {
-            Debug.Log("You hit the boss!");
             other.GetComponent<BossController>().TakeDamage(damage);
         }
     }

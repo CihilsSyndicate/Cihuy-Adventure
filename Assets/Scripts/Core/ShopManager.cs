@@ -16,6 +16,7 @@ public class ShopManager : MonoBehaviour
     public Text buyBtnText;
     public GameObject coinGO;
     public GameObject[] items;
+    public GameObject popupItemDetail;
 
     // Start is called before the first frame update
     void Start()
@@ -68,18 +69,6 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    public void PopupItemDetail(GameObject popup)
-    {
-        if(popup.activeInHierarchy == true)
-        {
-            popup.SetActive(false);
-        }
-        else
-        {
-            popup.SetActive(true);
-        }
-    }
-
     public void GenerateCoin()
     {
         CoinCounter.Instance.IncreaseCoin(100);
@@ -97,7 +86,7 @@ public class ShopManager : MonoBehaviour
             itemImage[i].gameObject.SetActive(true);
         }
         coinGO.SetActive(true);
-
+        popupItemDetail.SetActive(true);
         currentItem = item;
 
         // Mengisi teks dan gambar berdasarkan item yang dipilih
@@ -111,7 +100,7 @@ public class ShopManager : MonoBehaviour
         }
         costTxt.text = currentItem.cost.ToString();
         hpTxt.text = "HP: " + currentItem.hp.ToString();
-        atkTxt.text = "ATK " + currentItem.atk.ToString();
+        atkTxt.text = "ATK: " + currentItem.atk.ToString();
         itemDescTxt.text = currentItem.itemDesc;
         CheckPurchasable();
     }

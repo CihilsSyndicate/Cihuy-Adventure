@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5f;
     private Animator anim;
     private Rigidbody2D myRb;
-    private Vector3 change;
+    [System.NonSerialized] public Vector3 change;
     public FixedJoystick fixedJoystick;
     public FloatValue currentHealth;
     public Signal playerHealthSignal;
