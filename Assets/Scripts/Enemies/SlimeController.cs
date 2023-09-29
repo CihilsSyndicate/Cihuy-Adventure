@@ -21,6 +21,7 @@ public class SlimeController : MonoBehaviour
     [Header("Attacking")]
     public GameObject slimeBulletPrefab;
     private GameObject bulletContainer;
+    public GameObject floatingTextDamage;
 
     [Header("Health")]
     public FloatValue maxHealth;
@@ -114,6 +115,17 @@ public class SlimeController : MonoBehaviour
             }
             Destroy(gameObject);
         }
+        if(floatingTextDamage)
+        {
+            ShowFloatingText(damage);
+        }
+
+    }
+
+    void ShowFloatingText(float damage)
+    {
+        var go = Instantiate(floatingTextDamage, transform.position, Quaternion.identity, transform);
+        go.GetComponent<TextMesh>().text = "-" + damage.ToString();
     }
 
     private IEnumerator DamageEffect()

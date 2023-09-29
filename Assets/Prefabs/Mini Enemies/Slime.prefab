@@ -165,6 +165,8 @@ MonoBehaviour:
   damageEffectDuration: 0.2
   slimeBulletPrefab: {fileID: 5445938635951188370, guid: 8d620474dedc5734b853880c91dfc483,
     type: 3}
+  floatingTextDamage: {fileID: 3341635747743629679, guid: 2b62da6d46f93fa488c9bc78488eb8ab,
+    type: 3}
   maxHealth: {fileID: 11400000, guid: 3aae762f781a93c4298454312e890686, type: 2}
   health: 0
   healthBar: {fileID: 6219755320266667266}
