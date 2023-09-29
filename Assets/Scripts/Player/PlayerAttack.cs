@@ -13,6 +13,7 @@ public class PlayerAttack : MonoBehaviour
     public int maxShot;
     private GameObject bulletContainer;
     public float shootRange = 5f;
+    [System.NonSerialized] public Animator playerAnim;
 
     private static PlayerAttack instance;
 
@@ -23,6 +24,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Awake()
     {
+        playerAnim = GetComponent<Animator>();
         bulletContainer = GameObject.Find("BulletContainer");
         // Inisialisasi instance singleton
         if (instance == null)
@@ -58,5 +60,29 @@ public class PlayerAttack : MonoBehaviour
             Vector2 direction = (colliders[i].transform.position - firePoint.position).normalized;
             rb.velocity = direction * bulletSpeed;
         }
+    }
+
+    public Transform FindNearestEnemy(Collider2D[] colliders)
+    {
+        Transform nearestEnemy = null;
+        float nearestDistance = Mathf.Infinity;
+        Vector2 playerPosition = transform.position;
+
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.CompareTag("Enemy") || collider.CompareTag("Boss"))
+            {
+                Vector2 enemyPosition = collider.transform.position;
+                float distanceToEnemy = Vector2.Distance(playerPosition, enemyPosition);
+
+                if (distanceToEnemy < nearestDistance)
+                {
+                    nearestDistance = distanceToEnemy;
+                    nearestEnemy = collider.transform;
+                }
+            }
+        }
+
+        return nearestEnemy;
     }
 }
