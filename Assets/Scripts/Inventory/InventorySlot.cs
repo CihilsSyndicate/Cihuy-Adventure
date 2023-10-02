@@ -11,7 +11,7 @@ public class InventorySlot : MonoBehaviour
 
     [Header("Variables from the item")]
     public Sprite itemSprite;
-   // public int numberHeld;
+    //public int numberHeld;
     public string itemDescription;
     public float Atk;
     public float Hp;
@@ -33,7 +33,7 @@ public class InventorySlot : MonoBehaviour
     {
         if (thisItem)
         {
-            thisManager.SetupDescriptionAndButton(thisItem.itemDescription, thisItem.usable, "Hp : +" + thisItem.Hp.ToString(), "Atk : +" + thisItem.Atk.ToString(), thisItem.itemName, thisItem.itemImage);
+            thisManager.SetupDescriptionAndButton(thisItem.itemDescription, thisItem.usable, "Hp : +" + thisItem.Hp.ToString(), "Atk : +" + thisItem.Atk.ToString(), thisItem.itemName, thisItem.itemImage, thisItem);
         }
     }
 }

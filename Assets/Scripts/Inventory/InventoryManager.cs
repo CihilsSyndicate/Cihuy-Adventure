@@ -17,6 +17,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private GameObject useButton;
     [SerializeField] private GameObject detailButton;
     [SerializeField] private GameObject dropButton;
+    public InventoryItem currentItem;
 
     public void SetTextAndButton(string description, bool buttonActive)
     {
@@ -66,14 +67,23 @@ public class InventoryManager : MonoBehaviour
         SetTextAndButton("", false);
     }
 
-    public void SetupDescriptionAndButton(string newDescriptionString, bool isButtonUsable, string newHPText, string newATKText, string newItemName, Sprite newItemImage)
+    public void SetupDescriptionAndButton(string newDescriptionString, bool isButtonUsable, string newHPText, string newATKText, string newItemName, Sprite newItemImage, InventoryItem newItem)
     {
+        currentItem = newItem;
         descriptionText.text = newDescriptionString;
         atkText.text = newATKText;
         hpText.text = newHPText;
         itemNameText.text = newItemName;
         itemImage.sprite = newItemImage;
         useButton.SetActive(isButtonUsable);
+    }
+
+    public void UseButtonPressed()
+    {
+        if (currentItem)
+        {
+            currentItem.Use();
+        }
     }
 
 }
