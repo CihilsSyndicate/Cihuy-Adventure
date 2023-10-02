@@ -10,6 +10,9 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private GameObject blackInventorySlot;
     [SerializeField] private GameObject inventoryPanel;
     [SerializeField] private Text descriptionText;
+    [SerializeField] private Text hpText;
+    [SerializeField] private Text atkText;
+    [SerializeField] private Text nameText;
     [SerializeField] private GameObject useButton;
     [SerializeField] private GameObject detailButton;
     [SerializeField] private GameObject dropButton;
@@ -49,6 +52,16 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    public void OpenPOPUP(GameObject go)
+    {
+        go.SetActive(true);
+    }
+
+    public void ClosePOPUP(GameObject go)
+    {
+        go.SetActive(false);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,9 +69,12 @@ public class InventoryManager : MonoBehaviour
         SetTextAndButton("", false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetupDescriptionAndButton(string newDescriptionString, bool isButtonUsable, string newHPText, string newATKText)
     {
-        
+        descriptionText.text = newDescriptionString;
+        atkText.text = newATKText;
+        hpText.text = newHPText;
+        useButton.SetActive(isButtonUsable);
     }
+
 }
