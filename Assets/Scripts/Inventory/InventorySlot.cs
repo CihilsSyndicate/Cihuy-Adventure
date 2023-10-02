@@ -33,7 +33,7 @@ public class InventorySlot : MonoBehaviour
     {
         if (thisItem)
         {
-            thisManager.SetupDescriptionAndButton(thisItem.itemDescription, thisItem.usable, "Hp : +" + Hp.ToString(), "Atk : +" + Atk.ToString());
+            thisManager.SetupDescriptionAndButton(thisItem.itemDescription, thisItem.usable, "Hp : +" + thisItem.Hp.ToString(), "Atk : +" + thisItem.Atk.ToString(), thisItem.itemName, thisItem.itemImage);
         }
     }
 }

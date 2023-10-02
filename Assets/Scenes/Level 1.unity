@@ -16531,7 +16531,8 @@ MonoBehaviour:
   descriptionText: {fileID: 725168300}
   hpText: {fileID: 1227263681}
   atkText: {fileID: 1453433466}
-  nameText: {fileID: 1871361026}
+  itemNameText: {fileID: 1871361026}
+  itemImage: {fileID: 2073219915}
   useButton: {fileID: 509400370}
   detailButton: {fileID: 1753900789}
   dropButton: {fileID: 2133289516}
@@ -17374,7 +17375,8 @@ MonoBehaviour:
   descriptionText: {fileID: 725168300}
   hpText: {fileID: 0}
   atkText: {fileID: 0}
-  nameText: {fileID: 0}
+  itemNameText: {fileID: 0}
+  itemImage: {fileID: 0}
   useButton: {fileID: 192120697}
   detailButton: {fileID: 1221846414}
   dropButton: {fileID: 181838237}
