@@ -10,6 +10,10 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private GameObject blackInventorySlot;
     [SerializeField] private GameObject inventoryPanel;
     [SerializeField] private Text descriptionText;
+    [SerializeField] private Text hpText;
+    [SerializeField] private Text atkText;
+    [SerializeField] private Text itemNameText;
+    [SerializeField] private Image itemImage;
     [SerializeField] private GameObject useButton;
     [SerializeField] private GameObject detailButton;
     [SerializeField] private GameObject dropButton;
@@ -20,14 +24,10 @@ public class InventoryManager : MonoBehaviour
         if (buttonActive)
         {
             useButton.SetActive(true);
-            detailButton.SetActive(true);
-            dropButton.SetActive(true);
         }
         else
         {
             useButton.SetActive(false);
-            detailButton.SetActive(false);
-            dropButton.SetActive(false);
         }
     }
 
@@ -49,6 +49,16 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    public void OpenPOPUP(GameObject go)
+    {
+        go.SetActive(true);
+    }
+
+    public void ClosePOPUP(GameObject go)
+    {
+        go.SetActive(false);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,9 +66,14 @@ public class InventoryManager : MonoBehaviour
         SetTextAndButton("", false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetupDescriptionAndButton(string newDescriptionString, bool isButtonUsable, string newHPText, string newATKText, string newItemName, Sprite newItemImage)
     {
-        
+        descriptionText.text = newDescriptionString;
+        atkText.text = newATKText;
+        hpText.text = newHPText;
+        itemNameText.text = newItemName;
+        itemImage.sprite = newItemImage;
+        useButton.SetActive(isButtonUsable);
     }
+
 }
