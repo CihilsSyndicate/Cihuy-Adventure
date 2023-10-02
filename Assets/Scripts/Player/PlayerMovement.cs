@@ -59,6 +59,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        healthBar.SetHealth(currentHealth.RuntimeValue);
+        if(currentHealth.RuntimeValue > currentHealth.initialValue)
+        {
+            currentHealth.RuntimeValue = currentHealth.initialValue;
+        }
         // change = Vector3.zero;
         change = new Vector3(fixedJoystick.Horizontal, 0f, fixedJoystick.Vertical);
         change.x = fixedJoystick.Horizontal;
@@ -120,8 +125,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        currentHealth.RuntimeValue -= damage;
-        healthBar.SetHealth(currentHealth.RuntimeValue);
+        currentHealth.RuntimeValue -= damage;      
         ShowFloatingText(damage);
         StartCoroutine(DamageEffect());
         playerHealthSignal.Raise();

@@ -1057,7 +1057,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 509400373}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1590933785}
+        m_MethodName: UseButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &509400373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16536,6 +16547,8 @@ MonoBehaviour:
   useButton: {fileID: 509400370}
   detailButton: {fileID: 1753900789}
   dropButton: {fileID: 2133289516}
+  currentItem: {fileID: 0}
+  playerHealth: {fileID: 11400000, guid: cba51a348d0e4c241a6aae14fa1e4c8f, type: 2}
 --- !u!1 &1640592837
 GameObject:
   m_ObjectHideFlags: 0
@@ -17380,6 +17393,8 @@ MonoBehaviour:
   useButton: {fileID: 192120697}
   detailButton: {fileID: 1221846414}
   dropButton: {fileID: 181838237}
+  currentItem: {fileID: 0}
+  playerHealth: {fileID: 0}
 --- !u!1001 &1810256097
 PrefabInstance:
   m_ObjectHideFlags: 0

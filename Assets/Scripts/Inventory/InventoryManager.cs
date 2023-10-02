@@ -18,6 +18,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private GameObject detailButton;
     [SerializeField] private GameObject dropButton;
     public InventoryItem currentItem;
+    public FloatValue playerHealth;
 
     public void SetTextAndButton(string description, bool buttonActive)
     {
@@ -25,10 +26,14 @@ public class InventoryManager : MonoBehaviour
         if (buttonActive)
         {
             useButton.SetActive(true);
+            detailButton.SetActive(true);
+            dropButton.SetActive(true);
         }
         else
-        {
+        {         
             useButton.SetActive(false);
+            detailButton.SetActive(false);
+            dropButton.SetActive(false);
         }
     }
 
@@ -36,16 +41,17 @@ public class InventoryManager : MonoBehaviour
     {
         if (playerInventory != null)
         {
+            
             for (int i = 0; i < playerInventory.myInventory.Count; i++)
-            {
-                GameObject temp =
+            {            
+                    GameObject temp =
                     Instantiate(blackInventorySlot, inventoryPanel.transform.position, Quaternion.identity);
-                temp.transform.SetParent(inventoryPanel.transform);
-                InventorySlot newSlot = temp.GetComponent<InventorySlot>();
-                if(newSlot != null)
-                {
-                    newSlot.Setup(playerInventory.myInventory[i], this);
-                }
+                    temp.transform.SetParent(inventoryPanel.transform);
+                    InventorySlot newSlot = temp.GetComponent<InventorySlot>();
+                    if (newSlot != null)
+                    {
+                        newSlot.Setup(playerInventory.myInventory[i], this);
+                    }  
             }
         }
     }
@@ -67,6 +73,8 @@ public class InventoryManager : MonoBehaviour
         SetTextAndButton("", false);
     }
 
+    
+
     public void SetupDescriptionAndButton(string newDescriptionString, bool isButtonUsable, string newHPText, string newATKText, string newItemName, Sprite newItemImage, InventoryItem newItem)
     {
         currentItem = newItem;
@@ -76,13 +84,23 @@ public class InventoryManager : MonoBehaviour
         itemNameText.text = newItemName;
         itemImage.sprite = newItemImage;
         useButton.SetActive(isButtonUsable);
+        detailButton.SetActive(isButtonUsable);
+        dropButton.SetActive(isButtonUsable);
     }
 
     public void UseButtonPressed()
     {
         if (currentItem)
         {
-            currentItem.Use();
+            if(playerHealth.RuntimeValue != playerHealth.initialValue)
+            {
+                currentItem.Use();
+                if(currentItem.numberHeld == 0)
+                {
+                    SetTextAndButton("", false);
+                }     
+            }
+            
         }
     }
 

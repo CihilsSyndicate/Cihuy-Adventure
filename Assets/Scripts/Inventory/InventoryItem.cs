@@ -15,11 +15,29 @@ public class InventoryItem : ScriptableObject
     public bool usable;
     public bool unique;
     public UnityEvent thisEvent;
+    public ItemType itemType;
+    public enum ItemType
+    {
+        Equipment,
+        Consumable
+    }
 
     public void Use()
     {
-        Debug.Log("Using Item");
         thisEvent.Invoke();
+    }
+
+    public void DecraeseAmount(int amountToDecrease)
+    {
+        if(itemType == ItemType.Consumable)
+        {
+            numberHeld -= amountToDecrease;
+            if (numberHeld < 0)
+            {
+                numberHeld = 0;
+            }
+        }
+      
     }
 
 }

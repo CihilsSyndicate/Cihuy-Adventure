@@ -6,26 +6,34 @@ using UnityEngine.UI;
 public class InventorySlot : MonoBehaviour
 {
     [Header("UI Stuff to change")]
-    //[SerializeField] private Text itemNumberText;
+    [SerializeField] private Text itemNumberText;
     [SerializeField] private Image itemImage;
 
     [Header("Variables from the item")]
     public Sprite itemSprite;
-    //public int numberHeld;
+    public int numberHeld;
     public string itemDescription;
     public float Atk;
     public float Hp;
     public InventoryItem thisItem;
     public InventoryManager thisManager;
 
+    private void Update()
+    {
+        itemNumberText.text = thisItem.numberHeld.ToString();
+        if(thisItem.numberHeld == 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public void Setup(InventoryItem newItem, InventoryManager newManager)
     {
         thisItem = newItem;
         thisManager = newManager;
-        if (thisItem != null)
+        if (thisItem)
         {
-            itemImage.sprite = thisItem.itemImage;
-            //itemNumberText.text = thisItem.numberHeld.ToString();
+            itemImage.sprite = thisItem.itemImage; 
         }
     }
 
