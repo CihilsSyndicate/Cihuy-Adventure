@@ -936,6 +936,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6353128745903201251, guid: 44052d3e3e31b374bbcc4c2a158fa81a,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.21897928
+      objectReference: {fileID: 0}
+    - target: {fileID: 6353128745903201251, guid: 44052d3e3e31b374bbcc4c2a158fa81a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.39123848
+      objectReference: {fileID: 0}
+    - target: {fileID: 6353128745903201251, guid: 44052d3e3e31b374bbcc4c2a158fa81a,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.5751881
+      objectReference: {fileID: 0}
     - target: {fileID: 6353128745903201261, guid: 44052d3e3e31b374bbcc4c2a158fa81a,
         type: 3}
       propertyPath: m_Name
@@ -1245,8 +1260,8 @@ MonoBehaviour:
   - {fileID: 2047195606}
   - {fileID: 920397080}
   - {fileID: 572140553}
-  orbitingSword: {fileID: 0}
-  swordDuration: 20
+  orbitingWeaponGO: []
+  slimeSpawner: []
 --- !u!4 &1061449331
 Transform:
   m_ObjectHideFlags: 0
@@ -1809,6 +1824,8 @@ MonoBehaviour:
   currentHealth: {fileID: 11400000, guid: cba51a348d0e4c241a6aae14fa1e4c8f, type: 2}
   playerHealthSignal: {fileID: 11400000, guid: bea8081990fcb3d49999132a77b4765e, type: 2}
   damageEffectDuration: 0.2
+  healthBar: {fileID: 0}
+  floatingTextDamage: {fileID: 0}
 --- !u!50 &1463541615
 Rigidbody2D:
   serializedVersion: 4
@@ -2121,7 +2138,7 @@ MonoBehaviour:
   player: {fileID: 1463541607}
   orbitSpeed: 200
   direction: {x: 0, y: 0, z: 1}
-  knockbackForce: 100
+  weaponDamage: 0
 --- !u!212 &1706632435
 SpriteRenderer:
   m_ObjectHideFlags: 0
