@@ -5,13 +5,15 @@ using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
+    [SerializeField] private PlayerInventory playerInventory;
+
     public GameObject shop;
     public Text[] itemNameTxt;
     public Text costTxt;
     public Text hpTxt, atkTxt;
     public Text itemDescTxt;
     public Image[] itemImage;
-    private ShopItems currentItem;
+    private InventoryItem currentItem;
     public Button buyBtn;
     public Text buyBtnText;
     public GameObject coinGO;
@@ -35,10 +37,26 @@ public class ShopManager : MonoBehaviour
 
         foreach (var item in items)
         {
-            ShopItems shopItem = item.GetComponent<ItemButton>().item;
+            InventoryItem shopItem = item.GetComponent<ItemButton>().item;
             if (shopItem != null && shopItem.isOwned)
             {
                 item.SetActive(false);
+            }
+        }
+    }
+
+    void AddItemToInventory()
+    {
+        if (playerInventory && currentItem)
+        {
+            if (playerInventory.myInventory.Contains(currentItem))
+            {
+                currentItem.numberHeld += 1;
+            }
+            else
+            {
+                playerInventory.myInventory.Add(currentItem);
+                currentItem.numberHeld += 1;
             }
         }
     }
@@ -52,17 +70,17 @@ public class ShopManager : MonoBehaviour
     public void BuyItem()
     {
         CoinCounter.Instance.DecreaseCoin(currentItem.cost);
-        if(currentItem.itemType == ShopItems.ItemType.Consumable)
+        if(currentItem.itemType == InventoryItem.ItemType.Consumable)
         {
             currentItem.consumableStack -= 1;
-            currentItem.quantity += 1;
-            Debug.Log("Kuantitas: " + currentItem.quantity);
+            AddItemToInventory();
+            Debug.Log("Kuantitas: " + currentItem.numberHeld);
             if(currentItem.consumableStack <= 0)
             {
                 TurnOffBuyBtn();
             }
         }
-        else if (currentItem.itemType == ShopItems.ItemType.Equipment)
+        else if (currentItem.itemType == InventoryItem.ItemType.Equipment)
         {
             currentItem.isOwned = true;
             TurnOffBuyBtn();
@@ -74,7 +92,7 @@ public class ShopManager : MonoBehaviour
         CoinCounter.Instance.IncreaseCoin(100);
     }
 
-    public void DisplayItem(ShopItems item)
+    public void DisplayItem(InventoryItem item)
     {
         for (int i = 0; i < itemNameTxt.Length; i++)
         {
@@ -96,12 +114,12 @@ public class ShopManager : MonoBehaviour
         }
         for (int i = 0; i < itemImage.Length; i++)
         {
-            itemImage[i].sprite = currentItem.itemSprite;
+            itemImage[i].sprite = currentItem.itemImage;
         }
         costTxt.text = currentItem.cost.ToString();
-        hpTxt.text = "HP: " + currentItem.hp.ToString();
-        atkTxt.text = "ATK: " + currentItem.atk.ToString();
-        itemDescTxt.text = currentItem.itemDesc;
+        hpTxt.text = "HP: " + currentItem.Hp.ToString();
+        atkTxt.text = "ATK: " + currentItem.Atk.ToString();
+        itemDescTxt.text = currentItem.itemDescription;
         CheckPurchasable();
     }
 

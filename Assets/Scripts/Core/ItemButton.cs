@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class ItemButton : MonoBehaviour
 {
-    public ShopItems item; // Item yang akan ditampilkan saat tombol ini diklik
+    public InventoryItem item; // Item yang akan ditampilkan saat tombol ini diklik
     private Text consumableStackTxt;
     private Image image;
     private ShopManager shopManager;
@@ -11,7 +11,7 @@ public class ItemButton : MonoBehaviour
     private void Start()
     {
         consumableStackTxt = GetComponentInChildren<Text>();
-        if(item.itemType == ShopItems.ItemType.Consumable)
+        if(item.itemType == InventoryItem.ItemType.Consumable)
         {
             item.consumableStack = Random.Range(3, 5);
         }
@@ -20,13 +20,13 @@ public class ItemButton : MonoBehaviour
             consumableStackTxt.gameObject.SetActive(false);
         }
         image = GetComponent<Image>();
-        image.sprite = item.itemSprite;
+        image.sprite = item.itemImage;
         shopManager = FindObjectOfType<ShopManager>();
     }
 
     private void Update()
     {
-        if(item.itemType == ShopItems.ItemType.Consumable)
+        if(item.itemType == InventoryItem.ItemType.Consumable)
             consumableStackTxt.text = item.consumableStack.ToString();
     }
 

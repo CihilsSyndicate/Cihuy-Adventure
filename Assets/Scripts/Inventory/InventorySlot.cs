@@ -18,9 +18,16 @@ public class InventorySlot : MonoBehaviour
     public InventoryItem thisItem;
     public InventoryManager thisManager;
 
-    private void FixedUpdate()
+    private void Start()
     {
-        itemNumberText.text = thisItem.numberHeld.ToString();
+        if(thisItem.itemType == InventoryItem.ItemType.Consumable)
+        {
+            itemNumberText.text = thisItem.numberHeld.ToString();
+        }else
+        {
+            itemNumberText.gameObject.SetActive(false);
+        }
+       
     }
 
     public void Setup(InventoryItem newItem, InventoryManager newManager)

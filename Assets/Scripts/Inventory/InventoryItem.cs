@@ -4,16 +4,20 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Items")]
+[System.Serializable]
 public class InventoryItem : ScriptableObject
 {
     public string itemName;
     public string itemDescription;
+    public int cost;
     public float Atk;
     public float Hp;
     public Sprite itemImage;
     public int numberHeld;
+    public int consumableStack;
     public bool usable;
     public bool unique;
+    public bool isOwned;
     public UnityEvent thisEvent;
     public ItemType itemType;
     public enum ItemType
