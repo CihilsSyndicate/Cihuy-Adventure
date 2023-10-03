@@ -43,15 +43,18 @@ public class InventoryManager : MonoBehaviour
         {
             
             for (int i = 0; i < playerInventory.myInventory.Count; i++)
-            {            
+            {        
+                if(playerInventory .myInventory[i].numberHeld > 0)
+                {
                     GameObject temp =
-                    Instantiate(blackInventorySlot, inventoryPanel.transform.position, Quaternion.identity);
+                   Instantiate(blackInventorySlot, inventoryPanel.transform.position, Quaternion.identity);
                     temp.transform.SetParent(inventoryPanel.transform);
                     InventorySlot newSlot = temp.GetComponent<InventorySlot>();
                     if (newSlot != null)
                     {
                         newSlot.Setup(playerInventory.myInventory[i], this);
-                    }  
+                    }
+                }          
             }
         }
     }
@@ -66,16 +69,43 @@ public class InventoryManager : MonoBehaviour
         go.SetActive(false);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void RemoveItemsWithZeroCount()
     {
+        List<InventoryItem> itemsToRemove = new List<InventoryItem>();
+
+        for (int i = 0; i < playerInventory.myInventory.Count; i++)
+        {
+            if (playerInventory.myInventory[i].numberHeld == 0)
+            {
+                itemsToRemove.Add(playerInventory.myInventory[i]);
+            }
+        }
+
+        // Hapus objek yang sesuai dengan kondisi di atas dari List playerInventory.myInventory
+        foreach (var item in itemsToRemove)
+        {
+            playerInventory.myInventory.Remove(item);
+        }
+    }
+
+
+    // Start is called before the first frame update
+    void OnEnable()
+    {   
+        ClearInventoryItem();
         MakeInventorySlot();
         SetTextAndButton("", false);
     }
 
-    
+    void ClearInventoryItem()
+    {
+        for (int i = 0; i < inventoryPanel.transform.childCount; i++)
+        {
+            Destroy(inventoryPanel.transform.GetChild(i).gameObject);
+        }
+    }
 
-    public void SetupDescriptionAndButton(string newDescriptionString, bool isButtonUsable, string newHPText, string newATKText, string newItemName, Sprite newItemImage, InventoryItem newItem)
+    public void SetupDescriptionAndButtonForConsumable(string newDescriptionString, bool isButtonUsable, string newHPText, string newATKText, string newItemName, Sprite newItemImage, InventoryItem newItem)
     {
         currentItem = newItem;
         descriptionText.text = newDescriptionString;
@@ -90,15 +120,18 @@ public class InventoryManager : MonoBehaviour
 
     public void UseButtonPressed()
     {
-        if (currentItem)
+        if (currentItem && currentItem.itemType != InventoryItem.ItemType.Equipment)
         {
             if(playerHealth.RuntimeValue != playerHealth.initialValue)
             {
                 currentItem.Use();
                 if(currentItem.numberHeld == 0)
                 {
+                    RemoveItemsWithZeroCount();
                     SetTextAndButton("", false);
-                }     
+                }
+                ClearInventoryItem();
+                MakeInventorySlot();
             }
             
         }

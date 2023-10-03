@@ -18,13 +18,9 @@ public class InventorySlot : MonoBehaviour
     public InventoryItem thisItem;
     public InventoryManager thisManager;
 
-    private void Update()
+    private void FixedUpdate()
     {
         itemNumberText.text = thisItem.numberHeld.ToString();
-        if(thisItem.numberHeld == 0)
-        {
-            Destroy(gameObject);
-        }
     }
 
     public void Setup(InventoryItem newItem, InventoryManager newManager)
@@ -39,9 +35,13 @@ public class InventorySlot : MonoBehaviour
 
     public void ClickedOn()
     {
+        if(thisItem.itemType != InventoryItem.ItemType.Consumable)
+        {
+
+        }
         if (thisItem)
         {
-            thisManager.SetupDescriptionAndButton(thisItem.itemDescription, thisItem.usable, "Hp : +" + thisItem.Hp.ToString(), "Atk : +" + thisItem.Atk.ToString(), thisItem.itemName, thisItem.itemImage, thisItem);
+            thisManager.SetupDescriptionAndButtonForConsumable(thisItem.itemDescription, thisItem.usable, "Hp : +" + thisItem.Hp.ToString(), "Atk : +" + thisItem.Atk.ToString(), thisItem.itemName, thisItem.itemImage, thisItem);
         }
     }
 }
