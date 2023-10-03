@@ -3,7 +3,7 @@ using UnityEngine.Tilemaps;
 
 public class TilemapSpriteRenderer : MonoBehaviour
 {
-    public Tilemap tilemap;
+    public Tilemap tilemapGO;
    
 
     private void Start()
