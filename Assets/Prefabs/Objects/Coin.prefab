@@ -117,6 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 13
   delayBeforeMove: 2
+  coinTrailRenderer: {fileID: 6867193263980873352}
   objectTransform: {fileID: 2119940945105608924}
 --- !u!61 &2119940945105608922
 BoxCollider2D:

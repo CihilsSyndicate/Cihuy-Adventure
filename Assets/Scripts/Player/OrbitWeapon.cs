@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class OrbitWeapon : Damage
 {
     public GameObject player;
     public float orbitSpeed = 10f;
     public Vector3 direction = Vector3.up;
+    public float weaponDamage;
 
     private void Update()
     {
@@ -15,14 +17,21 @@ public class OrbitWeapon : Damage
     {
         if (other.CompareTag("Enemy") && other.gameObject.name != "HappySlime")
         {
-            Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
-            if(hit != null)
+            if(SceneManager.GetActiveScene().name == "SurvivalMode")
             {
-                other.GetComponent<SlimeController>().Knock(hit, knockTime, damage);
+                Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
+                if(hit != null)
+                {
+                    other.GetComponent<SlimeController>().Knock(hit, knockTime, damage);
+                }
+                Vector2 difference = hit.transform.position - transform.position;
+                difference = difference.normalized * force;
+                hit.AddForce(difference, ForceMode2D.Impulse);
             }
-            Vector2 difference = hit.transform.position - transform.position;
-            difference = difference.normalized * force;
-            hit.AddForce(difference, ForceMode2D.Impulse);
+            else
+            {
+                other.GetComponent<SlimeController>().TakeDamage(damage);
+            }
         }
 
         if (other.CompareTag("Boss"))

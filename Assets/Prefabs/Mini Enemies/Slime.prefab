@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c33e2108146fb24fa940490ca53ffc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  killingScore: 10
   damageEffectDuration: 0.2
   slimeBulletPrefab: {fileID: 5445938635951188370, guid: 8d620474dedc5734b853880c91dfc483,
     type: 3}
