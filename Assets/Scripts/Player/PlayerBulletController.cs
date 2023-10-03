@@ -31,9 +31,15 @@ public class PlayerBulletController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if(other.CompareTag("Boss"))
+        if (other.CompareTag("Boss"))
         {
             other.GetComponent<BossController>().TakeDamage(damage);
+            Destroy(gameObject);
+        }
+
+        if (other.CompareTag("Wall"))
+        {
+            Debug.Log("Njir");
             Destroy(gameObject);
         }
     }

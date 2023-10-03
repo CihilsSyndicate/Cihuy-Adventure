@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SlimeController : MonoBehaviour
 {
+    public int killingScore;
+
     [Header("Movement and Physics")]
     private Rigidbody2D rb;
     private float moveSpeed;
@@ -17,6 +19,7 @@ public class SlimeController : MonoBehaviour
     public float damageEffectDuration = 0.2f;
     private SpriteRenderer spriteRenderer;
     [System.NonSerialized] public bool isKnockback;
+    private Transform player;
 
     [Header("Attacking")]
     public GameObject slimeBulletPrefab;
@@ -32,10 +35,11 @@ public class SlimeController : MonoBehaviour
     [Header("Item Drop")]
     public GameObject coinPrefab;
 
-
     private void Awake()
     {
-       health = maxHealth.initialValue;
+        health = maxHealth.initialValue;
+        GameObject playerGO = GameObject.Find("Player");
+        player = playerGO.transform;
     }
 
     // Start is called before the first frame update
@@ -81,7 +85,17 @@ public class SlimeController : MonoBehaviour
             {
                 isMoving = true;
                 moveDurationCounter = moveDuration;
-                moveDirection = new Vector3(Random.Range(-1f, 1f) * moveSpeed, Random.Range(-1f, 1f) * moveSpeed, 0f);
+                if(SceneManager.GetActiveScene().name != "SurvivalMode")
+                {
+                    moveDirection = new Vector3(Random.Range(-1f, 1f) * moveSpeed, Random.Range(-1f, 1f) * moveSpeed, 0f);
+                }
+                else
+                {
+                    if (player != null)
+                    {
+                        moveDirection = (player.position - transform.position).normalized * moveSpeed;
+                    }
+                }
             }
         }
     }
@@ -109,6 +123,7 @@ public class SlimeController : MonoBehaviour
         StartCoroutine(DamageEffect());
         if (health <= 0)
         {
+            ScoreManager.Instance.AddScore(killingScore);
             for (int i = 0; i < 3; i++)
             {
                 GameObject coin = Instantiate(coinPrefab);
