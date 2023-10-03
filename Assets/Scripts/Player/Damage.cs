@@ -76,6 +76,7 @@ public class Damage : MonoBehaviour
                 if (other.GetComponent<PlayerMovement>().currentState != playerState.stagger)
                 {                
                     other.GetComponent<PlayerMovement>().Knock(knockTime, damage);
+                    hit.GetComponent<PlayerMovement>().currentState = playerState.stagger;
                 }
             }
            

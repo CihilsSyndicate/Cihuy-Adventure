@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if(change == Vector3.zero)
+        if(change == Vector3.zero && currentState != playerState.stagger)
         {
             currentState = playerState.idle;
         }

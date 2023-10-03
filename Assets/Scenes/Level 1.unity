@@ -4002,7 +4002,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &868017762
 Animator:
   serializedVersion: 3
@@ -4160,7 +4160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 2
   damage: 0
-  knockTime: 0.4
+  knockTime: 2
 --- !u!58 &868017769
 CircleCollider2D:
   m_ObjectHideFlags: 0
