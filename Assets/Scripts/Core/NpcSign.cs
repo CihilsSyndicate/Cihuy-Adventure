@@ -8,24 +8,32 @@ public class NpcSign : MonoBehaviour
     public GameObject dialogBox;
     public Text nameNpcText;
     public Text dialogText;
-    public Text option1Text; // Text untuk tombol pilihan 1
-    public Text option2Text; // Text untuk tombol pilihan 2
+    public Text option1Text;
+    public Text option2Text;
+
     public string npcName;
     public string dialog;
     public string option1;
     public string option2;
     public float typingSpeed = 0.05f;
     public SpriteRenderer spriteRendererToActivate;
+
     private bool playerInRange;
     private bool isTyping;
     private bool dialogActive = false;
     private AudioSource typingSound;
+    private Text option1TextComponent;
+    private Text option2TextComponent;
+    private Coroutine typingCoroutine; 
 
     // Start is called before the first frame update
     void Start()
     {
         dialogBox.SetActive(false);
         typingSound = GetComponent<AudioSource>();
+
+        option1TextComponent = option1Text.GetComponent<Text>();
+        option2TextComponent = option2Text.GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -37,6 +45,19 @@ public class NpcSign : MonoBehaviour
             {
                 ToggleDialog();
                 dialogActive = true;
+            }
+            else if (isTyping)
+            {
+                // Jika teks sedang diketik, hentikan coroutine dan tampilkan seluruh teks
+                StopCoroutine(typingCoroutine);
+                dialogText.text = dialog;
+                isTyping = false;
+            }
+            else
+            {
+              
+                dialogActive = false;
+                dialogBox.SetActive(false);
             }
         }
     }
@@ -59,6 +80,15 @@ public class NpcSign : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
+
+            // Hentikan teks yang sedang ditampilkan saat keluar dari jangkauan
+            if (isTyping)
+            {
+                StopCoroutine(typingCoroutine);
+                dialogText.text = dialog;
+                isTyping = false;
+            }
+
             dialogActive = false;
             dialogBox.SetActive(false);
 
@@ -79,7 +109,12 @@ public class NpcSign : MonoBehaviour
         {
             dialogBox.SetActive(true);
             nameNpcText.text = npcName;
-            StartCoroutine(TypeText());
+
+            // Mulai coroutine dan simpan referensi ke coroutine saat ini
+            typingCoroutine = StartCoroutine(TypeText());
+
+            option1TextComponent.text = option1;
+            option2TextComponent.text = option2;
         }
     }
 
@@ -99,10 +134,6 @@ public class NpcSign : MonoBehaviour
 
             yield return new WaitForSeconds(typingSpeed);
         }
-
-        // Set teks untuk dua tombol pilihan
-        option1Text.text = option1;
-        option2Text.text = option2;
 
         isTyping = false;
     }
