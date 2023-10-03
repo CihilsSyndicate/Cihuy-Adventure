@@ -41,7 +41,7 @@ public class PowerUps : MonoBehaviour
         }
         else
         {
-            if (ScoreManager.Instance.score % 30 == 0 && ScoreManager.Instance.score != 0 && !isSelectingPowerUp)
+            if (ScoreManager.Instance.score % 100 == 0 && ScoreManager.Instance.score != 0 && !isSelectingPowerUp)
             {
                 ScoreManager.Instance.AddScore(10);
                 isSelectingPowerUp = true;
