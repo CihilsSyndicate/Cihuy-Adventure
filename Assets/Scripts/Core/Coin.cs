@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Coin : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Coin : MonoBehaviour
     public float delayBeforeMove = 1f; // Penundaan sebelum koin mulai bergerak
     private bool isMoving = false;
     private Collider2D coinCollider;
+    private bool isSurvivalMode;
 
     [Header("Random Splash")]
     public TrailRenderer coinTrailRenderer;
@@ -28,10 +30,12 @@ public class Coin : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        coinTrailRenderer = GetComponent<TrailRenderer>();
-        coinTrailRenderer.enabled = false;
-        coinCollider = GetComponent<Collider2D>();
-        coinCollider.enabled = false;
+        if (!isSurvivalMode)
+        {
+            coinTrailRenderer.enabled = false;
+            coinCollider = GetComponent<Collider2D>();
+            coinCollider.enabled = false;
+        }
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         playerTransform = player.transform;
     }
@@ -39,6 +43,15 @@ public class Coin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(SceneManager.GetActiveScene().name == "SurvivalMode")
+        {
+            isSurvivalMode = true;
+        }
+        else
+        {
+            isSurvivalMode = false;
+        }
+
         if(when >= delay)
         {
             pastTime = Time.deltaTime;
@@ -53,7 +66,15 @@ public class Coin : MonoBehaviour
         enemies.CopyTo(allEnemies, 0);
         bossEnemies.CopyTo(allEnemies, enemies.Length);
 
-        if (allEnemies.Length == 0 && isMoving == false)
+        if (!isSurvivalMode)
+        {
+            if (allEnemies.Length == 0 && isMoving == false)
+            {
+                coinTrailRenderer.enabled = true;
+                isMoving = true;
+            }
+        }
+        else
         {
             coinTrailRenderer.enabled = true;
             isMoving = true;

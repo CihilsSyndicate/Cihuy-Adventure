@@ -29,5 +29,9 @@ public class BulletController : MonoBehaviour
             Destroy(gameObject);           
             other.GetComponent<PlayerMovement>().TakeDamage(1f);
         }
+        else if (other.gameObject.name == "Wall")
+        {
+            Destroy(gameObject);
+        }    
     }
 }

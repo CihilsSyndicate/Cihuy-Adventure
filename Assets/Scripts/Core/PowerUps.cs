@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PowerUps : MonoBehaviour
@@ -8,8 +9,11 @@ public class PowerUps : MonoBehaviour
     public GameObject popupSelectPowerUp;
     private bool enemiesDefeated = false;
     public GameObject[] powerUpGO;
-    public GameObject orbitingSword;
-    public int swordDuration;
+    public GameObject[] orbitingWeaponGO;
+    private bool isSelectingPowerUp = false;
+    private bool swordActivated = false;
+    private bool orbitingWeaponActivated = false;
+    public SlimeSpawner[] slimeSpawner;
 
     // Start is called before the first frame update
     void Start()
@@ -20,17 +24,32 @@ public class PowerUps : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject[] bossEnemies = GameObject.FindGameObjectsWithTag("Boss");
-
-        GameObject[] allEnemies = new GameObject[enemies.Length + bossEnemies.Length];
-        enemies.CopyTo(allEnemies, 0);
-        bossEnemies.CopyTo(allEnemies, enemies.Length);
-
-        if (allEnemies.Length == 0 && enemiesDefeated == false)
+        if(SceneManager.GetActiveScene().name != "SurvivalMode")
         {
-            enemiesDefeated = true;
-            ShowPowerUpPopUp();
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            GameObject[] bossEnemies = GameObject.FindGameObjectsWithTag("Boss");
+
+            GameObject[] allEnemies = new GameObject[enemies.Length + bossEnemies.Length];
+            enemies.CopyTo(allEnemies, 0);
+            bossEnemies.CopyTo(allEnemies, enemies.Length);
+
+            if (allEnemies.Length == 0 && enemiesDefeated == false)
+            {
+                enemiesDefeated = true;
+                ShowPowerUpPopUp();
+            }
+        }
+        else
+        {
+            if (ScoreManager.Instance.score % 30 == 0 && ScoreManager.Instance.score != 0 && !isSelectingPowerUp)
+            {
+                isSelectingPowerUp = true;
+                ShowPowerUpPopUp();
+                for (int i = 0; i < slimeSpawner.Length; i++)
+                {
+                    slimeSpawner[i].StopSpawning();
+                }
+            }
         }
     }
 
@@ -40,52 +59,82 @@ public class PowerUps : MonoBehaviour
         {
             powerUp.SetActive(false);
         }
-        // Pilih dua PowerUp secara acak dan aktifkan
+
+        // Pilih dua PowerUp secara acak dan aktifkan, kecuali jika orbitingWeapon sudah aktif
         List<int> chosenIndices = new List<int>();
-        int numberOfPowerUpsToShow = 2; // Ganti sesuai dengan jumlah yang Anda inginkan
+        int numberOfPowerUpsToShow = 2;
+
         for (int i = 0; i < numberOfPowerUpsToShow; i++)
         {
             int randomIndex;
             do
             {
                 randomIndex = Random.Range(0, powerUpGO.Length);
-            } while (chosenIndices.Contains(randomIndex));
+            } while (chosenIndices.Contains(randomIndex) || (orbitingWeaponActivated && randomIndex == 5) || (swordActivated && randomIndex == 3));
 
             chosenIndices.Add(randomIndex);
             powerUpGO[randomIndex].SetActive(true);
         }
+
         popupSelectPowerUp.SetActive(true);
     }
+
 
     public void SelectPowerUp()
     {
         popupSelectPowerUp.SetActive(false);
+        isSelectingPowerUp = false;
+        for (int i = 0; i < slimeSpawner.Length; i++)
+        {
+            slimeSpawner[i].StartSpawning();
+        }
     }
 
-    public void IncreaseAspd()
+    public void IncreaseAspd(float amount)
     {
-        PlayerAttack.Instance.attackSpeed -= 0.1f;
+        PlayerAttack.Instance.attackSpeed -= amount;
     }
 
-    public void IncreaseMoveSpeed()
+    public void IncreaseMoveSpeed(float amount)
     {
-        PlayerMovement.Instance.speed += 2f;
+        PlayerMovement.Instance.speed += amount;
     }
 
-    public void IncreaseMaxShot()
+    public void IncreaseFireBallMaxShot(int amount)
     {
-        PlayerAttack.Instance.maxShot += 1;
+        PlayerAttack.Instance.maxShot += amount;
     }
 
-    public void AddSword()
+    public void IncreaseSwordSlashMaxShot(int amount)
     {
-        StartCoroutine(ActivateSwordForDuration());
+        SwordAttack.Instance.maxShot += amount;
     }
 
-    private IEnumerator ActivateSwordForDuration()
+    public void AddSlashSword()
     {
-        orbitingSword.SetActive(true);
-        yield return new WaitForSeconds(swordDuration);
-        orbitingSword.SetActive(false);
+        if (!swordActivated)
+        {
+            SwordAttack.Instance.enabled = true;
+            swordActivated = true;
+        }
     }
+
+    public void IncreaseRangeAttack(float amount)
+    {
+        PlayerAttack.Instance.shootRange += amount;
+    }
+
+    public void AddOrbitingWeapon()
+    {
+        if (!orbitingWeaponActivated)
+        {
+            for (int i = 0; i < orbitingWeaponGO.Length; i++)
+            {
+                orbitingWeaponGO[i].SetActive(true);
+            }
+
+            orbitingWeaponActivated = true;
+        }
+    }
+
 }

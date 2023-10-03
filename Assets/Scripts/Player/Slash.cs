@@ -43,5 +43,10 @@ public class Slash : MonoBehaviour
             other.GetComponent<BossController>().TakeDamage(damage);
             Destroy(gameObject);
         }
+
+        if (other.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
