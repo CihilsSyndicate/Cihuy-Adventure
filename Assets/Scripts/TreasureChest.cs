@@ -11,7 +11,10 @@ public class TreasureChest : MonoBehaviour
     {
         for (int i = 0; i < sign.Length; i++)
         {
-            sign[i].SetActive(false);
+            if (sign[i].activeInHierarchy)
+            {
+                sign[i].SetActive(false);
+            }
         }
     }
 
