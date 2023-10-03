@@ -105,11 +105,19 @@ public class BossController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && collision.collider.isTrigger)
         {
             rb.velocity = Vector2.zero;
             moveDurationCounter = 0;
-            collision.gameObject.GetComponent<PlayerMovement>().TakeDamage(1f);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerMovement>().Knock(2f, 1f);
+            collision.gameObject.GetComponent<PlayerMovement>().currentState = playerState.stagger;
         }
     }
 

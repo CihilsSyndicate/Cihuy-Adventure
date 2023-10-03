@@ -89,7 +89,6 @@ public class PowerUps : MonoBehaviour
         {
             slimeSpawner[i].StartSpawning();
         }
-
         Time.timeScale = 1;
     }
 

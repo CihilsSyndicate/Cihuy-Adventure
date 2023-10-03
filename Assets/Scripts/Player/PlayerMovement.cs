@@ -65,10 +65,13 @@ public class PlayerMovement : MonoBehaviour
             currentHealth.RuntimeValue = currentHealth.initialValue;
         }
         // change = Vector3.zero;
-        change = new Vector3(fixedJoystick.Horizontal, 0f, fixedJoystick.Vertical);
-        change.x = fixedJoystick.Horizontal;
-        change.y = fixedJoystick.Vertical;
-        change.Normalize();
+        if(currentState != playerState.stagger)
+        {
+            change = new Vector3(fixedJoystick.Horizontal, 0f, fixedJoystick.Vertical);
+            change.x = fixedJoystick.Horizontal;
+            change.y = fixedJoystick.Vertical;
+            change.Normalize();
+        }
 
 
         if(change == Vector3.zero)

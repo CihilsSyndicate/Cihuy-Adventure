@@ -2,6 +2,7 @@
 
 public class SlimeSpawner : MonoBehaviour
 {
+    [Header("Spawning")]
     public GameObject slimePrefab;
     public float spawnInterval = 1f; // Jeda antara setiap spawn (2 detik)
     public bool isSpawning = true; // Untuk mengontrol apakah spawner sedang aktif atau tidak
