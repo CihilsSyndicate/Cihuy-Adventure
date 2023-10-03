@@ -123,7 +123,10 @@ public class SlimeController : MonoBehaviour
         StartCoroutine(DamageEffect());
         if (health <= 0)
         {
-            ScoreManager.Instance.AddScore(killingScore);
+            if(SceneManager.GetActiveScene().name == "SurvivalMode")
+            {
+                ScoreManager.Instance.AddScore(killingScore);
+            }
             for (int i = 0; i < 3; i++)
             {
                 GameObject coin = Instantiate(coinPrefab);
