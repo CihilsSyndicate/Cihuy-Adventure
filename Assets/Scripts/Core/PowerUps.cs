@@ -43,6 +43,7 @@ public class PowerUps : MonoBehaviour
         {
             if (ScoreManager.Instance.score % 30 == 0 && ScoreManager.Instance.score != 0 && !isSelectingPowerUp)
             {
+                ScoreManager.Instance.AddScore(10);
                 isSelectingPowerUp = true;
                 ShowPowerUpPopUp();
                 for (int i = 0; i < slimeSpawner.Length; i++)
@@ -55,6 +56,7 @@ public class PowerUps : MonoBehaviour
 
     public void ShowPowerUpPopUp()
     {
+        Time.timeScale = 0;
         foreach (var powerUp in powerUpGO)
         {
             powerUp.SetActive(false);
@@ -75,19 +77,20 @@ public class PowerUps : MonoBehaviour
             chosenIndices.Add(randomIndex);
             powerUpGO[randomIndex].SetActive(true);
         }
-
+        isSelectingPowerUp = false;
         popupSelectPowerUp.SetActive(true);
     }
 
 
     public void SelectPowerUp()
     {
-        popupSelectPowerUp.SetActive(false);
-        isSelectingPowerUp = false;
+        popupSelectPowerUp.SetActive(false);     
         for (int i = 0; i < slimeSpawner.Length; i++)
         {
             slimeSpawner[i].StartSpawning();
         }
+
+        Time.timeScale = 1;
     }
 
     public void IncreaseAspd(float amount)

@@ -3,14 +3,12 @@
 public class SlimeSpawner : MonoBehaviour
 {
     public GameObject slimePrefab;
-    public float spawnInterval = 2f; // Jeda antara setiap spawn (2 detik)
+    public float spawnInterval = 1f; // Jeda antara setiap spawn (2 detik)
     public bool isSpawning = true; // Untuk mengontrol apakah spawner sedang aktif atau tidak
     public float minSpawnDistance = 5f;
     public float maxSpawnDistance = 10f;
     [System.NonSerialized] public int currentSlimeCount = 0;
     private float timeSinceLastSpawn = 0f;
-
-   
 
     private void Update()
     {
@@ -18,6 +16,8 @@ public class SlimeSpawner : MonoBehaviour
         {
             SpawnSlime();
             timeSinceLastSpawn = 0f;
+
+            spawnInterval = Random.Range(1f, 6f);
         }
 
         timeSinceLastSpawn += Time.deltaTime;
@@ -28,11 +28,9 @@ public class SlimeSpawner : MonoBehaviour
         float spawnDistance = Random.Range(minSpawnDistance, maxSpawnDistance);
         float spawnAngle = Random.Range(0f, 360f);
 
-        // Hitung posisi spawn berdasarkan sudut dan jarak
         Vector3 spawnPosition = transform.position + Quaternion.Euler(0f, spawnAngle, 0f) * (Vector3.forward * spawnDistance);
         spawnPosition.z = 0;
 
-        // Buat instansi baru dari objek Slime prefab di posisi spawn yang dihitung
         GameObject newSlime = Instantiate(slimePrefab, spawnPosition, Quaternion.identity);
         currentSlimeCount++;
     }
