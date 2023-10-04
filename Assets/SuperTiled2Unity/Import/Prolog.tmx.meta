@@ -1,0 +1,157 @@
+fileFormatVersion: 2
+guid: d1de1a8e3d65b5f4abbf2d74f2515f31
+ScriptedImporter:
+  fileIDToRecycleName:
+    100000: _MapPrfab/Prolog
+    100002: _MapPrfab/Prolog/Collisions
+    100004: _MapPrfab/Prolog/Collisions Mask
+    100006: _MapPrfab/Prolog/Collisions Mask/Object_1
+    100008: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon
+    100010: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (1)
+    100012: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (2)
+    100014: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (3)
+    100016: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (4)
+    100018: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (5)
+    100020: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (6)
+    100022: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (7)
+    100024: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (8)
+    100026: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (9)
+    100028: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (10)
+    100030: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (11)
+    100032: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (12)
+    100034: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (13)
+    100036: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (14)
+    100038: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (15)
+    100040: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (16)
+    100042: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (17)
+    100044: _MapPrfab/Prolog/Collisions Mask/Object_6
+    100046: _MapPrfab/Prolog/Collisions Mask/Object_6/ConvexPolygon
+    100048: _MapPrfab/Prolog/Collisions Mask/Object_6/ConvexPolygon (1)
+    100050: _MapPrfab/Prolog/Collisions Mask/Object_6/ConvexPolygon (2)
+    100052: _MapPrfab/Prolog/Collisions Mask/Object_6/ConvexPolygon (3)
+    100054: _MapPrfab/Prolog/Collisions Mask/Object_6/ConvexPolygon (4)
+    100056: _MapPrfab/Prolog/Collisions Mask/Object_6/ConvexPolygon (5)
+    100058: _MapPrfab/Prolog/Ground
+    100060: _MapPrfab/Prolog/Object
+    400000: _MapPrfab/Prolog/Transform
+    400002: _MapPrfab/Prolog/Collisions/Transform
+    400004: _MapPrfab/Prolog/Collisions Mask/Transform
+    400006: _MapPrfab/Prolog/Collisions Mask/Object_1/Transform
+    400008: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon/Transform
+    400010: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (1)/Transform
+    400012: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (2)/Transform
+    400014: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (3)/Transform
+    400016: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (4)/Transform
+    400018: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (5)/Transform
+    400020: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (6)/Transform
+    400022: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (7)/Transform
+    400024: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (8)/Transform
+    400026: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (9)/Transform
+    400028: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (10)/Transform
+    400030: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (11)/Transform
+    400032: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (12)/Transform
+    400034: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (13)/Transform
+    400036: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (14)/Transform
+    400038: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (15)/Transform
+    400040: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (16)/Transform
+    400042: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (17)/Transform
+    400044: _MapPrfab/Prolog/Collisions Mask/Object_6/Transform
+    400046: _MapPrfab/Prolog/Collisions Mask/Object_6/ConvexPolygon/Transform
+    400048: _MapPrfab/Prolog/Collisions Mask/Object_6/ConvexPolygon (1)/Transform
+    400050: _MapPrfab/Prolog/Collisions Mask/Object_6/ConvexPolygon (2)/Transform
+    400052: _MapPrfab/Prolog/Collisions Mask/Object_6/ConvexPolygon (3)/Transform
+    400054: _MapPrfab/Prolog/Collisions Mask/Object_6/ConvexPolygon (4)/Transform
+    400056: _MapPrfab/Prolog/Collisions Mask/Object_6/ConvexPolygon (5)/Transform
+    400058: _MapPrfab/Prolog/Ground/Transform
+    400060: _MapPrfab/Prolog/Object/Transform
+    5000000: _MapPrfab/Prolog/Collisions Mask/Object_1/Rigidbody2D
+    5000002: _MapPrfab/Prolog/Collisions Mask/Object_6/Rigidbody2D
+    6000000: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon/PolygonCollider2D
+    6000002: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (1)/PolygonCollider2D
+    6000004: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (2)/PolygonCollider2D
+    6000006: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (3)/PolygonCollider2D
+    6000008: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (4)/PolygonCollider2D
+    6000010: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (5)/PolygonCollider2D
+    6000012: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (6)/PolygonCollider2D
+    6000014: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (7)/PolygonCollider2D
+    6000016: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (8)/PolygonCollider2D
+    6000018: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (9)/PolygonCollider2D
+    6000020: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (10)/PolygonCollider2D
+    6000022: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (11)/PolygonCollider2D
+    6000024: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (12)/PolygonCollider2D
+    6000026: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (13)/PolygonCollider2D
+    6000028: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (14)/PolygonCollider2D
+    6000030: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (15)/PolygonCollider2D
+    6000032: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (16)/PolygonCollider2D
+    6000034: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (17)/PolygonCollider2D
+    6000036: _MapPrfab/Prolog/Collisions Mask/Object_6/ConvexPolygon/PolygonCollider2D
+    6000038: _MapPrfab/Prolog/Collisions Mask/Object_6/ConvexPolygon (1)/PolygonCollider2D
+    6000040: _MapPrfab/Prolog/Collisions Mask/Object_6/ConvexPolygon (2)/PolygonCollider2D
+    6000042: _MapPrfab/Prolog/Collisions Mask/Object_6/ConvexPolygon (3)/PolygonCollider2D
+    6000044: _MapPrfab/Prolog/Collisions Mask/Object_6/ConvexPolygon (4)/PolygonCollider2D
+    6000046: _MapPrfab/Prolog/Collisions Mask/Object_6/ConvexPolygon (5)/PolygonCollider2D
+    6600000: _MapPrfab/Prolog/Collisions Mask/Object_1/CompositeCollider2D
+    6600002: _MapPrfab/Prolog/Collisions Mask/Object_6/CompositeCollider2D
+    11400000: _MapPrfab/Prolog/MonoBehaviour-SuperTiled2Unity.SuperMap
+    11400002: _MapPrfab/Prolog/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400004: _MapPrfab/Prolog/Collisions/MonoBehaviour-SuperTiled2Unity.SuperTileLayer
+    11400006: _MapPrfab/Prolog/Collisions/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400008: _MapPrfab/Prolog/Collisions Mask/MonoBehaviour-SuperTiled2Unity.SuperObjectLayer
+    11400010: _MapPrfab/Prolog/Collisions Mask/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400012: _MapPrfab/Prolog/Collisions Mask/Object_1/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400014: _MapPrfab/Prolog/Collisions Mask/Object_1/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400016: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400018: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (1)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400020: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (2)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400022: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (3)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400024: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (4)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400026: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (5)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400028: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (6)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400030: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (7)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400032: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (8)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400034: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (9)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400036: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (10)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400038: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (11)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400040: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (12)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400042: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (13)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400044: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (14)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400046: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (15)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400048: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (16)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400050: _MapPrfab/Prolog/Collisions Mask/Object_1/ConvexPolygon (17)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400052: _MapPrfab/Prolog/Collisions Mask/Object_6/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400054: _MapPrfab/Prolog/Collisions Mask/Object_6/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400056: _MapPrfab/Prolog/Collisions Mask/Object_6/ConvexPolygon/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400058: _MapPrfab/Prolog/Collisions Mask/Object_6/ConvexPolygon (1)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400060: _MapPrfab/Prolog/Collisions Mask/Object_6/ConvexPolygon (2)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400062: _MapPrfab/Prolog/Collisions Mask/Object_6/ConvexPolygon (3)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400064: _MapPrfab/Prolog/Collisions Mask/Object_6/ConvexPolygon (4)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400066: _MapPrfab/Prolog/Collisions Mask/Object_6/ConvexPolygon (5)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400068: _MapPrfab/Prolog/Ground/MonoBehaviour-SuperTiled2Unity.SuperTileLayer
+    11400070: _MapPrfab/Prolog/Ground/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400072: _MapPrfab/Prolog/Object/MonoBehaviour-SuperTiled2Unity.SuperTileLayer
+    11400074: _MapPrfab/Prolog/Object/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400076: _superAsset
+    100100000: _MapPrfab
+    2569400265252428796: _MapPrfab/Prolog/Grid
+    3664157343022684176: _MapPrfab/Prolog/Collisions/TilemapRenderer
+    3664157343022684178: _MapPrfab/Prolog/Ground/TilemapRenderer
+    3664157343022684180: _MapPrfab/Prolog/Object/TilemapRenderer
+    8195094279510102542: _MapPrfab/Prolog/Collisions/Tilemap
+    8195094279510102544: _MapPrfab/Prolog/Ground/Tilemap
+    8195094279510102546: _MapPrfab/Prolog/Object/Tilemap
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 1fa25d03934ea624a82bf2fcee6f0873, type: 3}
+  errors: []
+  warnings: []
+  missingSortingLayers: []
+  missingLayers: []
+  pixelsPerUnit: 100
+  edgesPerEllipse: 32
+  tilesAsObjects: 0
+  importSorting: 0
+  isIsometric: 0
+  customImporterClassName: 
+  internalTilesets: []
