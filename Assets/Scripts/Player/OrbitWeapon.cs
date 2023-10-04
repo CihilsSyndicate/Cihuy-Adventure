@@ -6,7 +6,6 @@ public class OrbitWeapon : Damage
     public GameObject player;
     public float orbitSpeed = 10f;
     public Vector3 direction = Vector3.up;
-    public float weaponDamage;
 
     private void Update()
     {

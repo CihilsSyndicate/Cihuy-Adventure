@@ -163,6 +163,7 @@ MonoBehaviour:
   speed: 5
   attackCooldown: 0.5
   maxShot: 2
+  poolSize: 10
 --- !u!95 &58038321
 Animator:
   serializedVersion: 3
@@ -450,8 +451,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slimePrefab: {fileID: 6353128745903201261, guid: 6aa9454c9379f7f4d86fe86548891034,
     type: 3}
+  poolSize: 5
+  slimeHp: {fileID: 11400000, guid: 3aae762f781a93c4298454312e890686, type: 2}
   spawnInterval: 2
-  maxSlimeCount: 5
+  maxSlimeCount: 10
   isPaused: 0
   isSpawning: 1
   minSpawnDistance: 5
@@ -693,8 +696,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slimePrefab: {fileID: 6353128745903201261, guid: 6aa9454c9379f7f4d86fe86548891034,
     type: 3}
+  poolSize: 5
+  slimeHp: {fileID: 11400000, guid: 3aae762f781a93c4298454312e890686, type: 2}
   spawnInterval: 2
-  maxSlimeCount: 5
+  maxSlimeCount: 10
   isPaused: 0
   isSpawning: 1
   minSpawnDistance: 5
@@ -1404,7 +1409,6 @@ MonoBehaviour:
   player: {fileID: 2058594913}
   orbitSpeed: 200
   direction: {x: 0, y: 0, z: 1}
-  weaponDamage: 100
 --- !u!212 &583272123
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1884,7 +1888,6 @@ MonoBehaviour:
   player: {fileID: 2058594913}
   orbitSpeed: 200
   direction: {x: 0, y: 0, z: 1}
-  weaponDamage: 100
 --- !u!212 &741282456
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5704,9 +5707,10 @@ MonoBehaviour:
     type: 3}
   bulletSpeed: 10
   fireRate: 0.8
-  attackSpeed: 1
-  maxShot: 3
-  shootRange: 5
+  attackSpeed: 0.5
+  maxShot: 4
+  shootRange: 10
+  poolSize: 10
 --- !u!114 &2058594916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5826,7 +5830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  speed: 5
+  speed: 12
   fixedJoystick: {fileID: 511769038}
   currentHealth: {fileID: 11400000, guid: cba51a348d0e4c241a6aae14fa1e4c8f, type: 2}
   playerHealthSignal: {fileID: 11400000, guid: bea8081990fcb3d49999132a77b4765e, type: 2}

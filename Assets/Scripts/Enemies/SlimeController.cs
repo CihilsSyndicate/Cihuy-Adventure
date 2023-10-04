@@ -22,7 +22,7 @@ public class SlimeController : MonoBehaviour
     private Transform player;
 
     [Header("Attacking")]
-    public GameObject slimeBulletPrefab;
+    public GameObject[] bulletPool;
     private GameObject bulletContainer;
     public GameObject floatingTextDamage;
 
@@ -66,9 +66,14 @@ public class SlimeController : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }
 
+    private void OnEnable()
+    {
+        healthBar.SetHealth(health);
+    }
+
     // Update is called once per frame
     void Update()
-    {
+    {     
         if (isMoving)
         {
             moveDurationCounter -= Time.deltaTime;
@@ -107,17 +112,33 @@ public class SlimeController : MonoBehaviour
         }
     }
 
+    public GameObject GetBullet()
+    {
+        foreach (GameObject bullet in bulletPool)
+        {
+            if (!bullet.activeInHierarchy)
+            {
+                bullet.SetActive(true);
+                return bullet;
+            }
+        }
+
+        return null; // Kembalikan null jika tidak ada peluru yang tersedia.
+    }
+
     void Shoot()
     {
         GameObject target = GameObject.FindGameObjectWithTag("Player");
 
         if (target != null)
         {
-            GameObject bullet = Instantiate(slimeBulletPrefab);
-            bullet.transform.SetParent(bulletContainer.transform);
-            bullet.transform.position = transform.position;
-            Vector2 direction = target.transform.position - bullet.transform.position;
-            bullet.GetComponent<BulletController>().SetDirection(direction);
+            GameObject bullet = GetBullet(); // Menggunakan pool peluru
+            if (bullet != null)
+            {
+                bullet.transform.position = transform.position;
+                Vector2 direction = target.transform.position - bullet.transform.position;
+                bullet.GetComponent<BulletController>().SetDirection(direction);
+            }
         }
     }
 
@@ -127,7 +148,6 @@ public class SlimeController : MonoBehaviour
         healthBar.SetHealth(health);
         isKnockback = true;
         healthHolder.SetActive(true);
-        StartCoroutine(DamageEffect());
         if (health <= 0)
         {
             if(SceneManager.GetActiveScene().name == "SurvivalMode")
@@ -139,13 +159,17 @@ public class SlimeController : MonoBehaviour
                 GameObject coin = Instantiate(coinPrefab);
                 coin.transform.position = transform.position;
             }
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            health = maxHealth.maxHealth;
         }
         if(floatingTextDamage)
         {
             ShowFloatingText(damage);
         }
-
+        if (gameObject.activeInHierarchy)
+        {
+            StartCoroutine(DamageEffect());
+        }
     }
 
     public void ShowFloatingText(float damage)

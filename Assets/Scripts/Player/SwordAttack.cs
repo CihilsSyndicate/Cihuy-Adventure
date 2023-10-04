@@ -16,6 +16,10 @@ public class SwordAttack : MonoBehaviour
     [System.NonSerialized] public bool isSurvivalMode;
     private GameObject bulletContainer;
 
+    [Header("Pooling System")]
+    public int poolSize = 10;
+    private List<GameObject> slashPool;
+
     private static SwordAttack instance;
 
     public static SwordAttack Instance
@@ -38,7 +42,35 @@ public class SwordAttack : MonoBehaviour
     void Start()
     {
         bulletContainer = GameObject.Find("BulletContainer");
+        InitializePool();
         swordAnim = GetComponent<Animator>();
+    }
+
+    private void InitializePool()
+    {
+        slashPool = new List<GameObject>();
+
+        for (int i = 0; i < poolSize; i++)
+        {
+            GameObject slash = Instantiate(slashPrefab);
+            slash.transform.SetParent(bulletContainer.transform);
+            slash.SetActive(false);
+            slashPool.Add(slash);
+        }
+    }
+
+    public GameObject GetSlash()
+    {
+        foreach (GameObject slash in slashPool)
+        {
+            if (!slash.activeInHierarchy)
+            {
+                slash.SetActive(true);
+                return slash;
+            }
+        }
+
+        return null; // Kembali null jika tidak ada peluru yang tersedia.
     }
 
     void Update()
@@ -120,14 +152,19 @@ public class SwordAttack : MonoBehaviour
 
         for (int i = 0; i < Mathf.Min(maxShot, colliders.Length); i++)
         {
-            GameObject slashInstance = Instantiate(slashPrefab, transform.position, Quaternion.identity);
-            slashInstance.transform.SetParent(bulletContainer.transform);
-            Rigidbody2D rb = slashInstance.GetComponent<Rigidbody2D>();
-            Vector2 direction = (colliders[i].transform.position - transform.position).normalized;
-            rb.velocity = direction * speed;
+            GameObject slashInstance = GetSlash();
+            if (slashInstance != null)
+            {
+                slashInstance.transform.position = transform.position;
+                slashInstance.SetActive(true);
 
-            Slash slashScript = slashInstance.GetComponent<Slash>();
-            slashScript.SetDirection(direction);
+                Rigidbody2D rb = slashInstance.GetComponent<Rigidbody2D>();
+                Vector2 direction = (colliders[i].transform.position - transform.position).normalized;
+                rb.velocity = direction * speed;
+
+                Slash slashScript = slashInstance.GetComponent<Slash>();
+                slashScript.SetDirection(direction);
+            }
         }
         if (isSurvivalMode)
         {

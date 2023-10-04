@@ -38,7 +38,7 @@ public class BossController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         bulletContainer = GameObject.Find("BulletContainer");
-        InvokeRepeating("Shoot", 5f, 1f);
+        // InvokeRepeating("Shoot", 5f, 1f);
         rb = GetComponent<Rigidbody2D>();
 
         interval = Random.Range(1f, 1.5f);
