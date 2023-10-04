@@ -4,7 +4,7 @@ public class Slash : MonoBehaviour
 {
     private float speed;
     private Vector2 _direction;
-    public float damage = 50f;
+    public float damage;
 
     private void Awake()
     {

@@ -10,15 +10,16 @@ public class PowerUps : MonoBehaviour
     private bool enemiesDefeated = false;
     public GameObject[] powerUpGO;
     public GameObject[] orbitingWeaponGO;
-    private bool isSelectingPowerUp = false;
-    private bool swordActivated = false;
+    private bool isSelectingPowerUp;
+    private bool swordActivated;
     private bool orbitingWeaponActivated = false;
     public SlimeSpawner[] slimeSpawner;
+    List<int> chosenIndices;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        swordActivated = false;
     }
 
     // Update is called once per frame
@@ -41,21 +42,35 @@ public class PowerUps : MonoBehaviour
         }
         else
         {
-            if (ScoreManager.Instance.score % 100 == 0 && ScoreManager.Instance.score != 0 && !isSelectingPowerUp)
+            if (ScoreManager.Instance.score % 10 == 0 && ScoreManager.Instance.score != 0 && !isSelectingPowerUp)
             {
-                ScoreManager.Instance.AddScore(10);
-                isSelectingPowerUp = true;
-                ShowPowerUpPopUp();
                 for (int i = 0; i < slimeSpawner.Length; i++)
                 {
                     slimeSpawner[i].StopSpawning();
                 }
+                isSelectingPowerUp = true;
+                ShowPowerUpPopUp();
             }
         }
+
+        Debug.Log(isSelectingPowerUp);
+    }
+
+    private bool ShouldExcludePowerUp(int randomIndex)
+    {
+        return chosenIndices.Contains(randomIndex) ||
+               (PlayerMovement.Instance.speed > 12 && randomIndex == 0) ||
+               (PlayerAttack.Instance.attackSpeed == 0.5f && randomIndex == 1) ||
+               (PlayerAttack.Instance.maxShot == 4 && randomIndex == 2) ||
+               (swordActivated && randomIndex == 3) ||
+               (PlayerAttack.Instance.shootRange > 10f && randomIndex == 4) ||
+               (orbitingWeaponActivated && randomIndex == 5) ||
+               (SwordAttack.Instance.maxShot == 3 && randomIndex == 6) ||
+               (SwordAttack.Instance.attackRange > 15f && randomIndex == 7);
     }
 
     public void ShowPowerUpPopUp()
-    {
+    {       
         Time.timeScale = 0;
         foreach (var powerUp in powerUpGO)
         {
@@ -63,7 +78,7 @@ public class PowerUps : MonoBehaviour
         }
 
         // Pilih dua PowerUp secara acak dan aktifkan, kecuali jika orbitingWeapon sudah aktif
-        List<int> chosenIndices = new List<int>();
+        chosenIndices = new List<int>();
         int numberOfPowerUpsToShow = 2;
 
         for (int i = 0; i < numberOfPowerUpsToShow; i++)
@@ -72,12 +87,12 @@ public class PowerUps : MonoBehaviour
             do
             {
                 randomIndex = Random.Range(0, powerUpGO.Length);
-            } while (chosenIndices.Contains(randomIndex) || (orbitingWeaponActivated && randomIndex == 5) || (swordActivated && randomIndex == 3));
+            } while (ShouldExcludePowerUp(randomIndex));
 
             chosenIndices.Add(randomIndex);
             powerUpGO[randomIndex].SetActive(true);
         }
-        isSelectingPowerUp = false;
+        isSelectingPowerUp = true;
         popupSelectPowerUp.SetActive(true);
     }
 
@@ -90,6 +105,7 @@ public class PowerUps : MonoBehaviour
             slimeSpawner[i].StartSpawning();
         }
         Time.timeScale = 1;
+        isSelectingPowerUp = false;
     }
 
     public void IncreaseAspd(float amount)
@@ -139,4 +155,13 @@ public class PowerUps : MonoBehaviour
         }
     }
 
+    public void IncreaseSlashRangeShoot(float amount)
+    {
+        SwordAttack.Instance.attackRange += amount;
+    }
+
+    public void IncreaseSlashMaxShot(int amount)
+    {
+        SwordAttack.Instance.maxShot += amount;
+    }
 }

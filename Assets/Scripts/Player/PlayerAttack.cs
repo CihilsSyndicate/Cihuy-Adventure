@@ -14,6 +14,8 @@ public class PlayerAttack : MonoBehaviour
     private GameObject bulletContainer;
     public float shootRange;
     [System.NonSerialized] public Animator playerAnim;
+    public int poolSize = 10; // Jumlah peluru dalam pool.
+    private List<GameObject> bulletPool = new List<GameObject>();
 
     private static PlayerAttack instance;
 
@@ -23,9 +25,16 @@ public class PlayerAttack : MonoBehaviour
     }
 
     void Awake()
-    {      
-        playerAnim = GetComponent<Animator>();
+    {
         bulletContainer = GameObject.Find("BulletContainer");
+        for (int i = 0; i < poolSize; i++)
+        {
+            GameObject bullet = Instantiate(bulletPrefab);
+            bullet.transform.SetParent(bulletContainer.transform);
+            bullet.SetActive(false);
+            bulletPool.Add(bullet);
+        }
+        playerAnim = GetComponent<Animator>();
         // Inisialisasi instance singleton
         if (instance == null)
         {
@@ -51,15 +60,32 @@ public class PlayerAttack : MonoBehaviour
 
     void ShootAllEnemies(Collider2D[] colliders)
     {
-        // Loop melalui semua musuh dan bos yang terdeteksi
         for (int i = 0; i < Mathf.Min(maxShot, colliders.Length); i++)
         {
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            bullet.transform.SetParent(bulletContainer.transform);
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            Vector2 direction = (colliders[i].transform.position - firePoint.position).normalized;
-            rb.velocity = direction * bulletSpeed;
+            GameObject bullet = GetPooledBullet();
+            if (bullet != null)
+            {
+                bullet.transform.position = firePoint.position;
+                bullet.transform.rotation = firePoint.rotation;
+                bullet.SetActive(true);
+                
+                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                Vector2 direction = (colliders[i].transform.position - firePoint.position).normalized;
+                rb.velocity = direction * bulletSpeed;
+            }
         }
+    }
+
+    GameObject GetPooledBullet()
+    {
+        foreach (GameObject bullet in bulletPool)
+        {
+            if (!bullet.activeInHierarchy)
+            {
+                return bullet;
+            }
+        }
+        return null; // Return null if no available bullets in the pool.
     }
 
     public Transform FindNearestEnemy(Collider2D[] colliders)
@@ -84,5 +110,11 @@ public class PlayerAttack : MonoBehaviour
         }
 
         return nearestEnemy;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.black;
+        Gizmos.DrawWireSphere(transform.position, shootRange);
     }
 }

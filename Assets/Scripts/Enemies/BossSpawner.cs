@@ -19,7 +19,7 @@ public class BossSpawner : MonoBehaviour
         }
 
         // Cek jika skor pemain mencapai 500 dan bos belum di-spawn
-        if (ScoreManager.Instance.score % 500 == 0 && ScoreManager.Instance.score != 0 && !bossSpawned)
+        if (ScoreManager.Instance.score == 300 && ScoreManager.Instance.score != 0 && !bossSpawned)
         {
             SpawnBoss();
         }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6353128745903201251}
   - component: {fileID: 6353128745903201248}
   - component: {fileID: 6353128745903201249}
+  - component: {fileID: 114112566876235246}
   m_Layer: 8
   m_Name: Slime
   m_TagString: Enemy
@@ -174,6 +175,21 @@ MonoBehaviour:
   healthHolder: {fileID: 6219755319996856921}
   coinPrefab: {fileID: 2119940945105608927, guid: 3c86b65b39efed94181eb4c84b73fad0,
     type: 3}
+--- !u!114 &114112566876235246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6353128745903201261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a0ffc1020fff24c89a04ea38285d9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 2
+  damage: 2
+  knockTime: 0.3
 --- !u!1001 &5895289807253680328
 PrefabInstance:
   m_ObjectHideFlags: 0

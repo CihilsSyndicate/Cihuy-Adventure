@@ -28,19 +28,19 @@ public class PlayerBulletController : MonoBehaviour
         if (other.CompareTag("Enemy") && other.gameObject.name != "HappySlime")
         {
             other.GetComponent<SlimeController>().TakeDamage(damage);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
 
         if (other.CompareTag("Boss"))
         {
             other.GetComponent<BossController>().TakeDamage(damage);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
 
         if (other.CompareTag("Wall"))
         {
             Debug.Log("Njir");
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

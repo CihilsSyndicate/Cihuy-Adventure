@@ -93,16 +93,15 @@ public class SwordAttack : MonoBehaviour
                             {
                                 PlayerAttack.Instance.playerAnim.SetFloat("x", posX);
                                 PlayerAttack.Instance.playerAnim.SetFloat("y", posY);
+                                swordAnim.SetFloat("x", posX);
+                                swordAnim.SetFloat("y", posY);
                             }
-
-                            swordAnim.SetFloat("x", posX);
-                            swordAnim.SetFloat("y", posY);
 
                             // Menandai waktu serangan terakhir
                             lastAttackTime = currentTime;
 
                             // Menyerang
-                            PerformAttack(colliders);
+                            StartCoroutine(PerformAttack(colliders));
                         }
                     }
                 }
@@ -111,10 +110,13 @@ public class SwordAttack : MonoBehaviour
     }
 
 
-    private void PerformAttack(Collider2D[] colliders)
+    private IEnumerator PerformAttack(Collider2D[] colliders)
     {
         isAttacking = true;
-        swordAnim.SetBool("IsAttacking", true);
+        if (!isSurvivalMode)
+        {
+            swordAnim.SetBool("IsAttacking", true);
+        }
 
         for (int i = 0; i < Mathf.Min(maxShot, colliders.Length); i++)
         {
@@ -126,6 +128,11 @@ public class SwordAttack : MonoBehaviour
 
             Slash slashScript = slashInstance.GetComponent<Slash>();
             slashScript.SetDirection(direction);
+        }
+        if (isSurvivalMode)
+        {
+            yield return new WaitForSeconds(0.2f);
+            ResetIsAttacking();
         }
     }
 

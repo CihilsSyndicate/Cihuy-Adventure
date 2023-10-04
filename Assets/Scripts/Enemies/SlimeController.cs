@@ -47,7 +47,14 @@ public class SlimeController : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         bulletContainer = GameObject.Find("BulletContainer");
-        InvokeRepeating("Shoot", Random.Range(4f, 10f), Random.Range(9f, 11f));
+        if(SceneManager.GetActiveScene().name != "SurvivalMode")
+        {
+            InvokeRepeating("Shoot", Random.Range(4f, 10f), Random.Range(9f, 11f));
+        }
+        else
+        {
+            InvokeRepeating("Shoot", Random.Range(1f, 2.5f), Random.Range(4f, 7f));
+        }
         rb = GetComponent<Rigidbody2D>();
 
         moveSpeed = Random.Range(1f, 2.5f);
