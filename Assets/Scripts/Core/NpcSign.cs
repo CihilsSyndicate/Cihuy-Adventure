@@ -24,7 +24,8 @@ public class NpcSign : MonoBehaviour
     private AudioSource typingSound;
     private Text option1TextComponent;
     private Text option2TextComponent;
-    private Coroutine typingCoroutine; 
+    private Coroutine typingCoroutine;
+
 
     // Start is called before the first frame update
     void Start()
@@ -67,7 +68,6 @@ public class NpcSign : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-
             if (spriteRendererToActivate != null)
             {
                 spriteRendererToActivate.enabled = true;

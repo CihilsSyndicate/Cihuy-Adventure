@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     public float damageEffectDuration = 0.2f;
     public HealthBar healthBar;
     public GameObject floatingTextDamage;
+    public Dialog dialog;
 
     private static PlayerMovement instance;
 
@@ -176,6 +177,17 @@ public class PlayerMovement : MonoBehaviour
             myRb.velocity = Vector3.zero;
             currentState = playerState.idle;
             myRb.velocity = Vector3.zero;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.name == "Ucup")
+        {
+            dialog.shop = true;
+        }else if (other.gameObject.name == "Adryan")
+        {
+            dialog.shop = false;
         }
     }
 }
