@@ -32,17 +32,43 @@ ScriptedImporter:
     100054: _MapPrfab/home/Collision Mask/Object_4/ConvexPolygon (10)
     100056: _MapPrfab/home/Collision Mask/Object_4/ConvexPolygon (11)
     100058: _MapPrfab/home/Collision Mask/Object_4/ConvexPolygon (12)
-    100060: _MapPrfab/home/Collision Mask/Object_5
-    100062: _MapPrfab/home/Collision Mask/Object_5/ConvexPolygon
-    100064: _MapPrfab/home/Collision Mask/Object_5/ConvexPolygon (1)
-    100066: _MapPrfab/home/Collision Mask/Object_5/ConvexPolygon (2)
-    100068: _MapPrfab/home/Collision Mask/Object_5/ConvexPolygon (3)
-    100070: _MapPrfab/home/Collision Mask/Object_5/ConvexPolygon (4)
     100072: _MapPrfab/home/Collisions
     100074: _MapPrfab/home/Ground
     100076: _MapPrfab/home/Ground (1)
     100078: _MapPrfab/home/Object
     100080: _MapPrfab/home/Object2
+    100082: _MapPrfab/home/Collision Mask/Object_9
+    100084: _MapPrfab/home/Collision Mask/Object_12
+    100086: _MapPrfab/home/Collision Mask/Object_13
+    100088: _MapPrfab/home/Collision Mask/Object_14
+    100090: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon
+    100092: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (1)
+    100094: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (2)
+    100096: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (3)
+    100098: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (4)
+    100100: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (5)
+    100102: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (6)
+    100104: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (7)
+    100106: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (8)
+    100108: _MapPrfab/home/Collision Mask/Object_15
+    100110: _MapPrfab/home/Collision Mask/Object_16
+    100112: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon
+    100114: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (1)
+    100116: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (2)
+    100118: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (3)
+    100120: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (4)
+    100122: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (5)
+    100124: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (6)
+    100126: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (7)
+    100128: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (8)
+    100130: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (9)
+    100132: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (10)
+    100134: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (11)
+    100136: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (12)
+    100138: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (13)
+    100140: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (14)
+    100142: _MapPrfab/home/Collision Mask/Object_17
+    100144: _MapPrfab/home/Collision Mask/Object_18
     400000: _MapPrfab/home/Transform
     400002: _MapPrfab/home/Collision Mask/Transform
     400004: _MapPrfab/home/Collision Mask/Object_1/Transform
@@ -73,21 +99,48 @@ ScriptedImporter:
     400054: _MapPrfab/home/Collision Mask/Object_4/ConvexPolygon (10)/Transform
     400056: _MapPrfab/home/Collision Mask/Object_4/ConvexPolygon (11)/Transform
     400058: _MapPrfab/home/Collision Mask/Object_4/ConvexPolygon (12)/Transform
-    400060: _MapPrfab/home/Collision Mask/Object_5/Transform
-    400062: _MapPrfab/home/Collision Mask/Object_5/ConvexPolygon/Transform
-    400064: _MapPrfab/home/Collision Mask/Object_5/ConvexPolygon (1)/Transform
-    400066: _MapPrfab/home/Collision Mask/Object_5/ConvexPolygon (2)/Transform
-    400068: _MapPrfab/home/Collision Mask/Object_5/ConvexPolygon (3)/Transform
-    400070: _MapPrfab/home/Collision Mask/Object_5/ConvexPolygon (4)/Transform
     400072: _MapPrfab/home/Collisions/Transform
     400074: _MapPrfab/home/Ground/Transform
     400076: _MapPrfab/home/Ground (1)/Transform
     400078: _MapPrfab/home/Object/Transform
     400080: _MapPrfab/home/Object2/Transform
+    400082: _MapPrfab/home/Collision Mask/Object_9/Transform
+    400084: _MapPrfab/home/Collision Mask/Object_12/Transform
+    400086: _MapPrfab/home/Collision Mask/Object_13/Transform
+    400088: _MapPrfab/home/Collision Mask/Object_14/Transform
+    400090: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon/Transform
+    400092: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (1)/Transform
+    400094: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (2)/Transform
+    400096: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (3)/Transform
+    400098: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (4)/Transform
+    400100: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (5)/Transform
+    400102: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (6)/Transform
+    400104: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (7)/Transform
+    400106: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (8)/Transform
+    400108: _MapPrfab/home/Collision Mask/Object_15/Transform
+    400110: _MapPrfab/home/Collision Mask/Object_16/Transform
+    400112: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon/Transform
+    400114: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (1)/Transform
+    400116: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (2)/Transform
+    400118: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (3)/Transform
+    400120: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (4)/Transform
+    400122: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (5)/Transform
+    400124: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (6)/Transform
+    400126: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (7)/Transform
+    400128: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (8)/Transform
+    400130: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (9)/Transform
+    400132: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (10)/Transform
+    400134: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (11)/Transform
+    400136: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (12)/Transform
+    400138: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (13)/Transform
+    400140: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (14)/Transform
+    400142: _MapPrfab/home/Collision Mask/Object_17/Transform
+    400144: _MapPrfab/home/Collision Mask/Object_18/Transform
     5000000: _MapPrfab/home/Collision Mask/Object_1/Rigidbody2D
     5000002: _MapPrfab/home/Collision Mask/Object_2/Rigidbody2D
     5000004: _MapPrfab/home/Collision Mask/Object_4/Rigidbody2D
-    5000006: _MapPrfab/home/Collision Mask/Object_5/Rigidbody2D
+    5000008: _MapPrfab/home/Collision Mask/Object_14/Rigidbody2D
+    5000010: _MapPrfab/home/Collision Mask/Object_16/Rigidbody2D
     6000000: _MapPrfab/home/Collision Mask/Object_1/ConvexPolygon/PolygonCollider2D
     6000002: _MapPrfab/home/Collision Mask/Object_1/ConvexPolygon (1)/PolygonCollider2D
     6000004: _MapPrfab/home/Collision Mask/Object_1/ConvexPolygon (2)/PolygonCollider2D
@@ -113,15 +166,41 @@ ScriptedImporter:
     6000044: _MapPrfab/home/Collision Mask/Object_4/ConvexPolygon (10)/PolygonCollider2D
     6000046: _MapPrfab/home/Collision Mask/Object_4/ConvexPolygon (11)/PolygonCollider2D
     6000048: _MapPrfab/home/Collision Mask/Object_4/ConvexPolygon (12)/PolygonCollider2D
-    6000050: _MapPrfab/home/Collision Mask/Object_5/ConvexPolygon/PolygonCollider2D
-    6000052: _MapPrfab/home/Collision Mask/Object_5/ConvexPolygon (1)/PolygonCollider2D
-    6000054: _MapPrfab/home/Collision Mask/Object_5/ConvexPolygon (2)/PolygonCollider2D
-    6000056: _MapPrfab/home/Collision Mask/Object_5/ConvexPolygon (3)/PolygonCollider2D
-    6000058: _MapPrfab/home/Collision Mask/Object_5/ConvexPolygon (4)/PolygonCollider2D
+    6000060: _MapPrfab/home/Collision Mask/Object_13/PolygonCollider2D
+    6000062: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon/PolygonCollider2D
+    6000064: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (1)/PolygonCollider2D
+    6000066: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (2)/PolygonCollider2D
+    6000068: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (3)/PolygonCollider2D
+    6000070: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (4)/PolygonCollider2D
+    6000072: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (5)/PolygonCollider2D
+    6000074: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (6)/PolygonCollider2D
+    6000076: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (7)/PolygonCollider2D
+    6000078: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (8)/PolygonCollider2D
+    6000080: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon/PolygonCollider2D
+    6000082: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (1)/PolygonCollider2D
+    6000084: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (2)/PolygonCollider2D
+    6000086: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (3)/PolygonCollider2D
+    6000088: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (4)/PolygonCollider2D
+    6000090: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (5)/PolygonCollider2D
+    6000092: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (6)/PolygonCollider2D
+    6000094: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (7)/PolygonCollider2D
+    6000096: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (8)/PolygonCollider2D
+    6000098: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (9)/PolygonCollider2D
+    6000100: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (10)/PolygonCollider2D
+    6000102: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (11)/PolygonCollider2D
+    6000104: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (12)/PolygonCollider2D
+    6000106: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (13)/PolygonCollider2D
+    6000108: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (14)/PolygonCollider2D
+    6100000: _MapPrfab/home/Collision Mask/Object_9/BoxCollider2D
+    6100002: _MapPrfab/home/Collision Mask/Object_12/BoxCollider2D
+    6100004: _MapPrfab/home/Collision Mask/Object_15/BoxCollider2D
+    6100006: _MapPrfab/home/Collision Mask/Object_17/BoxCollider2D
+    6100008: _MapPrfab/home/Collision Mask/Object_18/BoxCollider2D
     6600000: _MapPrfab/home/Collision Mask/Object_1/CompositeCollider2D
     6600002: _MapPrfab/home/Collision Mask/Object_2/CompositeCollider2D
     6600004: _MapPrfab/home/Collision Mask/Object_4/CompositeCollider2D
-    6600006: _MapPrfab/home/Collision Mask/Object_5/CompositeCollider2D
+    6600008: _MapPrfab/home/Collision Mask/Object_14/CompositeCollider2D
+    6600010: _MapPrfab/home/Collision Mask/Object_16/CompositeCollider2D
     11400000: _MapPrfab/home/MonoBehaviour-SuperTiled2Unity.SuperMap
     11400002: _MapPrfab/home/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
     11400004: _MapPrfab/home/Collision Mask/MonoBehaviour-SuperTiled2Unity.SuperObjectLayer
@@ -157,13 +236,6 @@ ScriptedImporter:
     11400064: _MapPrfab/home/Collision Mask/Object_4/ConvexPolygon (10)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
     11400066: _MapPrfab/home/Collision Mask/Object_4/ConvexPolygon (11)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
     11400068: _MapPrfab/home/Collision Mask/Object_4/ConvexPolygon (12)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
-    11400070: _MapPrfab/home/Collision Mask/Object_5/MonoBehaviour-SuperTiled2Unity.SuperObject
-    11400072: _MapPrfab/home/Collision Mask/Object_5/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
-    11400074: _MapPrfab/home/Collision Mask/Object_5/ConvexPolygon/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
-    11400076: _MapPrfab/home/Collision Mask/Object_5/ConvexPolygon (1)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
-    11400078: _MapPrfab/home/Collision Mask/Object_5/ConvexPolygon (2)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
-    11400080: _MapPrfab/home/Collision Mask/Object_5/ConvexPolygon (3)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
-    11400082: _MapPrfab/home/Collision Mask/Object_5/ConvexPolygon (4)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
     11400084: _MapPrfab/home/Collisions/MonoBehaviour-SuperTiled2Unity.SuperTileLayer
     11400086: _MapPrfab/home/Collisions/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
     11400088: _MapPrfab/home/Ground/MonoBehaviour-SuperTiled2Unity.SuperTileLayer
@@ -175,6 +247,52 @@ ScriptedImporter:
     11400100: _MapPrfab/home/Object2/MonoBehaviour-SuperTiled2Unity.SuperTileLayer
     11400102: _MapPrfab/home/Object2/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
     11400104: _superAsset
+    11400106: _MapPrfab/home/Collision Mask/Object_9/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400108: _MapPrfab/home/Collision Mask/Object_9/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400110: _MapPrfab/home/Collision Mask/Object_9/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400112: _MapPrfab/home/Collision Mask/Object_12/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400114: _MapPrfab/home/Collision Mask/Object_12/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400116: _MapPrfab/home/Collision Mask/Object_12/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400118: _MapPrfab/home/Collision Mask/Object_13/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400120: _MapPrfab/home/Collision Mask/Object_13/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400122: _MapPrfab/home/Collision Mask/Object_13/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400124: _MapPrfab/home/Collision Mask/Object_14/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400126: _MapPrfab/home/Collision Mask/Object_14/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400128: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400130: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (1)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400132: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (2)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400134: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (3)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400136: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (4)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400138: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (5)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400140: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (6)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400142: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (7)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400144: _MapPrfab/home/Collision Mask/Object_14/ConvexPolygon (8)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400146: _MapPrfab/home/Collision Mask/Object_15/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400148: _MapPrfab/home/Collision Mask/Object_15/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400150: _MapPrfab/home/Collision Mask/Object_15/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400152: _MapPrfab/home/Collision Mask/Object_16/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400154: _MapPrfab/home/Collision Mask/Object_16/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400156: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400158: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (1)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400160: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (2)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400162: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (3)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400164: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (4)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400166: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (5)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400168: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (6)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400170: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (7)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400172: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (8)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400174: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (9)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400176: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (10)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400178: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (11)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400180: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (12)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400182: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (13)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400184: _MapPrfab/home/Collision Mask/Object_16/ConvexPolygon (14)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400186: _MapPrfab/home/Collision Mask/Object_17/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400188: _MapPrfab/home/Collision Mask/Object_17/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400190: _MapPrfab/home/Collision Mask/Object_17/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400192: _MapPrfab/home/Collision Mask/Object_18/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400194: _MapPrfab/home/Collision Mask/Object_18/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400196: _MapPrfab/home/Collision Mask/Object_18/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
     100100000: _MapPrfab
     2569400265252428796: _MapPrfab/home/Grid
     3664157343022684176: _MapPrfab/home/Collisions/TilemapRenderer
