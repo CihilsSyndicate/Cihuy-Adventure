@@ -1,9 +1,16 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class SlimeSpawner : MonoBehaviour
 {
-    [Header("Spawning")]
+    [Header("Pooling")]
     public GameObject slimePrefab;
+    public int poolSize = 5; // Jumlah awal objek dalam pool
+    private List<GameObject> slimePool;
+    private int currentPoolIndex = 0;
+    public FloatValue slimeHp;
+
+    [Header("Spawning")]
     public float spawnInterval; // Jeda antara setiap spawn (2 detik)
     public int maxSlimeCount;
     public bool isPaused = false;
@@ -12,6 +19,19 @@ public class SlimeSpawner : MonoBehaviour
     public float maxSpawnDistance = 10f;
     [System.NonSerialized] public int currentSlimeCount = 0;
     private float timeSinceLastSpawn = 0f;
+
+    private void Awake()
+    {
+        GameObject bulletContainer = GameObject.Find("BulletContainer");
+        slimePool = new List<GameObject>();
+        for (int i = 0; i < poolSize; i++)
+        {
+            GameObject slime = Instantiate(slimePrefab);
+            slime.transform.SetParent(bulletContainer.transform);
+            slime.SetActive(false);
+            slimePool.Add(slime);
+        }
+    }
 
     private void Update()
     {
@@ -36,14 +56,22 @@ public class SlimeSpawner : MonoBehaviour
 
         // Periksa apakah ada slime yang mati.
         if (!isSpawning && currentSlimeCount < maxSlimeCount)
-        {           
+        {
             isSpawning = true;
         }
     }
 
-
     private void SpawnSlime()
     {
+        if (currentPoolIndex >= poolSize)
+        {
+            currentPoolIndex = 0; // Kembali ke awal pool jika sudah mencapai akhir
+        }
+
+        // Ambil objek dari pool
+        GameObject newSlime = slimePool[currentPoolIndex];
+        currentPoolIndex++;
+
         float spawnDistance = Random.Range(minSpawnDistance, maxSpawnDistance);
         float spawnAngle = Random.Range(0f, 360f);
 
@@ -51,8 +79,10 @@ public class SlimeSpawner : MonoBehaviour
         Vector3 spawnPosition = transform.position + Quaternion.Euler(0f, spawnAngle, 0f) * (Vector3.forward * spawnDistance);
         spawnPosition.z = 0;
 
-        // Buat instansi baru dari objek Slime prefab di posisi spawn yang dihitung
-        GameObject newSlime = Instantiate(slimePrefab, spawnPosition, Quaternion.identity);
+        // Setel posisi objek baru dan aktifkan
+        newSlime.transform.position = spawnPosition;
+        newSlime.SetActive(true);
+        
     }
 
     // Metode untuk memulai spawn

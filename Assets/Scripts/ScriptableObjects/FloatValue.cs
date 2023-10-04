@@ -6,6 +6,7 @@ using UnityEngine;
 public class FloatValue : ScriptableObject, ISerializationCallbackReceiver
 {
     public float initialValue;
+    public float maxHealth;
 
     [HideInInspector]
     public float RuntimeValue;

@@ -1,9 +1,11 @@
 fileFormatVersion: 2
-guid: 69da0fc4707d08a4aaf3f2a3d757393b
+guid: 1966d5bbcbd836a4aa02fe7864986c78
 TextureImporter:
   fileIDToRecycleName:
-    21300000: malay_woman_0
-    21300002: malay_woman_1
+    21300000: slime_red-export_0
+    21300002: slime_red-export_1
+    21300004: slime_red-export_2
+    21300006: slime_red-export_3
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -47,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,13 +77,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: malay_woman_0
+      name: slime_red-export_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 5
-        width: 83
-        height: 131
+        x: 34
+        y: 23
+        width: 60
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -89,19 +91,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e370e43a3a5bde43a5fa796a5cb5f8b
+      spriteID: c5cbc14e4b1eb2940998e6da9c021338
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: malay_woman_1
+      name: slime_red-export_1
       rect:
         serializedVersion: 2
-        x: 146
-        y: 5
-        width: 83
-        height: 126
+        x: 153
+        y: 23
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -109,7 +111,47 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3c29e55a5c1ba14ab4fa2fe88dc215e
+      spriteID: ac3ff4d8f756de14e81235d1b0367fd8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slime_red-export_2
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 28
+        width: 60
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5650bb7f8b5ede64683f197c80948fc1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slime_red-export_3
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 26
+        width: 60
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f7c66abe1959de478152bb2472db714
       vertices: []
       indices: 
       edges: []
@@ -117,7 +159,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ce202e57a3f7e2149ab1f35993e95f12
+    spriteID: bfdd0b6f70e74ab4e8a31a71a1513bc8
     vertices: []
     indices: 
     edges: []

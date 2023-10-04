@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 9b25b6628376fb7419e7ee193520f459
   - enabled: 1
-    path: Assets/Scenes/Npc.unity
+    path: Assets/Scenes/RestArea.unity
     guid: b44ea4d6dd21cfd4c94fd183e60346f6
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
@@ -18,6 +18,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 2.unity
     guid: 1ebe13524f7d674439871c5c84cfa8b5
   - enabled: 1
-    path: Assets/Scenes/Rest Area.unity
+    path: Assets/Scenes/Fariez.unity
     guid: a554c10fc86a46d48a5eee1c57f23cae
   m_configObjects: {}

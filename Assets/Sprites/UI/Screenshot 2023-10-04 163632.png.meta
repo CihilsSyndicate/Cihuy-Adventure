@@ -1,9 +1,7 @@
 fileFormatVersion: 2
-guid: 69da0fc4707d08a4aaf3f2a3d757393b
+guid: 052813820567cb946a3c6bd11a319e37
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: malay_woman_0
-    21300002: malay_woman_1
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -42,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -73,51 +71,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: malay_woman_0
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 5
-        width: 83
-        height: 131
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2e370e43a3a5bde43a5fa796a5cb5f8b
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: malay_woman_1
-      rect:
-        serializedVersion: 2
-        x: 146
-        y: 5
-        width: 83
-        height: 126
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f3c29e55a5c1ba14ab4fa2fe88dc215e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ce202e57a3f7e2149ab1f35993e95f12
+    spriteID: 6f39c9b1348eb644e9b851c78e774bba
     vertices: []
     indices: 
     edges: []

@@ -26,12 +26,12 @@ public class BulletController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Destroy(gameObject);           
+            gameObject.SetActive(false);           
             other.GetComponent<PlayerMovement>().TakeDamage(1f);
         }
         else if (other.gameObject.name == "Wall")
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }    
     }
 }
