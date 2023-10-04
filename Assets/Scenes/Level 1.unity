@@ -4619,7 +4619,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &868017762
 Animator:
   serializedVersion: 3
@@ -24526,7 +24526,7 @@ GameObject:
   - component: {fileID: 2004015180}
   - component: {fileID: 2004015179}
   m_Layer: 0
-  m_Name: NPC (1)
+  m_Name: Ucup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25559,6 +25559,7 @@ MonoBehaviour:
   healthBar: {fileID: 864202348}
   floatingTextDamage: {fileID: 3341635747743629679, guid: 2b62da6d46f93fa488c9bc78488eb8ab,
     type: 3}
+  dialog: {fileID: 0}
 --- !u!50 &2108313464
 Rigidbody2D:
   serializedVersion: 4
