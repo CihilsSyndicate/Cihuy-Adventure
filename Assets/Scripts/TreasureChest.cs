@@ -6,6 +6,8 @@ public class TreasureChest : MonoBehaviour
 {
     public GameObject[] sign;
     public Animator anim;
+    public Collider2D[] col;
+    public GameObject healPotionPrefabs;
 
     private void Start()
     {
@@ -31,6 +33,19 @@ public class TreasureChest : MonoBehaviour
         if (other.CompareTag("Player") && !other.isTrigger)
         {
             sign[0].SetActive(false);
+        }
+    }
+
+    public void OpenChest()
+    {
+        anim.SetBool("open", true);
+        col[0].enabled = false;
+        col[1].enabled = false;
+        for (int i = 0; i < 2; i++)
+        {
+            GameObject healPotion = Instantiate(healPotionPrefabs);
+            healPotion.transform.SetParent(this.gameObject.transform);
+            healPotion.transform.position = transform.position;
         }
     }
 }
