@@ -10,11 +10,9 @@ public class NpcSign : MonoBehaviour
     public Text dialogText;
     public Text option1Text;
     public Text option2Text;
+    public SpriteRenderer npcSprite;
 
-    public string npcName;
-    public string dialog;
-    public string option1;
-    public string option2;
+    public NPCManager npcManager;
     public float typingSpeed = 0.05f;
     public SpriteRenderer spriteRendererToActivate;
 
@@ -25,7 +23,16 @@ public class NpcSign : MonoBehaviour
     private Text option1TextComponent;
     private Text option2TextComponent;
     private Coroutine typingCoroutine;
+    private static NpcSign instance;
+    public static NpcSign Instance
+    {
+       get { return instance; }
+    }
 
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +42,7 @@ public class NpcSign : MonoBehaviour
 
         option1TextComponent = option1Text.GetComponent<Text>();
         option2TextComponent = option2Text.GetComponent<Text>();
+        npcSprite.sprite = npcManager.npcSprite;
     }
 
     // Update is called once per frame
@@ -51,7 +59,7 @@ public class NpcSign : MonoBehaviour
             {
                 // Jika teks sedang diketik, hentikan coroutine dan tampilkan seluruh teks
                 StopCoroutine(typingCoroutine);
-                dialogText.text = dialog;
+                dialogText.text = npcManager.npcDialog;
                 isTyping = false;
             }
             else
@@ -85,7 +93,7 @@ public class NpcSign : MonoBehaviour
             if (isTyping)
             {
                 StopCoroutine(typingCoroutine);
-                dialogText.text = dialog;
+                dialogText.text = npcManager.npcDialog;
                 isTyping = false;
             }
 
@@ -108,22 +116,23 @@ public class NpcSign : MonoBehaviour
         else
         {
             dialogBox.SetActive(true);
-            nameNpcText.text = npcName;
+            nameNpcText.text = npcManager.npcName;
 
             // Mulai coroutine dan simpan referensi ke coroutine saat ini
             typingCoroutine = StartCoroutine(TypeText());
 
-            option1TextComponent.text = option1;
-            option2TextComponent.text = option2;
+            option1TextComponent.text = npcManager.option1;
+            option2TextComponent.text = npcManager.option2;
         }
     }
+
 
     IEnumerator TypeText()
     {
         isTyping = true;
         dialogText.text = "";
 
-        foreach (char letter in dialog)
+        foreach (char letter in npcManager.npcDialog)
         {
             dialogText.text += letter;
 
