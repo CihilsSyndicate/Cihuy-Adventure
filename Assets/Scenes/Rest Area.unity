@@ -5464,7 +5464,7 @@ GameObject:
   - component: {fileID: 946297096}
   - component: {fileID: 946297098}
   m_Layer: 0
-  m_Name: NPC2
+  m_Name: Farid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8675,7 +8675,7 @@ GameObject:
   - component: {fileID: 1357187375}
   - component: {fileID: 1357187374}
   m_Layer: 0
-  m_Name: NPC3
+  m_Name: Makci
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8885,7 +8885,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.035331726, y: -0.2792872}
+  m_Offset: {x: 0.29373455, y: -0.020464242}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -8896,7 +8896,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.1233344, y: 0.973785}
+  m_Size: {x: 2.64014, y: 1.4914309}
   m_EdgeRadius: 0
 --- !u!61 &1357187377
 BoxCollider2D:
@@ -12311,7 +12311,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.082874596, y: -0.015200436}
+  m_Offset: {x: 0.082874596, y: 0.053808153}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -12322,7 +12322,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1228458, y: 1.5019585}
+  m_Size: {x: 1.1228458, y: 1.6399757}
   m_EdgeRadius: 0
 --- !u!114 &1851278016
 MonoBehaviour:
