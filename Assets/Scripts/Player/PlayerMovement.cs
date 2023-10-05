@@ -181,11 +181,11 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.gameObject.name == "Ucup")
+    { 
+        if(other.gameObject.name == "Ucup" && !other.isTrigger)
         {
             dialog.shop = true;
-        }else if (other.gameObject.name == "Adryan")
+        }else if(other.gameObject.name != "Ucup")
         {
             dialog.shop = false;
         }
