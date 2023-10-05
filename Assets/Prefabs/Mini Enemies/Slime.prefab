@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   killingScore: 10
   damageEffectDuration: 0.2
+  spriteRenderer: {fileID: 6353128745903201263}
   bulletPool:
   - {fileID: 8791798402376650505}
   - {fileID: 1327602417610741076}

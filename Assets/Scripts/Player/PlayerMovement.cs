@@ -179,15 +179,4 @@ public class PlayerMovement : MonoBehaviour
             myRb.velocity = Vector3.zero;
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    { 
-        if(other.gameObject.name == "Ucup" && !other.isTrigger)
-        {
-            dialog.shop = true;
-        }else if(other.gameObject.name != "Ucup")
-        {
-            dialog.shop = false;
-        }
-    }
 }

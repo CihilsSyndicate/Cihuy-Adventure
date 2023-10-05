@@ -17,7 +17,7 @@ public class SlimeController : MonoBehaviour
     private float moveDurationCounter;
     private Vector3 moveDirection;
     public float damageEffectDuration = 0.2f;
-    private SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
     [System.NonSerialized] public bool isKnockback;
     private Transform player;
 
@@ -45,7 +45,6 @@ public class SlimeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         bulletContainer = GameObject.Find("BulletContainer");
         if(SceneManager.GetActiveScene().name != "SurvivalMode")
         {
@@ -69,6 +68,7 @@ public class SlimeController : MonoBehaviour
     private void OnEnable()
     {
         healthBar.SetHealth(health);
+        spriteRenderer.color = Color.white;
     }
 
     // Update is called once per frame

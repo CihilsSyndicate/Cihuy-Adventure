@@ -159,10 +159,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slashPrefab: {fileID: 5336233013148804516, guid: 14d61e086967294459579e549fb037db,
     type: 3}
-  attackRange: 7
+  attackRange: 15
   speed: 5
   attackCooldown: 0.5
-  maxShot: 2
+  maxShot: 3
   poolSize: 10
 --- !u!95 &58038321
 Animator:
@@ -451,7 +451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slimePrefab: {fileID: 6353128745903201261, guid: 6aa9454c9379f7f4d86fe86548891034,
     type: 3}
-  poolSize: 5
+  poolSize: 10
   slimeHp: {fileID: 11400000, guid: 3aae762f781a93c4298454312e890686, type: 2}
   spawnInterval: 2
   maxSlimeCount: 10
@@ -696,7 +696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slimePrefab: {fileID: 6353128745903201261, guid: 6aa9454c9379f7f4d86fe86548891034,
     type: 3}
-  poolSize: 5
+  poolSize: 10
   slimeHp: {fileID: 11400000, guid: 3aae762f781a93c4298454312e890686, type: 2}
   spawnInterval: 2
   maxSlimeCount: 10
@@ -5838,6 +5838,7 @@ MonoBehaviour:
   healthBar: {fileID: 540788587535692909}
   floatingTextDamage: {fileID: 3341635747743629679, guid: 2b62da6d46f93fa488c9bc78488eb8ab,
     type: 3}
+  dialog: {fileID: 0}
 --- !u!50 &2058594921
 Rigidbody2D:
   serializedVersion: 4
