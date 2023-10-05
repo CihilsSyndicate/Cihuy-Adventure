@@ -109,6 +109,7 @@ public class BossController : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
             moveDurationCounter = 0;
+            collision.gameObject.GetComponent<PlayerMovement>().TakeDamage(10f);
         }
     }
 

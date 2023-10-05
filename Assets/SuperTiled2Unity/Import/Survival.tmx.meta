@@ -1,0 +1,67 @@
+fileFormatVersion: 2
+guid: 54b4d8ecf1935c04584d8c6e0f193ca0
+ScriptedImporter:
+  fileIDToRecycleName:
+    100000: _MapPrfab/Survival
+    100002: _MapPrfab/Survival/Collisions
+    100004: _MapPrfab/Survival/Collisions/Object_3
+    100006: _MapPrfab/Survival/Collisions/Object_5
+    100008: _MapPrfab/Survival/Collisions/Object_6
+    100010: _MapPrfab/Survival/Collisions/Object_7
+    100012: _MapPrfab/Survival/Ground
+    100014: _MapPrfab/Survival/Object
+    400000: _MapPrfab/Survival/Transform
+    400002: _MapPrfab/Survival/Collisions/Transform
+    400004: _MapPrfab/Survival/Collisions/Object_3/Transform
+    400006: _MapPrfab/Survival/Collisions/Object_5/Transform
+    400008: _MapPrfab/Survival/Collisions/Object_6/Transform
+    400010: _MapPrfab/Survival/Collisions/Object_7/Transform
+    400012: _MapPrfab/Survival/Ground/Transform
+    400014: _MapPrfab/Survival/Object/Transform
+    6100000: _MapPrfab/Survival/Collisions/Object_3/BoxCollider2D
+    6100002: _MapPrfab/Survival/Collisions/Object_5/BoxCollider2D
+    6100004: _MapPrfab/Survival/Collisions/Object_6/BoxCollider2D
+    6100006: _MapPrfab/Survival/Collisions/Object_7/BoxCollider2D
+    11400000: _MapPrfab/Survival/MonoBehaviour-SuperTiled2Unity.SuperMap
+    11400002: _MapPrfab/Survival/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400004: _MapPrfab/Survival/Collisions/MonoBehaviour-SuperTiled2Unity.SuperObjectLayer
+    11400006: _MapPrfab/Survival/Collisions/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400008: _MapPrfab/Survival/Collisions/Object_3/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400010: _MapPrfab/Survival/Collisions/Object_3/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400012: _MapPrfab/Survival/Collisions/Object_3/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400014: _MapPrfab/Survival/Collisions/Object_5/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400016: _MapPrfab/Survival/Collisions/Object_5/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400018: _MapPrfab/Survival/Collisions/Object_5/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400020: _MapPrfab/Survival/Collisions/Object_6/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400022: _MapPrfab/Survival/Collisions/Object_6/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400024: _MapPrfab/Survival/Collisions/Object_6/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400026: _MapPrfab/Survival/Collisions/Object_7/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400028: _MapPrfab/Survival/Collisions/Object_7/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400030: _MapPrfab/Survival/Collisions/Object_7/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400032: _MapPrfab/Survival/Ground/MonoBehaviour-SuperTiled2Unity.SuperTileLayer
+    11400034: _MapPrfab/Survival/Ground/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400036: _MapPrfab/Survival/Object/MonoBehaviour-SuperTiled2Unity.SuperTileLayer
+    11400038: _MapPrfab/Survival/Object/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400040: _superAsset
+    100100000: _MapPrfab
+    2569400265252428796: _MapPrfab/Survival/Grid
+    3664157343022684176: _MapPrfab/Survival/Ground/TilemapRenderer
+    3664157343022684178: _MapPrfab/Survival/Object/TilemapRenderer
+    8195094279510102542: _MapPrfab/Survival/Ground/Tilemap
+    8195094279510102544: _MapPrfab/Survival/Object/Tilemap
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 1fa25d03934ea624a82bf2fcee6f0873, type: 3}
+  errors: []
+  warnings: []
+  missingSortingLayers: []
+  missingLayers: []
+  pixelsPerUnit: 100
+  edgesPerEllipse: 32
+  tilesAsObjects: 0
+  importSorting: 0
+  isIsometric: 0
+  customImporterClassName: 
+  internalTilesets: []

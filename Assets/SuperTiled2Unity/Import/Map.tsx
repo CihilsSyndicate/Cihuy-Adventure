@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.10.2" name="topDown_baseTiles" tilewidth="16" tileheight="16" tilecount="2112" columns="33">
+<tileset version="1.10" tiledversion="1.10.1" name="topDown_baseTiles" tilewidth="16" tileheight="16" tilecount="2112" columns="33">
  <image source="topDown_baseTiles.png" width="528" height="1024"/>
  <wangsets>
   <wangset name="Dirt" type="corner" tile="-1">
@@ -75,6 +75,22 @@
    <wangtile tileid="402" wangid="0,1,0,0,0,0,0,0"/>
    <wangtile tileid="403" wangid="0,1,0,0,0,0,0,1"/>
    <wangtile tileid="404" wangid="0,0,0,0,0,0,0,1"/>
+  </wangset>
+  <wangset name="Unnamed Set" type="corner" tile="-1">
+   <wangcolor name="" color="#ff0000" tile="-1" probability="1"/>
+   <wangtile tileid="160" wangid="0,0,0,1,0,0,0,0"/>
+   <wangtile tileid="161" wangid="0,0,0,1,0,1,0,0"/>
+   <wangtile tileid="162" wangid="0,0,0,0,0,1,0,0"/>
+   <wangtile tileid="193" wangid="0,1,0,1,0,0,0,0"/>
+   <wangtile tileid="194" wangid="0,1,0,1,0,1,0,1"/>
+   <wangtile tileid="195" wangid="0,0,0,0,0,1,0,1"/>
+   <wangtile tileid="196" wangid="0,1,0,0,0,1,0,1"/>
+   <wangtile tileid="197" wangid="0,1,0,1,0,0,0,1"/>
+   <wangtile tileid="226" wangid="0,1,0,0,0,0,0,0"/>
+   <wangtile tileid="227" wangid="0,1,0,0,0,0,0,1"/>
+   <wangtile tileid="228" wangid="0,0,0,0,0,0,0,1"/>
+   <wangtile tileid="229" wangid="0,0,0,1,0,1,0,1"/>
+   <wangtile tileid="230" wangid="0,1,0,1,0,1,0,0"/>
   </wangset>
  </wangsets>
 </tileset>

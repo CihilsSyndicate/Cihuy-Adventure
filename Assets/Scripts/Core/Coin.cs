@@ -12,6 +12,7 @@ public class Coin : MonoBehaviour
     private bool isMoving = false;
     private Collider2D coinCollider;
     private bool isSurvivalMode;
+    public int coinValue;
 
     [Header("Random Splash")]
     public TrailRenderer coinTrailRenderer;
@@ -93,7 +94,7 @@ public class Coin : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Destroy(gameObject);
-            CoinCounter.Instance.IncreaseCoin(1);
+            CoinCounter.Instance.IncreaseCoin(coinValue);
         }
     }
 }

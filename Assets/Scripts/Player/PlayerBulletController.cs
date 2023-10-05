@@ -4,7 +4,7 @@ public class PlayerBulletController : MonoBehaviour
 {
     private float speed;
     private Vector2 _direction;
-    public float damage = 5f;
+    public float damage;
 
     private void Awake()
     {

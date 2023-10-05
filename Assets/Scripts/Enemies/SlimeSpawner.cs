@@ -72,18 +72,19 @@ public class SlimeSpawner : MonoBehaviour
         GameObject newSlime = slimePool[currentPoolIndex];
         currentPoolIndex++;
 
-        float spawnDistance = Random.Range(minSpawnDistance, maxSpawnDistance);
         float spawnAngle = Random.Range(0f, 360f);
+        float spawnRadius = Random.Range(minSpawnDistance, maxSpawnDistance);
 
-        // Hitung posisi spawn berdasarkan sudut dan jarak
-        Vector3 spawnPosition = transform.position + Quaternion.Euler(0f, spawnAngle, 0f) * (Vector3.forward * spawnDistance);
-        spawnPosition.z = 0;
+        // Hitung posisi spawn menggunakan koordinat polar
+        float spawnX = transform.position.x + Mathf.Cos(spawnAngle * Mathf.Deg2Rad) * spawnRadius;
+        float spawnY = transform.position.y + Mathf.Sin(spawnAngle * Mathf.Deg2Rad) * spawnRadius;
+        float spawnZ = 0;
 
         // Setel posisi objek baru dan aktifkan
-        newSlime.transform.position = spawnPosition;
+        newSlime.transform.position = new Vector3(spawnX, spawnY, spawnZ);
         newSlime.SetActive(true);
-        
     }
+
 
     // Metode untuk memulai spawn
     public void StartSpawning()

@@ -16,6 +16,9 @@ public class PowerUps : MonoBehaviour
     public SlimeSpawner[] slimeSpawner;
     List<int> chosenIndices;
     private bool allConditionsMet = false;
+    public Coin coin;
+    public PlayerBulletController playerBullet;
+    public Slash slash;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +29,7 @@ public class PowerUps : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(PlayerMovement.Instance.currentHealth.RuntimeValue);
         if (SceneManager.GetActiveScene().name != "SurvivalMode")
         {
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -195,4 +199,22 @@ public class PowerUps : MonoBehaviour
         SwordAttack.Instance.maxShot += amount;
     }
 
+    public void DoubleCoinBuff()
+    {
+        StartCoroutine(DoubleCoin());
+    }
+
+    public IEnumerator DoubleCoin()
+    {
+        coin.coinValue = 2;
+
+        yield return new WaitForSeconds(20f);
+
+        coin.coinValue = 1;
+    }
+
+    public void Heal()
+    {
+        PlayerMovement.Instance.currentHealth.RuntimeValue += 20f;
+    }
 }
