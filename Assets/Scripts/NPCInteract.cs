@@ -15,6 +15,14 @@ public class NPCInteract : MonoBehaviour
 
     private void Awake()
     {
+        if (this.gameObject.activeInHierarchy)
+        {
+            this.gameObject.SetActive(false);
+        }
+    }
+
+    private void OnDisable()
+    {
         instance = this;
     }
 
