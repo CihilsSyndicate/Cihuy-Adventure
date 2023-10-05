@@ -53,7 +53,8 @@ public class SwordAttack : MonoBehaviour
         for (int i = 0; i < poolSize; i++)
         {
             GameObject slash = Instantiate(slashPrefab);
-            slash.transform.SetParent(bulletContainer.transform);
+            if(bulletContainer != null)
+                slash.transform.SetParent(bulletContainer.transform);
             slash.SetActive(false);
             slashPool.Add(slash);
         }

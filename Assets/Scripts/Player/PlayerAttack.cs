@@ -30,7 +30,8 @@ public class PlayerAttack : MonoBehaviour
         for (int i = 0; i < poolSize; i++)
         {
             GameObject bullet = Instantiate(bulletPrefab);
-            bullet.transform.SetParent(bulletContainer.transform);
+            if(bulletContainer != null)
+                bullet.transform.SetParent(bulletContainer.transform);
             bullet.SetActive(false);
             bulletPool.Add(bullet);
         }

@@ -7,15 +7,22 @@ using UnityEngine.UI;
 public class NPCManager : ScriptableObject
 {
     public Sprite npcSprite;
-    public string npcDialog;
+    public List<Dialog> dialogs; // List untuk menyimpan beberapa dialog
     public string npcName;
     public string option1;
     public string option2;
     public NPCType npcType;
+
+    [System.Serializable]
+    public class Dialog
+    {
+        public string dialogText;
+        // Tambahkan properti lain yang mungkin Anda butuhkan, seperti suara, animasi, dll.
+    }
+
     public enum NPCType
     {
         normal,
         trader
     }
-
 }
