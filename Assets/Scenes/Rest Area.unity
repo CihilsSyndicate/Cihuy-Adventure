@@ -3134,6 +3134,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7874851598080291544, guid: 52a68cc41cd12df439b6253b99fce3ca,
         type: 3}
+      propertyPath: NPCName.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7874851598080291544, guid: 52a68cc41cd12df439b6253b99fce3ca,
+        type: 3}
       propertyPath: fixedJoystick
       value: 
       objectReference: {fileID: 1332419307}
@@ -3147,7 +3152,22 @@ PrefabInstance:
         type: 3}
       propertyPath: dialog
       value: 
-      objectReference: {fileID: 1789202287}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7874851598080291544, guid: 52a68cc41cd12df439b6253b99fce3ca,
+        type: 3}
+      propertyPath: NPCName.Array.data[0]
+      value: Ucup
+      objectReference: {fileID: 0}
+    - target: {fileID: 7874851598080291544, guid: 52a68cc41cd12df439b6253b99fce3ca,
+        type: 3}
+      propertyPath: NPCName.Array.data[1]
+      value: Farid
+      objectReference: {fileID: 0}
+    - target: {fileID: 7874851598080291544, guid: 52a68cc41cd12df439b6253b99fce3ca,
+        type: 3}
+      propertyPath: NPCName.Array.data[2]
+      value: Makci
+      objectReference: {fileID: 0}
     - target: {fileID: 7874851598080291546, guid: 52a68cc41cd12df439b6253b99fce3ca,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4283,19 +4303,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1789202287}
-        m_MethodName: InteractDialog
+        m_MethodName: Interact
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1789202283}
-        m_MethodName: SetActive
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5681,10 +5690,8 @@ MonoBehaviour:
   dialogText: {fileID: 670925052}
   option1Text: {fileID: 395137741}
   option2Text: {fileID: 657213316}
-  npcName: Farid
-  dialog: HEY! Get out of my face!!
-  option1: OK
-  option2: ???
+  npcSprite: {fileID: 946297100}
+  npcManager: {fileID: 11400000, guid: 74a5cc09ac9883d4d8fb9273a8a50e38, type: 2}
   typingSpeed: 0.05
   spriteRendererToActivate: {fileID: 586399758}
 --- !u!61 &946297099
@@ -8698,10 +8705,8 @@ MonoBehaviour:
   dialogText: {fileID: 670925052}
   option1Text: {fileID: 395137741}
   option2Text: {fileID: 657213316}
-  npcName: MAKCI
-  dialog: Hi dek fariez
-  option1: ??
-  option2: ??
+  npcSprite: {fileID: 0}
+  npcManager: {fileID: 0}
   typingSpeed: 0.05
   spriteRendererToActivate: {fileID: 1321418568}
 --- !u!82 &1357187375
@@ -11768,13 +11773,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1789202283}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 520e11cc0e205ad49b311bb1492b6d95, type: 3}
+  m_Script: {fileID: 11500000, guid: f8715ed860a90da4b9e268a68c1d3cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shop: 0
   go:
   - {fileID: 2129893769}
   - {fileID: 1789202283}
+  - {fileID: 1789202283}
+  trader: 0
 --- !u!1 &1800269900
 GameObject:
   m_ObjectHideFlags: 0
@@ -12341,10 +12347,8 @@ MonoBehaviour:
   dialogText: {fileID: 670925052}
   option1Text: {fileID: 395137741}
   option2Text: {fileID: 657213316}
-  npcName: Ucup
-  dialog: Wanna buy something?
-  option1: YES
-  option2: NO
+  npcSprite: {fileID: 1851278018}
+  npcManager: {fileID: 11400000, guid: e400f88778c3b744abfdabee48e7b709, type: 2}
   typingSpeed: 0.05
   spriteRendererToActivate: {fileID: 2118920875}
 --- !u!61 &1851278017

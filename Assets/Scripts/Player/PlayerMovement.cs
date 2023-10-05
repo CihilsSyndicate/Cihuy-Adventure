@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     public float damageEffectDuration = 0.2f;
     public HealthBar healthBar;
     public GameObject floatingTextDamage;
-    public Dialog dialog;
+    public string[] NPCName;
 
     private static PlayerMovement instance;
 
@@ -167,6 +167,17 @@ public class PlayerMovement : MonoBehaviour
         }else
             gameObject.SetActive(false);
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.name == NPCName[0])
+        {
+            NPCInteract.Instance.trader = true;
+        }else if(other.gameObject.name == NPCName[1])
+        {
+            NPCInteract.Instance.trader = false;
+        }
     }
 
     private IEnumerator knockCo(float knockTime)
