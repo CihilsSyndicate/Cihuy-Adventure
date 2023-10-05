@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d990fcb6d05912f44a06d2682460996b, type: 3}
-  m_Name: NPCManager
+  m_Name: Home
   m_EditorClassIdentifier: 
   npcSprite: {fileID: 0}
-  npcDialog: 
-  npcName: 
-  option1: 
-  option2: 
+  npcDialog: Go inside home?
+  npcName: Home
+  option1: Yes
+  option2: No
   npcType: 0

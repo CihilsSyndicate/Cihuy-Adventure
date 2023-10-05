@@ -1949,8 +1949,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 861589444}
   smoothing: 1
-  maxPos: {x: 30, y: 30}
-  minPos: {x: -30, y: -30}
+  maxPos: {x: 30, y: 16}
+  minPos: {x: 3, y: -5}
 --- !u!20 &475343499
 Camera:
   m_ObjectHideFlags: 0
@@ -3088,7 +3088,7 @@ Transform:
   m_Children:
   - {fileID: 68828700}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &609001047
 MonoBehaviour:
@@ -3107,10 +3107,8 @@ MonoBehaviour:
   dialogText: {fileID: 670925052}
   option1Text: {fileID: 395137741}
   option2Text: {fileID: 657213316}
-  npcName: Home
-  dialog: Go Inside Home?
-  option1: Yes
-  option2: No
+  npcSprite: {fileID: 0}
+  npcManager: {fileID: 11400000, guid: 04f2d862817ea104ea19d2ec461aacad, type: 2}
   typingSpeed: 0.05
   spriteRendererToActivate: {fileID: 68828701}
 --- !u!82 &609001048
@@ -3779,6 +3777,11 @@ PrefabInstance:
     - target: {fileID: 7694491862313533811, guid: 52a68cc41cd12df439b6253b99fce3ca,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7874851597966639262, guid: 52a68cc41cd12df439b6253b99fce3ca,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7874851598080291537, guid: 52a68cc41cd12df439b6253b99fce3ca,
@@ -5375,7 +5378,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1009155531
 GameObject:
@@ -14672,7 +14675,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2092074056
 BoxCollider2D:
@@ -14722,6 +14725,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2101258425}
   - component: {fileID: 2101258424}
+  - component: {fileID: 2101258426}
   m_Layer: 5
   m_Name: Bgm
   m_TagString: Untagged
@@ -14844,6 +14848,19 @@ RectTransform:
   m_AnchoredPosition: {x: 540, y: 478}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2101258426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101258423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92fc1d7eff8e7c40b8d484c22227d60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectID: 
 --- !u!1 &2109182420
 GameObject:
   m_ObjectHideFlags: 0
