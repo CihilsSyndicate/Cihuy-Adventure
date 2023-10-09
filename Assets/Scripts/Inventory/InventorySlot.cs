@@ -42,6 +42,7 @@ public class InventorySlot : MonoBehaviour
 
     public void ClickedOn()
     {
+        WeaponManager.Instance.weapon = thisItem;
         thisManager.descriptionText.text = thisItem.itemDescription;
         thisManager.atkText.text = "ATK: " + thisItem.Atk.ToString();
         thisManager.hpText.text = "HP: " + thisItem.Hp.ToString();
