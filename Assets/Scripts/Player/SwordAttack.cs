@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class SwordAttack : MonoBehaviour
 {
     [Header("General/Not Survival Mode")]
+    public float attackButtonCooldown;
     private Animator swordAnim;
     public GameObject slashPrefab;
     public Button attackButton;
@@ -182,7 +183,7 @@ public class SwordAttack : MonoBehaviour
         }
         else
         {
-            yield return new WaitForSeconds(0.6f);
+            yield return new WaitForSeconds(attackButtonCooldown);
             attackButton.interactable = true;
         }
     }
