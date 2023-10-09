@@ -43,7 +43,6 @@ public class PhysicalInventoryItem : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             AddItemToInventory();
-            Destroy(this.gameObject);
         }
     }
 
@@ -54,10 +53,11 @@ public class PhysicalInventoryItem : MonoBehaviour
             if (playerInventory.myInventory.Contains(thisItem))
             {
                 thisItem.numberHeld += 1;
-            }else
+                Destroy(this.gameObject);
+            }
+            else
             {
-                playerInventory.myInventory.Add(thisItem);
-                thisItem.numberHeld += 1;
+                playerInventory.AddItem(thisItem, this.gameObject, thisItem);
             }
         }
     }

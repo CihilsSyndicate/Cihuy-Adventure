@@ -144,6 +144,10 @@ public class SlimeController : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (floatingTextDamage)
+        {
+            ShowFloatingText(damage);
+        }
         health -= damage;
         healthBar.SetHealth(health);
         isKnockback = true;
@@ -161,11 +165,7 @@ public class SlimeController : MonoBehaviour
             }
             gameObject.SetActive(false);
             health = maxHealth.maxHealth;
-        }
-        if(floatingTextDamage)
-        {
-            ShowFloatingText(damage);
-        }
+        }       
         if (gameObject.activeInHierarchy)
         {
             StartCoroutine(DamageEffect());
@@ -174,7 +174,7 @@ public class SlimeController : MonoBehaviour
 
     public void ShowFloatingText(float damage)
     {
-        var go = Instantiate(floatingTextDamage, transform.position, Quaternion.identity, transform);
+        var go = Instantiate(floatingTextDamage, transform.position, Quaternion.identity);
         go.GetComponent<TextMesh>().text = "-" + damage.ToString();
     }
 
