@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49bbd3c4111fbdf4085149635117f49d, type: 3}
+  m_Name: Legacywood
+  m_EditorClassIdentifier: 
+  itemName: Legacywood
+  itemDescription: In a realm of valorous knights, Legacywood, a sword crafted from
+    rare enchanted wood, once belonged to the legendary knight Sir Alderic. With unparalleled
+    skill in both combat and chivalry, Sir Alderic defended his kingdom with honor.
+    Though time dimmed his name, Legacywood endured as a symbol of his valor and virtue.
+    Passed down through generations, it remains a beacon of inspiration, embodying
+    the ideals of honor, courage, and justice, and preserving the legacy of true chivalry.
+  cost: 0
+  Atk: 2
+  Hp: 70
+  itemImage: {fileID: 21300050, guid: 94f1519ab7b5f5c4e8aafecc17750778, type: 3}
+  numberHeld: 1
+  consumableStack: 0
+  usable: 1
+  unique: 1
+  isOwned: 0
+  thisEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  itemType: 0
