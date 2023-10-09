@@ -7,35 +7,16 @@ public class InventoryManager : MonoBehaviour
 {
     [Header("Inventory Information")]
     public PlayerInventory playerInventory;
-    [SerializeField] private GameObject blackInventorySlot;
-    [SerializeField] private GameObject inventoryPanel;
-    [SerializeField] private Text descriptionText;
-    [SerializeField] private Text hpText;
-    [SerializeField] private Text atkText;
-    [SerializeField] private Text itemNameText;
-    [SerializeField] private Image itemImage;
-    [SerializeField] private GameObject useButton;
-    [SerializeField] private GameObject detailButton;
-    [SerializeField] private GameObject dropButton;
+    public GameObject blackInventorySlot;
+    public GameObject inventoryPanel;
+    public Text descriptionText;
+    public Text hpText;
+    public Text atkText;
+    public Text itemNameText;
+    public Image itemImage;
+    public GameObject useButton, equipButton, detailButton, dropButton;
     public InventoryItem currentItem;
     public FloatValue playerHealth;
-
-    public void SetTextAndButton(string description, bool buttonActive)
-    {
-        descriptionText.text = description;
-        if (buttonActive)
-        {
-            useButton.SetActive(true);
-            detailButton.SetActive(true);
-            dropButton.SetActive(true);
-        }
-        else
-        {         
-            useButton.SetActive(false);
-            detailButton.SetActive(false);
-            dropButton.SetActive(false);
-        }
-    }
 
     void MakeInventorySlot()
     {
@@ -94,7 +75,11 @@ public class InventoryManager : MonoBehaviour
     {   
         ClearInventoryItem();
         MakeInventorySlot();
-        SetTextAndButton("", false);
+        descriptionText.text = "";
+        useButton.SetActive(false);
+        equipButton.SetActive(false);
+        detailButton.SetActive(false);
+        dropButton.SetActive(false);
     }
 
     void ClearInventoryItem()
@@ -105,6 +90,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    /*
     public void SetupDescriptionAndButtonForConsumable(string newDescriptionString, bool isButtonUsable, string newHPText, string newATKText, string newItemName, Sprite newItemImage, InventoryItem newItem)
     {
         currentItem = newItem;
@@ -117,6 +103,7 @@ public class InventoryManager : MonoBehaviour
         detailButton.SetActive(isButtonUsable);
         dropButton.SetActive(isButtonUsable);
     }
+    */
 
     public void UseButtonPressed()
     {
@@ -128,7 +115,11 @@ public class InventoryManager : MonoBehaviour
                 if(currentItem.numberHeld == 0)
                 {
                     RemoveItemsWithZeroCount();
-                    SetTextAndButton("", false);
+                    descriptionText.text = "";
+                    useButton.SetActive(false);
+                    equipButton.SetActive(false);
+                    detailButton.SetActive(false);
+                    dropButton.SetActive(false);
                 }
                 ClearInventoryItem();
                 MakeInventorySlot();

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: NPCTrader
   m_EditorClassIdentifier: 
   npcSprite: {fileID: 21300014, guid: 7ce802a2313580248841f5f706624cec, type: 3}
-  npcDialog: Wanna buy some bitchies
+  npcDialog: Mau beli apa dik?
   npcName: Ucup
   option1: Yes
   option2: No

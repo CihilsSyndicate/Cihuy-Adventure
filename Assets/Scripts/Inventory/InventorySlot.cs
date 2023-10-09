@@ -42,13 +42,22 @@ public class InventorySlot : MonoBehaviour
 
     public void ClickedOn()
     {
-        if(thisItem.itemType != InventoryItem.ItemType.Consumable)
+        thisManager.descriptionText.text = thisItem.itemDescription;
+        thisManager.atkText.text = "ATK: " + thisItem.Atk.ToString();
+        thisManager.hpText.text = "HP: " + thisItem.Hp.ToString();
+        thisManager.itemNameText.text = thisItem.itemName;
+        thisManager.itemImage.sprite = thisItem.itemImage;
+        thisManager.detailButton.SetActive(true);
+        thisManager.dropButton.SetActive(true);
+        if (thisItem.itemType == InventoryItem.ItemType.Consumable)
         {
-
+            thisManager.useButton.SetActive(true);
+            thisManager.equipButton.SetActive(false);
         }
-        if (thisItem)
+        else if(thisItem.itemType == InventoryItem.ItemType.Equipment)
         {
-            thisManager.SetupDescriptionAndButtonForConsumable(thisItem.itemDescription, thisItem.usable, "Hp : +" + thisItem.Hp.ToString(), "Atk : +" + thisItem.Atk.ToString(), thisItem.itemName, thisItem.itemImage, thisItem);
+            thisManager.useButton.SetActive(false);
+            thisManager.equipButton.SetActive(true);
         }
     }
 }

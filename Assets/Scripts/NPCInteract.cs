@@ -33,9 +33,5 @@ public class NPCInteract : MonoBehaviour
             go[0].SetActive(true);
             go[1].SetActive(false);
         }
-        else if(trader == false)
-        {
-            NpcSign.Instance.Dialog();
-        }
     }
 }

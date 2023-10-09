@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum playerState
 {
@@ -13,6 +14,8 @@ public enum playerState
 
 public class PlayerMovement : MonoBehaviour
 {
+    public NpcSign npcSign;
+    public Button interactButton;
     public playerState currentState;
     public float speed = 5f;
     private Animator anim;
@@ -174,10 +177,34 @@ public class PlayerMovement : MonoBehaviour
         if(other.gameObject.name == NPCName[0])
         {
             NPCInteract.Instance.trader = true;
-        }else if(other.gameObject.name == NPCName[1])
+            npcSign = other.GetComponent<NpcSign>();
+            interactButton.gameObject.SetActive(true);
+        }
+        else if (other.gameObject.name == NPCName[1] || other.gameObject.name == NPCName[2])
         {
             NPCInteract.Instance.trader = false;
+            npcSign = other.GetComponent<NpcSign>();
+            interactButton.gameObject.SetActive(true);
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.name == NPCName[0])
+        {
+            npcSign = null;
+            interactButton.gameObject.SetActive(false);
+        }
+        else if(other.gameObject.name == NPCName[1] || other.gameObject.name == NPCName[2])
+        {
+            npcSign = null;
+            interactButton.gameObject.SetActive(false);
+        }
+    }
+
+    public void BeginAndEndDialog()
+    {
+        npcSign.BeginDialog();
     }
 
     private IEnumerator knockCo(float knockTime)
