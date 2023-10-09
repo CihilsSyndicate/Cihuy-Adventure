@@ -5606,7 +5606,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &2101258424
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5984,7 +5984,7 @@ PrefabInstance:
     - target: {fileID: 8105664872428449481, guid: bbeff53c52c5fea47b894bd618f78384,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbeff53c52c5fea47b894bd618f78384, type: 3}
