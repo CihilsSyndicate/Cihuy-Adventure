@@ -21120,6 +21120,7 @@ MonoBehaviour:
   itemNameText: {fileID: 1871361026}
   itemImage: {fileID: 2073219915}
   useButton: {fileID: 509400370}
+  equipButton: {fileID: 0}
   detailButton: {fileID: 1753900789}
   dropButton: {fileID: 2133289516}
   currentItem: {fileID: 0}
@@ -21408,7 +21409,7 @@ SpriteRenderer:
   m_SortingLayerID: 744897573
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300012, guid: ffafbca4731165a479de5770cc665870, type: 3}
+  m_Sprite: {fileID: 21300050, guid: 94f1519ab7b5f5c4e8aafecc17750778, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -22656,6 +22657,7 @@ MonoBehaviour:
   itemNameText: {fileID: 0}
   itemImage: {fileID: 0}
   useButton: {fileID: 192120697}
+  equipButton: {fileID: 0}
   detailButton: {fileID: 1221846414}
   dropButton: {fileID: 181838237}
   currentItem: {fileID: 0}
@@ -24784,6 +24786,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b215c0cafd3b7149bd8defb828b9d34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcSign: {fileID: 0}
+  interactButton: {fileID: 0}
   currentState: 0
   speed: 5
   fixedJoystick: {fileID: 1014411685}

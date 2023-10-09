@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SwordAttack : MonoBehaviour
 {
+    [Header("General/Not Survival Mode")]
     private Animator swordAnim;
-    public GameObject slashPrefab; // Prefab Slash
+    public GameObject slashPrefab;
+    public Button attackButton;
+    private GameObject bulletContainer;
+
+    [Header("Survival Mode")]
     public float attackRange = 6f;
     public float speed = 5f;
     public float attackCooldown = 0.2f;
@@ -14,7 +20,6 @@ public class SwordAttack : MonoBehaviour
     public int maxShot = 1;
     private float lastAttackTime = 0f;
     [System.NonSerialized] public bool isSurvivalMode;
-    private GameObject bulletContainer;
 
     [Header("Pooling System")]
     public int poolSize = 10;
@@ -88,7 +93,6 @@ public class SwordAttack : MonoBehaviour
         swordAnim.SetFloat("idleX", PlayerMovement.Instance.change.x);
         swordAnim.SetFloat("idleY", PlayerMovement.Instance.change.y);
 
-        // Cek apakah pemain dapat menyerang
         if (!isAttacking)
         {
             // Cek waktu sekarang
@@ -98,56 +102,60 @@ public class SwordAttack : MonoBehaviour
             if (currentTime - lastAttackTime >= attackCooldown)
             {
                 // Cek apakah pemain sedang bergerak atau isSurvivalMode true
-                if (PlayerMovement.Instance.currentState != playerState.walk || isSurvivalMode)
+                if (PlayerMovement.Instance.currentState != playerState.walk && isSurvivalMode)
                 {
-                    Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, attackRange, LayerMask.GetMask("Enemy", "Boss"));
-
-                    if (colliders.Length > 0)
-                    {
-                        Transform nearestEnemy = FindNearestEnemy(colliders);
-
-                        if (nearestEnemy != null)
-                        {
-                            Vector3 direction = nearestEnemy.position - transform.position;
-
-                            float posX = 0f;
-                            float posY = 0f;
-
-                            if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
-                            {
-                                posX = Mathf.Sign(direction.x);
-                            }
-                            else
-                            {
-                                posY = Mathf.Sign(direction.y);
-                            }
-
-                            if (!isSurvivalMode)
-                            {
-                                PlayerAttack.Instance.playerAnim.SetFloat("x", posX);
-                                PlayerAttack.Instance.playerAnim.SetFloat("y", posY);
-                                swordAnim.SetFloat("x", posX);
-                                swordAnim.SetFloat("y", posY);
-                            }
-
-                            // Menandai waktu serangan terakhir
-                            lastAttackTime = currentTime;
-
-                            // Menyerang
-                            StartCoroutine(PerformAttack(colliders));
-                        }
-                    }
+                    lastAttackTime = currentTime;
+                    LaunchAttack();
                 }
             }
         }
     }
 
+    public void LaunchAttack()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, attackRange, LayerMask.GetMask("Enemy", "Boss"));
+
+        if (colliders.Length > 0)
+        {
+            Transform nearestEnemy = FindNearestEnemy(colliders);
+
+            if (nearestEnemy != null)
+            {
+                Vector3 direction = nearestEnemy.position - transform.position;
+
+                float posX = 0f;
+                float posY = 0f;
+
+                if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+                {
+                    posX = Mathf.Sign(direction.x);
+                }
+                else
+                {
+                    posY = Mathf.Sign(direction.y);
+                }
+
+                if (!isSurvivalMode)
+                {
+                    PlayerAttack.Instance.playerAnim.SetFloat("x", posX);
+                    PlayerAttack.Instance.playerAnim.SetFloat("y", posY);
+                    swordAnim.SetFloat("x", posX);
+                    swordAnim.SetFloat("y", posY);
+                }
+
+                // Menyerang
+                StartCoroutine(PerformAttack(colliders));
+            }
+        }
+    }
 
     private IEnumerator PerformAttack(Collider2D[] colliders)
     {
         isAttacking = true;
+
         if (!isSurvivalMode)
         {
+            attackButton.interactable = false;
             swordAnim.SetBool("IsAttacking", true);
         }
 
@@ -171,6 +179,11 @@ public class SwordAttack : MonoBehaviour
         {
             yield return new WaitForSeconds(0.2f);
             ResetIsAttacking();
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.6f);
+            attackButton.interactable = true;
         }
     }
 
