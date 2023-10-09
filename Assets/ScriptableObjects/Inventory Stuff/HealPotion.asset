@@ -18,7 +18,7 @@ MonoBehaviour:
   Atk: 0
   Hp: 5
   itemImage: {fileID: 21300000, guid: b798b68dfc1c60644af1883729b258dd, type: 3}
-  numberHeld: 19
+  numberHeld: 0
   consumableStack: 3
   usable: 1
   unique: 0
