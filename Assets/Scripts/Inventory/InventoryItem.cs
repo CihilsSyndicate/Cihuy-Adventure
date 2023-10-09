@@ -31,7 +31,7 @@ public class InventoryItem : ScriptableObject
         thisEvent.Invoke();
     }
 
-    public void DecraeseAmount(int amountToDecrease)
+    public void DecreaseAmount(int amountToDecrease)
     {
         if(itemType == ItemType.Consumable)
         {
