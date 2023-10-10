@@ -9,6 +9,8 @@ TagManager:
   - Sword
   - Boss
   - Wall
+  - NPC
+  - NPC Trader
   layers:
   - Default
   - TransparentFX

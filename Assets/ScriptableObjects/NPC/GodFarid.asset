@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d990fcb6d05912f44a06d2682460996b, type: 3}
-  m_Name: NPCTrader
+  m_Name: GodFarid
   m_EditorClassIdentifier: 
-  npcSprite: {fileID: 21300014, guid: 7ce802a2313580248841f5f706624cec, type: 3}
-  npcDialog: Mau beli apa dik?
-  npcName: Ucup
-  option1: Yes
-  option2: No
-  npcType: 1
+  npcSprite: {fileID: 21300002, guid: 7ce802a2313580248841f5f706624cec, type: 3}
+  npcDialog: May God bless u.
+  npcName: Farid
+  option1: Thanks.
+  option2: Yeah.
+  npcType: 0

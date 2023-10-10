@@ -28,7 +28,6 @@ public class PlayerMovement : MonoBehaviour
     public float damageEffectDuration = 0.2f;
     public HealthBar healthBar;
     public GameObject floatingTextDamage;
-    public string[] NPCName;
 
     private static PlayerMovement instance;
 
@@ -174,13 +173,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.name == NPCName[0])
+        if(other.CompareTag("NPC Trader"))
         {
             NPCInteract.Instance.trader = true;
             npcSign = other.GetComponent<NpcSign>();
             interactButton.gameObject.SetActive(true);
         }
-        else if (other.gameObject.name == NPCName[1] || other.gameObject.name == NPCName[2])
+        else if (other.CompareTag("NPC"))
         {
             NPCInteract.Instance.trader = false;
             npcSign = other.GetComponent<NpcSign>();
@@ -190,12 +189,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.name == NPCName[0])
-        {
-            npcSign = null;
-            interactButton.gameObject.SetActive(false);
-        }
-        else if(other.gameObject.name == NPCName[1] || other.gameObject.name == NPCName[2])
+        if (other.CompareTag("NPC Trader") || other.CompareTag("NPC"))
         {
             npcSign = null;
             interactButton.gameObject.SetActive(false);
