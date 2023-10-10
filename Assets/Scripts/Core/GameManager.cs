@@ -25,6 +25,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SavePlayer()
+    {
+        SaveSystem.SavePlayer(PlayerMovement.Instance);
+    }
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+
+        PlayerMovement.Instance.currentHealth.RuntimeValue = data.health;
+        Vector3 position;
+        position.x = data.position[0];
+        position.y = data.position[1];
+        position.z = data.position[2];
+        PlayerMovement.Instance.transform.position = position;
+    }
+
+
     public void ChangeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);

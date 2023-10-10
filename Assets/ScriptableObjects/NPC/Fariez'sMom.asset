@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d990fcb6d05912f44a06d2682460996b, type: 3}
   m_Name: Fariez'sMom
   m_EditorClassIdentifier: 
-  npcSprite: {fileID: 21300002, guid: 7ce802a2313580248841f5f706624cec, type: 3}
+  npcSprite: {fileID: 21300000, guid: 69da0fc4707d08a4aaf3f2a3d757393b, type: 3}
   npcDialog: My son fell from height, but he's still alive.
   npcName: Fariez's Mom
   option1: Cool...
