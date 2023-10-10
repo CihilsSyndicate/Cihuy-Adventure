@@ -90,6 +90,19 @@
    <wangtile tileid="402" wangid="0,1,0,0,0,0,0,0"/>
    <wangtile tileid="403" wangid="0,1,0,0,0,0,0,1"/>
    <wangtile tileid="404" wangid="0,0,0,0,0,0,0,1"/>
+   <wangtile tileid="446" wangid="0,0,0,5,0,0,0,0"/>
+   <wangtile tileid="447" wangid="0,0,0,5,0,5,0,0"/>
+   <wangtile tileid="448" wangid="0,0,0,0,0,5,0,0"/>
+   <wangtile tileid="449" wangid="0,5,0,0,0,5,0,5"/>
+   <wangtile tileid="450" wangid="0,5,0,5,0,0,0,5"/>
+   <wangtile tileid="479" wangid="0,5,0,5,0,0,0,0"/>
+   <wangtile tileid="480" wangid="0,5,0,5,0,5,0,5"/>
+   <wangtile tileid="481" wangid="0,0,0,0,0,5,0,5"/>
+   <wangtile tileid="482" wangid="0,0,0,5,0,5,0,5"/>
+   <wangtile tileid="483" wangid="0,5,0,5,0,5,0,0"/>
+   <wangtile tileid="512" wangid="0,5,0,0,0,0,0,0"/>
+   <wangtile tileid="513" wangid="0,5,0,0,0,0,0,5"/>
+   <wangtile tileid="514" wangid="0,0,0,0,0,0,0,5"/>
   </wangset>
   <wangset name="Unnamed Set" type="corner" tile="-1">
    <wangcolor name="" color="#ff0000" tile="-1" probability="1"/>
@@ -106,6 +119,38 @@
    <wangtile tileid="228" wangid="0,0,0,0,0,0,0,1"/>
    <wangtile tileid="229" wangid="0,0,0,1,0,1,0,1"/>
    <wangtile tileid="230" wangid="0,1,0,1,0,1,0,0"/>
+  </wangset>
+  <wangset name="Desert" type="corner" tile="-1">
+   <wangcolor name="Desert" color="#ff0000" tile="-1" probability="1"/>
+   <wangtile tileid="160" wangid="0,0,0,1,0,0,0,0"/>
+   <wangtile tileid="161" wangid="0,0,0,1,0,1,0,0"/>
+   <wangtile tileid="162" wangid="0,0,0,0,0,1,0,0"/>
+   <wangtile tileid="193" wangid="0,1,0,1,0,0,0,0"/>
+   <wangtile tileid="194" wangid="0,1,0,1,0,1,0,1"/>
+   <wangtile tileid="195" wangid="0,0,0,0,0,1,0,1"/>
+   <wangtile tileid="196" wangid="0,1,0,0,0,1,0,1"/>
+   <wangtile tileid="197" wangid="0,1,0,1,0,0,0,1"/>
+   <wangtile tileid="226" wangid="0,1,0,0,0,0,0,0"/>
+   <wangtile tileid="227" wangid="0,1,0,0,0,0,0,1"/>
+   <wangtile tileid="228" wangid="0,0,0,0,0,0,0,1"/>
+   <wangtile tileid="229" wangid="0,0,0,1,0,1,0,1"/>
+   <wangtile tileid="230" wangid="0,1,0,1,0,1,0,0"/>
+  </wangset>
+  <wangset name="Nightmare" type="corner" tile="-1">
+   <wangcolor name="" color="#ff0000" tile="-1" probability="1"/>
+   <wangtile tileid="149" wangid="0,0,0,1,0,0,0,0"/>
+   <wangtile tileid="150" wangid="0,0,0,1,0,1,0,0"/>
+   <wangtile tileid="151" wangid="0,0,0,0,0,1,0,0"/>
+   <wangtile tileid="182" wangid="0,1,0,1,0,0,0,0"/>
+   <wangtile tileid="183" wangid="0,1,0,1,0,1,0,1"/>
+   <wangtile tileid="184" wangid="0,0,0,0,0,1,0,1"/>
+   <wangtile tileid="185" wangid="0,1,0,0,0,1,0,1"/>
+   <wangtile tileid="186" wangid="0,1,0,1,0,0,0,1"/>
+   <wangtile tileid="215" wangid="0,1,0,0,0,0,0,0"/>
+   <wangtile tileid="216" wangid="0,1,0,0,0,0,0,1"/>
+   <wangtile tileid="217" wangid="0,0,0,0,0,0,0,1"/>
+   <wangtile tileid="218" wangid="0,0,0,1,0,1,0,1"/>
+   <wangtile tileid="219" wangid="0,1,0,1,0,1,0,0"/>
   </wangset>
  </wangsets>
 </tileset>
