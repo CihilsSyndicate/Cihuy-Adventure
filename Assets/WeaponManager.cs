@@ -6,6 +6,7 @@ public class WeaponManager : MonoBehaviour
 {
     public InventoryItem weapon;
     public SpriteRenderer spriteWeapon;
+    public Slash slash;
     private static WeaponManager instance;
     public static WeaponManager Instance
     {
@@ -20,5 +21,8 @@ public class WeaponManager : MonoBehaviour
     public void EquipWeapon()
     {
         spriteWeapon.sprite = weapon.itemImage;
+        slash.damage = weapon.Atk;
+        SwordAttack.Instance.ClearSlashPool();
+        SwordAttack.Instance.InitializePool();
     }
 }

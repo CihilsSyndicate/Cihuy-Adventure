@@ -52,7 +52,7 @@ public class SwordAttack : MonoBehaviour
         swordAnim = GetComponent<Animator>();
     }
 
-    private void InitializePool()
+    public void InitializePool()
     {
         slashPool = new List<GameObject>();
 
@@ -218,4 +218,15 @@ public class SwordAttack : MonoBehaviour
 
         return nearestEnemy;
     }
+
+    public void ClearSlashPool()
+    {
+        foreach (GameObject slash in slashPool)
+        {
+            Destroy(slash);
+        }
+
+        slashPool.Clear();
+    }
+
 }

@@ -14,19 +14,20 @@ public class UsePotion : MonoBehaviour
         if (potionItem != null && playerInventory.myInventory.Contains(potionItem))
         {
             buttonImage.sprite = potionItem.itemImage;
-            UpdateButtonState();
-        }
-        else
-        {
-            // Jika potionItem tidak ada di dalam inventory, nonaktifkan tombol dan teksnya
-            buttonImage.gameObject.SetActive(false);
-            quantityText.gameObject.SetActive(false);
         }
     }
 
     private void Update()
     {
-
+        quantityText.text = "x" + potionItem.numberHeld.ToString();
+        if (potionItem.numberHeld > 0)
+        {
+            buttonImage.color = Color.white;
+        }
+        else
+        {
+            buttonImage.color = Color.gray;
+        }
     }
 
     public void UseThePotion()
@@ -34,21 +35,6 @@ public class UsePotion : MonoBehaviour
         if (potionItem != null && potionItem.numberHeld > 0 && PlayerMovement.Instance.currentHealth.RuntimeValue < PlayerMovement.Instance.currentHealth.initialValue)
         {
             potionItem.Use();
-            UpdateButtonState();
-        }
-    }
-
-    private void UpdateButtonState()
-    {
-        if (potionItem.numberHeld > 0)
-        {
-            buttonImage.color = Color.white;
-            quantityText.text = "x" + potionItem.numberHeld.ToString();
-        }
-        else
-        {
-            buttonImage.gameObject.SetActive(false);
-            quantityText.gameObject.SetActive(false);
         }
     }
 }
