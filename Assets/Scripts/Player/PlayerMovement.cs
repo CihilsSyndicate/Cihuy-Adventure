@@ -15,7 +15,7 @@ public enum playerState
 public class PlayerMovement : MonoBehaviour
 {
     public NpcSign npcSign;
-    public GameObject interactButton;
+    public Button interactButton;
     public playerState currentState;
     public float speed = 5f;
     private Animator anim;
@@ -199,11 +199,6 @@ public class PlayerMovement : MonoBehaviour
     public void BeginAndEndDialog()
     {
         npcSign.BeginDialog();
-    }
-
-    public void SkipDialog()
-    {
-        npcSign.SkipDialog();
     }
 
     private IEnumerator knockCo(float knockTime)

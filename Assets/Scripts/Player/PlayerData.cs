@@ -8,7 +8,6 @@ public class PlayerData
 {
     public float health;
     public float[] position;
-    public InventoryItem currentItem;
 
     public PlayerData (PlayerMovement player)
     {
@@ -18,7 +17,5 @@ public class PlayerData
         position[0] = player.transform.position.x;
         position[1] = player.transform.position.y;
         position[2] = player.transform.position.z;
-
-        currentItem = WeaponManager.Instance.weapon;
     }
 }
