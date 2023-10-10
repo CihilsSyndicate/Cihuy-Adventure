@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: GodFarid
   m_EditorClassIdentifier: 
   npcSprite: {fileID: 21300002, guid: 7ce802a2313580248841f5f706624cec, type: 3}
-  npcDialog: May God bless u.
+  npcDialog: Hello, mister! God loves everyone, and He watches over us all. My mommy
+    says that God's love is like a big, warm hug that keeps us safe and happy. Have
+    a blessed day!
   npcName: Farid
   option1: Thanks.
   option2: Yeah.

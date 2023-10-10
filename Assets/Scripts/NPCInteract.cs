@@ -26,6 +26,20 @@ public class NPCInteract : MonoBehaviour
         instance = this;
     }
 
+    private void OnEnable()
+    {
+        if (trader)
+        {
+            go[2].SetActive(true);
+            go[3].SetActive(true);
+        }
+        else
+        {
+            go[2].SetActive(false);
+            go[3].SetActive(false);
+        }
+    }
+
     public void Interact()
     {
         if (trader == true)

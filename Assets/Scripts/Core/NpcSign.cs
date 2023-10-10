@@ -59,14 +59,17 @@ public class NpcSign : MonoBehaviour
             ToggleDialog();
             dialogActive = true;
         }
-        else if (isTyping)
+    }
+
+    public void SkipDialog()
+    {
+        if (isTyping)
         {
-            // Jika teks sedang diketik, hentikan coroutine dan tampilkan seluruh teks
             StopCoroutine(typingCoroutine);
             dialogText.text = npcManager.npcDialog;
             isTyping = false;
         }
-        else
+        else if (dialogActive && !isTyping && !gameObject.CompareTag("NPC Trader"))
         {
             dialogActive = false;
             dialogBox.SetActive(false);
