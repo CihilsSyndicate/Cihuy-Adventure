@@ -185,6 +185,13 @@ public class PlayerMovement : MonoBehaviour
             npcSign = other.GetComponent<NpcSign>();
             interactButton.gameObject.SetActive(true);
         }
+        else if (other.CompareTag("Teleporter"))
+        {
+            myRb.velocity = Vector3.zero;
+            currentState = playerState.idle;
+            anim.SetBool("Idle", true);
+            StartCoroutine(FixJoystick());
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -194,6 +201,15 @@ public class PlayerMovement : MonoBehaviour
             npcSign = null;
             interactButton.gameObject.SetActive(false);
         }
+    }
+
+    public IEnumerator FixJoystick()
+    {
+        this.enabled = false;
+        change.x = 0;
+        change.y = 0;
+        yield return new WaitForSeconds(0.5f);
+        this.enabled = true;
     }
 
     public void BeginAndEndDialog()

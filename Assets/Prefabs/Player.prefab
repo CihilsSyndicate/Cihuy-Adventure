@@ -216,7 +216,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2295185987274814452}
         m_MethodName: BeginAndEndDialog
         m_Mode: 1
         m_Arguments:
@@ -487,7 +487,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2935601588559837799}
         m_MethodName: LaunchAttack
         m_Mode: 1
         m_Arguments:
@@ -986,10 +986,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcSign: {fileID: 0}
-  interactButton: {fileID: 0}
+  interactButton: {fileID: 5897222476737903491}
   currentState: 0
-  speed: 5
-  fixedJoystick: {fileID: 0}
+  speed: 10
+  fixedJoystick: {fileID: 7899080371736915057}
   currentHealth: {fileID: 11400000, guid: cba51a348d0e4c241a6aae14fa1e4c8f, type: 2}
   playerHealthSignal: {fileID: 11400000, guid: bea8081990fcb3d49999132a77b4765e, type: 2}
   damageEffectDuration: 0.2
@@ -2168,3 +2168,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 4988265253641624974}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7899080371736915057 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+    type: 3}
+  m_PrefabInstance: {fileID: 4988265253641624974}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

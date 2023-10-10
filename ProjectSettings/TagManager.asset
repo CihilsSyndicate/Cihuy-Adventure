@@ -11,6 +11,7 @@ TagManager:
   - Wall
   - NPC
   - NPC Trader
+  - Teleporter
   layers:
   - Default
   - TransparentFX

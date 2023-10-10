@@ -2,7 +2,7 @@
 
 public class CameraMovement : MonoBehaviour
 {
-    public Transform player;
+    private Transform player;
     public float smoothing;
     public Vector2 maxPos;
     public Vector2 minPos;
@@ -10,7 +10,8 @@ public class CameraMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameObject playerGO = GameObject.Find("Player");
+        player = playerGO.transform;
     }
 
     // Update is called once per frame
