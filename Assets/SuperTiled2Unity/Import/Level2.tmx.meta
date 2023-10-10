@@ -3,15 +3,156 @@ guid: 136c7b512836a1f4e9471d44ff5d136a
 ScriptedImporter:
   fileIDToRecycleName:
     100000: _MapPrfab/Level2
+    100002: _MapPrfab/Level2/Collusions
     100004: _MapPrfab/Level2/Ground
     100006: _MapPrfab/Level2/Object1
     100008: _MapPrfab/Level2/Object2
+    100010: _MapPrfab/Level2/Collusions/Object_1
+    100012: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon
+    100014: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (1)
+    100016: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (2)
+    100018: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (3)
+    100020: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (4)
+    100022: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (5)
+    100024: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (6)
+    100026: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (7)
+    100028: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (8)
+    100030: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (9)
+    100032: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (10)
+    100034: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (11)
+    100036: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (12)
+    100038: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (13)
+    100040: _MapPrfab/Level2/Collusions/Object_2
+    100042: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon
+    100044: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (1)
+    100046: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (2)
+    100048: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (3)
+    100050: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (4)
+    100052: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (5)
+    100054: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (6)
+    100056: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (7)
+    100058: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (8)
+    100060: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (9)
+    100062: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (10)
+    100064: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (11)
+    100066: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (12)
+    100068: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (13)
+    100070: _MapPrfab/Level2/Collusions/Object_3
+    100072: _MapPrfab/Level2/Collusions/Object_3/ConvexPolygon
+    100074: _MapPrfab/Level2/Collusions/Object_3/ConvexPolygon (1)
+    100076: _MapPrfab/Level2/Collusions/Object_3/ConvexPolygon (2)
+    100078: _MapPrfab/Level2/Collusions/Object_3/ConvexPolygon (3)
+    100080: _MapPrfab/Level2/Collusions/Object_3/ConvexPolygon (4)
+    100082: _MapPrfab/Level2/Collusions/Object_4
+    100084: _MapPrfab/Level2/Collusions/Object_4/ConvexPolygon
+    100086: _MapPrfab/Level2/Collusions/Object_4/ConvexPolygon (1)
+    100088: _MapPrfab/Level2/Collusions/Object_5
+    100090: _MapPrfab/Level2/Collusions/Object_6
+    100092: _MapPrfab/Level2/Collusions/Object_6/ConvexPolygon
+    100094: _MapPrfab/Level2/Collusions/Object_6/ConvexPolygon (1)
+    100096: _MapPrfab/Level2/Collusions/Object_6/ConvexPolygon (2)
     400000: _MapPrfab/Level2/Transform
+    400002: _MapPrfab/Level2/Collusions/Transform
     400004: _MapPrfab/Level2/Ground/Transform
     400006: _MapPrfab/Level2/Object1/Transform
     400008: _MapPrfab/Level2/Object2/Transform
+    400010: _MapPrfab/Level2/Collusions/Object_1/Transform
+    400012: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon/Transform
+    400014: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (1)/Transform
+    400016: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (2)/Transform
+    400018: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (3)/Transform
+    400020: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (4)/Transform
+    400022: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (5)/Transform
+    400024: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (6)/Transform
+    400026: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (7)/Transform
+    400028: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (8)/Transform
+    400030: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (9)/Transform
+    400032: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (10)/Transform
+    400034: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (11)/Transform
+    400036: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (12)/Transform
+    400038: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (13)/Transform
+    400040: _MapPrfab/Level2/Collusions/Object_2/Transform
+    400042: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon/Transform
+    400044: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (1)/Transform
+    400046: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (2)/Transform
+    400048: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (3)/Transform
+    400050: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (4)/Transform
+    400052: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (5)/Transform
+    400054: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (6)/Transform
+    400056: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (7)/Transform
+    400058: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (8)/Transform
+    400060: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (9)/Transform
+    400062: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (10)/Transform
+    400064: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (11)/Transform
+    400066: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (12)/Transform
+    400068: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (13)/Transform
+    400070: _MapPrfab/Level2/Collusions/Object_3/Transform
+    400072: _MapPrfab/Level2/Collusions/Object_3/ConvexPolygon/Transform
+    400074: _MapPrfab/Level2/Collusions/Object_3/ConvexPolygon (1)/Transform
+    400076: _MapPrfab/Level2/Collusions/Object_3/ConvexPolygon (2)/Transform
+    400078: _MapPrfab/Level2/Collusions/Object_3/ConvexPolygon (3)/Transform
+    400080: _MapPrfab/Level2/Collusions/Object_3/ConvexPolygon (4)/Transform
+    400082: _MapPrfab/Level2/Collusions/Object_4/Transform
+    400084: _MapPrfab/Level2/Collusions/Object_4/ConvexPolygon/Transform
+    400086: _MapPrfab/Level2/Collusions/Object_4/ConvexPolygon (1)/Transform
+    400088: _MapPrfab/Level2/Collusions/Object_5/Transform
+    400090: _MapPrfab/Level2/Collusions/Object_6/Transform
+    400092: _MapPrfab/Level2/Collusions/Object_6/ConvexPolygon/Transform
+    400094: _MapPrfab/Level2/Collusions/Object_6/ConvexPolygon (1)/Transform
+    400096: _MapPrfab/Level2/Collusions/Object_6/ConvexPolygon (2)/Transform
+    5000000: _MapPrfab/Level2/Collusions/Object_1/Rigidbody2D
+    5000002: _MapPrfab/Level2/Collusions/Object_2/Rigidbody2D
+    5000004: _MapPrfab/Level2/Collusions/Object_3/Rigidbody2D
+    5000006: _MapPrfab/Level2/Collusions/Object_4/Rigidbody2D
+    5000008: _MapPrfab/Level2/Collusions/Object_6/Rigidbody2D
+    6000000: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon/PolygonCollider2D
+    6000002: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (1)/PolygonCollider2D
+    6000004: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (2)/PolygonCollider2D
+    6000006: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (3)/PolygonCollider2D
+    6000008: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (4)/PolygonCollider2D
+    6000010: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (5)/PolygonCollider2D
+    6000012: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (6)/PolygonCollider2D
+    6000014: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (7)/PolygonCollider2D
+    6000016: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (8)/PolygonCollider2D
+    6000018: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (9)/PolygonCollider2D
+    6000020: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (10)/PolygonCollider2D
+    6000022: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (11)/PolygonCollider2D
+    6000024: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (12)/PolygonCollider2D
+    6000026: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (13)/PolygonCollider2D
+    6000028: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon/PolygonCollider2D
+    6000030: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (1)/PolygonCollider2D
+    6000032: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (2)/PolygonCollider2D
+    6000034: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (3)/PolygonCollider2D
+    6000036: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (4)/PolygonCollider2D
+    6000038: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (5)/PolygonCollider2D
+    6000040: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (6)/PolygonCollider2D
+    6000042: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (7)/PolygonCollider2D
+    6000044: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (8)/PolygonCollider2D
+    6000046: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (9)/PolygonCollider2D
+    6000048: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (10)/PolygonCollider2D
+    6000050: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (11)/PolygonCollider2D
+    6000052: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (12)/PolygonCollider2D
+    6000054: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (13)/PolygonCollider2D
+    6000056: _MapPrfab/Level2/Collusions/Object_3/ConvexPolygon/PolygonCollider2D
+    6000058: _MapPrfab/Level2/Collusions/Object_3/ConvexPolygon (1)/PolygonCollider2D
+    6000060: _MapPrfab/Level2/Collusions/Object_3/ConvexPolygon (2)/PolygonCollider2D
+    6000062: _MapPrfab/Level2/Collusions/Object_3/ConvexPolygon (3)/PolygonCollider2D
+    6000064: _MapPrfab/Level2/Collusions/Object_3/ConvexPolygon (4)/PolygonCollider2D
+    6000066: _MapPrfab/Level2/Collusions/Object_4/ConvexPolygon/PolygonCollider2D
+    6000068: _MapPrfab/Level2/Collusions/Object_4/ConvexPolygon (1)/PolygonCollider2D
+    6000070: _MapPrfab/Level2/Collusions/Object_5/PolygonCollider2D
+    6000072: _MapPrfab/Level2/Collusions/Object_6/ConvexPolygon/PolygonCollider2D
+    6000074: _MapPrfab/Level2/Collusions/Object_6/ConvexPolygon (1)/PolygonCollider2D
+    6000076: _MapPrfab/Level2/Collusions/Object_6/ConvexPolygon (2)/PolygonCollider2D
+    6600000: _MapPrfab/Level2/Collusions/Object_1/CompositeCollider2D
+    6600002: _MapPrfab/Level2/Collusions/Object_2/CompositeCollider2D
+    6600004: _MapPrfab/Level2/Collusions/Object_3/CompositeCollider2D
+    6600006: _MapPrfab/Level2/Collusions/Object_4/CompositeCollider2D
+    6600008: _MapPrfab/Level2/Collusions/Object_6/CompositeCollider2D
     11400000: _MapPrfab/Level2/MonoBehaviour-SuperTiled2Unity.SuperMap
     11400002: _MapPrfab/Level2/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400004: _MapPrfab/Level2/Collusions/MonoBehaviour-SuperTiled2Unity.SuperObjectLayer
+    11400006: _MapPrfab/Level2/Collusions/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
     11400008: _superAsset
     11400010: _MapPrfab/Level2/Ground/MonoBehaviour-SuperTiled2Unity.SuperTileLayer
     11400012: _MapPrfab/Level2/Ground/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
@@ -19,6 +160,57 @@ ScriptedImporter:
     11400016: _MapPrfab/Level2/Object1/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
     11400018: _MapPrfab/Level2/Object2/MonoBehaviour-SuperTiled2Unity.SuperTileLayer
     11400020: _MapPrfab/Level2/Object2/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400022: _MapPrfab/Level2/Collusions/Object_1/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400024: _MapPrfab/Level2/Collusions/Object_1/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400026: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400028: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (1)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400030: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (2)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400032: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (3)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400034: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (4)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400036: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (5)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400038: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (6)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400040: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (7)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400042: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (8)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400044: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (9)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400046: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (10)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400048: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (11)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400050: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (12)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400052: _MapPrfab/Level2/Collusions/Object_1/ConvexPolygon (13)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400054: _MapPrfab/Level2/Collusions/Object_2/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400056: _MapPrfab/Level2/Collusions/Object_2/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400058: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400060: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (1)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400062: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (2)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400064: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (3)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400066: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (4)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400068: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (5)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400070: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (6)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400072: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (7)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400074: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (8)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400076: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (9)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400078: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (10)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400080: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (11)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400082: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (12)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400084: _MapPrfab/Level2/Collusions/Object_2/ConvexPolygon (13)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400086: _MapPrfab/Level2/Collusions/Object_3/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400088: _MapPrfab/Level2/Collusions/Object_3/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400090: _MapPrfab/Level2/Collusions/Object_3/ConvexPolygon/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400092: _MapPrfab/Level2/Collusions/Object_3/ConvexPolygon (1)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400094: _MapPrfab/Level2/Collusions/Object_3/ConvexPolygon (2)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400096: _MapPrfab/Level2/Collusions/Object_3/ConvexPolygon (3)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400098: _MapPrfab/Level2/Collusions/Object_3/ConvexPolygon (4)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400100: _MapPrfab/Level2/Collusions/Object_4/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400102: _MapPrfab/Level2/Collusions/Object_4/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400104: _MapPrfab/Level2/Collusions/Object_4/ConvexPolygon/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400106: _MapPrfab/Level2/Collusions/Object_4/ConvexPolygon (1)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400108: _MapPrfab/Level2/Collusions/Object_5/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400110: _MapPrfab/Level2/Collusions/Object_5/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400112: _MapPrfab/Level2/Collusions/Object_5/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400114: _MapPrfab/Level2/Collusions/Object_6/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400116: _MapPrfab/Level2/Collusions/Object_6/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400118: _MapPrfab/Level2/Collusions/Object_6/ConvexPolygon/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400120: _MapPrfab/Level2/Collusions/Object_6/ConvexPolygon (1)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400122: _MapPrfab/Level2/Collusions/Object_6/ConvexPolygon (2)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
     100100000: _MapPrfab
     2569400265252428796: _MapPrfab/Level2/Grid
     3664157343022684178: _MapPrfab/Level2/Ground/TilemapRenderer
