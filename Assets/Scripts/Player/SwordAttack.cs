@@ -20,7 +20,6 @@ public class SwordAttack : MonoBehaviour
     private bool isAttacking = false;
     public int maxShot = 1;
     private float lastAttackTime = 0f;
-    [System.NonSerialized] public bool isSurvivalMode;
 
     [Header("Pooling System")]
     public int poolSize = 10;
@@ -82,15 +81,6 @@ public class SwordAttack : MonoBehaviour
 
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "SurvivalMode")
-        {
-            isSurvivalMode = true;
-        }
-        else
-        {
-            isSurvivalMode = false;
-        }
-        
         swordAnim.SetFloat("idleX", PlayerMovement.Instance.change.x);
         swordAnim.SetFloat("idleY", PlayerMovement.Instance.change.y);
 
@@ -103,7 +93,7 @@ public class SwordAttack : MonoBehaviour
             if (currentTime - lastAttackTime >= attackCooldown)
             {
                 // Cek apakah pemain sedang bergerak atau isSurvivalMode true
-                if (PlayerMovement.Instance.currentState != playerState.walk && isSurvivalMode)
+                if (PlayerMovement.Instance.currentState != playerState.walk && SceneManager.GetActiveScene().name == "SurvivalMode")
                 {
                     lastAttackTime = currentTime;
                     LaunchAttack();
@@ -122,7 +112,7 @@ public class SwordAttack : MonoBehaviour
 
             if (nearestEnemy != null)
             {
-                Vector3 direction = nearestEnemy.position - transform.position;
+                Vector3 direction = (nearestEnemy.position - transform.position).normalized;
 
                 float posX = 0f;
                 float posY = 0f;
@@ -136,25 +126,30 @@ public class SwordAttack : MonoBehaviour
                     posY = Mathf.Sign(direction.y);
                 }
 
-                if (!isSurvivalMode)
+                // Sinkronkan arah pemain, pedang, dan slash
+                PlayerMovement.Instance.change.x = posX;
+                PlayerMovement.Instance.change.y = posY;
+
+                if (SceneManager.GetActiveScene().name != "SurvivalMode")
                 {
                     PlayerAttack.Instance.playerAnim.SetFloat("x", posX);
                     PlayerAttack.Instance.playerAnim.SetFloat("y", posY);
-                    swordAnim.SetFloat("x", posX);
-                    swordAnim.SetFloat("y", posY);
                 }
 
+                swordAnim.SetFloat("x", posX);
+                swordAnim.SetFloat("y", posY);
+
                 // Menyerang
-                StartCoroutine(PerformAttack(colliders));
+                StartCoroutine(PerformAttack(colliders, direction));
             }
         }
     }
 
-    private IEnumerator PerformAttack(Collider2D[] colliders)
+    private IEnumerator PerformAttack(Collider2D[] colliders, Vector3 direction)
     {
         isAttacking = true;
 
-        if (!isSurvivalMode)
+        if (SceneManager.GetActiveScene().name != "SurvivalMode")
         {
             attackButton.interactable = false;
             swordAnim.SetBool("IsAttacking", true);
@@ -165,18 +160,19 @@ public class SwordAttack : MonoBehaviour
             GameObject slashInstance = GetSlash();
             if (slashInstance != null)
             {
+                // Set posisi awal Slash sesuai dengan posisi pemain
                 slashInstance.transform.position = transform.position;
-                slashInstance.SetActive(true);
 
                 Rigidbody2D rb = slashInstance.GetComponent<Rigidbody2D>();
-                Vector2 direction = (colliders[i].transform.position - transform.position).normalized;
-                rb.velocity = direction * speed;
+                Vector2 slashDirection = new Vector2(direction.x, direction.y); // Menggunakan arah pemain
+
+                rb.velocity = slashDirection * speed;
 
                 Slash slashScript = slashInstance.GetComponent<Slash>();
-                slashScript.SetDirection(direction);
+                slashScript.SetDirection(slashDirection);
             }
         }
-        if (isSurvivalMode)
+        if (SceneManager.GetActiveScene().name == "SurvivalMode")
         {
             yield return new WaitForSeconds(0.2f);
             ResetIsAttacking();

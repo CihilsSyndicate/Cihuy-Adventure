@@ -116,7 +116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 13
-  delayBeforeMove: 2
+  delayBeforeMove: 1
+  coinValue: 1
   coinTrailRenderer: {fileID: 6867193263980873352}
   objectTransform: {fileID: 2119940945105608924}
 --- !u!61 &2119940945105608922

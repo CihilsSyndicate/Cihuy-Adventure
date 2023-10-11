@@ -60,33 +60,23 @@ public class Coin : MonoBehaviour
             delay += pastTime;
         }
 
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject[] bossEnemies = GameObject.FindGameObjectsWithTag("Boss");
-
-        GameObject[] allEnemies = new GameObject[enemies.Length + bossEnemies.Length];
-        enemies.CopyTo(allEnemies, 0);
-        bossEnemies.CopyTo(allEnemies, enemies.Length);
-
-        if (!isSurvivalMode)
+        if(!isMoving)
         {
-            if (allEnemies.Length == 0 && isMoving == false)
-            {
-                coinTrailRenderer.enabled = true;
-                isMoving = true;
-            }
+            StartCoroutine(StartMovingCoin());
         }
         else
-        {
-            coinTrailRenderer.enabled = true;
-            isMoving = true;
-        }
-
-        if (isMoving)
         {
             coinCollider.enabled = true;
             Vector3 direction = (playerTransform.position - transform.position).normalized;
             transform.Translate(direction * moveSpeed * Time.deltaTime);
         }
+    }
+
+    private IEnumerator StartMovingCoin()
+    {
+        yield return new WaitForSeconds(delayBeforeMove);
+        coinTrailRenderer.enabled = true;
+        isMoving = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

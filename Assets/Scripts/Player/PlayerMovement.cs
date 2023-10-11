@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     public float damageEffectDuration = 0.2f;
     public HealthBar healthBar;
     public GameObject floatingTextDamage;
+    public Transform joystickHandle;
 
     private static PlayerMovement instance;
 
@@ -187,10 +188,9 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (other.CompareTag("Teleporter"))
         {
-            myRb.velocity = Vector3.zero;
-            currentState = playerState.idle;
-            anim.SetBool("Idle", true);
-            StartCoroutine(FixJoystick());
+            StopMovement();
+            this.enabled = false;
+            joystickHandle.localPosition = Vector3.zero;
         }
     }
 
@@ -203,13 +203,19 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public IEnumerator FixJoystick()
+    public void ReactivatedPlayerMovement()
     {
-        this.enabled = false;
+        this.enabled = true;
+    }
+
+    public void StopMovement()
+    {
+        currentState = playerState.idle;
+        change = Vector3.zero;
         change.x = 0;
         change.y = 0;
-        yield return new WaitForSeconds(0.5f);
-        this.enabled = true;
+        myRb.velocity = Vector3.zero;
+        anim.SetBool("Idle", true);
     }
 
     public void BeginAndEndDialog()
