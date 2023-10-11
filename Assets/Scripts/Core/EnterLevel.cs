@@ -23,6 +23,7 @@ public class EnterLevel : MonoBehaviour
         if (other.CompareTag("Player"))
         {         
             SceneManager.LoadScene(nextScene);
+            PlayerPrefs.SetString("LastScene", nextScene);
         }
     }
 }

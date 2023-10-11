@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        WeaponManager.Instance.LoadEquippedWeapon();
+    }
+
     public void SavePlayer()
     {
         SaveSystem.SavePlayer(PlayerMovement.Instance);

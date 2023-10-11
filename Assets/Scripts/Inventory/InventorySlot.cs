@@ -59,7 +59,7 @@ public class InventorySlot : MonoBehaviour
         {
             thisManager.useButton.SetActive(false);
             thisManager.equipButton.SetActive(true);
-            WeaponManager.Instance.weapon = thisItem;
+            WeaponManager.Instance.defaultWeapon = thisItem;
         }
     }
 }
