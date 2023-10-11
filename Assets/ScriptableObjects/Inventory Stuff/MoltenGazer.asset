@@ -21,7 +21,7 @@ MonoBehaviour:
   cost: 0
   Atk: 5
   Hp: 100
-  itemImage: {fileID: 21300046, guid: ffafbca4731165a479de5770cc665870, type: 3}
+  itemImage: {fileID: 21300048, guid: 94f1519ab7b5f5c4e8aafecc17750778, type: 3}
   numberHeld: 1
   consumableStack: 0
   usable: 1

@@ -6,11 +6,12 @@ public class TreasureChest : MonoBehaviour
 {
     public GameObject[] sign;
     public Animator anim;
-    public Collider2D[] col;
+    public bool open;
     public GameObject healPotionPrefabs;
 
     private void Start()
     {
+        open = false;
         for (int i = 0; i < sign.Length; i++)
         {
             if (sign[i].activeInHierarchy)
@@ -22,7 +23,7 @@ public class TreasureChest : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Player") && !other.isTrigger)
+        if(other.CompareTag("Player") && other.isTrigger && !open)
         {
             sign[0].SetActive(true);
         }
@@ -30,7 +31,7 @@ public class TreasureChest : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && !other.isTrigger)
+        if (other.CompareTag("Player") && other.isTrigger)
         {
             sign[0].SetActive(false);
         }
@@ -39,8 +40,8 @@ public class TreasureChest : MonoBehaviour
     public void OpenChest()
     {
         anim.SetBool("open", true);
-        col[0].enabled = false;
-        col[1].enabled = false;
+        open = true;
+        sign[0].SetActive(false);
         for (int i = 0; i < 2; i++)
         {
             GameObject healPotion = Instantiate(healPotionPrefabs);
