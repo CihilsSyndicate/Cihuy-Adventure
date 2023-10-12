@@ -35,11 +35,11 @@ public class Damage : MonoBehaviour
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
             if(hit != null)
             {
-                if (other.CompareTag("Enemy") && other.gameObject.name != "HappySlime")
+                if (other.CompareTag("Enemy") && !other.gameObject.name.Contains("HappySlime"))
                 {
                     other.GetComponent<SlimeController>().Knock(hit, knockTime, damage);
                 }
-                if (other.CompareTag("Enemy") && other.isTrigger)
+                if (other.gameObject.name.Contains("HappySlime") && other.isTrigger)
                 {                 
                     hit.GetComponent<HappySlime>().enemyState = EnemyState.Stagger;
                     other.GetComponent<HappySlime>().Knock(hit, knockTime, damage);
