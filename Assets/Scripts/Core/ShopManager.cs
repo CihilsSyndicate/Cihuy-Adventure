@@ -52,11 +52,13 @@ public class ShopManager : MonoBehaviour
             if (playerInventory.myInventory.Contains(currentItem))
             {
                 currentItem.numberHeld += 1;
+                currentItem.consumableStack -= 1;
             }
             else if(playerInventory.myInventory.Count < playerInventory.maxInventorySize)
             {
                 playerInventory.myInventory.Add(currentItem);
                 currentItem.numberHeld += 1;
+                currentItem.consumableStack -= 1;
             }
             else
             {
@@ -76,16 +78,8 @@ public class ShopManager : MonoBehaviour
         CoinCounter.Instance.DecreaseCoin(currentItem.cost);
         if(currentItem.itemType == InventoryItem.ItemType.Consumable)
         {
-            if (playerInventory.myInventory.Count < playerInventory.maxInventorySize)
-            {
-                currentItem.consumableStack -= 1;
-                Debug.Log("Kuantitas: " + currentItem.numberHeld);
-                if (currentItem.consumableStack <= 0)
-                {
-                    TurnOffBuyBtn();
-                }
-            }
-            AddItemToInventory();           
+            AddItemToInventory();  
+            CheckPurchasable();
         }
         else if (currentItem.itemType == InventoryItem.ItemType.Equipment)
         {
