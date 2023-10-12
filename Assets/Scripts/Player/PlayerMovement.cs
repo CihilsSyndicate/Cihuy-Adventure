@@ -68,7 +68,6 @@ public class PlayerMovement : MonoBehaviour
         {
             currentHealth.RuntimeValue = currentHealth.initialValue;
         }
-        // change = Vector3.zero;
         if(currentState != playerState.stagger)
         {
             change = new Vector3(fixedJoystick.Horizontal, 0f, fixedJoystick.Vertical);
@@ -82,12 +81,7 @@ public class PlayerMovement : MonoBehaviour
         {
             currentState = playerState.idle;
         }
-
-        if (Input.GetKeyDown(KeyCode.Space) && currentState != playerState.attack && currentState != playerState.stagger)
-        {
-            StartCoroutine(AttackCo());
-        }
-        else if (currentState == playerState.walk || currentState == playerState.idle && currentState != playerState.interact)
+        if (currentState == playerState.walk || currentState == playerState.idle && currentState != playerState.interact)
         {
             UpdateAnimationAndMove();
         }
@@ -190,6 +184,7 @@ public class PlayerMovement : MonoBehaviour
         {
             StopMovement();
             this.enabled = false;
+            fixedJoystick.enabled = false;
             joystickHandle.localPosition = Vector3.zero;
         }
     }
@@ -206,6 +201,7 @@ public class PlayerMovement : MonoBehaviour
     public void ReactivatedPlayerMovement()
     {
         this.enabled = true;
+        fixedJoystick.enabled = true;
     }
 
     public void StopMovement()
@@ -221,6 +217,11 @@ public class PlayerMovement : MonoBehaviour
     public void BeginAndEndDialog()
     {
         npcSign.BeginDialog();
+    }
+
+    public void SkipDialog()
+    {
+        npcSign.SkipDialog();
     }
 
     private IEnumerator knockCo(float knockTime)
