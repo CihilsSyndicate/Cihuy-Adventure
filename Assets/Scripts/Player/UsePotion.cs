@@ -3,9 +3,9 @@ using UnityEngine.UI;
 
 public class UsePotion : MonoBehaviour
 {
+    public Button usePotionButton;
     public InventoryItem potionItem; // Item potion yang akan digunakan
     public Image buttonImage; // Komponen Image pada tombol
-    public Text quantityText; // Komponen Text (opsional) untuk menampilkan jumlah potion yang tersisa
 
     public PlayerInventory playerInventory;
 
@@ -19,16 +19,21 @@ public class UsePotion : MonoBehaviour
 
     private void Update()
     {
-        quantityText.text = "x" + potionItem.numberHeld.ToString();
         if (potionItem.numberHeld > 0)
         {
+            usePotionButton.interactable = true;
             buttonImage.color = Color.white;
         }
         else
         {
-            buttonImage.color = Color.gray;
+            playerInventory.RemoveItem(potionItem);
+            usePotionButton.interactable = false;
+            Color newColor = buttonImage.color;
+            newColor.a = 0;
+            buttonImage.color = newColor;
         }
     }
+
 
     public void UseThePotion()
     {

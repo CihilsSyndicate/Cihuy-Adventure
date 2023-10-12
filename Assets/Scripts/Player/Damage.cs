@@ -30,28 +30,18 @@ public class Damage : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Enemy") || other.CompareTag("Player"))
+        if(other.CompareTag("Player"))
         {
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
             if(hit != null)
-            {
-                if (other.CompareTag("Enemy") && !other.gameObject.name.Contains("HappySlime"))
-                {
-                    other.GetComponent<SlimeController>().Knock(hit, knockTime, damage);
-                }
-                if (other.gameObject.name.Contains("HappySlime") && other.isTrigger)
-                {                 
-                    hit.GetComponent<HappySlime>().enemyState = EnemyState.Stagger;
-                    other.GetComponent<HappySlime>().Knock(hit, knockTime, damage);
-                }
+            {               
                 if (other.CompareTag("Player"))
                 {
                     if(other.GetComponent<PlayerMovement>().currentState != playerState.stagger)
                     {
                         hit.GetComponent<PlayerMovement>().currentState = playerState.stagger;
                         other.GetComponent<PlayerMovement>().Knock(knockTime, damage);
-                    }
-                    
+                    }                   
                 }
                 Vector2 difference = hit.transform.position - transform.position;
                 difference = difference.normalized * force;

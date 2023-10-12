@@ -55,7 +55,7 @@ public class NpcSign : MonoBehaviour
     {
         if (!dialogActive)
         {
-            PlayerMovement.Instance.interactButton.gameObject.SetActive(false);
+            PlayerMovement.Instance.interactButtonGO.gameObject.SetActive(false);
             ToggleDialog();
             dialogActive = true;
         }

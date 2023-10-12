@@ -15,7 +15,7 @@ public enum playerState
 public class PlayerMovement : MonoBehaviour
 {
     public NpcSign npcSign;
-    public Button interactButton;
+    public GameObject interactButtonGO;
     public playerState currentState;
     public float speed = 5f;
     private Animator anim;
@@ -172,13 +172,13 @@ public class PlayerMovement : MonoBehaviour
         {
             NPCInteract.Instance.trader = true;
             npcSign = other.GetComponent<NpcSign>();
-            interactButton.gameObject.SetActive(true);
+            interactButtonGO.SetActive(true);
         }
         else if (other.CompareTag("NPC"))
         {
             NPCInteract.Instance.trader = false;
             npcSign = other.GetComponent<NpcSign>();
-            interactButton.gameObject.SetActive(true);
+            interactButtonGO.SetActive(true);
         }
         else if (other.CompareTag("Teleporter"))
         {
@@ -194,7 +194,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("NPC Trader") || other.CompareTag("NPC"))
         {
             npcSign = null;
-            interactButton.gameObject.SetActive(false);
+            interactButtonGO.SetActive(false);
         }
     }
 

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49bbd3c4111fbdf4085149635117f49d, type: 3}
+  m_Name: MalignantSkullgrasp
+  m_EditorClassIdentifier: 
+  itemName: Malignant Skullgrasp
+  itemDescription: The Malignant Skullgrasp, a sinister blade of malevolent repute,
+    is a weapon forged in the fires of ancient malevolence. Its hilt, adorned with
+    the cruelly carved skull of a malevolent tyrant from a bygone era, radiates an
+    eerie and foreboding aura. Legend has it that this tyrant, once an infamous warlord
+    who reveled in cruelty and tyranny, met his end in a climactic battle where his
+    very skull was melded into the weapon that would bear his malevolence for all
+    eternity. Those who wield the Malignant Skullgrasp are said to be granted the
+    power of fear, their strikes seeping the malevolence of its namesake. The blade's
+    chilling touch serves as a reminder of the darkness that once plagued the world,
+    now harnessed by the brave to prevent such evil from rising again.
+  cost: 0
+  Atk: 30
+  Hp: 400
+  itemImage: {fileID: 21300058, guid: 94f1519ab7b5f5c4e8aafecc17750778, type: 3}
+  numberHeld: 1
+  consumableStack: 0
+  usable: 1
+  unique: 0
+  isOwned: 0
+  thisEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  itemType: 0

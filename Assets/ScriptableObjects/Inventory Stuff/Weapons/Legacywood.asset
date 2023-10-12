@@ -26,7 +26,7 @@ MonoBehaviour:
   numberHeld: 1
   consumableStack: 0
   usable: 1
-  unique: 1
+  unique: 0
   isOwned: 0
   thisEvent:
     m_PersistentCalls:

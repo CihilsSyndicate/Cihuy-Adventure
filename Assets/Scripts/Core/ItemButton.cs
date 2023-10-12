@@ -5,7 +5,7 @@ public class ItemButton : MonoBehaviour
 {
     public InventoryItem item; // Item yang akan ditampilkan saat tombol ini diklik
     private Text consumableStackTxt;
-    private Image image;
+    public Image image;
     private ShopManager shopManager;
 
     private void Start()
@@ -19,7 +19,6 @@ public class ItemButton : MonoBehaviour
         {
             consumableStackTxt.gameObject.SetActive(false);
         }
-        image = GetComponent<Image>();
         image.sprite = item.itemImage;
         shopManager = FindObjectOfType<ShopManager>();
     }

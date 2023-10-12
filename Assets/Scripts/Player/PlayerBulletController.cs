@@ -34,6 +34,7 @@ public class PlayerBulletController : MonoBehaviour
         if (other.gameObject.name.Contains("HappySlime") && other.isTrigger)
         {
             other.GetComponent<HappySlime>().TakeDamage(damage);
+            gameObject.SetActive(false);
         }
 
         if (other.CompareTag("Boss"))

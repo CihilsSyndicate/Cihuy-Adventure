@@ -115,6 +115,7 @@ TextureImporter:
     21300220: ui_split_110
     21300222: ui_split_111
     21300224: ui_split_112
+    21300226: ui_split_113
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -1690,9 +1691,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 5
-        y: 177
-        width: 120
-        height: 138
+        y: 178
+        width: 116
+        height: 104
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2441,6 +2442,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 574074d086ca8f04c8131e936be0d6f4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_split_113
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 249
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef75fdf9baea75c4b8f0b72f962d29a8
       vertices: []
       indices: 
       edges: []
