@@ -25,10 +25,15 @@ public class PlayerBulletController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy") && other.gameObject.name != "HappySlime")
+        if (other.CompareTag("Enemy") && !other.gameObject.name.Contains("HappySlime") && other.isTrigger)
         {
             other.GetComponent<SlimeController>().TakeDamage(damage);
             gameObject.SetActive(false);
+        }
+
+        if (other.gameObject.name.Contains("HappySlime") && other.isTrigger)
+        {
+            other.GetComponent<HappySlime>().TakeDamage(damage);
         }
 
         if (other.CompareTag("Boss"))

@@ -34,6 +34,12 @@ public class GameManager : MonoBehaviour
     {
         SaveSystem.SavePlayer(PlayerMovement.Instance);
     }
+
+    public void LoadGame()
+    {
+        SceneManager.LoadScene(PlayerPrefs.GetString("LastScene"));
+    }
+
     public void LoadPlayer()
     {
         PlayerData data = SaveSystem.LoadPlayer();

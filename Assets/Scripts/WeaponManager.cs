@@ -22,7 +22,6 @@ public class WeaponManager : MonoBehaviour
 
     public void SaveEquippedWeapon()
     {
-        // Simpan informasi tentang senjata yang sedang dipakai
         PlayerPrefs.SetString("EquippedWeaponName", defaultWeapon.itemName);
 
         PlayerPrefs.Save();
@@ -30,12 +29,10 @@ public class WeaponManager : MonoBehaviour
 
     public void LoadEquippedWeapon()
     {
-        // Memulihkan senjata yang terakhir kali digunakan
         if (PlayerPrefs.HasKey("EquippedWeaponName"))
         {
             string weaponName = PlayerPrefs.GetString("EquippedWeaponName");
 
-            // Cari senjata dengan nama yang sesuai dalam daftar availableWeapons
             InventoryItem loadedWeapon = availableWeapons.Find(weapon => weapon.itemName == weaponName);
 
             if (loadedWeapon != null)
@@ -45,7 +42,7 @@ public class WeaponManager : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("Senjata dengan nama yang disimpan tidak ditemukan dalam daftar availableWeapons.");
+               
             }
         }
     }
