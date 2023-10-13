@@ -17,7 +17,7 @@ public class WeaponManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        EquipWeapon();
+        EquipDefaultWeapon();
     }
 
     public void SaveEquippedWeapon()
@@ -54,5 +54,11 @@ public class WeaponManager : MonoBehaviour
         SwordAttack.Instance.ClearSlashPool();
         SwordAttack.Instance.InitializePool();
         SaveEquippedWeapon();
+    }
+
+    public void EquipDefaultWeapon()
+    {
+        spriteWeapon.sprite = defaultWeapon.itemImage;
+        slash.damage = defaultWeapon.Atk;
     }
 }
