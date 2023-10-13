@@ -125,4 +125,5 @@ MonoBehaviour:
   when: 0.3
   objectTransform: {fileID: 7018981316943291569}
   delay: 0
+  itemDurationOnGround: 15
   chest: 1

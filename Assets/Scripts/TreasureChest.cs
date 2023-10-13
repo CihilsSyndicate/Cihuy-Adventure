@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class TreasureChest : MonoBehaviour
 {
+    public Chest chestData;
     public GameObject[] sign;
     public Animator anim;
     public bool open;
-    public GameObject healPotionPrefabs;
 
     private void Start()
     {
@@ -23,7 +23,7 @@ public class TreasureChest : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Player") && other.isTrigger && !open)
+        if (other.CompareTag("Player") && other.isTrigger && !open)
         {
             sign[0].SetActive(true);
         }
@@ -40,13 +40,42 @@ public class TreasureChest : MonoBehaviour
     public void OpenChest()
     {
         anim.SetBool("open", true);
+        PlayerMovement.Instance.anim.SetBool("Celebration", true);
         open = true;
         sign[0].SetActive(false);
-        for (int i = 0; i < 2; i++)
+
+        if (chestData.chestType == Chest.ChestType.Rare)
         {
-            GameObject healPotion = Instantiate(healPotionPrefabs);
-            healPotion.transform.SetParent(this.gameObject.transform);
-            healPotion.transform.position = transform.position;
+            // Tambahkan item ke PlayerInventory
+            AddToPlayerInventory(chestData.rareItems);
+        }
+        else if (chestData.chestType == Chest.ChestType.Normal)
+        {
+            // Generate GameObject jika tipe chest Normal
+            foreach (GameObject itemPrefab in chestData.normalItems)
+            {
+                GameObject item = Instantiate(itemPrefab);
+                item.transform.SetParent(this.gameObject.transform);
+                item.transform.position = transform.position;
+            }
+        }
+    }
+
+    private void AddToPlayerInventory(InventoryItem[] items)
+    {
+        PlayerInventory playerInventory = FindObjectOfType<PlayerInventory>(); // Ganti dengan cara yang sesuai untuk mendapatkan instance PlayerInventory
+
+        if (playerInventory != null)
+        {
+            foreach (InventoryItem item in items)
+            {
+                // Tambahkan item ke PlayerInventory
+                playerInventory.myInventory.Add(item);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("PlayerInventory not found.");
         }
     }
 }

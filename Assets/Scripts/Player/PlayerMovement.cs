@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject interactButtonGO;
     public playerState currentState;
     public float speed = 5f;
-    private Animator anim;
+    public Animator anim;
     private Rigidbody2D myRb;
     [System.NonSerialized] public Vector3 change;
     public FixedJoystick fixedJoystick;
@@ -53,7 +53,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        anim = GetComponent<Animator>();
         myRb = GetComponent<Rigidbody2D>();
         anim.SetFloat("x", 0);
         anim.SetFloat("y", -1);
@@ -100,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
             MoveChar();
             anim.SetFloat("x", change.x);
             anim.SetFloat("y", change.y);
+            anim.SetBool("Celebration", false);
             anim.SetBool("Idle", false);
         }
         else
