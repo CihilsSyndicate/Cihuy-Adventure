@@ -90,6 +90,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+
     /*
     public void SetupDescriptionAndButtonForConsumable(string newDescriptionString, bool isButtonUsable, string newHPText, string newATKText, string newItemName, Sprite newItemImage, InventoryItem newItem)
     {

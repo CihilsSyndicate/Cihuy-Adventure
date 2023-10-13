@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     public float damageEffectDuration = 0.2f;
     public HealthBar healthBar;
     public GameObject floatingTextDamage;
+    public GameObject floatingText;
     public Transform joystickHandle;
 
     private static PlayerMovement instance;
@@ -144,6 +145,12 @@ public class PlayerMovement : MonoBehaviour
         go.GetComponent<TextMesh>().text = "-" + damage.ToString();
     }
 
+    public void ShowFloatingTextHp()
+    {
+        var go = Instantiate(floatingText, transform.position, Quaternion.identity, transform);
+        go.GetComponent<TextMesh>().text = "YOUR HP IS FULL!";
+    }
+
     private IEnumerator DamageEffect()
     {
         spriteRenderer.color = Color.red; // Mengubah warna menjadi merah
@@ -157,6 +164,8 @@ public class PlayerMovement : MonoBehaviour
     {
         currentHealth.RuntimeValue -= damage;
         healthBar.SetHealth(currentHealth.RuntimeValue);
+        ShowFloatingText(damage);
+        StartCoroutine(DamageEffect());
         playerHealthSignal.Raise();
         if (currentHealth.RuntimeValue > 0)
         {

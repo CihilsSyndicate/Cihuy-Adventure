@@ -6,7 +6,6 @@ public class UsePotion : MonoBehaviour
     public Button usePotionButton;
     public InventoryItem potionItem; // Item potion yang akan digunakan
     public Image buttonImage; // Komponen Image pada tombol
-
     public PlayerInventory playerInventory;
 
     private void Start()
@@ -34,12 +33,15 @@ public class UsePotion : MonoBehaviour
         }
     }
 
-
     public void UseThePotion()
     {
         if (potionItem != null && potionItem.numberHeld > 0 && PlayerMovement.Instance.currentHealth.RuntimeValue < PlayerMovement.Instance.currentHealth.initialValue)
         {
             potionItem.Use();
+        }
+        else
+        {
+            PlayerMovement.Instance.ShowFloatingTextHp();
         }
     }
 }
