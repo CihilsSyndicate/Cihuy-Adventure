@@ -217,12 +217,16 @@ public class SwordAttack : MonoBehaviour
 
     public void ClearSlashPool()
     {
-        foreach (GameObject slash in slashPool)
+        if(slashPool != null)
         {
-            Destroy(slash);
-        }
+            foreach (GameObject slash in slashPool)
+            {
+                Destroy(slash);
+            }
 
-        slashPool.Clear();
+            slashPool.Clear();
+        }
     }
+       
 
 }

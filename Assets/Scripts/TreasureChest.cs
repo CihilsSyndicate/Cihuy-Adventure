@@ -8,20 +8,21 @@ public class TreasureChest : MonoBehaviour
     public NpcSign npcSign;
     public SpriteRenderer itemGainedSR;
     public PlayerInventory playerInventory;
-    public GameObject[] sign;
+    public GameObject sign;
     public Animator anim;
     public bool open;
 
     private void Start()
     {
-        itemGainedSR = GameObject.Find("ItemGained").GetComponent<SpriteRenderer>();
-        open = false;
-        for (int i = 0; i < sign.Length; i++)
+        if(chestData.chestType == Chest.ChestType.Rare)
         {
-            if (sign[i].activeInHierarchy)
-            {
-                sign[i].SetActive(false);
-            }
+            itemGainedSR = GameObject.Find("ItemGained").GetComponent<SpriteRenderer>();
+        }
+        
+        open = false;
+        if (sign.activeInHierarchy)
+        {
+            sign.SetActive(false);
         }
     }
 
@@ -29,7 +30,7 @@ public class TreasureChest : MonoBehaviour
     {
         if (other.CompareTag("Player") && other.isTrigger && !open)
         {
-            sign[0].SetActive(true);
+            sign.SetActive(true);
         }
     }
 
@@ -37,19 +38,18 @@ public class TreasureChest : MonoBehaviour
     {
         if (other.CompareTag("Player") && other.isTrigger)
         {
-            sign[0].SetActive(false);
+            sign.SetActive(false);
         }
     }
 
     public void OpenChest()
     {       
-        PlayerMovement.Instance.anim.SetBool("Celebration", true);
         open = true;
-        sign[0].SetActive(false);
-
+        sign.SetActive(false);
+        anim.SetBool("open", true);
         if (chestData.chestType == Chest.ChestType.Rare)
         {
-            anim.SetBool("open", true);
+            PlayerMovement.Instance.anim.SetBool("Celebration", true);    
             playerInventory.myInventory.Add(chestData.rareItems);
             itemGainedSR.sprite = chestData.rareItems.itemImage;
             npcSign.BeginDialog();
