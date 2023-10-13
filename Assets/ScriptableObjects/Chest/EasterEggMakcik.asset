@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chestType: 1
   normalItems: []
-  rareItems:
-  - {fileID: 11400000, guid: cffa01c02dc8a7f43971a9650933f618, type: 2}
+  rareItems: {fileID: 11400000, guid: cffa01c02dc8a7f43971a9650933f618, type: 2}
+  dialog: GG! You got the legendary sword that everyone is seeking for!

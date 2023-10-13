@@ -12,6 +12,7 @@ TagManager:
   - NPC
   - NPC Trader
   - Teleporter
+  - Chest
   layers:
   - Default
   - TransparentFX

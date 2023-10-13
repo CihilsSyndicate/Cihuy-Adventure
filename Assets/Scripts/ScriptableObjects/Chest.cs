@@ -11,6 +11,6 @@ public class Chest : ScriptableObject
 
     public ChestType chestType;
     public GameObject[] normalItems;
-    public InventoryItem[] rareItems;
-
+    public InventoryItem rareItems;
+    public string dialog;
 }

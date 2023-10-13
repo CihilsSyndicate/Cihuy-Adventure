@@ -189,6 +189,10 @@ public class PlayerMovement : MonoBehaviour
             npcSign = other.GetComponent<NpcSign>();
             interactButtonGO.SetActive(true);
         }
+        else if (other.CompareTag("Chest"))
+        {
+            npcSign = other.GetComponent<NpcSign>();
+        }
         else if (other.CompareTag("Teleporter"))
         {
             StopMovement();
@@ -204,6 +208,10 @@ public class PlayerMovement : MonoBehaviour
         {
             npcSign = null;
             interactButtonGO.SetActive(false);
+        }
+        if (other.CompareTag("Chest"))
+        {
+            npcSign = null;
         }
     }
 

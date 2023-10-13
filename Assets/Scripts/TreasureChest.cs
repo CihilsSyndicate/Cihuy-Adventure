@@ -5,12 +5,16 @@ using UnityEngine;
 public class TreasureChest : MonoBehaviour
 {
     public Chest chestData;
+    public NpcSign npcSign;
+    public SpriteRenderer itemGainedSR;
+    public PlayerInventory playerInventory;
     public GameObject[] sign;
     public Animator anim;
     public bool open;
 
     private void Start()
     {
+        itemGainedSR = GameObject.Find("ItemGained").GetComponent<SpriteRenderer>();
         open = false;
         for (int i = 0; i < sign.Length; i++)
         {
@@ -38,16 +42,18 @@ public class TreasureChest : MonoBehaviour
     }
 
     public void OpenChest()
-    {
-        anim.SetBool("open", true);
+    {       
         PlayerMovement.Instance.anim.SetBool("Celebration", true);
         open = true;
         sign[0].SetActive(false);
 
         if (chestData.chestType == Chest.ChestType.Rare)
         {
-            // Tambahkan item ke PlayerInventory
-            AddToPlayerInventory(chestData.rareItems);
+            anim.SetBool("open", true);
+            playerInventory.myInventory.Add(chestData.rareItems);
+            itemGainedSR.sprite = chestData.rareItems.itemImage;
+            npcSign.BeginDialog();
+            itemGainedSR.enabled = true;
         }
         else if (chestData.chestType == Chest.ChestType.Normal)
         {
@@ -58,23 +64,6 @@ public class TreasureChest : MonoBehaviour
                 item.transform.SetParent(this.gameObject.transform);
                 item.transform.position = transform.position;
             }
-        }
-    }
-
-    private void AddToPlayerInventory(InventoryItem[] items)
-    {
-        PlayerInventory playerInventory = FindObjectOfType<PlayerInventory>();
-
-        if (playerInventory != null)
-        {
-            foreach (InventoryItem item in items)
-            {
-                playerInventory.myInventory.Add(item);
-            }
-        }
-        else
-        {
-            Debug.LogWarning("PlayerInventory not found.");
         }
     }
 }

@@ -13,6 +13,8 @@ public class NpcSign : MonoBehaviour
     public SpriteRenderer npcSprite;
 
     public NPCManager npcManager;
+    public Chest chestDialog;
+    public TreasureChest treasureChest;
     public float typingSpeed = 0.05f;
     public SpriteRenderer spriteRendererToActivate;
 
@@ -23,6 +25,9 @@ public class NpcSign : MonoBehaviour
     private Text option1TextComponent;
     private Text option2TextComponent;
     private Coroutine typingCoroutine;
+
+    [System.NonSerialized] public int easterEggMakcik;
+
     private static NpcSign instance;
     public static NpcSign Instance
     {
@@ -42,7 +47,8 @@ public class NpcSign : MonoBehaviour
 
         option1TextComponent = option1Text.GetComponent<Text>();
         option2TextComponent = option2Text.GetComponent<Text>();
-        npcSprite.sprite = npcManager.npcSprite;
+        if(gameObject.tag != "Chest")
+            npcSprite.sprite = npcManager.npcSprite;
     }
 
     // Update is called once per frame
@@ -57,7 +63,7 @@ public class NpcSign : MonoBehaviour
         {
             PlayerMovement.Instance.interactButtonGO.gameObject.SetActive(false);
             ToggleDialog();
-            dialogActive = true;
+            dialogActive = true;           
         }
     }
 
@@ -66,13 +72,26 @@ public class NpcSign : MonoBehaviour
         if (isTyping)
         {
             StopCoroutine(typingCoroutine);
-            dialogText.text = npcManager.npcDialog;
+            if(gameObject.tag != "Chest")
+            {
+                dialogText.text = npcManager.npcDialog;
+            }
+            else
+            {
+                dialogText.text = chestDialog.dialog;
+            }
             isTyping = false;
         }
         else if (dialogActive && !isTyping && !gameObject.CompareTag("NPC Trader"))
         {
             dialogActive = false;
             dialogBox.SetActive(false);
+
+            if(gameObject.tag == "Chest")
+            {
+                treasureChest.itemGainedSR.enabled = false;
+                PlayerMovement.Instance.anim.SetBool("Celebration", false);
+            }
         }
     }
 
@@ -81,7 +100,7 @@ public class NpcSign : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            if (spriteRendererToActivate != null)
+            if (spriteRendererToActivate != null && gameObject.tag != "Chest")
             {
                 spriteRendererToActivate.enabled = true;
             }
@@ -121,13 +140,22 @@ public class NpcSign : MonoBehaviour
         else
         {
             dialogBox.SetActive(true);
-            nameNpcText.text = npcManager.npcName;
+            if(gameObject.tag != "Chest")
+            {
+                nameNpcText.text = npcManager.npcName;
+            }
+            else
+            {
+                nameNpcText.text = "Rare Chest";
+            }
 
-            // Mulai coroutine dan simpan referensi ke coroutine saat ini
             typingCoroutine = StartCoroutine(TypeText());
 
-            option1TextComponent.text = npcManager.option1;
-            option2TextComponent.text = npcManager.option2;
+            if(gameObject.tag != "Chest")
+            {
+                option1TextComponent.text = npcManager.option1;
+                option2TextComponent.text = npcManager.option2;
+            }
         }
     }
 
@@ -137,16 +165,33 @@ public class NpcSign : MonoBehaviour
         isTyping = true;
         dialogText.text = "";
 
-        foreach (char letter in npcManager.npcDialog)
+        if (gameObject.tag != "Chest")
         {
-            dialogText.text += letter;
-
-            if (typingSound != null)
+            foreach (char letter in npcManager.npcDialog)
             {
-                typingSound.Play();
-            }
+                dialogText.text += letter;
 
-            yield return new WaitForSeconds(typingSpeed);
+                if (typingSound != null)
+                {
+                    typingSound.Play();
+                }
+
+                yield return new WaitForSeconds(typingSpeed);
+            }
+        }
+        else
+        {
+            foreach (char letter in chestDialog.dialog)
+            {
+                dialogText.text += letter;
+
+                if (typingSound != null)
+                {
+                    typingSound.Play();
+                }
+
+                yield return new WaitForSeconds(typingSpeed);
+            }
         }
 
         isTyping = false;
