@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject floatingTextDamage;
     public GameObject floatingText;
     public Transform joystickHandle;
+    public ParticleSystem dust;
 
     private static PlayerMovement instance;
 
@@ -98,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
         {
             currentState = playerState.walk;
             MoveChar();
+            CreateDust();
             anim.SetFloat("x", change.x);
             anim.SetFloat("y", change.y);
             anim.SetBool("Celebration", false);
@@ -250,5 +252,10 @@ public class PlayerMovement : MonoBehaviour
             currentState = playerState.idle;
             myRb.velocity = Vector3.zero;
         }
+    }
+
+    void CreateDust()
+    {
+        dust.Play();
     }
 }
