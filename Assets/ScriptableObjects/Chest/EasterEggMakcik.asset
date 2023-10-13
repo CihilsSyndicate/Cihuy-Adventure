@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86fc78de98de06d448d1baa26f39f171, type: 3}
   m_Name: EasterEggMakcik
   m_EditorClassIdentifier: 
-  chestType: 0
-  items: []
+  chestType: 1
+  normalItems: []
+  rareItems:
+  - {fileID: 11400000, guid: cffa01c02dc8a7f43971a9650933f618, type: 2}

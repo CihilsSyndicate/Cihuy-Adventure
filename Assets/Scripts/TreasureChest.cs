@@ -63,13 +63,12 @@ public class TreasureChest : MonoBehaviour
 
     private void AddToPlayerInventory(InventoryItem[] items)
     {
-        PlayerInventory playerInventory = FindObjectOfType<PlayerInventory>(); // Ganti dengan cara yang sesuai untuk mendapatkan instance PlayerInventory
+        PlayerInventory playerInventory = FindObjectOfType<PlayerInventory>();
 
         if (playerInventory != null)
         {
             foreach (InventoryItem item in items)
             {
-                // Tambahkan item ke PlayerInventory
                 playerInventory.myInventory.Add(item);
             }
         }

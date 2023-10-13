@@ -13880,12 +13880,15 @@ MonoBehaviour:
   interactButtonGO: {fileID: 8830154649534238502}
   currentState: 0
   speed: 10
+  anim: {fileID: 2507077639790192700}
   fixedJoystick: {fileID: 7899080371736915057}
   currentHealth: {fileID: 11400000, guid: cba51a348d0e4c241a6aae14fa1e4c8f, type: 2}
   playerHealthSignal: {fileID: 11400000, guid: bea8081990fcb3d49999132a77b4765e, type: 2}
   damageEffectDuration: 0.2
   healthBar: {fileID: 6348224115540286802}
   floatingTextDamage: {fileID: 3341635747743629679, guid: 2b62da6d46f93fa488c9bc78488eb8ab,
+    type: 3}
+  floatingText: {fileID: 3341635747743629679, guid: 82eed23d5b9ef8e4faa029ef0054d12e,
     type: 3}
   joystickHandle: {fileID: 7899080372021063558}
 --- !u!212 &4451038506987687260
