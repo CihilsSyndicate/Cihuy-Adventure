@@ -27,7 +27,10 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        WeaponManager.Instance.LoadEquippedWeapon();
+        if(PlayerPrefs.GetString("EquippedWeaponName") != null)
+        {
+            WeaponManager.Instance.LoadEquippedWeapon();
+        }
     }
 
     public void SavePlayer()
