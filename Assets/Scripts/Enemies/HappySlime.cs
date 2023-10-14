@@ -104,10 +104,14 @@ public class HappySlime : MonoBehaviour
         if (health <= 0)
         {
             alive = false;
-            anim.SetBool("isAlive", false);
-            Destroy(gameObject);
+            anim.SetBool("isAlive", false);   
         }
         healthHolder.SetActive(true);
+    }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
     }
 
     public void ShowFloatingText(float damage)
