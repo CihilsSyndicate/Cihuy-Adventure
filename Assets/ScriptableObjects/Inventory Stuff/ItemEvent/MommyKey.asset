@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49bbd3c4111fbdf4085149635117f49d, type: 3}
   m_Name: MommyKey
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Key
   itemDescription: 
   cost: 0
   Atk: 0
   Hp: 0
-  itemImage: {fileID: 0}
+  itemImage: {fileID: 21300000, guid: c50ec0ef94fb7a840a2924e77fcdcf9e, type: 3}
   numberHeld: 0
   consumableStack: 0
   usable: 0

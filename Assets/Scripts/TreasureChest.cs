@@ -8,9 +8,12 @@ public class TreasureChest : MonoBehaviour
     public NpcSign npcSign;
     public SpriteRenderer itemGainedSR;
     public PlayerInventory playerInventory;
+    public InventoryItem mommyKey;
     public GameObject sign;
     public Animator anim;
     public bool open;
+    public bool needKey;
+    public bool needMommyKey;
 
     private void Start()
     {
@@ -44,6 +47,12 @@ public class TreasureChest : MonoBehaviour
 
     public void OpenChest()
     {       
+        if(needMommyKey && !playerInventory.myInventory.Contains(mommyKey))
+        {
+            Debug.LogWarning("You don't have the key");
+            return;
+        }
+
         open = true;
         sign.SetActive(false);
         anim.SetBool("open", true);
@@ -54,6 +63,7 @@ public class TreasureChest : MonoBehaviour
             itemGainedSR.sprite = chestData.rareItems.itemImage;
             npcSign.BeginDialog();
             itemGainedSR.enabled = true;
+            playerInventory.myInventory.Remove(mommyKey);
         }
         else if (chestData.chestType == Chest.ChestType.Normal)
         {

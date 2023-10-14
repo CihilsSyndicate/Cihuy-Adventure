@@ -26,7 +26,12 @@ public class NpcSign : MonoBehaviour
     private Text option2TextComponent;
     private Coroutine typingCoroutine;
 
-    [System.NonSerialized] public int easterEggMakcik;
+    [Header("Easter Egg Makcik")]
+    public SpriteRenderer itemGainedSR;
+    public InventoryItem keyItem;
+    public PlayerInventory playerInventory;
+    public int easterEggMakcik;
+    public Makcik makcikScript;
 
     private static NpcSign instance;
     public static NpcSign Instance
@@ -42,6 +47,14 @@ public class NpcSign : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(makcikScript != null && PlayerPrefs.GetInt("MakcikStatus") == 0)
+        {
+            gameObject.SetActive(true);
+        }
+        else if(makcikScript != null && PlayerPrefs.GetInt("MakcikStatus") == 1)
+        {
+            gameObject.SetActive(false);
+        }
         dialogBox.SetActive(false);
         typingSound = GetComponent<AudioSource>();
 
@@ -54,16 +67,30 @@ public class NpcSign : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(easterEggMakcik == 2 && makcikScript != null && !isTyping)
+        {
+            npcManager.npcDialog = "Fine, you got me... He was passed away that time, so am I. " +
+                "And then, this thing is for you, kid... You better keep it.";
+        }
+        else if(easterEggMakcik == 3 && makcikScript != null && !isTyping)
+        {
+            npcManager.npcName = "Secret Key";
+            if (playerInventory.myInventory.Count != playerInventory.maxInventorySize)
+                npcManager.npcDialog = "I hope you would listen her.";
+            else
+                npcManager.npcDialog = "Foolish, you should get rid of those useless things in your bag.";
+        }
     }
 
     public void BeginDialog()
     {
         if (!dialogActive)
         {
-            PlayerMovement.Instance.interactButtonGO.gameObject.SetActive(false);
+            PlayerMovement.Instance.interactButton.interactable = false;
             ToggleDialog();
-            dialogActive = true;           
+            dialogActive = true;
+            if(makcikScript != null)
+                easterEggMakcik += 1;
         }
     }
 
@@ -86,11 +113,35 @@ public class NpcSign : MonoBehaviour
         {
             dialogActive = false;
             dialogBox.SetActive(false);
-
-            if(gameObject.tag == "Chest")
+            PlayerMovement.Instance.interactButton.interactable = true;           
+            if (gameObject.tag == "Chest")
             {
                 treasureChest.itemGainedSR.enabled = false;
                 PlayerMovement.Instance.anim.SetBool("Celebration", false);
+            }
+            if(easterEggMakcik == 3 && makcikScript != null)
+            {
+                BeginDialog();
+                if(playerInventory.myInventory.Count != playerInventory.maxInventorySize)
+                {
+                    PlayerMovement.Instance.anim.SetBool("Celebration", true);
+                    itemGainedSR.enabled = true;
+                    itemGainedSR.sprite = keyItem.itemImage;
+                    playerInventory.myInventory.Add(keyItem);
+                }
+                else
+                {
+                    PlayerMovement.Instance.anim.SetBool("Sad", true);
+                }
+            }
+            else if (easterEggMakcik == 4 && makcikScript != null)
+            {
+                PlayerPrefs.SetInt("MakcikStatus", 1);
+                gameObject.SetActive(false);
+                PlayerMovement.Instance.anim.SetBool("Celebration", false);
+                PlayerMovement.Instance.anim.SetBool("Sad", false);
+                if (itemGainedSR != null)
+                    itemGainedSR.enabled = false;
             }
         }
     }

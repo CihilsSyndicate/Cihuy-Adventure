@@ -306,6 +306,27 @@ PrefabInstance:
       propertyPath: itemGainedSR
       value: 
       objectReference: {fileID: 1636036116}
+    - target: {fileID: 8122999187445628312, guid: 03ba78be5002250438b9489bff80a42f,
+        type: 3}
+      propertyPath: sign
+      value: 
+      objectReference: {fileID: 1442600201}
+    - target: {fileID: 8122999187445628312, guid: 03ba78be5002250438b9489bff80a42f,
+        type: 3}
+      propertyPath: needKey
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8122999187445628312, guid: 03ba78be5002250438b9489bff80a42f,
+        type: 3}
+      propertyPath: needMommyKey
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8122999187445628312, guid: 03ba78be5002250438b9489bff80a42f,
+        type: 3}
+      propertyPath: mommyKey
+      value: 
+      objectReference: {fileID: 11400000, guid: e34cd5a468f6029428ab48591a737927,
+        type: 2}
     - target: {fileID: 8122999187445628314, guid: 03ba78be5002250438b9489bff80a42f,
         type: 3}
       propertyPath: m_Name
@@ -1090,6 +1111,11 @@ MonoBehaviour:
   treasureChest: {fileID: 0}
   typingSpeed: 0.05
   spriteRendererToActivate: {fileID: 586399758}
+  itemGainedSR: {fileID: 0}
+  keyItem: {fileID: 0}
+  playerInventory: {fileID: 0}
+  easterEggMakcik: 0
+  makcikScript: {fileID: 0}
 --- !u!61 &946297099
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1855,8 +1881,10 @@ GameObject:
   - component: {fileID: 1357187376}
   - component: {fileID: 1357187375}
   - component: {fileID: 1357187374}
+  - component: {fileID: 1357187380}
+  - component: {fileID: 1357187381}
   m_Layer: 0
-  m_Name: Fariez'sMom
+  m_Name: Random Mom
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1885,6 +1913,11 @@ MonoBehaviour:
   treasureChest: {fileID: 0}
   typingSpeed: 0.05
   spriteRendererToActivate: {fileID: 1376175572}
+  itemGainedSR: {fileID: 1636036116}
+  keyItem: {fileID: 11400000, guid: e34cd5a468f6029428ab48591a737927, type: 2}
+  playerInventory: {fileID: 11400000, guid: 8433bc5fc4aca8845849f3e7d3855471, type: 2}
+  easterEggMakcik: 0
+  makcikScript: {fileID: 1357187381}
 --- !u!82 &1357187375
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2168,6 +2201,39 @@ Transform:
   m_Father: {fileID: 1088076481}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1357187380
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357187373}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
+  m_Constraints: 7
+--- !u!114 &1357187381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357187373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e38d9178965d8489ce25bfe1f78b8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1376175569
 GameObject:
   m_ObjectHideFlags: 0
@@ -2272,6 +2338,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1442600201 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8122999187279827229, guid: 03ba78be5002250438b9489bff80a42f,
+    type: 3}
+  m_PrefabInstance: {fileID: 40870941}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1516082057
 GameObject:
   m_ObjectHideFlags: 0
@@ -2520,6 +2592,11 @@ MonoBehaviour:
   treasureChest: {fileID: 0}
   typingSpeed: 0.05
   spriteRendererToActivate: {fileID: 2118920875}
+  itemGainedSR: {fileID: 0}
+  keyItem: {fileID: 0}
+  playerInventory: {fileID: 0}
+  easterEggMakcik: 0
+  makcikScript: {fileID: 0}
 --- !u!61 &1851278017
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2890,6 +2967,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1943137642 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8122999187279827229, guid: 3d2b88802719ba64bb582f8775ccc952,
+    type: 3}
+  m_PrefabInstance: {fileID: 8122999187244069039}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2101258423
 GameObject:
   m_ObjectHideFlags: 0
@@ -7463,6 +7546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcSign: {fileID: 0}
   interactButtonGO: {fileID: 6105268309143120}
+  interactButton: {fileID: 3119190183442569973}
   currentState: 0
   speed: 10
   anim: {fileID: 6364817449498921290}
@@ -7476,6 +7560,7 @@ MonoBehaviour:
   floatingText: {fileID: 3341635747743629679, guid: 82eed23d5b9ef8e4faa029ef0054d12e,
     type: 3}
   joystickHandle: {fileID: 1657775275187949296}
+  dust: {fileID: 0}
 --- !u!1 &7422230696677448170
 GameObject:
   m_ObjectHideFlags: 0
@@ -7656,6 +7741,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8122999187445628312, guid: 3d2b88802719ba64bb582f8775ccc952,
+        type: 3}
+      propertyPath: sign
+      value: 
+      objectReference: {fileID: 1943137642}
     - target: {fileID: 8122999187445628314, guid: 3d2b88802719ba64bb582f8775ccc952,
         type: 3}
       propertyPath: m_Name

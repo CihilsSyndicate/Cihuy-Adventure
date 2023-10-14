@@ -34,6 +34,7 @@ public class InventoryManager : MonoBehaviour
                     if (newSlot != null)
                     {
                         newSlot.Setup(playerInventory.myInventory[i], this);
+                        newSlot.transform.localScale = blackInventorySlot.transform.localScale;
                     }
                 }          
             }

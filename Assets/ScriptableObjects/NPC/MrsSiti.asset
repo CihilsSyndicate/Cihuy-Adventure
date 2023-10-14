@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d990fcb6d05912f44a06d2682460996b, type: 3}
-  m_Name: Fariez'sMom
+  m_Name: MrsSiti
   m_EditorClassIdentifier: 
   npcSprite: {fileID: 21300000, guid: 69da0fc4707d08a4aaf3f2a3d757393b, type: 3}
-  npcDialog: My son fell from height, but he's still alive.
-  npcName: Fariez's Mom
+  npcDialog: Foolish, you should get rid of those useless things in your bag.
+  npcName: Secret Key
   option1: Cool...
   option2: Huh?
   npcType: 0

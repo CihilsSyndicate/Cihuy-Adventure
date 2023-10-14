@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public NpcSign npcSign;
     public GameObject interactButtonGO;
+    public Button interactButton;
     public playerState currentState;
     public float speed = 5f;
     public Animator anim;
@@ -99,7 +100,8 @@ public class PlayerMovement : MonoBehaviour
         {
             currentState = playerState.walk;
             MoveChar();
-            CreateDust();
+            if(dust != null)
+                CreateDust();
             anim.SetFloat("x", change.x);
             anim.SetFloat("y", change.y);
             anim.SetBool("Celebration", false);
@@ -179,28 +181,33 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("NPC Trader"))
-        {
-            NPCInteract.Instance.trader = true;
-            npcSign = other.GetComponent<NpcSign>();
-            interactButtonGO.SetActive(true);
-        }
-        else if (other.CompareTag("NPC"))
-        {
-            NPCInteract.Instance.trader = false;
-            npcSign = other.GetComponent<NpcSign>();
-            interactButtonGO.SetActive(true);
-        }
-        else if (other.CompareTag("Chest"))
-        {
-            npcSign = other.GetComponent<NpcSign>();
-        }
-        else if (other.CompareTag("Teleporter"))
+        
+        if (other.CompareTag("Teleporter") && other.isTrigger)
         {
             StopMovement();
             this.enabled = false;
             fixedJoystick.enabled = false;
             joystickHandle.localPosition = Vector3.zero;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("NPC Trader") && other.isTrigger)
+        {
+            NPCInteract.Instance.trader = true;
+            npcSign = other.GetComponent<NpcSign>();
+            interactButtonGO.SetActive(true);
+        }
+        else if (other.CompareTag("NPC") && other.isTrigger)
+        {
+            NPCInteract.Instance.trader = false;
+            npcSign = other.GetComponent<NpcSign>();
+            interactButtonGO.SetActive(true);
+        }
+        else if (other.CompareTag("Chest") && other.isTrigger)
+        {
+            npcSign = other.GetComponent<NpcSign>();
         }
     }
 
