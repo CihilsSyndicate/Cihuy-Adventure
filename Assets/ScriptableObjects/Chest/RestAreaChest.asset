@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: RestAreaChest
   m_EditorClassIdentifier: 
   chestType: 0
-  items:
+  normalItems:
   - {fileID: 7018981316943291573, guid: 923a37c880141494a8e698cb545fc8ba, type: 3}
   - {fileID: 7018981316943291573, guid: 923a37c880141494a8e698cb545fc8ba, type: 3}
-  - {fileID: 7018981316943291573, guid: 923a37c880141494a8e698cb545fc8ba, type: 3}
+  rareItems: {fileID: 0}
+  dialog: 

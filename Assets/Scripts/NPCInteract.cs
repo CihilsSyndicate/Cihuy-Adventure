@@ -1,11 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NPCInteract : MonoBehaviour
 {
     public GameObject[] go;
     public bool trader;
+    public GameObject dialogBox;
+    public Text nameNpcText;
+    public Text dialogText;
+    public Text option1Text;
+    public Text option2Text;
     private static NPCInteract instance;
 
     public static NPCInteract Instance
@@ -44,8 +50,8 @@ public class NPCInteract : MonoBehaviour
     {
         if (trader == true)
         {
-            go[0].SetActive(true);
-            go[1].SetActive(false);
+            go[0].SetActive(false);
+            go[1].SetActive(true);
         }
     }
 }

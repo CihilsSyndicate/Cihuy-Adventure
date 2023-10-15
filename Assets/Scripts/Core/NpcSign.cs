@@ -5,20 +5,8 @@ using UnityEngine.UI;
 
 public class NpcSign : MonoBehaviour
 {
-    public GameObject dialogBox;
-    public Text nameNpcText;
-    public Text dialogText;
-    public Text option1Text;
-    public Text option2Text;
-    public SpriteRenderer npcSprite;
-
-    public NPCManager npcManager;
-    public Chest chestDialog;
-    public TreasureChest treasureChest;
+    [Header("General")]
     public float typingSpeed = 0.05f;
-    public SpriteRenderer spriteRendererToActivate;
-
-    private bool playerInRange;
     private bool isTyping;
     private bool dialogActive = false;
     private AudioSource typingSound;
@@ -26,12 +14,28 @@ public class NpcSign : MonoBehaviour
     private Text option2TextComponent;
     private Coroutine typingCoroutine;
 
+    [Header("Dont do anything with them")]
+    public GameObject dialogBox;
+    public Text nameNpcText;
+    public Text dialogText;
+    public Text option1Text;
+    public Text option2Text;
+
+    [Header("Assignable for NPC")]
+    public SpriteRenderer npcSprite;
+    public NPCManager npcManager;
+    public SpriteRenderer spriteRendererToActivate;
+
+    [Header("Assignable for Chest")]
+    public Chest chestDialog;
+    public TreasureChest treasureChest;
+
     [Header("Easter Egg Makcik")]
-    public SpriteRenderer itemGainedSR;
     public InventoryItem keyItem;
     public PlayerInventory playerInventory;
     public int easterEggMakcik;
     public Makcik makcikScript;
+    private SpriteRenderer itemGainedSR;
 
     private static NpcSign instance;
     public static NpcSign Instance
@@ -47,7 +51,12 @@ public class NpcSign : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(makcikScript != null && PlayerPrefs.GetInt("MakcikStatus") == 0)
+        dialogBox = NPCInteract.Instance.dialogBox;
+        nameNpcText = NPCInteract.Instance.nameNpcText;
+        dialogText = NPCInteract.Instance.dialogText;
+        option1Text = NPCInteract.Instance.option1Text;
+        option2Text = NPCInteract.Instance.option2Text;
+        if (makcikScript != null && PlayerPrefs.GetInt("MakcikStatus") == 0)
         {
             gameObject.SetActive(true);
         }
@@ -55,6 +64,12 @@ public class NpcSign : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+
+        if(makcikScript != null)
+        {
+            itemGainedSR = GameObject.Find("ItemGained").GetComponent<SpriteRenderer>();
+        }
+
         dialogBox.SetActive(false);
         typingSound = GetComponent<AudioSource>();
 
@@ -150,7 +165,6 @@ public class NpcSign : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerInRange = true;
             if (spriteRendererToActivate != null && gameObject.tag != "Chest")
             {
                 spriteRendererToActivate.enabled = true;
@@ -162,8 +176,6 @@ public class NpcSign : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerInRange = false;
-
             // Hentikan teks yang sedang ditampilkan saat keluar dari jangkauan
             if (isTyping)
             {

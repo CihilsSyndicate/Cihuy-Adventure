@@ -341,16 +341,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8543466994207073251, guid: bbeff53c52c5fea47b894bd618f78384,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8743696725358536778, guid: bbeff53c52c5fea47b894bd618f78384,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -1.5395508
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbeff53c52c5fea47b894bd618f78384, type: 3}
 --- !u!114 &395137741 stripped
@@ -535,7 +525,7 @@ Transform:
   m_Children:
   - {fileID: 68828700}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &609001047
 MonoBehaviour:
@@ -549,15 +539,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4df23bb145e2ee4a9b998265f6e5df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogBox: {fileID: 1789202283}
+  typingSpeed: 0.05
+  dialogBox: {fileID: 0}
   nameNpcText: {fileID: 1586279372}
   dialogText: {fileID: 670925052}
   option1Text: {fileID: 395137741}
   option2Text: {fileID: 657213316}
   npcSprite: {fileID: 0}
   npcManager: {fileID: 11400000, guid: 04f2d862817ea104ea19d2ec461aacad, type: 2}
-  typingSpeed: 0.05
   spriteRendererToActivate: {fileID: 68828701}
+  chestDialog: {fileID: 0}
+  treasureChest: {fileID: 0}
+  keyItem: {fileID: 0}
+  playerInventory: {fileID: 0}
+  easterEggMakcik: 0
+  makcikScript: {fileID: 0}
 --- !u!82 &609001048
 AudioSource:
   m_ObjectHideFlags: 0
@@ -898,7 +894,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1009155531
 GameObject:
@@ -6013,76 +6009,6 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1667616691
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1667616693}
-  - component: {fileID: 1667616692}
-  m_Layer: 0
-  m_Name: ShopManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1667616692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1667616691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c4c3791d5ce9b841a31a2e8b54a4a44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInventory: {fileID: 0}
-  shop: {fileID: 0}
-  itemNameTxt:
-  - {fileID: 0}
-  - {fileID: 0}
-  costTxt: {fileID: 0}
-  hpTxt: {fileID: 0}
-  atkTxt: {fileID: 0}
-  itemDescTxt: {fileID: 0}
-  itemImage:
-  - {fileID: 0}
-  - {fileID: 0}
-  buyBtn: {fileID: 0}
-  buyBtnText: {fileID: 0}
-  coinGO: {fileID: 0}
-  items:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  popupItemDetail: {fileID: 0}
---- !u!4 &1667616693
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1667616691}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 114.08168, y: 1177.6569, z: -10.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1789202283 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1789202283, guid: bbeff53c52c5fea47b894bd618f78384,
-    type: 3}
-  m_PrefabInstance: {fileID: 196520681}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2092074053
 GameObject:
   m_ObjectHideFlags: 0
@@ -6140,7 +6066,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2092074056
 BoxCollider2D:

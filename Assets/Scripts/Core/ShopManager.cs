@@ -151,4 +151,9 @@ public class ShopManager : MonoBehaviour
         textCol.a = 0.5f;
         buyBtnText.color = textCol;
     }
+
+    public void TurnOnInteractButton()
+    {
+        PlayerMovement.Instance.interactButton.interactable = true;
+    }
 }
