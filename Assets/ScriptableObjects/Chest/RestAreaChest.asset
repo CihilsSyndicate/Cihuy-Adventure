@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86fc78de98de06d448d1baa26f39f171, type: 3}
   m_Name: RestAreaChest
   m_EditorClassIdentifier: 
-  chestData:
-    open: 0
   chestType: 0
   normalItems:
   - {fileID: 7018981316943291573, guid: 923a37c880141494a8e698cb545fc8ba, type: 3}

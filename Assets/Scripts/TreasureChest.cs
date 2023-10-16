@@ -5,7 +5,6 @@ using UnityEngine;
 public class TreasureChest : MonoBehaviour
 {
     public Chest chestData;
-    public ChestData dataChest;
     public NpcSign npcSign;
     public SpriteRenderer itemGainedSR;
     public PlayerInventory playerInventory;
@@ -14,27 +13,39 @@ public class TreasureChest : MonoBehaviour
     public Animator anim;
     public bool needKey;
     public bool needMommyKey;
+    private static TreasureChest instance;
+    public static TreasureChest Instance
+    {
+        get { return instance; }
+    }
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
-        if(chestData.chestType == Chest.ChestType.Rare)
+        
+        if (chestData.chestType == Chest.ChestType.Rare)
         {
             itemGainedSR = GameObject.Find("ItemGained").GetComponent<SpriteRenderer>();
-        }
-        dataChest = SaveSystem.LoadChestData();
-        if (dataChest.open)
-        {
-            anim.SetBool("open",true);
         }
         if (sign.activeInHierarchy)
         {
             sign.SetActive(false);
         }
+        if (PlayerPrefs.GetInt("Chest_" + GetInstanceID()) == 1)
+        {
+            anim.SetBool("open", true);
+            chestData.open = true;
+        }
+        else
+            chestData.open = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && other.isTrigger && !dataChest.open)
+        if (other.CompareTag("Player") && other.isTrigger && !chestData.open)
         {
             sign.SetActive(true);
         }
@@ -56,8 +67,8 @@ public class TreasureChest : MonoBehaviour
             return;
         }
 
-        dataChest.open = true;
-        SaveSystem.SaveChestData(dataChest);
+        chestData.open = true;
+        PlayerPrefs.SetInt("Chest_" + GetInstanceID(), 1);
         sign.SetActive(false);
         anim.SetBool("open", true);
         if (chestData.chestType == Chest.ChestType.Rare)
