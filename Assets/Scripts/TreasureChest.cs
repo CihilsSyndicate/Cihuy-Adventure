@@ -13,6 +13,15 @@ public class TreasureChest : MonoBehaviour
     public Animator anim;
     public bool needKey;
     public bool needMommyKey;
+    private static TreasureChest instance;
+    public static TreasureChest Instance
+    {
+        get { return instance; }
+    }
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
@@ -25,7 +34,7 @@ public class TreasureChest : MonoBehaviour
         {
             sign.SetActive(false);
         }
-        if (PlayerPrefs.GetInt("Chest_" + GetInstanceID()) == 1)
+        if (PlayerPrefs.GetInt("Chest_" + gameObject.name) == 1)
         {
             anim.SetBool("open", true);
             chestData.open = true;
@@ -59,7 +68,8 @@ public class TreasureChest : MonoBehaviour
         }
 
         chestData.open = true;
-        PlayerPrefs.SetInt("Chest_" + GetInstanceID(), 1);
+        PlayerPrefs.SetInt("Chest_" + gameObject.name, 1);
+        PlayerPrefs.Save();
         sign.SetActive(false);
         anim.SetBool("open", true);
         if (chestData.chestType == Chest.ChestType.Rare)
