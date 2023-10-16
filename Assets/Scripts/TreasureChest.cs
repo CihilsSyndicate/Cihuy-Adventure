@@ -5,13 +5,13 @@ using UnityEngine;
 public class TreasureChest : MonoBehaviour
 {
     public Chest chestData;
+    public ChestData dataChest;
     public NpcSign npcSign;
     public SpriteRenderer itemGainedSR;
     public PlayerInventory playerInventory;
     public InventoryItem mommyKey;
     public GameObject sign;
     public Animator anim;
-    public bool open;
     public bool needKey;
     public bool needMommyKey;
 
@@ -21,8 +21,11 @@ public class TreasureChest : MonoBehaviour
         {
             itemGainedSR = GameObject.Find("ItemGained").GetComponent<SpriteRenderer>();
         }
-        
-        open = false;
+        dataChest = SaveSystem.LoadChestData();
+        if (dataChest.open)
+        {
+            anim.SetBool("open",true);
+        }
         if (sign.activeInHierarchy)
         {
             sign.SetActive(false);
@@ -31,7 +34,7 @@ public class TreasureChest : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && other.isTrigger && !open)
+        if (other.CompareTag("Player") && other.isTrigger && !dataChest.open)
         {
             sign.SetActive(true);
         }
@@ -53,7 +56,8 @@ public class TreasureChest : MonoBehaviour
             return;
         }
 
-        open = true;
+        dataChest.open = true;
+        SaveSystem.SaveChestData(dataChest);
         sign.SetActive(false);
         anim.SetBool("open", true);
         if (chestData.chestType == Chest.ChestType.Rare)
@@ -74,6 +78,8 @@ public class TreasureChest : MonoBehaviour
                 item.transform.SetParent(this.gameObject.transform);
                 item.transform.position = transform.position;
             }
+
+           
         }
     }
 }

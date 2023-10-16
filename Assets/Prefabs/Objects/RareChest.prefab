@@ -336,7 +336,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.030994892, y: -0.8894644}
+  m_Offset: {x: -0.030994892, y: -0.16740608}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -347,7 +347,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.89322186, y: 2.7789288}
+  m_Size: {x: 0.89322186, y: 1.3348122}
   m_EdgeRadius: 0
 --- !u!114 &8122999187445628312
 MonoBehaviour:
@@ -365,10 +365,12 @@ MonoBehaviour:
   npcSign: {fileID: 1463576084}
   itemGainedSR: {fileID: 0}
   playerInventory: {fileID: 11400000, guid: 8433bc5fc4aca8845849f3e7d3855471, type: 2}
-  sign:
-  - {fileID: 8122999187279827229}
+  mommyKey: {fileID: 0}
+  sign: {fileID: 0}
   anim: {fileID: 8122999187445628313}
   open: 0
+  needKey: 0
+  needMommyKey: 0
 --- !u!95 &8122999187445628313
 Animator:
   serializedVersion: 3
@@ -400,6 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4df23bb145e2ee4a9b998265f6e5df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  typingSpeed: 0.05
   dialogBox: {fileID: 0}
   nameNpcText: {fileID: 0}
   dialogText: {fileID: 0}
@@ -407,10 +410,13 @@ MonoBehaviour:
   option2Text: {fileID: 0}
   npcSprite: {fileID: 0}
   npcManager: {fileID: 0}
+  spriteRendererToActivate: {fileID: 0}
   chestDialog: {fileID: 11400000, guid: f3f1df9b79b426942b9695ec9819d852, type: 2}
   treasureChest: {fileID: 8122999187445628312}
-  typingSpeed: 0.05
-  spriteRendererToActivate: {fileID: 0}
+  keyItem: {fileID: 0}
+  playerInventory: {fileID: 0}
+  easterEggMakcik: 0
+  makcikScript: {fileID: 0}
 --- !u!1 &8122999187530651537
 GameObject:
   m_ObjectHideFlags: 0

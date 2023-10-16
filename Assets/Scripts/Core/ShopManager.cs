@@ -155,5 +155,6 @@ public class ShopManager : MonoBehaviour
     public void TurnOnInteractButton()
     {
         PlayerMovement.Instance.interactButton.interactable = true;
+        PlayerMovement.Instance.npcSign.dialogActive = false;
     }
 }

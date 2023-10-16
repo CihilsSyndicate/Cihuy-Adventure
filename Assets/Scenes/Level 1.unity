@@ -2352,6 +2352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4df23bb145e2ee4a9b998265f6e5df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  typingSpeed: 0.05
   dialogBox: {fileID: 780910485}
   nameNpcText: {fileID: 446825266}
   dialogText: {fileID: 1674784770}
@@ -2359,11 +2360,9 @@ MonoBehaviour:
   option2Text: {fileID: 1661138810}
   npcSprite: {fileID: 304842591}
   npcManager: {fileID: 11400000, guid: 74a5cc09ac9883d4d8fb9273a8a50e38, type: 2}
+  spriteRendererToActivate: {fileID: 0}
   chestDialog: {fileID: 0}
   treasureChest: {fileID: 0}
-  typingSpeed: 0.05
-  spriteRendererToActivate: {fileID: 0}
-  itemGainedSR: {fileID: 0}
   keyItem: {fileID: 0}
   playerInventory: {fileID: 0}
   easterEggMakcik: 0
@@ -2455,7 +2454,7 @@ Transform:
   m_Children:
   - {fileID: 1457757847}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!222 &310830954
 CanvasRenderer:
@@ -2596,10 +2595,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 868017766}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &318477699 stripped
 GameObject:
@@ -2923,7 +2921,7 @@ PrefabInstance:
     - target: {fileID: 8122999187445628308, guid: 3d2b88802719ba64bb582f8775ccc952,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 8122999187445628308, guid: 3d2b88802719ba64bb582f8775ccc952,
         type: 3}
@@ -10421,6 +10419,11 @@ MonoBehaviour:
   - {fileID: 1804430305}
   - {fileID: 1788847899}
   trader: 0
+  dialogBox: {fileID: 0}
+  nameNpcText: {fileID: 0}
+  dialogText: {fileID: 0}
+  option1Text: {fileID: 0}
+  option2Text: {fileID: 0}
 --- !u!224 &780910482
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11080,8 +11083,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1514063762}
-  m_Father: {fileID: 314038254}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &868017767
 MonoBehaviour:
@@ -26673,7 +26676,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1514063761
 GameObject:
@@ -26879,6 +26882,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 76a5dae3dcfdd4244b3c5ac60d67fc8d, type: 2}
   - {fileID: 11400000, guid: 6dcdf44a1b731be4bb16c1295bbfa47d, type: 2}
   - {fileID: 11400000, guid: 07f928e056c29374899d2fc707a21108, type: 2}
+  - {fileID: 11400000, guid: cffa01c02dc8a7f43971a9650933f618, type: 2}
 --- !u!4 &1518217562
 Transform:
   m_ObjectHideFlags: 0
@@ -27077,7 +27081,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1622244362
 MonoBehaviour:
@@ -30356,6 +30360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4df23bb145e2ee4a9b998265f6e5df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  typingSpeed: 0.05
   dialogBox: {fileID: 780910485}
   nameNpcText: {fileID: 446825266}
   dialogText: {fileID: 1674784770}
@@ -30363,11 +30368,9 @@ MonoBehaviour:
   option2Text: {fileID: 1661138810}
   npcSprite: {fileID: 2004015183}
   npcManager: {fileID: 11400000, guid: e400f88778c3b744abfdabee48e7b709, type: 2}
+  spriteRendererToActivate: {fileID: 1403255912}
   chestDialog: {fileID: 0}
   treasureChest: {fileID: 0}
-  typingSpeed: 0.05
-  spriteRendererToActivate: {fileID: 1403255912}
-  itemGainedSR: {fileID: 0}
   keyItem: {fileID: 0}
   playerInventory: {fileID: 0}
   easterEggMakcik: 0
@@ -30460,7 +30463,7 @@ Transform:
   - {fileID: 1403255913}
   - {fileID: 68294474}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!222 &2013583158
 CanvasRenderer:

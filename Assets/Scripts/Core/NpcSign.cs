@@ -8,7 +8,7 @@ public class NpcSign : MonoBehaviour
     [Header("General")]
     public float typingSpeed = 0.05f;
     private bool isTyping;
-    private bool dialogActive = false;
+    [System.NonSerialized] public bool dialogActive = false;
     private AudioSource typingSound;
     private Text option1TextComponent;
     private Text option2TextComponent;
@@ -152,6 +152,7 @@ public class NpcSign : MonoBehaviour
             else if (easterEggMakcik == 4 && makcikScript != null)
             {
                 PlayerPrefs.SetInt("MakcikStatus", 1);
+                PlayerMovement.Instance.interactButtonGO.SetActive(false);
                 gameObject.SetActive(false);
                 PlayerMovement.Instance.anim.SetBool("Celebration", false);
                 PlayerMovement.Instance.anim.SetBool("Sad", false);

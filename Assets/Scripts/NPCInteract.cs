@@ -54,4 +54,11 @@ public class NPCInteract : MonoBehaviour
             go[1].SetActive(true);
         }
     }
+
+    public void CancelShopping()
+    {
+        PlayerMovement.Instance.interactButton.interactable = true;
+        PlayerMovement.Instance.npcSign.dialogActive = false;
+        dialogBox.SetActive(false);
+    }
 }

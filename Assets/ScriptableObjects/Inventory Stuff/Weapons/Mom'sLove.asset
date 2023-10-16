@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49bbd3c4111fbdf4085149635117f49d, type: 3}
   m_Name: Mom'sLove
   m_EditorClassIdentifier: 
-  itemName: Molten Gazer
+  itemName: Mom'sLove
   itemDescription: The Molten Gazer is a captivating sword known for its unearthly
     appearance. Its blade, a fusion of ashen gray and fiery lava red, conceals a set
     of ominous, ever-watchful eyes at its core. The hilt bears intricate runes, said
     to hold the wisdom of ancient fire-wielders. When wielded, the sword emanates
     intense heat, yet chosen wielders are immune to its scorching touch.
   cost: 0
-  Atk: 5
+  Atk: 999
   Hp: 100
   itemImage: {fileID: 21300056, guid: 94f1519ab7b5f5c4e8aafecc17750778, type: 3}
   numberHeld: 1
