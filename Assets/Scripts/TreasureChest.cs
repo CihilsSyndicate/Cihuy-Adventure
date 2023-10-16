@@ -13,15 +13,6 @@ public class TreasureChest : MonoBehaviour
     public Animator anim;
     public bool needKey;
     public bool needMommyKey;
-    private static TreasureChest instance;
-    public static TreasureChest Instance
-    {
-        get { return instance; }
-    }
-    private void Awake()
-    {
-        instance = this;
-    }
 
     private void Start()
     {
