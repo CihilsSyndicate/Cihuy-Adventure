@@ -7,9 +7,14 @@ public class EnterLevel : MonoBehaviour
 {
     public string nextScene;
     // Start is called before the first frame update
-    void Start()
+    void Init()
     {
         gameObject.tag = "Teleporter";
+    }
+
+    private void Start()
+    {
+        Init();
     }
 
     // Update is called once per frame
@@ -24,6 +29,8 @@ public class EnterLevel : MonoBehaviour
         {         
             SceneManager.LoadScene(nextScene);
             PlayerPrefs.SetString("LastScene", nextScene);
+            PlayerPrefs.SetString("SpawnPoint", SceneManager.GetActiveScene().name);
+            Init();
         }
     }
 }

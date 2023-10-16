@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject playerPrefab;
+    public GameObject cameraPrefab;
+
     private static GameManager instance;
 
     public static GameManager Instance
@@ -27,6 +30,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log(PlayerPrefs.GetString("LastScene"));
         if(PlayerPrefs.GetString("EquippedWeaponName") != null)
         {
             WeaponManager.Instance.LoadEquippedWeapon();
@@ -40,7 +44,25 @@ public class GameManager : MonoBehaviour
 
     public void LoadGame()
     {
-        SceneManager.LoadScene(PlayerPrefs.GetString("LastScene"));
+        if(PlayerPrefs.GetString("LastScene") != "")
+        {
+            SceneManager.LoadScene(PlayerPrefs.GetString("LastScene"));
+        }
+        else
+        {
+            SceneManager.LoadScene("Home");
+            PlayerPrefs.SetString("LastScene", "Home");
+        }
+
+        if (playerPrefab != null)
+        {
+            Instantiate(playerPrefab);
+        }
+
+        if (cameraPrefab != null)
+        {
+            Instantiate(cameraPrefab);
+        }
     }
 
     public void LoadPlayer()

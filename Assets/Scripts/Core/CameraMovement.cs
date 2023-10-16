@@ -10,7 +10,7 @@ public class CameraMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject playerGO = GameObject.Find("Player");
+        GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
         player = playerGO.transform;
     }
 
