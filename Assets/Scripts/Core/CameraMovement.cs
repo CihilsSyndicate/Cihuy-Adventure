@@ -25,8 +25,6 @@ public class CameraMovement : MonoBehaviour
             playerPosition.y = Mathf.Clamp(playerPosition.y, minPos.y, maxPos.y);
 
             transform.position = Vector3.Lerp(transform.position, playerPosition, smoothing);
-        }
-        
-        
+        }  
     }
 }

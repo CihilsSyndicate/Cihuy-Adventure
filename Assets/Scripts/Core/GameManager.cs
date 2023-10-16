@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject playerPrefab;
-    public GameObject cameraPrefab;
 
     private static GameManager instance;
 
@@ -44,6 +43,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadGame()
     {
+        PlayerPrefs.DeleteKey("SpawnPoint");
         if(PlayerPrefs.GetString("LastScene") != "")
         {
             SceneManager.LoadScene(PlayerPrefs.GetString("LastScene"));
@@ -53,16 +53,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("Home");
             PlayerPrefs.SetString("LastScene", "Home");
         }
-
-        if (playerPrefab != null)
-        {
-            Instantiate(playerPrefab);
-        }
-
-        if (cameraPrefab != null)
-        {
-            Instantiate(cameraPrefab);
-        }
+        Instantiate(playerPrefab);
     }
 
     public void LoadPlayer()

@@ -5,19 +5,17 @@ using UnityEngine.UI;
 
 public class TextHealth : MonoBehaviour
 {
-    public Text textCurrentHealth;
-    public Text textMaxHealth;
+    public Text hpText;
     public FloatValue currentHealth;
     // Start is called before the first frame update
     void Start()
     {
-        textCurrentHealth.text = currentHealth.RuntimeValue.ToString();
-        textMaxHealth.text = currentHealth.initialValue.ToString();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        textCurrentHealth.text = currentHealth.RuntimeValue.ToString();
+        hpText.text = currentHealth.RuntimeValue.ToString() + " / " + currentHealth.initialValue.ToString();
     }
 }
