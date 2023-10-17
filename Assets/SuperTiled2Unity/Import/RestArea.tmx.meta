@@ -5,12 +5,6 @@ ScriptedImporter:
     100000: _MapPrfab/RestArea
     100002: _MapPrfab/RestArea/Collisions
     100004: _MapPrfab/RestArea/Collisions Mask
-    100006: _MapPrfab/RestArea/Collisions Mask/Object_1
-    100008: _MapPrfab/RestArea/Collisions Mask/Object_1/ConvexPolygon
-    100010: _MapPrfab/RestArea/Collisions Mask/Object_1/ConvexPolygon (1)
-    100012: _MapPrfab/RestArea/Collisions Mask/Object_1/ConvexPolygon (2)
-    100014: _MapPrfab/RestArea/Collisions Mask/Object_1/ConvexPolygon (3)
-    100016: _MapPrfab/RestArea/Collisions Mask/Object_1/ConvexPolygon (4)
     100018: _MapPrfab/RestArea/Collisions Mask/Object_2
     100020: _MapPrfab/RestArea/Collisions Mask/Object_2/ConvexPolygon
     100022: _MapPrfab/RestArea/Collisions Mask/Object_2/ConvexPolygon (1)
@@ -27,15 +21,20 @@ ScriptedImporter:
     100044: _MapPrfab/RestArea/Collisions Mask/Object_7
     100046: _MapPrfab/RestArea/Collisions Mask/Object_8
     100048: _MapPrfab/RestArea/Collisions Mask/Object_9
+    100050: _MapPrfab/RestArea/Collisions Mask/Object_10
+    100052: _MapPrfab/RestArea/Collisions Mask/Object_11
+    100054: _MapPrfab/RestArea/Collisions Mask/Object_12
+    100056: _MapPrfab/RestArea/Collisions Mask/Object_13
+    100058: _MapPrfab/RestArea/Collisions Mask/Object_14
+    100060: _MapPrfab/RestArea/Collisions Mask/Object_15
+    100062: _MapPrfab/RestArea/Collisions Mask/Object_16
+    100064: _MapPrfab/RestArea/Collisions Mask/Object_17
+    100066: _MapPrfab/RestArea/Collisions Mask/Object_18
+    100068: _MapPrfab/RestArea/Collisions Mask/Object_19
+    100070: _MapPrfab/RestArea/Collisions Mask/Object_20
     400000: _MapPrfab/RestArea/Transform
     400002: _MapPrfab/RestArea/Collisions/Transform
     400004: _MapPrfab/RestArea/Collisions Mask/Transform
-    400006: _MapPrfab/RestArea/Collisions Mask/Object_1/Transform
-    400008: _MapPrfab/RestArea/Collisions Mask/Object_1/ConvexPolygon/Transform
-    400010: _MapPrfab/RestArea/Collisions Mask/Object_1/ConvexPolygon (1)/Transform
-    400012: _MapPrfab/RestArea/Collisions Mask/Object_1/ConvexPolygon (2)/Transform
-    400014: _MapPrfab/RestArea/Collisions Mask/Object_1/ConvexPolygon (3)/Transform
-    400016: _MapPrfab/RestArea/Collisions Mask/Object_1/ConvexPolygon (4)/Transform
     400018: _MapPrfab/RestArea/Collisions Mask/Object_2/Transform
     400020: _MapPrfab/RestArea/Collisions Mask/Object_2/ConvexPolygon/Transform
     400022: _MapPrfab/RestArea/Collisions Mask/Object_2/ConvexPolygon (1)/Transform
@@ -52,26 +51,41 @@ ScriptedImporter:
     400044: _MapPrfab/RestArea/Collisions Mask/Object_7/Transform
     400046: _MapPrfab/RestArea/Collisions Mask/Object_8/Transform
     400048: _MapPrfab/RestArea/Collisions Mask/Object_9/Transform
-    5000000: _MapPrfab/RestArea/Collisions Mask/Object_1/Rigidbody2D
+    400050: _MapPrfab/RestArea/Collisions Mask/Object_10/Transform
+    400052: _MapPrfab/RestArea/Collisions Mask/Object_11/Transform
+    400054: _MapPrfab/RestArea/Collisions Mask/Object_12/Transform
+    400056: _MapPrfab/RestArea/Collisions Mask/Object_13/Transform
+    400058: _MapPrfab/RestArea/Collisions Mask/Object_14/Transform
+    400060: _MapPrfab/RestArea/Collisions Mask/Object_15/Transform
+    400062: _MapPrfab/RestArea/Collisions Mask/Object_16/Transform
+    400064: _MapPrfab/RestArea/Collisions Mask/Object_17/Transform
+    400066: _MapPrfab/RestArea/Collisions Mask/Object_18/Transform
+    400068: _MapPrfab/RestArea/Collisions Mask/Object_19/Transform
+    400070: _MapPrfab/RestArea/Collisions Mask/Object_20/Transform
     5000002: _MapPrfab/RestArea/Collisions Mask/Object_2/Rigidbody2D
-    6000000: _MapPrfab/RestArea/Collisions Mask/Object_1/ConvexPolygon/PolygonCollider2D
-    6000002: _MapPrfab/RestArea/Collisions Mask/Object_1/ConvexPolygon (1)/PolygonCollider2D
-    6000004: _MapPrfab/RestArea/Collisions Mask/Object_1/ConvexPolygon (2)/PolygonCollider2D
-    6000006: _MapPrfab/RestArea/Collisions Mask/Object_1/ConvexPolygon (3)/PolygonCollider2D
-    6000008: _MapPrfab/RestArea/Collisions Mask/Object_1/ConvexPolygon (4)/PolygonCollider2D
     6000010: _MapPrfab/RestArea/Collisions Mask/Object_2/ConvexPolygon/PolygonCollider2D
     6000012: _MapPrfab/RestArea/Collisions Mask/Object_2/ConvexPolygon (1)/PolygonCollider2D
     6000014: _MapPrfab/RestArea/Collisions Mask/Object_2/ConvexPolygon (2)/PolygonCollider2D
     6000016: _MapPrfab/RestArea/Collisions Mask/Object_2/ConvexPolygon (3)/PolygonCollider2D
     6000018: _MapPrfab/RestArea/Collisions Mask/Object_2/ConvexPolygon (4)/PolygonCollider2D
     6000020: _MapPrfab/RestArea/Collisions Mask/Object_2/ConvexPolygon (5)/PolygonCollider2D
+    6000022: _MapPrfab/RestArea/Collisions Mask/Object_17/PolygonCollider2D
     6100000: _MapPrfab/RestArea/Collisions Mask/Object_3/BoxCollider2D
     6100002: _MapPrfab/RestArea/Collisions Mask/Object_4/BoxCollider2D
     6100004: _MapPrfab/RestArea/Collisions Mask/Object_5/BoxCollider2D
     6100006: _MapPrfab/RestArea/Collisions Mask/Object_7/BoxCollider2D
     6100008: _MapPrfab/RestArea/Collisions Mask/Object_8/BoxCollider2D
     6100010: _MapPrfab/RestArea/Collisions Mask/Object_9/BoxCollider2D
-    6600000: _MapPrfab/RestArea/Collisions Mask/Object_1/CompositeCollider2D
+    6100012: _MapPrfab/RestArea/Collisions Mask/Object_10/BoxCollider2D
+    6100014: _MapPrfab/RestArea/Collisions Mask/Object_11/BoxCollider2D
+    6100016: _MapPrfab/RestArea/Collisions Mask/Object_12/BoxCollider2D
+    6100018: _MapPrfab/RestArea/Collisions Mask/Object_13/BoxCollider2D
+    6100020: _MapPrfab/RestArea/Collisions Mask/Object_14/BoxCollider2D
+    6100022: _MapPrfab/RestArea/Collisions Mask/Object_15/BoxCollider2D
+    6100024: _MapPrfab/RestArea/Collisions Mask/Object_16/BoxCollider2D
+    6100026: _MapPrfab/RestArea/Collisions Mask/Object_18/BoxCollider2D
+    6100028: _MapPrfab/RestArea/Collisions Mask/Object_19/BoxCollider2D
+    6100030: _MapPrfab/RestArea/Collisions Mask/Object_20/BoxCollider2D
     6600002: _MapPrfab/RestArea/Collisions Mask/Object_2/CompositeCollider2D
     11400000: _MapPrfab/RestArea/MonoBehaviour-SuperTiled2Unity.SuperMap
     11400002: _MapPrfab/RestArea/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
@@ -79,13 +93,6 @@ ScriptedImporter:
     11400006: _MapPrfab/RestArea/Collisions/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
     11400008: _MapPrfab/RestArea/Collisions Mask/MonoBehaviour-SuperTiled2Unity.SuperObjectLayer
     11400010: _MapPrfab/RestArea/Collisions Mask/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
-    11400012: _MapPrfab/RestArea/Collisions Mask/Object_1/MonoBehaviour-SuperTiled2Unity.SuperObject
-    11400014: _MapPrfab/RestArea/Collisions Mask/Object_1/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
-    11400016: _MapPrfab/RestArea/Collisions Mask/Object_1/ConvexPolygon/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
-    11400018: _MapPrfab/RestArea/Collisions Mask/Object_1/ConvexPolygon (1)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
-    11400020: _MapPrfab/RestArea/Collisions Mask/Object_1/ConvexPolygon (2)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
-    11400022: _MapPrfab/RestArea/Collisions Mask/Object_1/ConvexPolygon (3)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
-    11400024: _MapPrfab/RestArea/Collisions Mask/Object_1/ConvexPolygon (4)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
     11400026: _MapPrfab/RestArea/Collisions Mask/Object_2/MonoBehaviour-SuperTiled2Unity.SuperObject
     11400028: _MapPrfab/RestArea/Collisions Mask/Object_2/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
     11400030: _MapPrfab/RestArea/Collisions Mask/Object_2/ConvexPolygon/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
@@ -119,6 +126,39 @@ ScriptedImporter:
     11400086: _MapPrfab/RestArea/Collisions Mask/Object_9/MonoBehaviour-SuperTiled2Unity.SuperObject
     11400088: _MapPrfab/RestArea/Collisions Mask/Object_9/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
     11400090: _MapPrfab/RestArea/Collisions Mask/Object_9/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400092: _MapPrfab/RestArea/Collisions Mask/Object_10/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400094: _MapPrfab/RestArea/Collisions Mask/Object_10/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400096: _MapPrfab/RestArea/Collisions Mask/Object_10/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400098: _MapPrfab/RestArea/Collisions Mask/Object_11/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400100: _MapPrfab/RestArea/Collisions Mask/Object_11/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400102: _MapPrfab/RestArea/Collisions Mask/Object_11/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400104: _MapPrfab/RestArea/Collisions Mask/Object_12/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400106: _MapPrfab/RestArea/Collisions Mask/Object_12/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400108: _MapPrfab/RestArea/Collisions Mask/Object_12/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400110: _MapPrfab/RestArea/Collisions Mask/Object_13/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400112: _MapPrfab/RestArea/Collisions Mask/Object_13/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400114: _MapPrfab/RestArea/Collisions Mask/Object_13/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400116: _MapPrfab/RestArea/Collisions Mask/Object_14/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400118: _MapPrfab/RestArea/Collisions Mask/Object_14/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400120: _MapPrfab/RestArea/Collisions Mask/Object_14/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400122: _MapPrfab/RestArea/Collisions Mask/Object_15/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400124: _MapPrfab/RestArea/Collisions Mask/Object_15/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400126: _MapPrfab/RestArea/Collisions Mask/Object_15/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400128: _MapPrfab/RestArea/Collisions Mask/Object_16/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400130: _MapPrfab/RestArea/Collisions Mask/Object_16/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400132: _MapPrfab/RestArea/Collisions Mask/Object_16/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400134: _MapPrfab/RestArea/Collisions Mask/Object_17/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400136: _MapPrfab/RestArea/Collisions Mask/Object_17/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400138: _MapPrfab/RestArea/Collisions Mask/Object_17/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400140: _MapPrfab/RestArea/Collisions Mask/Object_18/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400142: _MapPrfab/RestArea/Collisions Mask/Object_18/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400144: _MapPrfab/RestArea/Collisions Mask/Object_18/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400146: _MapPrfab/RestArea/Collisions Mask/Object_19/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400148: _MapPrfab/RestArea/Collisions Mask/Object_19/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400150: _MapPrfab/RestArea/Collisions Mask/Object_19/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400152: _MapPrfab/RestArea/Collisions Mask/Object_20/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400154: _MapPrfab/RestArea/Collisions Mask/Object_20/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400156: _MapPrfab/RestArea/Collisions Mask/Object_20/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
     100100000: _MapPrfab
     2569400265252428796: _MapPrfab/RestArea/Grid
     3664157343022684176: _MapPrfab/RestArea/Collisions/TilemapRenderer
