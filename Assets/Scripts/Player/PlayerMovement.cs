@@ -196,12 +196,21 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("NPC Trader") && other.isTrigger)
         {
             NPCInteract.Instance.trader = true;
+            NPCInteract.Instance.enterPoint = false;
             npcSign = other.GetComponent<NpcSign>();
             interactButtonGO.SetActive(true);
         }
-        else if (other.CompareTag("NPC") && other.isTrigger)
+        else if (other.CompareTag("NPC")&& other.isTrigger)
         {
             NPCInteract.Instance.trader = false;
+            NPCInteract.Instance.enterPoint = false;
+            npcSign = other.GetComponent<NpcSign>();
+            interactButtonGO.SetActive(true);
+        }
+        else if (other.CompareTag("EnterPoint") && other.isTrigger)
+        {
+            NPCInteract.Instance.trader = false;
+            NPCInteract.Instance.enterPoint = true;
             npcSign = other.GetComponent<NpcSign>();
             interactButtonGO.SetActive(true);
         }
@@ -213,7 +222,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("NPC Trader") || other.CompareTag("NPC"))
+        if (other.CompareTag("NPC Trader") || other.CompareTag("NPC") || other.CompareTag("EnterPoint"))
         {
             npcSign = null;
             interactButtonGO.SetActive(false);

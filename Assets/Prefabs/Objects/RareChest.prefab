@@ -106,8 +106,8 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8122999186833201935}
   m_Enabled: 1
-  m_SortingLayerID: -441285127
-  m_SortingLayer: 1
+  m_SortingLayerID: 1158075361
+  m_SortingLayer: 3
   m_SortingOrder: 2
 --- !u!222 &8122999186833201933
 CanvasRenderer:
@@ -153,7 +153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.399, y: 0.413}
+  m_AnchoredPosition: {x: 0.399, y: 0.42}
   m_SizeDelta: {x: -0.7974808, y: -0.8259623}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8122999187279827227
@@ -365,12 +365,11 @@ MonoBehaviour:
   npcSign: {fileID: 1463576084}
   itemGainedSR: {fileID: 0}
   playerInventory: {fileID: 11400000, guid: 8433bc5fc4aca8845849f3e7d3855471, type: 2}
-  mommyKey: {fileID: 0}
-  sign: {fileID: 0}
+  mommyKey: {fileID: 11400000, guid: e34cd5a468f6029428ab48591a737927, type: 2}
+  sign: {fileID: 8122999187279827229}
   anim: {fileID: 8122999187445628313}
-  open: 0
   needKey: 0
-  needMommyKey: 0
+  needMommyKey: 1
 --- !u!95 &8122999187445628313
 Animator:
   serializedVersion: 3
@@ -797,6 +796,6 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8122999188254837612}
   m_Enabled: 1
-  m_SortingLayerID: -441285127
-  m_SortingLayer: 1
+  m_SortingLayerID: 1158075361
+  m_SortingLayer: 3
   m_SortingOrder: 1

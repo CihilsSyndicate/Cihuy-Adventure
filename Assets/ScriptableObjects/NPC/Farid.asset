@@ -10,12 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d990fcb6d05912f44a06d2682460996b, type: 3}
-  m_Name: GodFarid
+  m_Name: Farid
   m_EditorClassIdentifier: 
   npcSprite: {fileID: 21300002, guid: 7ce802a2313580248841f5f706624cec, type: 3}
-  npcDialog: Hello, mister! God loves everyone, and He watches over us all. My mommy
-    says that God's love is like a big, warm hug that keeps us safe and happy. Have
-    a blessed day!
+  npcDialog: Why are you going to school this early?
   npcName: Farid
   option1: Thanks.
   option2: Yeah.

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49bbd3c4111fbdf4085149635117f49d, type: 3}
+  m_Name: Stellara
+  m_EditorClassIdentifier: 
+  itemName: Stellara
+  itemDescription: In a time when gods mingled with mortals, Aetherion, the deity
+    of wisdom, cherished a blade from his mother, Elara, the goddess of compassion.
+    Forged from a fallen star's heart, the sword named "Stellara" gleamed with celestial
+    engravings and an ethereal gem at its core, embodying Elara's boundless love and
+    wisdom. Stellara radiated a divine aura, symbolizing the enduring bond between
+    mother and son. Aetherion carried it always, a beacon of hope and a reminder that
+    love transcended even the divine, uniting them in celestial battles and cosmic
+    realms.
+  cost: 0
+  Atk: 999
+  Hp: 100
+  itemImage: {fileID: 21300056, guid: 94f1519ab7b5f5c4e8aafecc17750778, type: 3}
+  numberHeld: 1
+  consumableStack: 0
+  usable: 1
+  unique: 0
+  isOwned: 0
+  thisEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  itemType: 0

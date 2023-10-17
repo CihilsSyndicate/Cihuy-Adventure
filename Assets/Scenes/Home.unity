@@ -186,7 +186,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300198, guid: a0f0874839efb6b418b16edfa8e67ce0, type: 3}
-  m_Color: {r: 0.045428045, g: 0.7490196, b: 0.035294097, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -236,8 +236,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothing: 1
-  maxPos: {x: 22.68, y: -10.31}
-  minPos: {x: 16.53, y: -30.51}
+  maxPos: {x: 26.46, y: -8.24}
+  minPos: {x: 13.53, y: -31.42}
 --- !u!20 &94765268
 Camera:
   m_ObjectHideFlags: 0
@@ -264,7 +264,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 9
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -288,7 +288,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 94765265}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.53, y: -30.51, z: -10}
+  m_LocalPosition: {x: 26.46, y: -8.24, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 609001048}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Teleporter
+  m_TagString: EnterPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -326,7 +326,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.4699824, y: -0.12850142}
+  m_Offset: {x: -0.4699824, y: -1.9008036}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -337,7 +337,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 1
   serializedVersion: 2
-  m_Size: {x: 2.7754884, y: 3.5546904}
+  m_Size: {x: 2.7754884, y: 1.2045517}
   m_EdgeRadius: 0
 --- !u!4 &609001046
 Transform:
@@ -377,6 +377,7 @@ MonoBehaviour:
   spriteRendererToActivate: {fileID: 68828701}
   chestDialog: {fileID: 0}
   treasureChest: {fileID: 0}
+  dialogSecretKey: {fileID: 0}
   keyItem: {fileID: 0}
   playerInventory: {fileID: 0}
   easterEggMakcik: 0
@@ -803,11 +804,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1078491292}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.52, y: 1.87, z: 0.0546875}
+  m_LocalPosition: {x: -0.52, y: 1.71, z: 0.0546875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1270153821}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1078491294
 MonoBehaviour:
@@ -5585,6 +5586,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1311118441}
+  - {fileID: 1752089270}
   - {fileID: 1078491293}
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -5877,6 +5879,50 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1752089269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1752089270}
+  - component: {fileID: 1752089271}
+  m_Layer: 0
+  m_Name: FromInHome
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1752089270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752089269}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -14.06, y: 19.869999, z: 0.0546875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1270153821}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1752089271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752089269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f0163a608b5fd4994bdc05ac218908, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fromWhichScene: In Home
 --- !u!1 &2092074053
 GameObject:
   m_ObjectHideFlags: 0

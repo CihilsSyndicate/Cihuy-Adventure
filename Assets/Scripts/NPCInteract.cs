@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class NPCInteract : MonoBehaviour
 {
     public GameObject[] go;
     public bool trader;
+    public bool enterPoint;
     public GameObject dialogBox;
     public Text nameNpcText;
     public Text dialogText;
@@ -37,6 +39,11 @@ public class NPCInteract : MonoBehaviour
         if (trader)
         {
             go[2].SetActive(true);
+            go[3].SetActive(false);
+        }
+        else if(enterPoint)
+        {
+            go[2].SetActive(false);
             go[3].SetActive(true);
         }
         else
@@ -60,5 +67,20 @@ public class NPCInteract : MonoBehaviour
         PlayerMovement.Instance.interactButton.interactable = true;
         PlayerMovement.Instance.npcSign.dialogActive = false;
         dialogBox.SetActive(false);
+    }
+
+    public void EnterBuilding(string sceneName)
+    {
+        CancelEntering();
+        PlayerMovement.Instance.interactButtonGO.SetActive(false);
+        PlayerMovement.Instance.npcSign = null;
+        PlayerPrefs.SetString("SpawnPoint", SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void CancelEntering()
+    {
+        PlayerMovement.Instance.interactButtonGO.SetActive(false);
+        PlayerMovement.Instance.interactButton.interactable = true;
     }
 }

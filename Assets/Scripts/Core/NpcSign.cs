@@ -31,6 +31,7 @@ public class NpcSign : MonoBehaviour
     public TreasureChest treasureChest;
 
     [Header("Easter Egg Makcik")]
+    public NPCManager dialogSecretKey;
     public InventoryItem keyItem;
     public PlayerInventory playerInventory;
     public int easterEggMakcik;
@@ -75,7 +76,7 @@ public class NpcSign : MonoBehaviour
 
         option1TextComponent = option1Text.GetComponent<Text>();
         option2TextComponent = option2Text.GetComponent<Text>();
-        if(gameObject.tag != "Chest")
+        if(gameObject.tag != "Chest" && npcSprite != null)
             npcSprite.sprite = npcManager.npcSprite;
     }
 
@@ -124,7 +125,7 @@ public class NpcSign : MonoBehaviour
             }
             isTyping = false;
         }
-        else if (dialogActive && !isTyping && !gameObject.CompareTag("NPC Trader"))
+        else if (dialogActive && !isTyping && !gameObject.CompareTag("NPC Trader") && !gameObject.CompareTag("EnterPoint"))
         {
             dialogActive = false;
             dialogBox.SetActive(false);
@@ -151,9 +152,10 @@ public class NpcSign : MonoBehaviour
             }
             else if (easterEggMakcik == 4 && makcikScript != null)
             {
+                npcManager.npcName = "Mrs. Siti";
+                npcManager.npcDialog = "...";
                 PlayerPrefs.SetInt("MakcikStatus", 1);
-                PlayerMovement.Instance.interactButtonGO.SetActive(false);
-                gameObject.SetActive(false);
+                PlayerMovement.Instance.interactButtonGO.SetActive(false);               
                 PlayerMovement.Instance.anim.SetBool("Celebration", false);
                 PlayerMovement.Instance.anim.SetBool("Sad", false);
                 if (itemGainedSR != null)

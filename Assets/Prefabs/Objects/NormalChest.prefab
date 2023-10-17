@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 8122999187445628313}
   m_Layer: 0
   m_Name: NormalChest
-  m_TagString: Chest
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -365,9 +365,8 @@ MonoBehaviour:
   itemGainedSR: {fileID: 0}
   playerInventory: {fileID: 11400000, guid: 8433bc5fc4aca8845849f3e7d3855471, type: 2}
   mommyKey: {fileID: 0}
-  sign: {fileID: 0}
+  sign: {fileID: 8122999187279827229}
   anim: {fileID: 8122999187445628313}
-  open: 0
   needKey: 0
   needMommyKey: 0
 --- !u!95 &8122999187445628313
