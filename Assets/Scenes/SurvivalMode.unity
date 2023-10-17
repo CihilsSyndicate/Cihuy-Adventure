@@ -8393,6 +8393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f0163a608b5fd4994bdc05ac218908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fromWhichScene: 
 --- !u!4 &1311118441
 Transform:
   m_ObjectHideFlags: 0
@@ -11206,6 +11207,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1209588108928061430, guid: bbeff53c52c5fea47b894bd618f78384,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1209588108928061430, guid: bbeff53c52c5fea47b894bd618f78384,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1209588108928061430, guid: bbeff53c52c5fea47b894bd618f78384,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1209588108928061430, guid: bbeff53c52c5fea47b894bd618f78384,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1575264525420308538, guid: bbeff53c52c5fea47b894bd618f78384,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1575264525420308538, guid: bbeff53c52c5fea47b894bd618f78384,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1575264525420308538, guid: bbeff53c52c5fea47b894bd618f78384,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1575264525420308538, guid: bbeff53c52c5fea47b894bd618f78384,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5588179057624405946, guid: bbeff53c52c5fea47b894bd618f78384,
         type: 3}
       propertyPath: m_Name
@@ -11758,6 +11799,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcSign: {fileID: 0}
   interactButtonGO: {fileID: 0}
+  interactButton: {fileID: 0}
   currentState: 0
   speed: 12
   anim: {fileID: 0}
@@ -11770,6 +11812,7 @@ MonoBehaviour:
     type: 3}
   floatingText: {fileID: 0}
   joystickHandle: {fileID: 0}
+  dust: {fileID: 0}
 --- !u!50 &2058594921
 Rigidbody2D:
   serializedVersion: 4

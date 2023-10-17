@@ -1,0 +1,223 @@
+fileFormatVersion: 2
+guid: 9e0bfebe01ccdc844a7122715fa864de
+ScriptedImporter:
+  fileIDToRecycleName:
+    100000: _MapPrfab/Level5
+    100002: _MapPrfab/Level5/Collisions
+    100004: _MapPrfab/Level5/Collisions/Object_1
+    100006: _MapPrfab/Level5/Collisions/Object_2
+    100008: _MapPrfab/Level5/Collisions/Object_3
+    100010: _MapPrfab/Level5/Collisions/Object_4
+    100012: _MapPrfab/Level5/Collisions/Object_5
+    100014: _MapPrfab/Level5/Collisions/Object_6
+    100016: _MapPrfab/Level5/Collisions/Object_7
+    100018: _MapPrfab/Level5/Collisions/Object_8
+    100020: _MapPrfab/Level5/Collisions/Object_9
+    100022: _MapPrfab/Level5/Collisions/Object_10
+    100024: _MapPrfab/Level5/Collisions/Object_11
+    100026: _MapPrfab/Level5/Collisions/Object_12
+    100028: _MapPrfab/Level5/Collisions/Object_15
+    100030: _MapPrfab/Level5/Collisions/Object_16
+    100032: _MapPrfab/Level5/Collisions/Object_17
+    100034: _MapPrfab/Level5/Collisions/Object_18
+    100036: _MapPrfab/Level5/Collisions/Object_18/ConvexPolygon
+    100038: _MapPrfab/Level5/Collisions/Object_18/ConvexPolygon (1)
+    100040: _MapPrfab/Level5/Collisions/Object_18/ConvexPolygon (2)
+    100042: _MapPrfab/Level5/Collisions/Object_18/ConvexPolygon (3)
+    100044: _MapPrfab/Level5/Collisions/Object_18/ConvexPolygon (4)
+    100046: _MapPrfab/Level5/Collisions/Object_18/ConvexPolygon (5)
+    100048: _MapPrfab/Level5/Collisions/Object_19
+    100050: _MapPrfab/Level5/Collisions/Object_20
+    100052: _MapPrfab/Level5/Collisions/Object_22
+    100054: _MapPrfab/Level5/Collisions/Object_25
+    100056: _MapPrfab/Level5/Collisions/Object_27
+    100058: _MapPrfab/Level5/Collisions/Object_28
+    100060: _MapPrfab/Level5/Ground
+    100062: _MapPrfab/Level5/Object
+    100064: _MapPrfab/Level5/Object1
+    100066: _MapPrfab/Level5/Object2
+    100068: _MapPrfab/Level5/Object3
+    100070: _MapPrfab/Level5/Pagar
+    400000: _MapPrfab/Level5/Transform
+    400002: _MapPrfab/Level5/Collisions/Transform
+    400004: _MapPrfab/Level5/Collisions/Object_1/Transform
+    400006: _MapPrfab/Level5/Collisions/Object_2/Transform
+    400008: _MapPrfab/Level5/Collisions/Object_3/Transform
+    400010: _MapPrfab/Level5/Collisions/Object_4/Transform
+    400012: _MapPrfab/Level5/Collisions/Object_5/Transform
+    400014: _MapPrfab/Level5/Collisions/Object_6/Transform
+    400016: _MapPrfab/Level5/Collisions/Object_7/Transform
+    400018: _MapPrfab/Level5/Collisions/Object_8/Transform
+    400020: _MapPrfab/Level5/Collisions/Object_9/Transform
+    400022: _MapPrfab/Level5/Collisions/Object_10/Transform
+    400024: _MapPrfab/Level5/Collisions/Object_11/Transform
+    400026: _MapPrfab/Level5/Collisions/Object_12/Transform
+    400028: _MapPrfab/Level5/Collisions/Object_15/Transform
+    400030: _MapPrfab/Level5/Collisions/Object_16/Transform
+    400032: _MapPrfab/Level5/Collisions/Object_17/Transform
+    400034: _MapPrfab/Level5/Collisions/Object_18/Transform
+    400036: _MapPrfab/Level5/Collisions/Object_18/ConvexPolygon/Transform
+    400038: _MapPrfab/Level5/Collisions/Object_18/ConvexPolygon (1)/Transform
+    400040: _MapPrfab/Level5/Collisions/Object_18/ConvexPolygon (2)/Transform
+    400042: _MapPrfab/Level5/Collisions/Object_18/ConvexPolygon (3)/Transform
+    400044: _MapPrfab/Level5/Collisions/Object_18/ConvexPolygon (4)/Transform
+    400046: _MapPrfab/Level5/Collisions/Object_18/ConvexPolygon (5)/Transform
+    400048: _MapPrfab/Level5/Collisions/Object_19/Transform
+    400050: _MapPrfab/Level5/Collisions/Object_20/Transform
+    400052: _MapPrfab/Level5/Collisions/Object_22/Transform
+    400054: _MapPrfab/Level5/Collisions/Object_25/Transform
+    400056: _MapPrfab/Level5/Collisions/Object_27/Transform
+    400058: _MapPrfab/Level5/Collisions/Object_28/Transform
+    400060: _MapPrfab/Level5/Ground/Transform
+    400062: _MapPrfab/Level5/Object/Transform
+    400064: _MapPrfab/Level5/Object1/Transform
+    400066: _MapPrfab/Level5/Object2/Transform
+    400068: _MapPrfab/Level5/Object3/Transform
+    400070: _MapPrfab/Level5/Pagar/Transform
+    5000000: _MapPrfab/Level5/Collisions/Object_18/Rigidbody2D
+    6000000: _MapPrfab/Level5/Collisions/Object_18/ConvexPolygon/PolygonCollider2D
+    6000002: _MapPrfab/Level5/Collisions/Object_18/ConvexPolygon (1)/PolygonCollider2D
+    6000004: _MapPrfab/Level5/Collisions/Object_18/ConvexPolygon (2)/PolygonCollider2D
+    6000006: _MapPrfab/Level5/Collisions/Object_18/ConvexPolygon (3)/PolygonCollider2D
+    6000008: _MapPrfab/Level5/Collisions/Object_18/ConvexPolygon (4)/PolygonCollider2D
+    6000010: _MapPrfab/Level5/Collisions/Object_18/ConvexPolygon (5)/PolygonCollider2D
+    6100000: _MapPrfab/Level5/Collisions/Object_1/BoxCollider2D
+    6100002: _MapPrfab/Level5/Collisions/Object_2/BoxCollider2D
+    6100004: _MapPrfab/Level5/Collisions/Object_3/BoxCollider2D
+    6100006: _MapPrfab/Level5/Collisions/Object_4/BoxCollider2D
+    6100008: _MapPrfab/Level5/Collisions/Object_5/BoxCollider2D
+    6100010: _MapPrfab/Level5/Collisions/Object_6/BoxCollider2D
+    6100012: _MapPrfab/Level5/Collisions/Object_7/BoxCollider2D
+    6100014: _MapPrfab/Level5/Collisions/Object_8/BoxCollider2D
+    6100016: _MapPrfab/Level5/Collisions/Object_9/BoxCollider2D
+    6100018: _MapPrfab/Level5/Collisions/Object_10/BoxCollider2D
+    6100020: _MapPrfab/Level5/Collisions/Object_11/BoxCollider2D
+    6100022: _MapPrfab/Level5/Collisions/Object_12/BoxCollider2D
+    6100024: _MapPrfab/Level5/Collisions/Object_15/BoxCollider2D
+    6100026: _MapPrfab/Level5/Collisions/Object_16/BoxCollider2D
+    6100028: _MapPrfab/Level5/Collisions/Object_17/BoxCollider2D
+    6100030: _MapPrfab/Level5/Collisions/Object_19/BoxCollider2D
+    6100032: _MapPrfab/Level5/Collisions/Object_20/BoxCollider2D
+    6100034: _MapPrfab/Level5/Collisions/Object_22/BoxCollider2D
+    6100036: _MapPrfab/Level5/Collisions/Object_25/BoxCollider2D
+    6100038: _MapPrfab/Level5/Collisions/Object_27/BoxCollider2D
+    6100040: _MapPrfab/Level5/Collisions/Object_28/BoxCollider2D
+    6600000: _MapPrfab/Level5/Collisions/Object_18/CompositeCollider2D
+    11400000: _MapPrfab/Level5/MonoBehaviour-SuperTiled2Unity.SuperMap
+    11400002: _MapPrfab/Level5/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400004: _MapPrfab/Level5/Collisions/MonoBehaviour-SuperTiled2Unity.SuperObjectLayer
+    11400006: _MapPrfab/Level5/Collisions/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400008: _MapPrfab/Level5/Collisions/Object_1/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400010: _MapPrfab/Level5/Collisions/Object_1/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400012: _MapPrfab/Level5/Collisions/Object_1/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400014: _MapPrfab/Level5/Collisions/Object_2/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400016: _MapPrfab/Level5/Collisions/Object_2/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400018: _MapPrfab/Level5/Collisions/Object_2/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400020: _MapPrfab/Level5/Collisions/Object_3/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400022: _MapPrfab/Level5/Collisions/Object_3/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400024: _MapPrfab/Level5/Collisions/Object_3/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400026: _MapPrfab/Level5/Collisions/Object_4/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400028: _MapPrfab/Level5/Collisions/Object_4/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400030: _MapPrfab/Level5/Collisions/Object_4/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400032: _MapPrfab/Level5/Collisions/Object_5/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400034: _MapPrfab/Level5/Collisions/Object_5/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400036: _MapPrfab/Level5/Collisions/Object_5/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400038: _MapPrfab/Level5/Collisions/Object_6/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400040: _MapPrfab/Level5/Collisions/Object_6/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400042: _MapPrfab/Level5/Collisions/Object_6/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400044: _MapPrfab/Level5/Collisions/Object_7/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400046: _MapPrfab/Level5/Collisions/Object_7/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400048: _MapPrfab/Level5/Collisions/Object_7/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400050: _MapPrfab/Level5/Collisions/Object_8/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400052: _MapPrfab/Level5/Collisions/Object_8/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400054: _MapPrfab/Level5/Collisions/Object_8/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400056: _MapPrfab/Level5/Collisions/Object_9/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400058: _MapPrfab/Level5/Collisions/Object_9/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400060: _MapPrfab/Level5/Collisions/Object_9/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400062: _MapPrfab/Level5/Collisions/Object_10/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400064: _MapPrfab/Level5/Collisions/Object_10/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400066: _MapPrfab/Level5/Collisions/Object_10/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400068: _MapPrfab/Level5/Collisions/Object_11/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400070: _MapPrfab/Level5/Collisions/Object_11/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400072: _MapPrfab/Level5/Collisions/Object_11/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400074: _MapPrfab/Level5/Collisions/Object_12/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400076: _MapPrfab/Level5/Collisions/Object_12/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400078: _MapPrfab/Level5/Collisions/Object_12/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400080: _MapPrfab/Level5/Collisions/Object_15/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400082: _MapPrfab/Level5/Collisions/Object_15/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400084: _MapPrfab/Level5/Collisions/Object_15/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400086: _MapPrfab/Level5/Collisions/Object_16/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400088: _MapPrfab/Level5/Collisions/Object_16/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400090: _MapPrfab/Level5/Collisions/Object_16/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400092: _MapPrfab/Level5/Collisions/Object_17/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400094: _MapPrfab/Level5/Collisions/Object_17/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400096: _MapPrfab/Level5/Collisions/Object_17/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400098: _MapPrfab/Level5/Collisions/Object_18/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400100: _MapPrfab/Level5/Collisions/Object_18/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400102: _MapPrfab/Level5/Collisions/Object_18/ConvexPolygon/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400104: _MapPrfab/Level5/Collisions/Object_18/ConvexPolygon (1)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400106: _MapPrfab/Level5/Collisions/Object_18/ConvexPolygon (2)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400108: _MapPrfab/Level5/Collisions/Object_18/ConvexPolygon (3)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400110: _MapPrfab/Level5/Collisions/Object_18/ConvexPolygon (4)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400112: _MapPrfab/Level5/Collisions/Object_18/ConvexPolygon (5)/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400114: _MapPrfab/Level5/Collisions/Object_19/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400116: _MapPrfab/Level5/Collisions/Object_19/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400118: _MapPrfab/Level5/Collisions/Object_19/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400120: _MapPrfab/Level5/Collisions/Object_20/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400122: _MapPrfab/Level5/Collisions/Object_20/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400124: _MapPrfab/Level5/Collisions/Object_20/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400126: _MapPrfab/Level5/Collisions/Object_22/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400128: _MapPrfab/Level5/Collisions/Object_22/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400130: _MapPrfab/Level5/Collisions/Object_22/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400132: _MapPrfab/Level5/Collisions/Object_25/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400134: _MapPrfab/Level5/Collisions/Object_25/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400136: _MapPrfab/Level5/Collisions/Object_25/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400138: _MapPrfab/Level5/Collisions/Object_27/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400140: _MapPrfab/Level5/Collisions/Object_27/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400142: _MapPrfab/Level5/Collisions/Object_27/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400144: _MapPrfab/Level5/Collisions/Object_28/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400146: _MapPrfab/Level5/Collisions/Object_28/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400148: _MapPrfab/Level5/Collisions/Object_28/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400150: _MapPrfab/Level5/Ground/MonoBehaviour-SuperTiled2Unity.SuperTileLayer
+    11400152: _MapPrfab/Level5/Ground/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400154: _MapPrfab/Level5/Object/MonoBehaviour-SuperTiled2Unity.SuperTileLayer
+    11400156: _MapPrfab/Level5/Object/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400158: _MapPrfab/Level5/Object1/MonoBehaviour-SuperTiled2Unity.SuperTileLayer
+    11400160: _MapPrfab/Level5/Object1/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400162: _MapPrfab/Level5/Object2/MonoBehaviour-SuperTiled2Unity.SuperTileLayer
+    11400164: _MapPrfab/Level5/Object2/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400166: _MapPrfab/Level5/Object3/MonoBehaviour-SuperTiled2Unity.SuperTileLayer
+    11400168: _MapPrfab/Level5/Object3/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400170: _MapPrfab/Level5/Pagar/MonoBehaviour-SuperTiled2Unity.SuperTileLayer
+    11400172: _MapPrfab/Level5/Pagar/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400174: _superAsset
+    100100000: _MapPrfab
+    2569400265252428796: _MapPrfab/Level5/Grid
+    3664157343022684176: _MapPrfab/Level5/Ground/TilemapRenderer
+    3664157343022684178: _MapPrfab/Level5/Object/TilemapRenderer
+    3664157343022684180: _MapPrfab/Level5/Object1/TilemapRenderer
+    3664157343022684182: _MapPrfab/Level5/Object2/TilemapRenderer
+    3664157343022684184: _MapPrfab/Level5/Object3/TilemapRenderer
+    3664157343022684186: _MapPrfab/Level5/Pagar/TilemapRenderer
+    8195094279510102542: _MapPrfab/Level5/Ground/Tilemap
+    8195094279510102544: _MapPrfab/Level5/Object/Tilemap
+    8195094279510102546: _MapPrfab/Level5/Object1/Tilemap
+    8195094279510102548: _MapPrfab/Level5/Object2/Tilemap
+    8195094279510102550: _MapPrfab/Level5/Object3/Tilemap
+    8195094279510102552: _MapPrfab/Level5/Pagar/Tilemap
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 1fa25d03934ea624a82bf2fcee6f0873, type: 3}
+  errors: []
+  warnings: []
+  missingSortingLayers: []
+  missingLayers: []
+  pixelsPerUnit: 100
+  edgesPerEllipse: 32
+  tilesAsObjects: 0
+  importSorting: 0
+  isIsometric: 0
+  customImporterClassName: 
+  internalTilesets: []
