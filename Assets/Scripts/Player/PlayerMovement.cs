@@ -61,7 +61,6 @@ public class PlayerMovement : MonoBehaviour
         anim.SetFloat("x", 0);
         anim.SetFloat("y", -1);
         healthBar.SetMaxHealth(currentHealth);
-        footstepSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -102,20 +101,28 @@ public class PlayerMovement : MonoBehaviour
         {
             currentState = playerState.walk;
             MoveChar();
-            if(dust != null)
+            if (dust != null)
                 CreateDust();
             anim.SetFloat("x", change.x);
             anim.SetFloat("y", change.y);
             anim.SetBool("Celebration", false);
             anim.SetBool("Idle", false);
+
             if (footstepSound != null && !footstepSound.isPlaying)
             {
                 footstepSound.Play();
             }
-        }  
+        }
         else
+        {
             anim.SetBool("Idle", true);
+            if (footstepSound != null && footstepSound.isPlaying)
+            {
+                footstepSound.Stop();
+            }
+        }
     }
+
 
     void MoveChar()
     {
@@ -253,6 +260,10 @@ public class PlayerMovement : MonoBehaviour
         change.y = 0;
         myRb.velocity = Vector3.zero;
         anim.SetBool("Idle", true);
+        if (footstepSound != null && footstepSound.isPlaying)
+        {
+            footstepSound.Stop();
+        }
     }
 
     public void BeginAndEndDialog()
