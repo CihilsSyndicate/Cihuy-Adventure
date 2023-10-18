@@ -107,6 +107,13 @@ public class InventoryManager : MonoBehaviour
     }
     */
 
+    public void RemoveItem()
+    {
+        WeaponManager.Instance.RemoveAndUseWeapon(currentItem);
+        ClearInventoryItem();
+        MakeInventorySlot();
+    }
+
     public void UseButtonPressed()
     {
         if (currentItem && currentItem.itemType != InventoryItem.ItemType.Equipment)
