@@ -16676,7 +16676,7 @@ MonoBehaviour:
   interactButtonGO: {fileID: 8830154649534238502}
   interactButton: {fileID: 5897222476737903491}
   currentState: 0
-  speed: 10
+  speed: 7
   anim: {fileID: 2507077639790192700}
   fixedJoystick: {fileID: 7899080371736915057}
   currentHealth: {fileID: 11400000, guid: cba51a348d0e4c241a6aae14fa1e4c8f, type: 2}
