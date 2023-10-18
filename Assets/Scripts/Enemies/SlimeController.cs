@@ -38,7 +38,7 @@ public class SlimeController : MonoBehaviour
     private void Awake()
     {
         health = maxHealth.initialValue;
-        GameObject playerGO = GameObject.Find("Player");
+        GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
         player = playerGO.transform;
     }
 

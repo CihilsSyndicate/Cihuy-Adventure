@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="17">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="21">
  <tileset firstgid="1" source="Map.tsx"/>
  <layer id="1" name="Ground" width="25" height="25">
   <data encoding="csv">
@@ -130,5 +130,11 @@
   <object id="14" x="-3.66667" y="399.833" width="414" height="56.6667"/>
   <object id="15" x="399.75" y="-1.33333" width="87.3333" height="456.667"/>
   <object id="16" x="-0.666667" y="-47.3333" width="416" height="47.3333"/>
+  <object id="17" x="384.364" y="331.455" width="14.9091" height="66"/>
+  <object id="18" x="352.375" y="314.545" width="14.8977" height="17.4545"/>
+  <object id="19" x="370.75" y="321.375" width="11.75" height="10.75"/>
+  <object id="20" x="348.182" y="363.091" width="40.0909" height="21.6364">
+   <ellipse/>
+  </object>
  </objectgroup>
 </map>
