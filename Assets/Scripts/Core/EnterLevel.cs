@@ -26,7 +26,7 @@ public class EnterLevel : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
-        {         
+        {
             SceneManager.LoadScene(nextScene);
             PlayerPrefs.SetString("LastScene", nextScene);
             PlayerPrefs.SetString("SpawnPoint", SceneManager.GetActiveScene().name);

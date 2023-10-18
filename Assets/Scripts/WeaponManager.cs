@@ -25,6 +25,7 @@
         public void RemoveAndUseWeapon(InventoryItem item)
         {
             playerInventory.myInventory.Remove(item);
+            availableWeapons = playerInventory.myInventory.FindAll(defaultWeapon => defaultWeapon.itemType == InventoryItem.ItemType.Equipment);
             defaultWeapon = availableWeapons[0];
             SwordAttack.Instance.ClearSlashPool();
             EquipDefaultWeapon();

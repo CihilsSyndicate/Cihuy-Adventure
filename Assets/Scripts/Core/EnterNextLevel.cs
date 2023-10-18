@@ -5,12 +5,10 @@ using UnityEngine;
 public class EnterNextLevel : MonoBehaviour
 {
     public Collider2D col;
-    private GameObject arrowSign;
     // Start is called before the first frame update
     void Start()
     {
-        arrowSign = GameObject.Find("ArrowSign");
-        arrowSign.SetActive(false);
+        ArrowSign.Instance.gameObject.SetActive(false);
         col.enabled = false;
     }
 
@@ -19,14 +17,8 @@ public class EnterNextLevel : MonoBehaviour
     {
         if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
-            arrowSign.SetActive(true);
+            ArrowSign.Instance.gameObject.SetActive(true);
             col.enabled = true;
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.CompareTag("Player"))
-            arrowSign.SetActive(false);
     }
 }
