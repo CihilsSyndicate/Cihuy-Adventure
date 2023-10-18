@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject floatingText;
     public Transform joystickHandle;
     public ParticleSystem dust;
+    public AudioSource footstepSound;
 
     private static PlayerMovement instance;
 
@@ -60,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
         anim.SetFloat("x", 0);
         anim.SetFloat("y", -1);
         healthBar.SetMaxHealth(currentHealth);
+        footstepSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -106,7 +108,11 @@ public class PlayerMovement : MonoBehaviour
             anim.SetFloat("y", change.y);
             anim.SetBool("Celebration", false);
             anim.SetBool("Idle", false);
-        }
+            if (footstepSound != null && !footstepSound.isPlaying)
+            {
+                footstepSound.Play();
+            }
+        }  
         else
             anim.SetBool("Idle", true);
     }
