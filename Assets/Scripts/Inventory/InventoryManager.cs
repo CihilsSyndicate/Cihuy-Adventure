@@ -107,8 +107,9 @@ public class InventoryManager : MonoBehaviour
     }
     */
 
-    public void RemoveItem()
+    public void RemoveItem(GameObject GO)
     {
+        GO.SetActive(false);
         WeaponManager.Instance.RemoveAndUseWeapon(currentItem);
         ClearInventoryItem();
         MakeInventorySlot();

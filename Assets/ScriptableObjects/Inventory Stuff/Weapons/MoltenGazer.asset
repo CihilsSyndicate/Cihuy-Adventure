@@ -22,11 +22,11 @@ MonoBehaviour:
   Atk: 5
   Hp: 100
   itemImage: {fileID: 21300048, guid: 94f1519ab7b5f5c4e8aafecc17750778, type: 3}
-  numberHeld: 1
+  numberHeld: 2
   consumableStack: 0
   usable: 1
   unique: 0
-  isOwned: 0
+  isOwned: 1
   thisEvent:
     m_PersistentCalls:
       m_Calls: []

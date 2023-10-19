@@ -24,13 +24,22 @@
 
         public void RemoveAndUseWeapon(InventoryItem item)
         {
-            playerInventory.myInventory.Remove(item);
-            availableWeapons = playerInventory.myInventory.FindAll(defaultWeapon => defaultWeapon.itemType == InventoryItem.ItemType.Equipment);
-            defaultWeapon = availableWeapons[0];
-            SwordAttack.Instance.ClearSlashPool();
-            EquipDefaultWeapon();
-            SwordAttack.Instance.InitializePool();
-            SaveEquippedWeapon();
+            if(availableWeapons.Count > 1)
+            {
+                playerInventory.myInventory.Remove(item);
+                item.isOwned = false;
+                availableWeapons = playerInventory.myInventory.FindAll(defaultWeapon => defaultWeapon.itemType == InventoryItem.ItemType.Equipment);
+                defaultWeapon = availableWeapons[0];
+                SwordAttack.Instance.ClearSlashPool();
+                EquipDefaultWeapon();
+                SwordAttack.Instance.InitializePool();
+                SaveEquippedWeapon();
+            }
+            else
+            {
+                Debug.LogWarning("NGAPAIN");
+            }
+          
         }
 
         public void SaveEquippedWeapon()
