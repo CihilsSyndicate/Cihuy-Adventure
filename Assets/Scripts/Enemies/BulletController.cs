@@ -29,7 +29,7 @@ public class BulletController : MonoBehaviour
             gameObject.SetActive(false);           
             other.GetComponent<PlayerMovement>().TakeDamage(1f);
         }
-        else if (other.gameObject.name == "Wall")
+        else if (!other.CompareTag("Enemy"))
         {
             gameObject.SetActive(false);
         }    

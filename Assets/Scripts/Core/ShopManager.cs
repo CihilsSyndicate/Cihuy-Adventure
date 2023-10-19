@@ -34,15 +34,6 @@ public class ShopManager : MonoBehaviour
         }
         costTxt.gameObject.SetActive(false);
         coinGO.SetActive(false);
-
-        foreach (var item in items)
-        {
-            InventoryItem shopItem = item.GetComponent<ItemButton>().item;
-            if (shopItem != null && shopItem.isOwned)
-            {
-                item.SetActive(false);
-            }
-        }
     }
 
     void AddItemToInventory()

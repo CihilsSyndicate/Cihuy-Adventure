@@ -26,6 +26,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
+        soundAudioSource = GameObject.Find("Sound").GetComponent<AudioSource>();
         if (!PlayerPrefs.HasKey("soundMuted"))
         {
             PlayerPrefs.SetInt("soundMuted", 0);

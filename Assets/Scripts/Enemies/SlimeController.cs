@@ -22,6 +22,8 @@ public class SlimeController : MonoBehaviour
     private Transform player;
 
     [Header("Attacking")]
+    private GameObject target;
+    public float shootRange = 5f;
     public GameObject[] bulletPool;
     private GameObject bulletContainer;
     public GameObject floatingTextDamage;
@@ -45,10 +47,11 @@ public class SlimeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        target = GameObject.FindGameObjectWithTag("Player");
         bulletContainer = GameObject.Find("BulletContainer");
-        if(SceneManager.GetActiveScene().name != "SurvivalMode")
+        if (SceneManager.GetActiveScene().name != "SurvivalMode")
         {
-            InvokeRepeating("Shoot", Random.Range(4f, 10f), Random.Range(9f, 11f));
+            InvokeRepeating("Shoot", 0, Random.Range(5f, 7f));
         }
         else
         {
@@ -128,17 +131,31 @@ public class SlimeController : MonoBehaviour
 
     void Shoot()
     {
-        GameObject target = GameObject.FindGameObjectWithTag("Player");
-
         if (target != null)
         {
-            GameObject bullet = GetBullet(); // Menggunakan pool peluru
-            if (bullet != null)
+            if(SceneManager.GetActiveScene().name != "SurvivalMode")
             {
-                bullet.transform.position = transform.position;
-                Vector2 direction = target.transform.position - bullet.transform.position;
-                bullet.GetComponent<BulletController>().SetDirection(direction);
+                float distanceToPlayer = Vector2.Distance(target.transform.position, transform.position);
+                if (distanceToPlayer <= shootRange)
+                {
+                    LaunchBullet();
+                }
             }
+            else
+            {
+                LaunchBullet();
+            }
+        }
+    }
+
+    public void LaunchBullet()
+    {
+        GameObject bullet = GetBullet(); // Menggunakan pool peluru
+        if (bullet != null)
+        {
+            bullet.transform.position = transform.position;
+            Vector2 direction = target.transform.position - bullet.transform.position;
+            bullet.GetComponent<BulletController>().SetDirection(direction);
         }
     }
 

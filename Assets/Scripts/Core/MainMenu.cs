@@ -10,6 +10,12 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+        Destroy(PlayerMovement.Instance.gameObject);
+    }
+
     public void FollowUP()
     {
         Application.OpenURL("https://wa.me/6281973536858?text=Halo%20Farid%20Admin%20Cihuy%20Goes%20to%20school");

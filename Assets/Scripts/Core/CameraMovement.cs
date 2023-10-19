@@ -2,6 +2,7 @@
 
 public class CameraMovement : MonoBehaviour
 {
+    private Camera mainCamera;
     private Transform player;
     public float smoothing;
     public Vector2 maxPos;
@@ -17,7 +18,7 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if(player.position != transform.position)
+        if(player != null && player.position != transform.position)
         {
             Vector3 playerPosition = new Vector3(player.position.x, player.position.y, transform.position.z);
 

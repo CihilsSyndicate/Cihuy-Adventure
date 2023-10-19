@@ -114,6 +114,7 @@ public class SwordAttack : MonoBehaviour
 
             if (nearestEnemy != null)
             {
+                swordSlashAudio.Play();
                 Vector3 direction = (nearestEnemy.position - transform.position).normalized;
 
                 float posX = 0f;
@@ -157,9 +158,6 @@ public class SwordAttack : MonoBehaviour
             swordAnim.SetBool("IsAttacking", true);
         }
 
-        // Mainkan suara efek pedang slash
-        swordSlashAudio.Play();
-
         for (int i = 0; i < Mathf.Min(maxShot, colliders.Length); i++)
         {
             GameObject slashInstance = GetSlash();
@@ -187,7 +185,6 @@ public class SwordAttack : MonoBehaviour
             yield return new WaitForSeconds(attackButtonCooldown);
             attackButton.interactable = true;
         }
-        swordSlashAudio.Stop();
     }
 
 

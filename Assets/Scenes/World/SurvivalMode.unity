@@ -166,6 +166,7 @@ MonoBehaviour:
   attackCooldown: 0.5
   maxShot: 3
   poolSize: 10
+  swordSlashAudio: {fileID: 0}
 --- !u!95 &58038321
 Animator:
   serializedVersion: 3
@@ -11252,6 +11253,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6243645606855370140, guid: bbeff53c52c5fea47b894bd618f78384,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6243645606855370140, guid: bbeff53c52c5fea47b894bd618f78384,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6348224115373388028, guid: bbeff53c52c5fea47b894bd618f78384,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -11813,6 +11824,7 @@ MonoBehaviour:
   floatingText: {fileID: 0}
   joystickHandle: {fileID: 0}
   dust: {fileID: 0}
+  footstepSound: {fileID: 0}
 --- !u!50 &2058594921
 Rigidbody2D:
   serializedVersion: 4
