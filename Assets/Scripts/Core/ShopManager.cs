@@ -52,13 +52,21 @@ public class ShopManager : MonoBehaviour
             if (playerInventory.myInventory.Contains(currentItem))
             {
                 currentItem.numberHeld += 1;
-                currentItem.consumableStack -= 1;
+                if (currentItem.itemType == InventoryItem.ItemType.Consumable)
+                {
+                    currentItem.consumableStack -= 1;
+                }
+           
             }
             else if(playerInventory.myInventory.Count < playerInventory.maxInventorySize)
             {
                 playerInventory.myInventory.Add(currentItem);
                 currentItem.numberHeld += 1;
-                currentItem.consumableStack -= 1;
+                if (currentItem.itemType == InventoryItem.ItemType.Consumable)
+                {
+                    currentItem.consumableStack -= 1;
+                }
+                
             }
             else
             {
@@ -84,6 +92,7 @@ public class ShopManager : MonoBehaviour
         else if (currentItem.itemType == InventoryItem.ItemType.Equipment)
         {
             currentItem.isOwned = true;
+            AddItemToInventory();
             TurnOffBuyBtn();
         }
     }
@@ -126,7 +135,10 @@ public class ShopManager : MonoBehaviour
 
     public void CheckPurchasable()
     {
-        if(CoinCounter.Instance.currentCoin >= currentItem.cost && currentItem.isOwned == false && currentItem.consumableStack > 0)
+        if(CoinCounter.Instance.currentCoin >= currentItem.cost && currentItem.consumableStack > 0)
+        {
+            TurnOnBuyBtn();
+        }else if (CoinCounter.Instance.currentCoin >= currentItem.cost && currentItem.itemType == InventoryItem.ItemType.Equipment && currentItem.isOwned == false)
         {
             TurnOnBuyBtn();
         }

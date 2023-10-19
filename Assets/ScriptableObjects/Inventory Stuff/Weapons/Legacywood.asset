@@ -27,7 +27,7 @@ MonoBehaviour:
   consumableStack: 0
   usable: 1
   unique: 0
-  isOwned: 0
+  isOwned: 1
   thisEvent:
     m_PersistentCalls:
       m_Calls: []

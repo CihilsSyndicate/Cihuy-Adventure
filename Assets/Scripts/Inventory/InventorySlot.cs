@@ -50,6 +50,10 @@ public class InventorySlot : MonoBehaviour
         thisManager.itemImage.sprite = thisItem.itemImage;
         thisManager.detailButton.SetActive(true);
         thisManager.dropButton.SetActive(true);
+        if(WeaponManager.Instance.availableWeapons.Count == 1)
+        {
+            thisManager.dropButton.GetComponent<Button>().interactable = false;
+        }
         if (thisItem.itemType == InventoryItem.ItemType.Consumable)
         {
             thisManager.useButton.SetActive(true);
