@@ -26,6 +26,8 @@ public class SwordAttack : MonoBehaviour
     private List<GameObject> slashPool;
 
     private static SwordAttack instance;
+    public AudioSource swordSlashAudio;
+
 
     public static SwordAttack Instance
     {
@@ -155,16 +157,18 @@ public class SwordAttack : MonoBehaviour
             swordAnim.SetBool("IsAttacking", true);
         }
 
+        // Mainkan suara efek pedang slash
+        swordSlashAudio.Play();
+
         for (int i = 0; i < Mathf.Min(maxShot, colliders.Length); i++)
         {
             GameObject slashInstance = GetSlash();
             if (slashInstance != null)
             {
-                // Set posisi awal Slash sesuai dengan posisi pemain
                 slashInstance.transform.position = transform.position;
 
                 Rigidbody2D rb = slashInstance.GetComponent<Rigidbody2D>();
-                Vector2 slashDirection = new Vector2(direction.x, direction.y); // Menggunakan arah pemain
+                Vector2 slashDirection = new Vector2(direction.x, direction.y); 
 
                 rb.velocity = slashDirection * speed;
 
@@ -172,6 +176,7 @@ public class SwordAttack : MonoBehaviour
                 slashScript.SetDirection(slashDirection);
             }
         }
+
         if (SceneManager.GetActiveScene().name == "SurvivalMode")
         {
             yield return new WaitForSeconds(0.2f);
@@ -182,7 +187,9 @@ public class SwordAttack : MonoBehaviour
             yield return new WaitForSeconds(attackButtonCooldown);
             attackButton.interactable = true;
         }
+        swordSlashAudio.Stop();
     }
+
 
     // Metode untuk mengakhiri serangan
     private void ResetIsAttacking()
