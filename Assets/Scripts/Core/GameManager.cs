@@ -29,10 +29,10 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(PlayerPrefs.GetString("LastScene"));
         if(PlayerPrefs.GetString("EquippedWeaponName") != null)
         {
-            WeaponManager.Instance.LoadEquippedWeapon();
+            if(SceneManager.GetActiveScene().name != "Main Menu")
+                WeaponManager.Instance.LoadEquippedWeapon();
         }
     }
 

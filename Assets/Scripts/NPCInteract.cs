@@ -80,6 +80,7 @@ public class NPCInteract : MonoBehaviour
 
     public void CancelEntering()
     {
+        PlayerMovement.Instance.npcSign.dialogActive = false;
         PlayerMovement.Instance.interactButtonGO.SetActive(false);
         PlayerMovement.Instance.interactButton.interactable = true;
     }
