@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 public class MusicController : MonoBehaviour
 {
     [SerializeField] private string[] scenesToMute;
-
     private AudioSource musicAudioSource;
 
     private bool isMuted = false;

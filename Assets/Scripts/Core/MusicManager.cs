@@ -55,7 +55,7 @@ public class MusicManager : MonoBehaviour
             }
         }
 
-        musicAudioSource = GameObject.Find("BGM").GetComponent<AudioSource>();
+        musicAudioSource = GameObject.Find("Bgm").GetComponent<AudioSource>();
         if (!PlayerPrefs.HasKey("musicMuted"))
         {
             PlayerPrefs.SetInt("musicMuted", 0);

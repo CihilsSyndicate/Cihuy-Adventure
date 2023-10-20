@@ -18,11 +18,11 @@ MonoBehaviour:
   Atk: 0
   Hp: 5
   itemImage: {fileID: 21300000, guid: b798b68dfc1c60644af1883729b258dd, type: 3}
-  numberHeld: 956
-  consumableStack: 3
+  numberHeld: 3
+  consumableStack: 0
   usable: 1
   unique: 0
-  isOwned: 1
+  isOwned: 0
   thisEvent:
     m_PersistentCalls:
       m_Calls:

@@ -6065,10 +6065,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 2101258423}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e92fc1d7eff8e7c40b8d484c22227d60, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c30f0c037d82ab45a75584b9b48a756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectID: 
+  scenesToMute:
+  - Rest Area
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - Boss Level
+  - Secret Area
+  - 
 --- !u!156049354 &2569400266348143778
 Grid:
   m_ObjectHideFlags: 0

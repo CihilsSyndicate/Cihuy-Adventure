@@ -512,7 +512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyState: 0
   health: 0
-  maxHealth: {fileID: 11400000, guid: 3aae762f781a93c4298454312e890686, type: 2}
+  maxHealth: {fileID: 11400000, guid: 592177147972f2f429065c3d65db6117, type: 2}
   healthBar: {fileID: 671830306062991945}
   healthHolder: {fileID: 671830305847862259}
   floatingTextDamage: {fileID: 3341635747743629679, guid: 2b62da6d46f93fa488c9bc78488eb8ab,

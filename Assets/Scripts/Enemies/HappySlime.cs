@@ -37,6 +37,11 @@ public class HappySlime : MonoBehaviour
     private Vector3 targetPatrolPosition;
     private float distanceToPlayer;
 
+    private void Awake()
+    {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
     private void Start()
     {
         healthBar.SetMaxHealth(maxHealth);
@@ -51,35 +56,38 @@ public class HappySlime : MonoBehaviour
 
     private void FixedUpdate()
     {
-        distanceToPlayer = Vector3.Distance(transform.position, target.position);
-        if (inPatrolDelay && distanceToPlayer > detectionDistance )
+        if(target != null)
         {
-            anim.SetBool("isMoving", false);
-            if (Time.time - patrolStartTime >= patrolDelay)
+            distanceToPlayer = Vector3.Distance(transform.position, target.position);
+            if (inPatrolDelay && distanceToPlayer > detectionDistance )
             {
-                inPatrolDelay = false;
-                ChooseNewPatrolPosition();
-            }
-        }
-        else if (alive && enemyState != EnemyState.Stagger)
-        {
-           
-            if (distanceToPlayer <= detectionDistance)
-            {
-                // Pemain dalam jangkauan, dekati pemain
-                anim.SetBool("isMoving", true);
-                transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-            }
-            else
-            {
-                // Pemain di luar jangkauan, lanjutkan patroli
-                anim.SetBool("isMoving", true);
-                transform.position = Vector3.MoveTowards(transform.position, targetPatrolPosition, speed * Time.deltaTime);
-
-                if (Vector3.Distance(transform.position, targetPatrolPosition) < 0.1f)
+                anim.SetBool("isMoving", false);
+                if (Time.time - patrolStartTime >= patrolDelay)
                 {
-                    inPatrolDelay = true;
-                    patrolStartTime = Time.time;
+                    inPatrolDelay = false;
+                    ChooseNewPatrolPosition();
+                }
+            }
+            else if (alive && enemyState != EnemyState.Stagger)
+            {
+           
+                if (distanceToPlayer <= detectionDistance)
+                {
+                    // Pemain dalam jangkauan, dekati pemain
+                    anim.SetBool("isMoving", true);
+                    transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+                }
+                else
+                {
+                    // Pemain di luar jangkauan, lanjutkan patroli
+                    anim.SetBool("isMoving", true);
+                    transform.position = Vector3.MoveTowards(transform.position, targetPatrolPosition, speed * Time.deltaTime);
+
+                    if (Vector3.Distance(transform.position, targetPatrolPosition) < 0.1f)
+                    {
+                        inPatrolDelay = true;
+                        patrolStartTime = Time.time;
+                    }
                 }
             }
         }

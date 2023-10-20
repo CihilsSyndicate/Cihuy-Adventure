@@ -10,26 +10,27 @@ public class UsePotion : MonoBehaviour
 
     private void Start()
     {
-        if (potionItem != null && playerInventory.myInventory.Contains(potionItem))
-        {
-            buttonImage.sprite = potionItem.itemImage;
-        }
+
     }
 
     private void Update()
     {
-        if (potionItem.numberHeld > 0)
+        if (playerInventory.myInventory.Contains(potionItem))
         {
-            usePotionButton.interactable = true;
-            buttonImage.color = Color.white;
+            if (potionItem.numberHeld > 0)
+            {
+                usePotionButton.interactable = true;
+                buttonImage.enabled = true;
+            }
+            else
+            {
+                playerInventory.RemoveItem(potionItem);
+            }
         }
         else
         {
-            playerInventory.RemoveItem(potionItem);
+            buttonImage.enabled = false;
             usePotionButton.interactable = false;
-            Color newColor = buttonImage.color;
-            newColor.a = 0;
-            buttonImage.color = newColor;
         }
     }
 
@@ -38,6 +39,10 @@ public class UsePotion : MonoBehaviour
         if (potionItem != null && potionItem.numberHeld > 0 && PlayerMovement.Instance.currentHealth.RuntimeValue < PlayerMovement.Instance.currentHealth.initialValue)
         {
             potionItem.Use();
+            if(potionItem.numberHeld == 0)
+            {
+                playerInventory.myInventory.Remove(potionItem);
+            }
         }
         else
         {
