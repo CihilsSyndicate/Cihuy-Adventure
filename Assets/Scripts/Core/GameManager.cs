@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        InvokeRepeating("SavePlayer", 0f, 1f);
         if(PlayerPrefs.GetString("EquippedWeaponName") != null)
         {
             if(SceneManager.GetActiveScene().name != "Main Menu")
@@ -38,7 +39,8 @@ public class GameManager : MonoBehaviour
 
     public void SavePlayer()
     {
-        SaveSystem.SavePlayer(PlayerMovement.Instance);
+        if(PlayerMovement.Instance != null)
+            SaveSystem.SavePlayer(PlayerMovement.Instance);
     }
 
     public void LoadGame()
@@ -53,7 +55,10 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("Home");
             PlayerPrefs.SetString("LastScene", "Home");
         }
-        Instantiate(playerPrefab);
+        if (PlayerMovement.Instance == null)
+        {
+            Instantiate(playerPrefab);
+        }
     }
 
     public void LoadPlayer()
