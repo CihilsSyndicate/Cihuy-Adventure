@@ -171,6 +171,7 @@ MonoBehaviour:
   killingScore: 10
   damageEffectDuration: 0.2
   spriteRenderer: {fileID: 6353128745903201263}
+  shootRange: 5
   bulletPool:
   - {fileID: 8791798402376650505}
   - {fileID: 3900660237049143713}
@@ -178,7 +179,7 @@ MonoBehaviour:
   - {fileID: 3307613740066082741}
   floatingTextDamage: {fileID: 3341635747743629679, guid: 2b62da6d46f93fa488c9bc78488eb8ab,
     type: 3}
-  maxHealth: {fileID: 11400000, guid: 3aae762f781a93c4298454312e890686, type: 2}
+  maxHealth: {fileID: 11400000, guid: 592177147972f2f429065c3d65db6117, type: 2}
   health: 0
   healthBar: {fileID: 6219755320266667266}
   healthHolder: {fileID: 6219755319996856921}

@@ -13,6 +13,7 @@ public class FloatValue : ScriptableObject, ISerializationCallbackReceiver
 
     public void OnAfterDeserialize()
     {
+        Debug.Log("DARAH");
         RuntimeValue = initialValue;
     }
     

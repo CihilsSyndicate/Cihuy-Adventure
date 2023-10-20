@@ -14,6 +14,7 @@ public class GameOver : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        PlayerMovement.Instance.currentHealth.RuntimeValue = PlayerMovement.Instance.currentHealth.initialValue;
         SceneManager.LoadScene("Main Menu");
         PlayerPrefs.DeleteAll();
         playerInventory.myInventory.Clear();
@@ -23,6 +24,7 @@ public class GameOver : MonoBehaviour
 
     public void RestartGame()
     {
+        PlayerMovement.Instance.currentHealth.RuntimeValue = PlayerMovement.Instance.currentHealth.initialValue;
         Instantiate(gameObject);
         SceneManager.LoadScene("Home");
         PlayerPrefs.DeleteAll();

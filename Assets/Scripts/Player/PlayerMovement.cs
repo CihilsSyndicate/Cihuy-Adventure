@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public float damageEffectDuration = 0.2f;
     public HealthBar healthBar;
+    public HealthBar healthBarBig;
     public GameObject floatingTextDamage;
     public GameObject floatingText;
     public Transform joystickHandle;
@@ -80,7 +81,8 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         healthBar.SetHealth(currentHealth.RuntimeValue);
-        if(currentHealth.RuntimeValue > currentHealth.initialValue)
+        healthBarBig.SetHealth(currentHealth.RuntimeValue);
+        if (currentHealth.RuntimeValue > currentHealth.initialValue)
         {
             currentHealth.RuntimeValue = currentHealth.initialValue;
         }
@@ -157,17 +159,24 @@ public class PlayerMovement : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        currentHealth.RuntimeValue -= damage;      
+        currentHealth.RuntimeValue -= damage;
+
+        Debug.Log(currentHealth.RuntimeValue);
         ShowFloatingText(damage);
         StartCoroutine(DamageEffect());
         playerHealthSignal.Raise();
-        if (currentHealth.RuntimeValue > 0)
+        if (currentHealth.RuntimeValue <= 0)
         {
-            Destroy(gameObject);
+            Destroy(gameObject);       
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (currentHealth.RuntimeValue <= 0)
+        {
             Instantiate(popupGameOver);
         }
-        else
-            gameObject.SetActive(false);
     }
 
     void ShowFloatingText(float damage)
@@ -194,7 +203,7 @@ public class PlayerMovement : MonoBehaviour
     public void Knock(float knockTime, float damage)
     {
         currentHealth.RuntimeValue -= damage;
-        healthBar.SetHealth(currentHealth.RuntimeValue);
+        Debug.Log(currentHealth.RuntimeValue);
         ShowFloatingText(damage);
         StartCoroutine(DamageEffect());
         playerHealthSignal.Raise();
