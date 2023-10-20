@@ -18,7 +18,6 @@ public class GameOver : MonoBehaviour
         SceneManager.LoadScene("Main Menu");
         PlayerPrefs.DeleteAll();
         playerInventory.myInventory.Clear();
-        NpcSign.Instance.easterEggMakcik = 0;
         Destroy(gameObject);
     }
 
@@ -29,7 +28,6 @@ public class GameOver : MonoBehaviour
         SceneManager.LoadScene("Home");
         PlayerPrefs.DeleteAll();
         playerInventory.myInventory.Clear();
-        NpcSign.Instance.easterEggMakcik = 0;
         Destroy(gameObject);
     }
 

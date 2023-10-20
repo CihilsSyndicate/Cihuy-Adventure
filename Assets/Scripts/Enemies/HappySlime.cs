@@ -40,7 +40,7 @@ public class HappySlime : MonoBehaviour
     private void Start()
     {
         healthBar.SetMaxHealth(maxHealth);
-        target = GameObject.FindWithTag("Player").transform;
+        target = GameObject.FindGameObjectWithTag("Player").transform;
         myRb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         initialPatrolPosition = transform.position;
