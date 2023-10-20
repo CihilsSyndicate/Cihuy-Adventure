@@ -139,6 +139,10 @@ ScriptedImporter:
     100268: _MapPrfab/Level6/Collisions/Object_18
     100270: _MapPrfab/Level6/Collisions/Object_19
     100272: _MapPrfab/Level6/Collisions/Object_20
+    100274: _MapPrfab/Level6/Collisions/Object_21
+    100276: _MapPrfab/Level6/Collisions/Object_22
+    100278: _MapPrfab/Level6/Collisions/Object_23
+    100280: _MapPrfab/Level6/Collisions/Object_24
     400000: _MapPrfab/Level6/Transform
     400002: _MapPrfab/Level6/Collisions/Transform
     400004: _MapPrfab/Level6/Collisions/Object_6/Transform
@@ -276,6 +280,10 @@ ScriptedImporter:
     400268: _MapPrfab/Level6/Collisions/Object_18/Transform
     400270: _MapPrfab/Level6/Collisions/Object_19/Transform
     400272: _MapPrfab/Level6/Collisions/Object_20/Transform
+    400274: _MapPrfab/Level6/Collisions/Object_21/Transform
+    400276: _MapPrfab/Level6/Collisions/Object_22/Transform
+    400278: _MapPrfab/Level6/Collisions/Object_23/Transform
+    400280: _MapPrfab/Level6/Collisions/Object_24/Transform
     5000000: _MapPrfab/Level6/Collisions/Object_6/Rigidbody2D
     5000002: _MapPrfab/Level6/Collisions/Object_7/Rigidbody2D
     6000000: _MapPrfab/Level6/Collisions/Object_6/ConvexPolygon/PolygonCollider2D
@@ -398,6 +406,7 @@ ScriptedImporter:
     6000234: _MapPrfab/Level6/Collisions/Object_7/ConvexPolygon (44)/PolygonCollider2D
     6000236: _MapPrfab/Level6/Collisions/Object_7/ConvexPolygon (45)/PolygonCollider2D
     6000238: _MapPrfab/Level6/Collisions/Object_20/PolygonCollider2D
+    6000240: _MapPrfab/Level6/Collisions/Object_22/PolygonCollider2D
     6100000: _MapPrfab/Level6/Collisions/Object_8/BoxCollider2D
     6100002: _MapPrfab/Level6/Collisions/Object_9/BoxCollider2D
     6100004: _MapPrfab/Level6/Collisions/Object_11/BoxCollider2D
@@ -407,6 +416,9 @@ ScriptedImporter:
     6100012: _MapPrfab/Level6/Collisions/Object_17/BoxCollider2D
     6100014: _MapPrfab/Level6/Collisions/Object_18/BoxCollider2D
     6100016: _MapPrfab/Level6/Collisions/Object_19/BoxCollider2D
+    6100018: _MapPrfab/Level6/Collisions/Object_21/BoxCollider2D
+    6100020: _MapPrfab/Level6/Collisions/Object_23/BoxCollider2D
+    6100022: _MapPrfab/Level6/Collisions/Object_24/BoxCollider2D
     6600000: _MapPrfab/Level6/Collisions/Object_6/CompositeCollider2D
     6600002: _MapPrfab/Level6/Collisions/Object_7/CompositeCollider2D
     11400000: _MapPrfab/Level6/MonoBehaviour-SuperTiled2Unity.SuperMap
@@ -575,6 +587,18 @@ ScriptedImporter:
     11400326: _MapPrfab/Level6/Collisions/Object_20/MonoBehaviour-SuperTiled2Unity.SuperObject
     11400328: _MapPrfab/Level6/Collisions/Object_20/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
     11400330: _MapPrfab/Level6/Collisions/Object_20/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400332: _MapPrfab/Level6/Collisions/Object_21/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400334: _MapPrfab/Level6/Collisions/Object_21/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400336: _MapPrfab/Level6/Collisions/Object_21/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400338: _MapPrfab/Level6/Collisions/Object_22/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400340: _MapPrfab/Level6/Collisions/Object_22/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400342: _MapPrfab/Level6/Collisions/Object_22/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400344: _MapPrfab/Level6/Collisions/Object_23/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400346: _MapPrfab/Level6/Collisions/Object_23/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400348: _MapPrfab/Level6/Collisions/Object_23/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400350: _MapPrfab/Level6/Collisions/Object_24/MonoBehaviour-SuperTiled2Unity.SuperObject
+    11400352: _MapPrfab/Level6/Collisions/Object_24/MonoBehaviour-SuperTiled2Unity.SuperColliderComponent
+    11400354: _MapPrfab/Level6/Collisions/Object_24/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
     100100000: _MapPrfab
     2569400265252428796: _MapPrfab/Level6/Grid
     3664157343022684176: _MapPrfab/Level6/Ground/TilemapRenderer
