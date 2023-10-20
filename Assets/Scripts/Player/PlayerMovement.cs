@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public enum playerState
@@ -14,6 +15,7 @@ public enum playerState
 
 public class PlayerMovement : MonoBehaviour
 {
+    public GameObject popupGameOver;
     public NpcSign npcSign;
     public GameObject interactButtonGO;
     public Button interactButton;
@@ -46,6 +48,11 @@ public class PlayerMovement : MonoBehaviour
         instance = this;
     }
 
+    public void SavePlayer()
+    {
+        GameManager.Instance.SavePlayer();
+    }
+
     void Awake()
     {
         if (instance == null)
@@ -61,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        InvokeRepeating("SavePlayer", 0f, 1f);
         spriteRenderer = GetComponent<SpriteRenderer>();
         myRb = GetComponent<Rigidbody2D>();
         anim.SetFloat("x", 0);
@@ -155,7 +163,8 @@ public class PlayerMovement : MonoBehaviour
         playerHealthSignal.Raise();
         if (currentHealth.RuntimeValue > 0)
         {
-
+            Destroy(gameObject);
+            Instantiate(popupGameOver);
         }
         else
             gameObject.SetActive(false);
@@ -192,8 +201,9 @@ public class PlayerMovement : MonoBehaviour
         if (currentHealth.RuntimeValue > 0)
         {
             StartCoroutine(knockCo(knockTime));
-        }else
-            gameObject.SetActive(false);
+        }
+        else
+            Destroy(gameObject);
 
     }
 

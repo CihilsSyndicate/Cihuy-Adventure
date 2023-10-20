@@ -23,7 +23,7 @@ MonoBehaviour:
     realms.
   cost: 0
   Atk: 999
-  Hp: 100
+  Hp: 5000
   itemImage: {fileID: 21300056, guid: 94f1519ab7b5f5c4e8aafecc17750778, type: 3}
   numberHeld: 1
   consumableStack: 0

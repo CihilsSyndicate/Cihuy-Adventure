@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d06bb86cc787734a85c7e7e6e27102e, type: 3}
   m_Name: BossSlime
   m_EditorClassIdentifier: 
-  initialValue: 999999
-  RuntimeValue: 999999
+  initialValue: 300
+  maxHealth: 0
+  RuntimeValue: 300

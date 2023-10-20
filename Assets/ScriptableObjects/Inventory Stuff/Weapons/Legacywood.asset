@@ -20,7 +20,7 @@ MonoBehaviour:
     Passed down through generations, it remains a beacon of inspiration, embodying
     the ideals of honor, courage, and justice, and preserving the legacy of true chivalry.
   cost: 0
-  Atk: 100
+  Atk: 5
   Hp: 70
   itemImage: {fileID: 21300050, guid: 94f1519ab7b5f5c4e8aafecc17750778, type: 3}
   numberHeld: 2
