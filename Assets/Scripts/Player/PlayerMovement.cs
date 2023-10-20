@@ -41,6 +41,11 @@ public class PlayerMovement : MonoBehaviour
         get { return instance; }
     }
 
+    private void OnEnable()
+    {
+        instance = this;
+    }
+
     void Awake()
     {
         if (instance == null)
