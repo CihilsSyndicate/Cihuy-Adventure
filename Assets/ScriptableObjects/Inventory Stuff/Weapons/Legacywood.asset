@@ -23,7 +23,7 @@ MonoBehaviour:
   Atk: 5
   Hp: 70
   itemImage: {fileID: 21300050, guid: 94f1519ab7b5f5c4e8aafecc17750778, type: 3}
-  numberHeld: 2
+  numberHeld: 3
   consumableStack: 0
   usable: 1
   unique: 0
