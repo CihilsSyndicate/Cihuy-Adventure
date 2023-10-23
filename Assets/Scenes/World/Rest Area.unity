@@ -574,9 +574,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 744897573
-  m_SortingLayer: 2
-  m_SortingOrder: 4
+  m_SortingLayerID: -441285127
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300222, guid: 25dfb1a7fa7fe3a449616eff214a37c4, type: 3}
   m_Color: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
   m_FlipX: 0
@@ -1010,7 +1010,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 0
   DopplerLevel: 0.75
-  MinDistance: 1
+  MinDistance: 1.4321423
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 2
@@ -1225,7 +1225,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.006456971, y: -0.052688718}
+  m_Offset: {x: 0.038908273, y: -0.052688718}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1236,7 +1236,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5091996, y: 0.93883777}
+  m_Size: {x: 0.82326895, y: 0.93883777}
   m_EdgeRadius: 0
 --- !u!212 &946297100
 SpriteRenderer:
@@ -1272,9 +1272,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 744897573
-  m_SortingLayer: 2
-  m_SortingOrder: 5
+  m_SortingLayerID: -441285127
+  m_SortingLayer: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300002, guid: 62a9b27ac3d85c348a5faad7fe31db71, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

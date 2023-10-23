@@ -21,7 +21,7 @@ MonoBehaviour:
     mother and son. Aetherion carried it always, a beacon of hope and a reminder that
     love transcended even the divine, uniting them in celestial battles and cosmic
     realms.
-  cost: 0
+  cost: 2000
   Atk: 999
   Hp: 5000
   itemImage: {fileID: 21300056, guid: 94f1519ab7b5f5c4e8aafecc17750778, type: 3}

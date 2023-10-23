@@ -23,7 +23,7 @@ MonoBehaviour:
     power of fear, their strikes seeping the malevolence of its namesake. The blade's
     chilling touch serves as a reminder of the darkness that once plagued the world,
     now harnessed by the brave to prevent such evil from rising again.
-  cost: 0
+  cost: 1500
   Atk: 30
   Hp: 400
   itemImage: {fileID: 21300058, guid: 94f1519ab7b5f5c4e8aafecc17750778, type: 3}
