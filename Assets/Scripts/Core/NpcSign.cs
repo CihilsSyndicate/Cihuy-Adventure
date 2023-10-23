@@ -83,12 +83,12 @@ public class NpcSign : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(easterEggMakcik == 2 && makcikScript != null && !isTyping)
+        if(easterEggMakcik == 10 && makcikScript != null && !isTyping)
         {
             npcManager.npcDialog = "Fine, you got me... He was passed away that time, so am I. " +
                 "And then, this thing is for you, kid... You better keep it.";
         }
-        else if(easterEggMakcik == 3 && makcikScript != null && !isTyping)
+        else if(easterEggMakcik == 11 && makcikScript != null && !isTyping)
         {
             npcManager.npcName = "Secret Key";
             if (playerInventory.myInventory.Count != playerInventory.maxInventorySize)
@@ -135,7 +135,7 @@ public class NpcSign : MonoBehaviour
                 treasureChest.itemGainedSR.enabled = false;
                 PlayerMovement.Instance.anim.SetBool("Celebration", false);
             }
-            if(easterEggMakcik == 3 && makcikScript != null)
+            if(easterEggMakcik == 11 && makcikScript != null)
             {
                 BeginDialog();
                 if(playerInventory.myInventory.Count != playerInventory.maxInventorySize)
@@ -150,7 +150,7 @@ public class NpcSign : MonoBehaviour
                     PlayerMovement.Instance.anim.SetBool("Sad", true);
                 }
             }
-            else if (easterEggMakcik == 4 && makcikScript != null)
+            else if (easterEggMakcik == 12 && makcikScript != null)
             {
                 npcManager.npcName = "Mrs. Siti";
                 npcManager.npcDialog = "...";
