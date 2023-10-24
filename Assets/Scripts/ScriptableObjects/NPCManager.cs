@@ -6,8 +6,8 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "NPCManager", menuName = "New Npc", order = 1)]
 public class NPCManager : ScriptableObject
 {
+    public List<string> npcDialogs;
     public Sprite npcSprite;
-    public string npcDialog;
     public string npcName;
     public string option1;
     public string option2;

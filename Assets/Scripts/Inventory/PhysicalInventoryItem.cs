@@ -67,11 +67,11 @@ public class PhysicalInventoryItem : MonoBehaviour
             if (playerInventory.myInventory.Contains(thisItem))
             {
                 thisItem.numberHeld += 1;
-                Destroy(this.gameObject);
+                Destroy(gameObject);
             }
             else
             {
-                playerInventory.AddItem(thisItem, this.gameObject, thisItem);
+                playerInventory.AddItem(thisItem, gameObject, thisItem);
             }
         }
     }

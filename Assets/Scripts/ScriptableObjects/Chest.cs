@@ -5,8 +5,8 @@ public class Chest : ScriptableObject
 {
     public enum ChestType
     {
-        Normal,
-        Rare
+        SupplyChest,
+        WeaponChest
     }
 
     public ChestType chestType;

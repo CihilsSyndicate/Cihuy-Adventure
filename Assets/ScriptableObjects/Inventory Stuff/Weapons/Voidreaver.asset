@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49bbd3c4111fbdf4085149635117f49d, type: 3}
+  m_Name: Voidreaver
+  m_EditorClassIdentifier: 
+  itemName: Voidreaver
+  itemDescription: Voidreaver, a legendary sword forged in the heart of a dying star,
+    is said to hold the essence of a cosmic void within its obsidian blade. The weapon's
+    enigmatic origin and its dark aura have earned it a reputation as a harbinger
+    of chaos and destruction. Whispers of its power speak of the ability to tear open
+    the fabric of reality, unleashing otherworldly forces upon its foes. Those who
+    dare to wield the Voidreaver walk a fine line between salvation and damnation,
+    for the sword's immense power can consume the soul of its master as easily as
+    it devours its adversaries.
+  cost: 200
+  Atk: 5
+  Hp: 100
+  itemImage: {fileID: 21300028, guid: 94f1519ab7b5f5c4e8aafecc17750778, type: 3}
+  numberHeld: 4
+  consumableStack: 0
+  usable: 1
+  unique: 0
+  isOwned: 0
+  thisEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  itemType: 0

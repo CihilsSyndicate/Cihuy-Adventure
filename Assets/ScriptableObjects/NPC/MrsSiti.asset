@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d990fcb6d05912f44a06d2682460996b, type: 3}
   m_Name: MrsSiti
   m_EditorClassIdentifier: 
+  npcDialogs:
+  - My son went to war last year to defend his homeland. And, thanks God, he returned
+    safely.
   npcSprite: {fileID: 21300000, guid: 69da0fc4707d08a4aaf3f2a3d757393b, type: 3}
-  npcDialog: My son went to war last year to defend his homeland. And, thanks to God,
-    he returned safely...
   npcName: Mrs. Siti
   option1: 
   option2: 

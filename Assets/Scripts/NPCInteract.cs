@@ -9,6 +9,7 @@ public class NPCInteract : MonoBehaviour
     public GameObject[] go;
     public bool trader;
     public bool enterPoint;
+    public bool chest;
     public GameObject dialogBox;
     public Text nameNpcText;
     public Text dialogText;

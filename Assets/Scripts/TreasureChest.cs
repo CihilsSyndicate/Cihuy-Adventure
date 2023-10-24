@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class TreasureChest : MonoBehaviour
 {
+    [Header("General")]
     public Chest chestData;
-    public NpcSign npcSign;
-    public SpriteRenderer itemGainedSR;
     public PlayerInventory playerInventory;
-    public InventoryItem mommyKey;
     public GameObject sign;
     public Animator anim;
     public bool needKey;
+
+    [Header("For Weapon Chest")]
+    public NpcSign npcSign;
+    public SpriteRenderer itemGainedSR;
+
+    [Header("For Stellara Chest")]
+    public InventoryItem mommyKey;
     public bool needMommyKey;
+
     private static TreasureChest instance;
     public static TreasureChest Instance
     {
@@ -26,7 +32,7 @@ public class TreasureChest : MonoBehaviour
     private void Start()
     {
         
-        if (chestData.chestType == Chest.ChestType.Rare)
+        if (chestData.chestType == Chest.ChestType.WeaponChest)
         {
             itemGainedSR = GameObject.Find("ItemGained").GetComponent<SpriteRenderer>();
         }
@@ -72,7 +78,8 @@ public class TreasureChest : MonoBehaviour
         PlayerPrefs.Save();
         sign.SetActive(false);
         anim.SetBool("open", true);
-        if (chestData.chestType == Chest.ChestType.Rare)
+
+        if (chestData.chestType == Chest.ChestType.WeaponChest)
         {
             PlayerMovement.Instance.anim.SetBool("Celebration", true);    
             playerInventory.myInventory.Add(chestData.rareItems);
@@ -81,17 +88,15 @@ public class TreasureChest : MonoBehaviour
             itemGainedSR.enabled = true;
             playerInventory.myInventory.Remove(mommyKey);
         }
-        else if (chestData.chestType == Chest.ChestType.Normal)
+
+        else if (chestData.chestType == Chest.ChestType.SupplyChest)
         {
-            // Generate GameObject jika tipe chest Normal
             foreach (GameObject itemPrefab in chestData.normalItems)
             {
                 GameObject item = Instantiate(itemPrefab);
                 item.transform.SetParent(this.gameObject.transform);
                 item.transform.position = transform.position;
             }
-
-           
         }
     }
 }

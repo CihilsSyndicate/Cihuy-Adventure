@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class NpcSign : MonoBehaviour
 {
     [Header("General")]
+    private int currentDialogIndex = 0;
     public float typingSpeed = 0.05f;
     private bool isTyping;
     [System.NonSerialized] public bool dialogActive = false;
@@ -85,16 +86,16 @@ public class NpcSign : MonoBehaviour
     {
         if(easterEggMakcik == 10 && makcikScript != null && !isTyping)
         {
-            npcManager.npcDialog = "Fine, you got me... He was passed away that time, so am I. " +
+            npcManager.npcDialogs[0] = "Fine, you got me... He was passed away that time, so am I. " +
                 "And then, this thing is for you, kid... You better keep it.";
         }
         else if(easterEggMakcik == 11 && makcikScript != null && !isTyping)
         {
             npcManager.npcName = "Secret Key";
             if (playerInventory.myInventory.Count != playerInventory.maxInventorySize)
-                npcManager.npcDialog = "I hope you would listen her.";
+                npcManager.npcDialogs[0] = "I hope you would listen her.";
             else
-                npcManager.npcDialog = "Foolish, you should get rid of those useless things in your bag.";
+                npcManager.npcDialogs[0] = "Foolish, you should get rid of those useless things in your bag.";
         }
     }
 
@@ -103,10 +104,12 @@ public class NpcSign : MonoBehaviour
         if (!dialogActive)
         {
             PlayerMovement.Instance.interactButton.interactable = false;
+            currentDialogIndex = 0;
             ToggleDialog();
             dialogActive = true;
-            if(makcikScript != null)
+            if (makcikScript != null) {
                 easterEggMakcik += 1;
+            }
         }
     }
 
@@ -117,7 +120,7 @@ public class NpcSign : MonoBehaviour
             StopCoroutine(typingCoroutine);
             if(gameObject.tag != "Chest")
             {
-                dialogText.text = npcManager.npcDialog;
+                dialogText.text = GetCurrentDialog();
             }
             else
             {
@@ -126,10 +129,7 @@ public class NpcSign : MonoBehaviour
             isTyping = false;
         }
         else if (dialogActive && !isTyping && !gameObject.CompareTag("NPC Trader") && !gameObject.CompareTag("EnterPoint"))
-        {
-            dialogActive = false;
-            dialogBox.SetActive(false);
-            PlayerMovement.Instance.interactButton.interactable = true;           
+        {         
             if (gameObject.tag == "Chest")
             {
                 treasureChest.itemGainedSR.enabled = false;
@@ -153,7 +153,7 @@ public class NpcSign : MonoBehaviour
             else if (easterEggMakcik == 12 && makcikScript != null)
             {
                 npcManager.npcName = "Mrs. Siti";
-                npcManager.npcDialog = "...";
+                npcManager.npcDialogs[0] = "...";
                 PlayerPrefs.SetInt("MakcikStatus", 1);
                 PlayerMovement.Instance.interactButtonGO.SetActive(false);               
                 PlayerMovement.Instance.anim.SetBool("Celebration", false);
@@ -161,7 +161,28 @@ public class NpcSign : MonoBehaviour
                 if (itemGainedSR != null)
                     itemGainedSR.enabled = false;
             }
+
+            if (currentDialogIndex < npcManager.npcDialogs.Count - 1)
+            {
+                currentDialogIndex++;
+                ToggleDialog();
+            }
+            else
+            {
+                dialogActive = false;
+                dialogBox.SetActive(false);
+                PlayerMovement.Instance.interactButton.interactable = true;
+            }
         }
+    }
+
+    private string GetCurrentDialog()
+    {
+        if (currentDialogIndex < npcManager.npcDialogs.Count)
+        {
+            return npcManager.npcDialogs[currentDialogIndex];
+        }
+        return "";
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -179,17 +200,6 @@ public class NpcSign : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Hentikan teks yang sedang ditampilkan saat keluar dari jangkauan
-            if (isTyping)
-            {
-                StopCoroutine(typingCoroutine);
-                dialogText.text = npcManager.npcDialog;
-                isTyping = false;
-            }
-
-            dialogActive = false;
-            dialogBox.SetActive(false);
-
             if (spriteRendererToActivate != null)
             {
                 spriteRendererToActivate.enabled = false;
@@ -197,9 +207,9 @@ public class NpcSign : MonoBehaviour
         }
     }
 
-    void ToggleDialog()
+    private void ToggleDialog()
     {
-        if (dialogBox.activeInHierarchy)
+        if (dialogBox.activeInHierarchy && currentDialogIndex >= npcManager.npcDialogs.Count)
         {
             dialogBox.SetActive(false);
         }
@@ -215,6 +225,7 @@ public class NpcSign : MonoBehaviour
                 nameNpcText.text = "Rare Chest";
             }
 
+            dialogText.text = GetCurrentDialog();
             typingCoroutine = StartCoroutine(TypeText());
 
             if(gameObject.tag != "Chest")
@@ -233,7 +244,8 @@ public class NpcSign : MonoBehaviour
 
         if (gameObject.tag != "Chest")
         {
-            foreach (char letter in npcManager.npcDialog)
+            string currentDialog = GetCurrentDialog(); // Dapatkan dialog saat ini
+            foreach (char letter in currentDialog)
             {
                 dialogText.text += letter;
 
@@ -247,7 +259,8 @@ public class NpcSign : MonoBehaviour
         }
         else
         {
-            foreach (char letter in chestDialog.dialog)
+            string currentDialog = GetCurrentDialog(); // Dapatkan dialog saat ini
+            foreach (char letter in currentDialog)
             {
                 dialogText.text += letter;
 

@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d990fcb6d05912f44a06d2682460996b, type: 3}
   m_Name: Unknown
   m_EditorClassIdentifier: 
+  npcDialogs:
+  - Oh, what we found here...
+  - A visitor, I guess?
   npcSprite: {fileID: 21300062, guid: ec3f6e3f34eba454da7678d5f0a4b551, type: 3}
-  npcDialog: Yo, kidos. Wonder about me? Or the chest?
   npcName: ???
   option1: 
   option2: 

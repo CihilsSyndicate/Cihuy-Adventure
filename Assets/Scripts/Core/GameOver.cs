@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
     public PlayerInventory playerInventory;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +25,8 @@ public class GameOver : MonoBehaviour
     public void RestartGame()
     {
         PlayerMovement.Instance.currentHealth.RuntimeValue = PlayerMovement.Instance.currentHealth.initialValue;
-        Instantiate(gameObject);
-        SceneManager.LoadScene("Home");
         PlayerPrefs.DeleteAll();
+        GameManager.Instance.LoadGame();
         playerInventory.myInventory.Clear();
         Destroy(gameObject);
     }

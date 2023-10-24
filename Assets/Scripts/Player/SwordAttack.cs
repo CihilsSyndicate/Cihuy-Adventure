@@ -12,6 +12,7 @@ public class SwordAttack : MonoBehaviour
     public GameObject slashPrefab;
     public Button attackButton;
     private GameObject bulletContainer;
+    public float impulseForce;
 
     [Header("Survival Mode")]
     public float attackRange = 6f;
@@ -129,6 +130,8 @@ public class SwordAttack : MonoBehaviour
                     posY = Mathf.Sign(direction.y);
                 }
 
+                PlayerMovement.Instance.myRb.AddForce(-direction * impulseForce, ForceMode2D.Impulse);
+
                 // Sinkronkan arah pemain, pedang, dan slash
                 PlayerMovement.Instance.change.x = posX;
                 PlayerMovement.Instance.change.y = posY;
@@ -182,6 +185,8 @@ public class SwordAttack : MonoBehaviour
         }
         else
         {
+            yield return new WaitForSeconds(0.2f);
+            PlayerMovement.Instance.StopMovement();
             yield return new WaitForSeconds(attackButtonCooldown);
             attackButton.interactable = true;
         }

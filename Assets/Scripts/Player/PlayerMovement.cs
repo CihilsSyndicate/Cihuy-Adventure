@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public playerState currentState;
     public float speed = 5f;
     public Animator anim;
-    private Rigidbody2D myRb;
+    public Rigidbody2D myRb;
     [System.NonSerialized] public Vector3 change;
     public FixedJoystick fixedJoystick;
     public FloatValue currentHealth;
@@ -138,24 +138,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
     void MoveChar()
     {
         myRb.MovePosition(
             transform.position + change.normalized * speed * Time.deltaTime
             );
     }
-
-    private IEnumerator AttackCo()
-    {
-        anim.SetBool("Attack", true);
-        currentState = playerState.attack;
-        yield return null;
-        anim.SetBool("Attack", false);
-        yield return new WaitForSeconds(.3f);
-        currentState = playerState.walk;
-    }
-
 
     public void TakeDamage(float damage)
     {
@@ -230,17 +218,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("NPC Trader") && other.isTrigger)
-        {
-            NPCInteract.Instance.trader = true;
-            NPCInteract.Instance.enterPoint = false;
-            npcSign = other.GetComponent<NpcSign>();
-            interactButtonGO.SetActive(true);
-        }
-        else if (other.CompareTag("NPC")&& other.isTrigger)
+        if (other.CompareTag("NPC")&& other.isTrigger)
         {
             NPCInteract.Instance.trader = false;
             NPCInteract.Instance.enterPoint = false;
+            NPCInteract.Instance.chest = false;
+            npcSign = other.GetComponent<NpcSign>();
+            interactButtonGO.SetActive(true);
+        }
+        else if (other.CompareTag("NPC Trader") && other.isTrigger)
+        {
+            NPCInteract.Instance.trader = true;
+            NPCInteract.Instance.enterPoint = false;
+            NPCInteract.Instance.chest = false;
             npcSign = other.GetComponent<NpcSign>();
             interactButtonGO.SetActive(true);
         }
@@ -248,11 +238,15 @@ public class PlayerMovement : MonoBehaviour
         {
             NPCInteract.Instance.trader = false;
             NPCInteract.Instance.enterPoint = true;
+            NPCInteract.Instance.chest = false;
             npcSign = other.GetComponent<NpcSign>();
             interactButtonGO.SetActive(true);
         }
         else if (other.CompareTag("Chest") && other.isTrigger)
         {
+            NPCInteract.Instance.trader = false;
+            NPCInteract.Instance.enterPoint = false;
+            NPCInteract.Instance.chest = true;
             npcSign = other.GetComponent<NpcSign>();
         }
     }

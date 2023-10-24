@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d990fcb6d05912f44a06d2682460996b, type: 3}
   m_Name: Farid
   m_EditorClassIdentifier: 
+  npcDialogs:
+  - Why are you going to school this early?
   npcSprite: {fileID: 21300002, guid: 7ce802a2313580248841f5f706624cec, type: 3}
-  npcDialog: Why are you going to school this early?
   npcName: Farid
   option1: Thanks.
   option2: Yeah.
