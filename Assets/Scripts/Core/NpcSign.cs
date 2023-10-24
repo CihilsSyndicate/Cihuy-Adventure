@@ -32,10 +32,11 @@ public class NpcSign : MonoBehaviour
     public TreasureChest treasureChest;
 
     [Header("Easter Egg Makcik")]
+    public int easterEggMakcik;
+    public int condition = 10;
     public NPCManager dialogSecretKey;
     public InventoryItem keyItem;
     public PlayerInventory playerInventory;
-    public int easterEggMakcik;
     public Makcik makcikScript;
     private SpriteRenderer itemGainedSR;
 
@@ -84,12 +85,12 @@ public class NpcSign : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(easterEggMakcik == 10 && makcikScript != null && !isTyping)
+        if(easterEggMakcik == condition && makcikScript != null && !isTyping)
         {
             npcManager.npcDialogs[0] = "Fine, you got me... He was passed away that time, so am I. " +
                 "And then, this thing is for you, kid... You better keep it.";
         }
-        else if(easterEggMakcik == 11 && makcikScript != null && !isTyping)
+        else if(easterEggMakcik == condition + 1 && makcikScript != null && !isTyping)
         {
             npcManager.npcName = "Secret Key";
             if (playerInventory.myInventory.Count != playerInventory.maxInventorySize)
@@ -134,55 +135,65 @@ public class NpcSign : MonoBehaviour
             {
                 treasureChest.itemGainedSR.enabled = false;
                 PlayerMovement.Instance.anim.SetBool("Celebration", false);
-            }
-            if(easterEggMakcik == 11 && makcikScript != null)
-            {
-                BeginDialog();
-                if(playerInventory.myInventory.Count != playerInventory.maxInventorySize)
-                {
-                    PlayerMovement.Instance.anim.SetBool("Celebration", true);
-                    itemGainedSR.enabled = true;
-                    itemGainedSR.sprite = keyItem.itemImage;
-                    playerInventory.myInventory.Add(keyItem);
-                }
-                else
-                {
-                    PlayerMovement.Instance.anim.SetBool("Sad", true);
-                }
-            }
-            else if (easterEggMakcik == 12 && makcikScript != null)
-            {
-                npcManager.npcName = "Mrs. Siti";
-                npcManager.npcDialogs[0] = "...";
-                PlayerPrefs.SetInt("MakcikStatus", 1);
-                PlayerMovement.Instance.interactButtonGO.SetActive(false);               
-                PlayerMovement.Instance.anim.SetBool("Celebration", false);
-                PlayerMovement.Instance.anim.SetBool("Sad", false);
-                if (itemGainedSR != null)
-                    itemGainedSR.enabled = false;
-            }
-
-            if (currentDialogIndex < npcManager.npcDialogs.Count - 1)
-            {
-                currentDialogIndex++;
-                ToggleDialog();
-            }
-            else
-            {
                 dialogActive = false;
                 dialogBox.SetActive(false);
                 PlayerMovement.Instance.interactButton.interactable = true;
             }
+
+            if(gameObject.tag != "Chest")
+            {
+                if (currentDialogIndex < npcManager.npcDialogs.Count - 1)
+                {
+                    currentDialogIndex++;
+                    ToggleDialog();
+                }
+                else
+                {
+                    dialogActive = false;
+                    dialogBox.SetActive(false);
+                    PlayerMovement.Instance.interactButton.interactable = true;
+
+                    if (easterEggMakcik == condition + 1 && makcikScript != null)
+                    {
+                        BeginDialog();
+                        if (playerInventory.myInventory.Count != playerInventory.maxInventorySize)
+                        {
+                            PlayerMovement.Instance.anim.SetBool("Celebration", true);
+                            itemGainedSR.enabled = true;
+                            itemGainedSR.sprite = keyItem.itemImage;
+                            playerInventory.myInventory.Add(keyItem);
+                        }
+                        else
+                        {
+                            PlayerMovement.Instance.anim.SetBool("Sad", true);
+                        }
+                    }
+                    else if (easterEggMakcik == condition + 2 && makcikScript != null)
+                    {
+                        npcManager.npcName = "Mrs. Siti";
+                        npcManager.npcDialogs[0] = "...";
+                        PlayerPrefs.SetInt("MakcikStatus", 1);
+                        PlayerMovement.Instance.interactButtonGO.SetActive(false);
+                        PlayerMovement.Instance.anim.SetBool("Celebration", false);
+                        PlayerMovement.Instance.anim.SetBool("Sad", false);
+                        if (itemGainedSR != null)
+                            itemGainedSR.enabled = false;
+                    }
+                }
+            }           
         }
     }
 
     private string GetCurrentDialog()
     {
-        if (currentDialogIndex < npcManager.npcDialogs.Count)
+        if(gameObject.tag != "Chest")
         {
-            return npcManager.npcDialogs[currentDialogIndex];
+            if (currentDialogIndex < npcManager.npcDialogs.Count)
+            {
+                return npcManager.npcDialogs[currentDialogIndex];
+            }
         }
-        return "";
+        return chestDialog.dialog;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -222,13 +233,13 @@ public class NpcSign : MonoBehaviour
             }
             else
             {
-                nameNpcText.text = "Rare Chest";
+                nameNpcText.text = "Weapon Chest";
             }
 
             dialogText.text = GetCurrentDialog();
             typingCoroutine = StartCoroutine(TypeText());
 
-            if(gameObject.tag != "Chest")
+            if (gameObject.tag != "Chest")
             {
                 option1TextComponent.text = npcManager.option1;
                 option2TextComponent.text = npcManager.option2;
@@ -259,8 +270,7 @@ public class NpcSign : MonoBehaviour
         }
         else
         {
-            string currentDialog = GetCurrentDialog(); // Dapatkan dialog saat ini
-            foreach (char letter in currentDialog)
+            foreach (char letter in chestDialog.dialog)
             {
                 dialogText.text += letter;
 

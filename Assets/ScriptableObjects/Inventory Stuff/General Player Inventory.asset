@@ -15,4 +15,4 @@ MonoBehaviour:
   maxInventorySize: 10
   myInventory:
   - {fileID: 11400000, guid: d488bddd7a080e748b8a6162b6ba6fab, type: 2}
-  - {fileID: 11400000, guid: 07f928e056c29374899d2fc707a21108, type: 2}
+  - {fileID: 11400000, guid: 20ca29d7f3ef5aa41b9bc3685413e40d, type: 2}

@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
+    public Text deductionText;
+    public int deduction;
+
     [Header("Inventory Information")]
     public PlayerInventory playerInventory;
     public GameObject blackInventorySlot;
@@ -14,7 +17,8 @@ public class InventoryManager : MonoBehaviour
     public Text atkText;
     public Text itemNameText;
     public Image itemImage;
-    public GameObject useButton, equipButton, detailButton, dropButton;
+    public Image reduceItemImage;
+    public GameObject useButton, equipButton, detailButton, dropButton, reduceButton;
     public InventoryItem currentItem;
     public FloatValue playerHealth;
 
@@ -70,7 +74,6 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-
     // Start is called before the first frame update
     void OnEnable()
     {   
@@ -90,22 +93,6 @@ public class InventoryManager : MonoBehaviour
             Destroy(inventoryPanel.transform.GetChild(i).gameObject);
         }
     }
-
-
-    /*
-    public void SetupDescriptionAndButtonForConsumable(string newDescriptionString, bool isButtonUsable, string newHPText, string newATKText, string newItemName, Sprite newItemImage, InventoryItem newItem)
-    {
-        currentItem = newItem;
-        descriptionText.text = newDescriptionString;
-        atkText.text = newATKText;
-        hpText.text = newHPText;
-        itemNameText.text = newItemName;
-        itemImage.sprite = newItemImage;
-        useButton.SetActive(isButtonUsable);
-        detailButton.SetActive(isButtonUsable);
-        dropButton.SetActive(isButtonUsable);
-    }
-    */
 
     public void RemoveItem(GameObject GO)
     {
@@ -133,9 +120,51 @@ public class InventoryManager : MonoBehaviour
                 }
                 ClearInventoryItem();
                 MakeInventorySlot();
-            }
-            
+            } 
         }
     }
 
+    public void OpenPopupReduce(GameObject go)
+    {
+        go.SetActive(true);
+        reduceItemImage.sprite = currentItem.itemImage;
+    }
+
+    public void ReduceItem(GameObject go)
+    {
+        if (deduction != 0)
+        {
+            go.SetActive(false);
+            currentItem.numberHeld -= deduction;
+            deduction = 0;
+            deductionText.text = deduction.ToString();
+            ClearInventoryItem();
+            MakeInventorySlot();
+        }
+    }
+
+    public void ClosePopupReduce(GameObject go)
+    {
+        go.SetActive(false);
+        deduction = 0;
+        deductionText.text = deduction.ToString();
+    }
+
+    public void IncreaseDeduction()
+    {
+        if(deduction < currentItem.numberHeld)
+        {
+            deduction += 1;
+            deductionText.text = deduction.ToString();
+        }
+    }
+
+    public void DecreaseDeduction()
+    {
+        if(deduction > 0)
+        {
+            deduction -= 1;
+            deductionText.text = deduction.ToString();
+        }
+    }
 }

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d990fcb6d05912f44a06d2682460996b, type: 3}
   m_Name: Home
   m_EditorClassIdentifier: 
+  npcDialogs:
+  - Go inside?
   npcSprite: {fileID: 0}
-  npcDialog: Go inside home?
   npcName: Home
   option1: Yes
   option2: No

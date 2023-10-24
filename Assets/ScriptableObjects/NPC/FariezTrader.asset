@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d990fcb6d05912f44a06d2682460996b, type: 3}
   m_Name: FariezTrader
   m_EditorClassIdentifier: 
+  npcDialogs:
+  - Hello, kid. Wanna buy something?
   npcSprite: {fileID: 21300086, guid: 7ce802a2313580248841f5f706624cec, type: 3}
-  npcDialog: Wanna buy something, kid?
   npcName: Fariez
   option1: Yes
   option2: No

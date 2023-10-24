@@ -56,11 +56,15 @@ public class InventorySlot : MonoBehaviour
         }
         if (thisItem.itemType == InventoryItem.ItemType.Consumable)
         {
+            thisManager.reduceButton.SetActive(true);
+            thisManager.dropButton.SetActive(false);
             thisManager.useButton.SetActive(true);
             thisManager.equipButton.SetActive(false);
         }
         else if(thisItem.itemType == InventoryItem.ItemType.Equipment)
         {
+            thisManager.reduceButton.SetActive(false);
+            thisManager.dropButton.SetActive(true);
             thisManager.useButton.SetActive(false);
             thisManager.equipButton.SetActive(true);
             WeaponManager.Instance.defaultWeapon = thisItem;
