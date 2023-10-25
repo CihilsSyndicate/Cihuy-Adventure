@@ -20,12 +20,14 @@ public class BossController : MonoBehaviour
     private bool isWaiting;
 
     [Header("Attacking")]
+    public GameObject target;
     public GameObject slimeBulletPrefab;
     private GameObject bulletContainer;
 
     [Header("Health")]
     public FloatValue maxHealth;
     public float health;
+    private HealthBar healthBar;
 
     private void Awake()
     {
@@ -35,6 +37,13 @@ public class BossController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        target = GameObject.FindGameObjectWithTag("Player");
+
+        if(target != null)
+        {
+            
+        }
+
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         bulletContainer = GameObject.Find("BulletContainer");
@@ -115,8 +124,6 @@ public class BossController : MonoBehaviour
 
     void Shoot()
     {
-        GameObject target = GameObject.FindGameObjectWithTag("Player");
-
         if (target != null)
         {
             GameObject bullet = Instantiate(slimeBulletPrefab);
@@ -130,6 +137,7 @@ public class BossController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        healthBar.SetHealth(maxHealth.RuntimeValue);
         StartCoroutine(DamageEffect());
         if (health <= 0)
         {

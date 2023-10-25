@@ -84,6 +84,7 @@ public class InventoryManager : MonoBehaviour
         equipButton.SetActive(false);
         detailButton.SetActive(false);
         dropButton.SetActive(false);
+        reduceButton.SetActive(false);
     }
 
     void ClearInventoryItem()
