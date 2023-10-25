@@ -38,7 +38,7 @@ public static class SaveSystem
 
     public static void DeleteSavedData()
     {
-        string path = Application.persistentDataPath + "/ChestData.njir"; // Ganti nama file sesuai kebutuhan
+        string path = Application.persistentDataPath + "/Player.njir"; // Ganti nama file sesuai kebutuhan
         if (File.Exists(path))
         {
             File.Delete(path);

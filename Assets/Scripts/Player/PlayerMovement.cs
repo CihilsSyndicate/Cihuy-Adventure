@@ -15,27 +15,44 @@ public enum playerState
 
 public class PlayerMovement : MonoBehaviour
 {
-    public GameObject popupGameOver;
-    public NpcSign npcSign;
-    public GameObject interactButtonGO;
-    public Button interactButton;
+    [Header("Movement")]
     public playerState currentState;
     public float speed = 5f;
     public Animator anim;
     public Rigidbody2D myRb;
-    [System.NonSerialized] public Vector3 change;
     public FixedJoystick fixedJoystick;
-    public FloatValue currentHealth;
-    public Signal playerHealthSignal;
-    private SpriteRenderer spriteRenderer;
-    public float damageEffectDuration = 0.2f;
-    public HealthBar healthBar;
-    public HealthBar healthBarBig;
-    public GameObject floatingTextDamage;
-    public GameObject floatingText;
+    [System.NonSerialized] public Vector3 change;
     public Transform joystickHandle;
     public ParticleSystem dust;
     public AudioSource footstepSound;
+
+    [Header("Health")]
+    public FloatValue currentHealth;
+    public Signal playerHealthSignal;
+    public Text healthBarText;
+    public Text bossHealthBarText;
+    public HealthBar healthBar;
+    public HealthBar healthBarBig;
+    public HealthBar bossHealthBar;
+
+    [Header("Damaged")]
+    public SpriteRenderer playerSpriteRenderer;
+    public float damageEffectDuration = 0.2f;
+
+    [Header("Dialog")]
+    public NpcSign npcSign;
+    public GameObject interactButtonGO;
+    public Button interactButton;
+
+    [Header("Inventory")]
+    public PlayerInventory playerInventory;
+
+    [Header("Game Over")]
+    public GameObject popupGameOver;
+
+    [Header("Floating Texts")]
+    public GameObject floatingTextDamage;
+    public GameObject floatingText;
 
     private static PlayerMovement instance;
 
@@ -69,12 +86,12 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SavePlayer", 0f, 1f);
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        bossHealthBar.gameObject.SetActive(false);
         myRb = GetComponent<Rigidbody2D>();
         anim.SetFloat("x", 0);
         anim.SetFloat("y", -1);
         healthBar.SetMaxHealth(currentHealth);
+        GameManager.Instance.LoadPlayer();
     }
 
     // Update is called once per frame
@@ -82,10 +99,13 @@ public class PlayerMovement : MonoBehaviour
     {
         healthBar.SetHealth(currentHealth.RuntimeValue);
         healthBarBig.SetHealth(currentHealth.RuntimeValue);
+        healthBarText.text = currentHealth.RuntimeValue.ToString() + " / " + currentHealth.maxHealth.ToString();
+
         if (currentHealth.RuntimeValue > currentHealth.initialValue)
         {
             currentHealth.RuntimeValue = currentHealth.initialValue;
         }
+
         if(currentState != playerState.stagger)
         {
             change = new Vector3(fixedJoystick.Horizontal, 0f, fixedJoystick.Vertical);
@@ -93,7 +113,6 @@ public class PlayerMovement : MonoBehaviour
             change.y = fixedJoystick.Vertical;
             change.Normalize();
         }
-
 
         if(change == Vector3.zero && currentState != playerState.stagger)
         {
@@ -148,15 +167,20 @@ public class PlayerMovement : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth.RuntimeValue -= damage;
-
         Debug.Log(currentHealth.RuntimeValue);
         ShowFloatingText(damage);
         StartCoroutine(DamageEffect());
         playerHealthSignal.Raise();
+
         if (currentHealth.RuntimeValue <= 0)
         {
             Destroy(gameObject);       
+            SaveSystem.DeleteSavedData();
+            PlayerPrefs.DeleteAll();
+            playerInventory.myInventory.Clear();
         }
+
+        SavePlayer();
     }
 
     private void OnDestroy()
@@ -181,11 +205,11 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator DamageEffect()
     {
-        spriteRenderer.color = Color.red; // Mengubah warna menjadi merah
+        playerSpriteRenderer.color = Color.red; // Mengubah warna menjadi merah
 
         yield return new WaitForSeconds(damageEffectDuration);
 
-        spriteRenderer.color = Color.white; // Mengembalikan warna aslinya
+        playerSpriteRenderer.color = Color.white; // Mengembalikan warna aslinya
     }
 
     public void Knock(float knockTime, float damage)
@@ -195,13 +219,20 @@ public class PlayerMovement : MonoBehaviour
         ShowFloatingText(damage);
         StartCoroutine(DamageEffect());
         playerHealthSignal.Raise();
+
         if (currentHealth.RuntimeValue > 0)
         {
             StartCoroutine(knockCo(knockTime));
         }
         else
+        {
             Destroy(gameObject);
+            SaveSystem.DeleteSavedData();
+            PlayerPrefs.DeleteAll();
+            playerInventory.myInventory.Clear();
+        }
 
+        SavePlayer();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

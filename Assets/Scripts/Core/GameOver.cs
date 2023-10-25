@@ -15,19 +15,15 @@ public class GameOver : MonoBehaviour
 
     public void BackToMainMenu()
     {
-        PlayerMovement.Instance.currentHealth.RuntimeValue = PlayerMovement.Instance.currentHealth.initialValue;
+        PlayerMovement.Instance.currentHealth.RuntimeValue = PlayerMovement.Instance.currentHealth.maxHealth;
         SceneManager.LoadScene("Main Menu");
-        PlayerPrefs.DeleteAll();
-        playerInventory.myInventory.Clear();
         Destroy(gameObject);
     }
 
     public void RestartGame()
     {
-        PlayerMovement.Instance.currentHealth.RuntimeValue = PlayerMovement.Instance.currentHealth.initialValue;
-        PlayerPrefs.DeleteAll();
+        PlayerMovement.Instance.currentHealth.RuntimeValue = PlayerMovement.Instance.currentHealth.maxHealth;
         GameManager.Instance.LoadGame();
-        playerInventory.myInventory.Clear();
         Destroy(gameObject);
     }
 

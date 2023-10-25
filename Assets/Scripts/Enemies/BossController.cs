@@ -26,23 +26,19 @@ public class BossController : MonoBehaviour
 
     [Header("Health")]
     public FloatValue maxHealth;
-    public float health;
     private HealthBar healthBar;
 
     private void Awake()
     {
-        health = maxHealth.initialValue;
+        maxHealth.RuntimeValue = maxHealth.initialValue;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player");
+        healthBar.SetMaxHealth(maxHealth);
 
-        if(target != null)
-        {
-            
-        }
+        target = GameObject.FindGameObjectWithTag("Player");
 
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -136,10 +132,16 @@ public class BossController : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
+        if(healthBar == null && PlayerMovement.Instance != null)
+        {
+            healthBar = PlayerMovement.Instance.bossHealthBar;
+            healthBar.gameObject.SetActive(true);
+        }
+        maxHealth.RuntimeValue -= damage;
+        PlayerMovement.Instance.bossHealthBarText.text = maxHealth.RuntimeValue.ToString() + " / " + maxHealth.maxHealth.ToString(); ;
         healthBar.SetHealth(maxHealth.RuntimeValue);
         StartCoroutine(DamageEffect());
-        if (health <= 0)
+        if (maxHealth.RuntimeValue <= 0)
         {
             rb.velocity = Vector2.zero;
             moveDurationCounter = 0;
