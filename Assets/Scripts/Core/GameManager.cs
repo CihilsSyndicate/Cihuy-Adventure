@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour
         if(PlayerMovement.Instance != null)
         {
             SaveSystem.SavePlayer(PlayerMovement.Instance);
-            Debug.Log("HHH");
         }
           
     }
@@ -63,7 +62,7 @@ public class GameManager : MonoBehaviour
     public void LoadPlayer()
     {
         PlayerData data = SaveSystem.LoadPlayer();
-        if(PlayerMovement.Instance != null)
+        if(data.health > 0)
             PlayerMovement.Instance.currentHealth.RuntimeValue = data.health;
     }
 

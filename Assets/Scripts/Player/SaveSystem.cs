@@ -15,6 +15,17 @@ public static class SaveSystem
         stream.Close();
     }
 
+    public static void SaveBossSlime(BossController bossController)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/BossSlime.njir";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        BossSlimeData bossSlimeData = new BossSlimeData(bossController);
+        formatter.Serialize(stream, bossSlimeData);
+        stream.Close();
+    }
+
     public static PlayerData LoadPlayer()
     {
         string path = Application.persistentDataPath + "/Player.njir";
@@ -27,7 +38,6 @@ public static class SaveSystem
             stream.Close();
 
             return data;
-
         }
         else
         {
@@ -36,18 +46,28 @@ public static class SaveSystem
         }
     }
 
-    public static void DeleteSavedData()
+    public static BossSlimeData LoadBossSlime()
     {
-        string path = Application.persistentDataPath + "/Player.njir"; // Ganti nama file sesuai kebutuhan
+        string path = Application.persistentDataPath + "/BossSlime.njir";
         if (File.Exists(path))
         {
-            File.Delete(path);
-            Debug.Log("Saved data deleted.");
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+
+            BossSlimeData data = formatter.Deserialize(stream) as BossSlimeData;
+            stream.Close();
+
+            return data;
         }
         else
         {
-            Debug.Log("No saved data found.");
+            Debug.LogError("Save file not found in " + path);
+            return null;
         }
     }
 
+    public static void DeleteSavedData(string pathName)
+    {
+        File.Delete(pathName);
+    }
 }

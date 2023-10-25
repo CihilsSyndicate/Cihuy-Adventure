@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class EnterLevel : MonoBehaviour
 {
     public string nextScene;
+    public GameObject hpBossCounter;
+
     // Start is called before the first frame update
     void Init()
     {

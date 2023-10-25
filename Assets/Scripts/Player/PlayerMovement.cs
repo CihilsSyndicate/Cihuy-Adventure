@@ -86,11 +86,11 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        healthBar.SetMaxHealth(currentHealth);
+        healthBarBig.SetMaxHealth(currentHealth);
         bossHealthBar.gameObject.SetActive(false);
-        myRb = GetComponent<Rigidbody2D>();
         anim.SetFloat("x", 0);
         anim.SetFloat("y", -1);
-        healthBar.SetMaxHealth(currentHealth);
         GameManager.Instance.LoadPlayer();
     }
 
@@ -167,15 +167,15 @@ public class PlayerMovement : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth.RuntimeValue -= damage;
-        Debug.Log(currentHealth.RuntimeValue);
         ShowFloatingText(damage);
         StartCoroutine(DamageEffect());
         playerHealthSignal.Raise();
 
         if (currentHealth.RuntimeValue <= 0)
         {
-            Destroy(gameObject);       
-            SaveSystem.DeleteSavedData();
+            Destroy(gameObject);
+            SaveSystem.DeleteSavedData(Application.persistentDataPath + "/Player.njir");
+            SaveSystem.DeleteSavedData(Application.persistentDataPath + "/BossSlime.njir");
             PlayerPrefs.DeleteAll();
             playerInventory.myInventory.Clear();
         }
@@ -215,7 +215,6 @@ public class PlayerMovement : MonoBehaviour
     public void Knock(float knockTime, float damage)
     {
         currentHealth.RuntimeValue -= damage;
-        Debug.Log(currentHealth.RuntimeValue);
         ShowFloatingText(damage);
         StartCoroutine(DamageEffect());
         playerHealthSignal.Raise();
@@ -227,7 +226,8 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             Destroy(gameObject);
-            SaveSystem.DeleteSavedData();
+            SaveSystem.DeleteSavedData(Application.persistentDataPath + "/Player.njir");
+            SaveSystem.DeleteSavedData(Application.persistentDataPath + "/BossSlime.njir");
             PlayerPrefs.DeleteAll();
             playerInventory.myInventory.Clear();
         }

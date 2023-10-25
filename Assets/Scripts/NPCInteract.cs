@@ -73,7 +73,6 @@ public class NPCInteract : MonoBehaviour
     public void EnterBuilding(string sceneName)
     {
         CancelEntering();
-        PlayerMovement.Instance.interactButtonGO.SetActive(false);
         PlayerMovement.Instance.npcSign = null;
         PlayerPrefs.SetString("SpawnPoint", SceneManager.GetActiveScene().name);
         SceneManager.LoadScene(sceneName);

@@ -144,13 +144,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7faf25d98b7c1944f85d7915e085bc68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 6353128745903201248}
   moveSpeed: 9
   bossAnim: {fileID: 24408770963843109}
   damageEffectDuration: 0.2
+  target: {fileID: 0}
   slimeBulletPrefab: {fileID: 5445938635951188370, guid: 8d620474dedc5734b853880c91dfc483,
     type: 3}
   maxHealth: {fileID: 11400000, guid: b2ed86eebdbf76c41bf3fa23f674751e, type: 2}
-  health: 0
 --- !u!95 &24408770963843109
 Animator:
   serializedVersion: 3

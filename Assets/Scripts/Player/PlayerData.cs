@@ -14,3 +14,15 @@ public class PlayerData
         health = player.currentHealth.RuntimeValue;
     }
 }
+
+[System.Serializable]
+public class BossSlimeData
+{
+    public float health;
+
+    public BossSlimeData (BossController bossController)
+    {
+        health = bossController.maxHealth.RuntimeValue;
+    }
+}
+

@@ -377,10 +377,11 @@ MonoBehaviour:
   spriteRendererToActivate: {fileID: 68828701}
   chestDialog: {fileID: 0}
   treasureChest: {fileID: 0}
+  easterEggMakcik: 0
+  condition: 10
   dialogSecretKey: {fileID: 0}
   keyItem: {fileID: 0}
   playerInventory: {fileID: 0}
-  easterEggMakcik: 0
   makcikScript: {fileID: 0}
 --- !u!82 &609001048
 AudioSource:

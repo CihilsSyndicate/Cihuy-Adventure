@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class BossController : MonoBehaviour
 {
     [Header("Movement and Physics")]
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     public float moveSpeed;
     private bool isMoving;
     private float interval;
@@ -28,6 +28,8 @@ public class BossController : MonoBehaviour
     public FloatValue maxHealth;
     private HealthBar healthBar;
 
+
+    
     private void Awake()
     {
         maxHealth.RuntimeValue = maxHealth.initialValue;
@@ -36,14 +38,12 @@ public class BossController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        healthBar.SetMaxHealth(maxHealth);
-
         target = GameObject.FindGameObjectWithTag("Player");
 
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         bulletContainer = GameObject.Find("BulletContainer");
-        // InvokeRepeating("Shoot", 5f, 1f);
+
         rb = GetComponent<Rigidbody2D>();
 
         interval = Random.Range(1f, 1.5f);
@@ -54,6 +54,11 @@ public class BossController : MonoBehaviour
         bossAnim.SetBool("IsAlive", true);
 
         StartCoroutine(InitialDelay(3f));
+        BossSlimeData bossSlimeData = SaveSystem.LoadBossSlime();
+        if (bossSlimeData.health > 0)
+        {
+            maxHealth.RuntimeValue = bossSlimeData.health;
+        }
     }
 
     IEnumerator InitialDelay(float delayTime)
@@ -91,13 +96,10 @@ public class BossController : MonoBehaviour
                     isMoving = true;
                     moveDurationCounter = moveDuration;
 
-                    // Cari GameObject dengan tag "Player"
-                    GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-                    if (player != null)
+                    if (target != null)
                     {
                         // Hitung vektor dari posisi bos ke posisi pemain
-                        moveDirection = (player.transform.position - transform.position).normalized * moveSpeed;
+                        moveDirection = (target.transform.position - transform.position).normalized * moveSpeed;
                     }
                     else
                     {
@@ -135,12 +137,14 @@ public class BossController : MonoBehaviour
         if(healthBar == null && PlayerMovement.Instance != null)
         {
             healthBar = PlayerMovement.Instance.bossHealthBar;
+            healthBar.SetMaxHealth(maxHealth);
             healthBar.gameObject.SetActive(true);
         }
         maxHealth.RuntimeValue -= damage;
         PlayerMovement.Instance.bossHealthBarText.text = maxHealth.RuntimeValue.ToString() + " / " + maxHealth.maxHealth.ToString(); ;
         healthBar.SetHealth(maxHealth.RuntimeValue);
         StartCoroutine(DamageEffect());
+        SaveSystem.SaveBossSlime(this);
         if (maxHealth.RuntimeValue <= 0)
         {
             rb.velocity = Vector2.zero;
