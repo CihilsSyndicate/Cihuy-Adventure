@@ -18,7 +18,8 @@
         private void Awake()
         {
             instance = this;
-            availableWeapons = playerInventory.myInventory.FindAll(defaultWeapon => defaultWeapon.itemType == InventoryItem.ItemType.Equipment); 
+            availableWeapons = playerInventory.myInventory.FindAll(defaultWeapon => defaultWeapon.itemType == InventoryItem.ItemType.Equipment);
+            LoadEquippedWeapon();
             EquipDefaultWeapon();
         }
 

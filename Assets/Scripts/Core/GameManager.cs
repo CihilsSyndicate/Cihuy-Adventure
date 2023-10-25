@@ -29,18 +29,17 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("SavePlayer", 0f, 1f);
-        if(PlayerPrefs.GetString("EquippedWeaponName") != null)
-        {
-            if(SceneManager.GetActiveScene().name != "Main Menu")
-                WeaponManager.Instance.LoadEquippedWeapon();
-        }
+
     }
 
     public void SavePlayer()
     {
         if(PlayerMovement.Instance != null)
+        {
             SaveSystem.SavePlayer(PlayerMovement.Instance);
+            Debug.Log("HHH");
+        }
+          
     }
 
     public void LoadGame()
@@ -64,13 +63,8 @@ public class GameManager : MonoBehaviour
     public void LoadPlayer()
     {
         PlayerData data = SaveSystem.LoadPlayer();
-
-        PlayerMovement.Instance.currentHealth.RuntimeValue = data.health;
-        Vector3 position;
-        position.x = data.position[0];
-        position.y = data.position[1];
-        position.z = data.position[2];
-        PlayerMovement.Instance.transform.position = position;
+        if(PlayerMovement.Instance != null)
+            PlayerMovement.Instance.currentHealth.RuntimeValue = data.health;
     }
 
 
