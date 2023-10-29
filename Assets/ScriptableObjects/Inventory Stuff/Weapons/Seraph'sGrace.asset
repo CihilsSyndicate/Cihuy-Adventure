@@ -20,11 +20,11 @@ MonoBehaviour:
     guardians, unearthed the sword from the depths of a hidden temple. With Seraph's
     Grace in hand, this knight became an unstoppable force against the forces of darkness,
     defending the realm and spreading hope wherever they went.
-  cost: 1000
+  cost: 10
   Atk: 20
   Hp: 500
   itemImage: {fileID: 21300036, guid: ffafbca4731165a479de5770cc665870, type: 3}
-  numberHeld: 4
+  numberHeld: 5
   consumableStack: 0
   usable: 1
   unique: 0

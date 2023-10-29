@@ -15,6 +15,8 @@ public enum playerState
 
 public class PlayerMovement : MonoBehaviour
 {
+    public GameObject pauseMenuGO;
+
     [Header("Movement")]
     public playerState currentState;
     public float speed = 5f;
@@ -118,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
         {
             currentState = playerState.idle;
         }
-        if (currentState == playerState.walk || currentState == playerState.idle && currentState != playerState.interact)
+        if (currentState == playerState.walk || currentState == playerState.idle && currentState != playerState.interact && currentState != playerState.attack)
         {
             UpdateAnimationAndMove();
         }

@@ -146,6 +146,7 @@ public class SwordAttack : MonoBehaviour
                 swordAnim.SetFloat("y", posY);
 
                 // Menyerang
+                PlayerMovement.Instance.currentState = playerState.attack;
                 StartCoroutine(PerformAttack(colliders, direction));
             }
         }
@@ -154,7 +155,7 @@ public class SwordAttack : MonoBehaviour
     private IEnumerator PerformAttack(Collider2D[] colliders, Vector3 direction)
     {
         isAttacking = true;
-
+       
         if (SceneManager.GetActiveScene().name != "SurvivalMode")
         {
             attackButton.interactable = false;
@@ -197,6 +198,7 @@ public class SwordAttack : MonoBehaviour
     private void ResetIsAttacking()
     {
         isAttacking = false;
+        PlayerMovement.Instance.currentState = playerState.idle;
         swordAnim.SetBool("IsAttacking", false);
     }
 

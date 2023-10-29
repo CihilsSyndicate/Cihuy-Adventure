@@ -66,9 +66,12 @@ public class Coin : MonoBehaviour
         }
         else
         {
-            coinCollider.enabled = true;
-            Vector3 direction = (playerTransform.position - transform.position).normalized;
-            transform.Translate(direction * moveSpeed * Time.deltaTime);
+            if(playerTransform != null)
+            {
+                coinCollider.enabled = true;
+                Vector3 direction = (playerTransform.position - transform.position).normalized;
+                transform.Translate(direction * moveSpeed * Time.deltaTime);
+            }
         }
     }
 

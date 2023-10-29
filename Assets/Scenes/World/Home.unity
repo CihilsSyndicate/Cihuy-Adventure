@@ -5924,6 +5924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextScene: Way Home
+  hpBossCounter: {fileID: 0}
 --- !u!1 &2101258423
 GameObject:
   m_ObjectHideFlags: 0

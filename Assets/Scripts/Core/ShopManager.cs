@@ -129,7 +129,8 @@ public class ShopManager : MonoBehaviour
         if(CoinCounter.Instance.currentCoin >= currentItem.cost && currentItem.consumableStack > 0)
         {
             TurnOnBuyBtn();
-        }else if (CoinCounter.Instance.currentCoin >= currentItem.cost && currentItem.itemType == InventoryItem.ItemType.Equipment && currentItem.isOwned == false)
+        }
+        else if (CoinCounter.Instance.currentCoin >= currentItem.cost && currentItem.itemType == InventoryItem.ItemType.Equipment && currentItem.isOwned == false)
         {
             TurnOnBuyBtn();
         }

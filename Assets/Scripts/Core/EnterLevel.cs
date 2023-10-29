@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class EnterLevel : MonoBehaviour
 {
     public string nextScene;
-    public GameObject hpBossCounter;
 
     // Start is called before the first frame update
     void Init()
@@ -33,6 +32,11 @@ public class EnterLevel : MonoBehaviour
             PlayerPrefs.SetString("LastScene", nextScene);
             PlayerPrefs.SetString("SpawnPoint", SceneManager.GetActiveScene().name);
             Init();
+
+            if(SceneManager.GetActiveScene().name == "Boss Level")
+            {
+                PlayerMovement.Instance.bossHealthBar.gameObject.SetActive(false);
+            }
         }
     }
 }

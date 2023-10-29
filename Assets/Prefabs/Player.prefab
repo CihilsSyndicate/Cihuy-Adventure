@@ -18553,7 +18553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  speed: 53.14
+  speed: 8
   anim: {fileID: 2507077639790192700}
   myRb: {fileID: 1640013144728616225}
   fixedJoystick: {fileID: 7899080371736915057}
